@@ -14,7 +14,7 @@ The Champion is the primary author of the proposal and, similar to a Principal I
 SPPs are not approved nor rejected. SPPs are archived, so a proposal that doesn't initially take off may be picked up by a new team somewhere down the line.
 
 ## Is my proposal binding?
-In the ideal project life cycle, a proposal defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an SPP should guide a project such that feature creep is avoided. 
+In the ideal project life cycle, a proposal defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an SPP should guide a project such that feature creep is avoided.
 
 ## Note
-This LaTeX format is a derivative of [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html), modified to suit the needs of RIT SPEX with attribution.
+This LaTeX format is a derivative of [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html), modified to suit the needs of RIT SPEX with attribution to the original authors.
