@@ -122,6 +122,8 @@ _minted*
 
 # nomencl
 *.nlo
+*.nlg
+*.nls
 
 # sagetex
 *.sagetex.sage
