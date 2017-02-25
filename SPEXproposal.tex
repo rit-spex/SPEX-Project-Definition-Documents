@@ -1,0 +1,40 @@
+%% *************************************************************************
+%%
+%% This is an RIT Space Exploration Standard defining guidelines for content
+%% and formatting of project proposals.
+%%
+%% The document template SPEXformat.cls is based on the official IEEE LaTeX
+%% class for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+\documentclass[journal]{SPEXformat}
+\usepackage{blindtext}
+\usepackage{graphicx}
+
+\title{RIT Space Exploration Project Proposal Standard Format Definitions and Basic \LaTeX\ Tutorial}
+\author{
+  Philip~Linden$^{\dagger}$\thanks{$^{\dagger}$MEng Student, Department of Mechanical Engineering},
+}
+  % page header for pages other than cover page
+  \markboth{Project Proposal Standard}%
+  {Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+\begin{document}
+\maketitle
+% correct bad hyphenation here
+\hyphenation{explor-ation}
+
+\begin{abstract}
+\blindtext[1]
+\end{abstract}
+
+\section{Nomenclature}
+\label{sec:nomenclature}
+List all variables and their definitions here.
+
+\section{MyFirstSection}
+\label{sec:section1}
+\blindtext\
+
+\end{document}
