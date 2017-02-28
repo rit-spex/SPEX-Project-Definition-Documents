@@ -8,11 +8,24 @@
 %% (IEEE) Transactions journals and conferences.
 %%
 %% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
 \documentclass[journal]{SPEXformat}
+% enable placeholder text generator
 \usepackage{blindtext}
+% enable toolbox for embedding figures and pictures
 \usepackage{graphicx}
+% enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
 \usepackage{nomencl}
+% enable package for easily formatting units
+\usepackage{siunitx}
+% enable package for cross-referencing figures, sections, references etc
+\usepackage{hyperref}
+
+% initialize nomenclature package
 \makenomenclature{}
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{RIT Space Exploration Project Proposal Standard Format and Sample Content}
 \author{
   % List the authors of the proposal. The Champion should go first.
@@ -25,6 +38,7 @@
   \markboth{Project Proposal Standard}%
   {Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
+% Initial setup is over, start building the document itself
 \begin{document}
 \maketitle
 % correct bad hyphenation here, separated by spaces
@@ -48,20 +62,65 @@ A standard for project proposals and reports shall provide SPEX with a robust me
 
 \label{sec:nomenclature}
 % If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
+% The two lines below make it look nice when defining units/values to constants
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 % Read more about advanced nomenclature formatting here: https://www.sharelatex.com/learn/Nomenclatures
-
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{SPP}{SPEX Project Proposal}
-\nomenclature{$h$}{Planck constant}
-\nomenclature{$c$}{Speed of light in a vacuum inertial frame}
+\nomenclature{$k$}{Linear spring stiffness coefficient}
+\nomenclature{$c$}{Speed of light
+ \nomunit{\,\SI{2.9979e8}{\metre\per\second}}}
 % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms $like this$ are in the math environment)
 \printnomenclature{}
 
+% The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
 \label{sec:introduction}
-% The introduction is a place to give background and context before diving into the subject matter.
+% The introduction is a place to give background and context before diving into the subject matter. Establish context for the work you are about to propose and the main ideas of the proposition itself.
 Examples of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
 Writing documentation such as proposals and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
+In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
+For example, when applying to a grant from a scientific foundation, receiving funding to continue research impinges on how the motives and techniques of a research group resonate with the goals and objectives of the foundation.
 
+In the case of SPEX, an SPP carries value in the act of documenting ideas and effectively communicating them with others within and external to RIT Space Exploration.
+
+\section{Objectives}
+\label{sec:objectives}
+% At the end of the day, whether the project "succeeds" or "fails" is judged against the objectives it sought to meet.
+% Note that results that contradict expectations/hypotheses are not failures if the scientific & engineering methods are followed along the way. Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+% What matters is:
+%   What questions do you intend to answer?
+\subsection{Primary Objective}
+\label{subsec:primary-objective}
+% This is the main purpose or main goal the project hopes to achieve.
+\subsection{Secondary Objectives}
+\label{subsec:secondary-objective}
+% These are lower priority or bonus objectives that are significant but not the main focus of the project.
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+
+\section{Long-Term Vision}
+\label{sec:vision}
+By writing proposals and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
+Ideally, an abundance of ideas and projects encapsulated in SPPs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
+Perhaps in the future, SPEX proposals may be used as baselines for grant applications and other funded research efforts.
+
+\section{Implementation}
+\label{sec:implementation}
+% What path do you anticipate the project to take?
+\subsection{Deliverables}
+\label{subsec:deliverables}
+% When all is said and done, what will you have at the end?
+\subsection{Timeline}
+\label{subsec:timeline}
+% Be as detailed as you can, but it's okay if there are unknowns. At the very least, specify how many semester you expect the project to take until it reaches completion.
+
+
+%% Other sections that may be applicable:
+% \section{Prerequisite Skills} - skills needed before work can start
+% \section{Funding Requirements} - estimated costs that would be needed to meet objectives
+% \section{Faculty Support} - identify faculty that will be involved (or would need to be involved) to meet objectives. Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion
 \end{document}
