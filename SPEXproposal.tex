@@ -36,8 +36,13 @@
   % List the authors of the proposal. The Champion should go first.
   % The `$ $` markers tell \LaTeX to treat the text inside to be treated as a math expression. This way you can use operators like `^` to place characters as superscripts.
   % The `\thanks` command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, `\thanks` is just a specially formatted footnote. Read here for a more in-depth explanation: http://tex.stackexchange.com/questions/61303/using-author-and-thanks-for-authors-with-common-affiliations
-  Philip~Linden$^{*}$\thanks{$^{*}$BS/MEng '17, Mechanical Engineering},
-  Austin~Bodzas$^{\dagger}$\thanks{$^{\dagger}$BS '19, Computer Science},
+  Philip~Linden$^{*\dagger}$%
+    \thanks{$^{*}$Project Champion}%
+    \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
+  Austin~Bodzas$^{\ddagger}$%
+    \thanks{$^{\ddagger}$BS '19, Computer Science},
+  Drew~Walters$^{\S}$%
+    \thanks{$^{\S}$BS '18, Mechanical Engineering Technology}
   % the recommended order for symbolic footnotes is
   %   (1) asterisk        *   *
   %   (2) dagger          †   \dagger
@@ -86,7 +91,7 @@ A standard for project proposals and reports shall provide SPEX with a robust me
 \nomenclature{SPP}{SPEX Project Proposal}
 \nomenclature{$k$}{Linear spring stiffness coefficient}
 \nomenclature{$c$}{Speed of light
- \nomunit{\,\SI{2.9979e8}{\metre\per\second}}}
+ \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms $like this$ are in the math environment)
 \printnomenclature{}
 
