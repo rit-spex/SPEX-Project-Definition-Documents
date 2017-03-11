@@ -11,7 +11,9 @@
 
 %% *************************************************************************
 % LaTeX REFERENCES
-%
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
 %% *************************************************************************
 
 % tell \LaTeX what kind of formatting to use
@@ -24,10 +26,18 @@
 \usepackage{nomencl}
 % enable package for easily formatting units
 \usepackage{siunitx}
-% enable package for cross-referencing figures, sections, references etc
+% enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
 \usepackage{hyperref}
 % change text encoding to make it more crisp
 \usepackage[T1]{fontenc}
+% enable conditionals and other custom commands
+\usepackage{etoolbox}
+
+\newcommand*{\HELP}{}%
+% UNCOMMENT THE NEXT COMMAND TO SHOW HELP TEXT IN THE PDF
+% COMMENT THE COMMAND TO HIDE HELP TEXT FROM PDF
+\def\HELP{help on}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -68,15 +78,17 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-% The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
-% Be sure not to confuse the abstract with the introduction.
-% It is easiest to write the abstract after the rest of the paper has been written.
-% That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-% Consider the abstract to be your elevator pitch to anyone reading this proposal.
-% What are they reading?
-% What is the goal?
-% Why is it worth my time?
-% The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+\ifdefined\HELP\em
+  The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
+  Be sure not to confuse the abstract with the introduction.
+  It is easiest to write the abstract after the rest of the paper has been written.
+  That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+  Consider the abstract to be your elevator pitch to anyone reading this proposal.
+  What are they reading?
+  What is the goal?
+  Why is it worth my time?
+  The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.\\
+\em\fi
 A standard format for SPEX Project Proposals is key to organize and document the many projects members of RIT Space Exploration wish to pursue. The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
 Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
 SPEX Project Proposals aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
@@ -84,11 +96,12 @@ A standard for project proposals and reports shall provide SPEX with a robust me
 \end{abstract}
 
 \label{sec:nomenclature}
-% If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
-% The two lines below make it look nice when defining units/values to constants
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 % Read more about advanced nomenclature formatting here: https://www.sharelatex.com/learn/Nomenclatures
+\ifdefined\HELP\em
+  \renewcommand{\nompreamble}{\em If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list. The two lines below make it look nice when defining units/values to constants.\em}
+\fi
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{SPP}{SPEX Project Proposal}
@@ -174,7 +187,7 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 % Be as detailed as you can, but it's okay if there are unknowns. At the very least, specify how many semester you expect the project to take until it reaches completion.
 
 \section{Externalities}
-% Things not directly related to the work or outcomes, but related to the project as a whole
+% Things not directly related to the work or outcomes, but related to the project as a whole.
 
 \subsection{Prerequisite Skills}
 % skills needed before work can start
