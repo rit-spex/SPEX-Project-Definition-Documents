@@ -26,6 +26,8 @@
 \usepackage{siunitx}
 % enable package for cross-referencing figures, sections, references etc
 \usepackage{hyperref}
+% change text encoding to make it more crisp
+\usepackage[T1]{fontenc}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -35,7 +37,8 @@
 \author{
   % List the authors of the proposal. The Champion should go first.
   % The `$ $` markers tell \LaTeX to treat the text inside to be treated as a math expression. This way you can use operators like `^` to place characters as superscripts.
-  % The `\thanks` command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, `\thanks` is just a specially formatted footnote. Read here for a more in-depth explanation: http://tex.stackexchange.com/questions/61303/using-author-and-thanks-for-authors-with-common-affiliations
+  % The `\thanks` command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, `\thanks` is just a specially formatted footnote.
+  % Read here for a more advanced options:  http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers
   Philip~Linden$^{*\dagger}$%
     \thanks{$^{*}$Project Champion}%
     \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
@@ -52,7 +55,7 @@
   %   et cetera. For higher counts, use 2x symbols (1)-(5) (i.e. (6) two asterisks **). Keep cycling through (1)-(5) using 3x, 4x, and so on.
   %   Note that these symbol codes work in math mode and text mode.
   %   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists.
-  %   Check here for more advanced options: http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers
+  %   Check here for more advanced options:
 }
   % page header for pages other than cover page
   \markboth{Project Proposal Standard}%
