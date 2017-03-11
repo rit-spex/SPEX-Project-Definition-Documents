@@ -37,8 +37,7 @@
 
 % UNCOMMENT THE NEXT COMMAND TO SHOW HELP TEXT IN THE PDF
 % COMMENT THE COMMAND TO HIDE HELP TEXT FROM PDF
-% \newcommand*{\HELP}{}%
-% \def\HELP{help on}
+\newcommand*{\HELP}{}%
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -99,9 +98,13 @@ A standard for project proposals and reports shall provide SPEX with a robust me
 \label{sec:nomenclature}
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-% Read more about advanced nomenclature formatting here: https://www.sharelatex.com/learn/Nomenclatures
-\ifdefined\HELP\em
-  \renewcommand{\nompreamble}{\em If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list. The two lines below make it look nice when defining units/values to constants.\em}
+\ifdefined\HELP%
+  \renewcommand{\nompreamble}{\em If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
+  The two lines below make it look nice when defining units/values to constants.
+
+  Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+  Read more about advanced nomenclature formatting here:\\
+  \url{https://www.sharelatex.com/learn/Nomenclatures} \em}
 \fi
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
@@ -109,13 +112,18 @@ A standard for project proposals and reports shall provide SPEX with a robust me
 \nomenclature{$k$}{Linear spring stiffness coefficient}
 \nomenclature{$c$}{Speed of light
  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
-% Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms $like this$ are in the math environment)
-\printnomenclature{}
 
-% The sections included here are required. Additional sections and subsections may be added as necessary.
+\printnomenclature{}
+\ifdefined\HELP\em
+  The sections included here are required. Additional sections and subsections may be added as necessary.
+\em\fi
 \section{Introduction}
 \label{sec:introduction}
-% The introduction is a place to give background and context before diving into the subject matter. Establish context for the work you are about to propose and the main ideas of the proposition itself.
+\ifdefined\HELP\em
+  The introduction is a place to give background and context before diving into the subject matter.
+  Establish context for the work you are about to propose and the main ideas of the proposition itself.
+\em\fi
+
 Examples of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
 Writing documentation such as proposals and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
 In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
@@ -125,11 +133,14 @@ In the case of SPEX, an SPP carries value in the act of documenting ideas and ef
 
 \section{Primary Objective}
 \label{sec:primary-obj}
-% At the end of the day, whether the project "succeeds" or "fails" is judged against the objectives it sought to meet.
-% Note that results that contradict expectations/hypotheses are not failures if the scientific & engineering methods are followed along the way. Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
-% What matters is:
-%   What questions do you intend to answer?
-% This is the main purpose or main goal the project hopes to achieve.
+\ifdefined\HELP\em
+  At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  What matters are what questions you intend to answer.
+  This is the main purpose or main goal the project hopes to achieve.
+\em\fi
+
 The SPEX Standard defines format and style guidelines for project documentation. The SPEX Project Proposal Standard controls these guidelines as applicable to young, exploratory ideas.
 
 The ultimate goal of an SPP is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
@@ -142,15 +153,24 @@ The ultimate goal of an SPP is to capture all ideas (including ones that are bey
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
-% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+\ifdefined\HELP\em
+  Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+\em\fi
+
 \section{Benefit to SPEX}
 \label{sec:benefit}
-% There are many "good" ideas that have scientific merit and/or
+\ifdefined\HELP\em
+  [this help section is not yet defined]
+\em\fi
+
 By writing proposals and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
 Ideally, an abundance of ideas and projects encapsulated in SPPs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
 Perhaps in the future, SPEX proposals may be used as baselines for grant applications and other funded research efforts.
 
-% Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
+\ifdefined\HELP\em
+  Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
+\em\fi
+
 \subsection{Mindset}
 \label{subsec:mindset}
 Firstly, it gets people in the right mindset for thinking about what is important and what needs to be considered before taking off on a project.
@@ -163,14 +183,21 @@ This prevents blockers such as feature creep, rabbit holes, and spun tires, and 
 
 \subsection{Accessibility}
 \label{subsec:plug-n-play}
-% Note below that LaTeX uses weird formatting when it comes to quotation marks. The style below is correct to display forward quotes `` at the start of the phrase and backquotes '' at the end.
+\ifdefined\HELP\em
+  Note below that LaTeX uses weird formatting when it comes to quotation marks.
+  The style below is correct to display forward quotes \verb|``| at the start of the phrase and backquotes \verb|''| at the end.
+\em\fi
+
 Having a ``plug-and-play'' template is the first step to learning how to one's own SPP\@.
 It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
 \LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word.
 
 \section{Implementation}
 \label{sec:implementation}
-% What path do you anticipate the project to take?
+\ifdefined\HELP\em
+  What path do you anticipate the project to take?
+\em\fi
+
 In the ideal case, every project begins with a proposal.
 That proposal gets sent around to SPEX members (and non-members) to draw support and build a team.
 Research and work takes place, documented along the way until  an ending point is reached (e.g.\ project completion, end of the semester, team attrition, etc.).
@@ -180,24 +207,38 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
-% When all is said and done, what will you have to show for it?
-% Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+\ifdefined\HELP\em
+  When all is said and done, what will you have to show for it?
+  Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers\ldots
+\em\fi
 
 \subsection{Milestones}
 \label{subsec:milestones}
-% Be as detailed as you can, but it's okay if there are unknowns. At the very least, specify how many semester you expect the project to take until it reaches completion.
+\ifdefined\HELP\em
+  Be as detailed as you can, but it's okay if there are unknowns.
+  At the very least, specify how many semester you expect the project to take until it reaches completion.
+\em\fi
 
 \section{Externalities}
-% Things not directly related to the work or outcomes, but related to the project as a whole.
+\ifdefined\HELP\em
+  Things not directly related to the work or outcomes, but related to the project as a whole.
+\em\fi
 
 \subsection{Prerequisite Skills}
-% skills needed before work can start
+\ifdefined\HELP\em
+  Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+\em\fi
 
 \subsection{Funding Requirements}
-% estimated costs that would be needed to meet objectives
+\ifdefined\HELP\em
+  Estimate costs that would be needed to meet objectives.
+\em\fi
 
 \subsection{Faculty Support}
-% identify faculty that will be involved (or would need to be involved) to meet objectives. Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion
+\ifdefined\HELP\em
+  Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+\em\fi
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
