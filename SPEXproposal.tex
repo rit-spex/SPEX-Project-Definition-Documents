@@ -31,13 +31,27 @@
 \usepackage{hyperref}
 % change text encoding to make it more crisp
 \usepackage[T1]{fontenc}
-% enable conditionals and other custom commands
+% enable conditionals for help text
 \usepackage{etoolbox}
 
-
-% UNCOMMENT THE NEXT COMMAND TO SHOW HELP TEXT IN THE PDF
-% COMMENT THE COMMAND TO HIDE HELP TEXT FROM PDF
-\newcommand*{\HELP}{}%
+% ----------------------------
+\newbool{showhelp}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+% SHOW HELP TEXT IN THE PDF?
+\setbool{showhelp}{true}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+% define conditional help text environment
+\newsavebox{\helpbox}
+\newenvironment{help}{
+  \ttfamily\footnotesize\sloppy
+  \begin{lrbox}{\helpbox}\begin{minipage}{\linewidth}
+  }{
+  \end{minipage}\end{lrbox}
+  \ifbool{showhelp}{
+    \fbox{\usebox{\helpbox}}
+  }{}
+}
+% ----------------------------
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -45,10 +59,12 @@
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{RIT Space Exploration Project Proposal Standard Format and Sample Content}
 \author{
-  % List the authors of the proposal. The Champion should go first.
-  % The `$ $` markers tell \LaTeX to treat the text inside to be treated as a math expression. This way you can use operators like `^` to place characters as superscripts.
-  % The `\thanks` command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, `\thanks` is just a specially formatted footnote.
-  % Read here for a more advanced options:  http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers
+  \begin{help}
+    List the authors of the proposal. The Champion should go first.
+    The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+    The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+    Read here for a more advanced options:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  \end{help}
   Philip~Linden$^{*\dagger}$%
     \thanks{$^{*}$Project Champion}%
     \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
@@ -66,46 +82,49 @@
   %   Note that these symbol codes work in math mode and text mode.
   %   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
-
 % page header for pages other than cover page
 \markboth{Project Proposal Standard}%
 {Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
 \begin{document}
-\maketitle
+\maketitle%
 % correct bad hyphenation here, separated by spaces
 \hyphenation{explor-ation}
 
 \begin{abstract}
-\ifdefined\HELP\em
-  The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
-  Be sure not to confuse the abstract with the introduction.
-  It is easiest to write the abstract after the rest of the paper has been written.
-  That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-  Consider the abstract to be your elevator pitch to anyone reading this proposal.
-  What are they reading?
-  What is the goal?
-  Why is it worth my time?
-  The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.\\
-\em\fi
-A standard format for SPEX Project Proposals is key to organize and document the many projects members of RIT Space Exploration wish to pursue. The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
-Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
-SPEX Project Proposals aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
-A standard for project proposals and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
+  \begin{help}
+    The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
+    Be sure not to confuse the abstract with the introduction.
+    It is easiest to write the abstract after the rest of the paper has been written.
+    That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+    Consider the abstract to be your elevator pitch to anyone reading this proposal.
+    What are they reading?
+    What is the goal?
+    Why is it worth my time?
+    The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+
+  \end{help}
+  A standard format for SPEX Project Proposals is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
+  The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
+  Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
+  SPEX Project Proposals aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
+  A standard for project proposals and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
 \end{abstract}
 
 \label{sec:nomenclature}
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-\ifdefined\HELP%
-  \renewcommand{\nompreamble}{\em If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
-  The two lines below make it look nice when defining units/values to constants.
+\renewcommand{\nompreamble}{
+  \begin{help}
+    If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
+    The two lines below make it look nice when defining units/values to constants.
 
-  Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-  Read more about advanced nomenclature formatting here:\\
-  \url{https://www.sharelatex.com/learn/Nomenclatures} \em}
-\fi
+    Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+    Read more about advanced nomenclature formatting here:\\
+    \url{https://www.sharelatex.com/learn/Nomenclatures}
+  \end{help}
+  }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{SPP}{SPEX Project Proposal}
@@ -114,15 +133,15 @@ A standard for project proposals and reports shall provide SPEX with a robust me
  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 
 \printnomenclature{}
-\ifdefined\HELP\em
+\begin{help}
   The sections included here are required. Additional sections and subsections may be added as necessary.
-\em\fi
+\end{help}
 \section{Introduction}
 \label{sec:introduction}
-\ifdefined\HELP\em
+\begin{help}
   The introduction is a place to give background and context before diving into the subject matter.
   Establish context for the work you are about to propose and the main ideas of the proposition itself.
-\em\fi
+\end{help}
 
 Examples of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
 Writing documentation such as proposals and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
@@ -133,13 +152,13 @@ In the case of SPEX, an SPP carries value in the act of documenting ideas and ef
 
 \section{Primary Objective}
 \label{sec:primary-obj}
-\ifdefined\HELP\em
+\begin{help}
   At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
   Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
   Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
   What matters are what questions you intend to answer.
   This is the main purpose or main goal the project hopes to achieve.
-\em\fi
+\end{help}
 
 The SPEX Standard defines format and style guidelines for project documentation. The SPEX Project Proposal Standard controls these guidelines as applicable to young, exploratory ideas.
 
@@ -153,23 +172,23 @@ The ultimate goal of an SPP is to capture all ideas (including ones that are bey
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
-\ifdefined\HELP\em
+\begin{help}
   Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
-\em\fi
+\end{help}
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
-\ifdefined\HELP\em
+\begin{help}
   [this help section is not yet defined]
-\em\fi
+\end{help}
 
 By writing proposals and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
 Ideally, an abundance of ideas and projects encapsulated in SPPs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
 Perhaps in the future, SPEX proposals may be used as baselines for grant applications and other funded research efforts.
 
-\ifdefined\HELP\em
+\begin{help}
   Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
-\em\fi
+\end{help}
 
 \subsection{Mindset}
 \label{subsec:mindset}
@@ -183,10 +202,10 @@ This prevents blockers such as feature creep, rabbit holes, and spun tires, and 
 
 \subsection{Accessibility}
 \label{subsec:plug-n-play}
-\ifdefined\HELP\em
+\begin{help}
   Note below that LaTeX uses weird formatting when it comes to quotation marks.
   The style below is correct to display forward quotes \verb|``| at the start of the phrase and backquotes \verb|''| at the end.
-\em\fi
+\end{help}
 
 Having a ``plug-and-play'' template is the first step to learning how to one's own SPP\@.
 It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
@@ -194,9 +213,9 @@ It removes a major barrier of starting from scratch, providing example content t
 
 \section{Implementation}
 \label{sec:implementation}
-\ifdefined\HELP\em
+\begin{help}
   What path do you anticipate the project to take?
-\em\fi
+\end{help}
 
 In the ideal case, every project begins with a proposal.
 That proposal gets sent around to SPEX members (and non-members) to draw support and build a team.
@@ -207,38 +226,38 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
-\ifdefined\HELP\em
+\begin{help}
   When all is said and done, what will you have to show for it?
   Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers\ldots
-\em\fi
+\end{help}
 
 \subsection{Milestones}
 \label{subsec:milestones}
-\ifdefined\HELP\em
+\begin{help}
   Be as detailed as you can, but it's okay if there are unknowns.
   At the very least, specify how many semester you expect the project to take until it reaches completion.
-\em\fi
+\end{help}
 
 \section{Externalities}
-\ifdefined\HELP\em
+\begin{help}
   Things not directly related to the work or outcomes, but related to the project as a whole.
-\em\fi
+\end{help}
 
 \subsection{Prerequisite Skills}
-\ifdefined\HELP\em
+\begin{help}
   Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
-\em\fi
+\end{help}
 
 \subsection{Funding Requirements}
-\ifdefined\HELP\em
+\begin{help}
   Estimate costs that would be needed to meet objectives.
-\em\fi
+\end{help}
 
 \subsection{Faculty Support}
-\ifdefined\HELP\em
+\begin{help}
   Identify faculty that will be involved (or would need to be involved) to meet objectives.
   Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-\em\fi
+\end{help}
 
 \subsection{Long-Term Vision}
 \label{sec:vision}

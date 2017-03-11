@@ -4659,5 +4659,4 @@ Use \@IEEEbackslash #2 instead.}}
 
 \endinput
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End of IEEEtran.cls  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% That's all folks!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End of SPEXproposal.cls  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
