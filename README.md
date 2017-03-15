@@ -4,6 +4,12 @@ This is an RIT Space Exploration Standard defining guidelines for content and fo
 ## When should I use this template?
 This document is intended for a member of RIT Space Exploration to bring forward an idea for a project to be conducted under the RIT SPEX banner.
 
+## How do I use this template?
+For a brief user's guide on using this template and setting up LaTeX on your computer, check [this repository's Wiki](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki).
+
+## The template is broken or missing something important!
+Let us know in the [Issue Tracker](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/issues) so we can fix it!
+
 ## What's the purpose of a SPEX Project Proposal?
 The intent of a SPEX Project Proposal (SPP) is to organize and document a project idea and its objectives. In the ideal project life cycle, an idea undergoes an initial research phase where a project _Champion_ and their small team develops the primary objectives and requirements.
 
