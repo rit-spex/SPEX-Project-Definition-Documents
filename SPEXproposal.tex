@@ -38,7 +38,7 @@
 \newbool{showhelp}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~
 % SHOW HELP TEXT IN THE PDF?
-\setbool{showhelp}{true}
+\setbool{showhelp}{false}
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~
 % define conditional help text environment
 \newsavebox{\helpbox}
@@ -93,23 +93,22 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  \begin{help}
-    The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
-    Be sure not to confuse the abstract with the introduction.
-    It is easiest to write the abstract after the rest of the paper has been written.
-    That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-    Consider the abstract to be your elevator pitch to anyone reading this proposal.
-    What are they reading?
-    What is the goal?
-    Why is it worth my time?
-    The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
-
-  \end{help}
   A standard format for SPEX Project Proposals is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
   The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
   Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
   SPEX Project Proposals aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
   A standard for project proposals and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
+    \begin{help}
+      The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
+      Be sure not to confuse the abstract with the introduction.
+      It is easiest to write the abstract after the rest of the paper has been written.
+      That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      Consider the abstract to be your elevator pitch to anyone reading this proposal.
+      What are they reading?
+      What is the goal?
+      Why is it worth my time?
+      The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+    \end{help}
 \end{abstract}
 
 \label{sec:nomenclature}
@@ -143,7 +142,7 @@
   Establish context for the work you are about to propose and the main ideas of the proposition itself.
 \end{help}
 
-Examples of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
+\IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
 Writing documentation such as proposals and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
 In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
 For example, when applying to a grant from a scientific foundation, receiving funding to continue research impinges on how the motives and techniques of a research group resonate with the goals and objectives of the foundation.
@@ -172,6 +171,7 @@ The ultimate goal of an SPP is to capture all ideas (including ones that are bey
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
+
 \begin{help}
   Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
 \end{help}
@@ -264,5 +264,17 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 As SPEX student members get more experience writing these papers, thr group will build a library of meaningful work and be able to save it in an organized manner.
 Knowledge will be preserved and easily shared.
 Perhaps SPEX Project Proposal could eventually get published, in a journal or otherwise\ldots
+
+\section*{Acknowledgements}
+The author would like to thank Dr.~Bill Destler for being an exemplary human.
+
+\onecolumn
+\appendices{}
+\section{Project Life Cycle}
+\begin{figure}[h]
+  \centering
+  \includegraphics[]{figs/project-life-cycle.png}
+  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
+\end{figure}
 
 \end{document}
