@@ -34,31 +34,38 @@
 % enable conditionals for help text
 \usepackage{etoolbox}
 
-% ----------------------------
-\newbool{showhelp}
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~
-% SHOW HELP TEXT IN THE PDF?
-\setbool{showhelp}{false}
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~
-% define conditional help text environment
-\newsavebox{\helpbox}
-\newenvironment{help}{
-  \ttfamily\footnotesize\sloppy
-  \begin{lrbox}{\helpbox}\begin{minipage}{\linewidth}
-  }{
-  \end{minipage}\end{lrbox}
-  \ifbool{showhelp}{
-    \fbox{\usebox{\helpbox}}
-  }{}
-}
-% ----------------------------
-
 % initialize nomenclature package
 \makenomenclature{}
 
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{RIT Space Exploration Project Design Document Standard Format and Sample Content}
 
+
+\author{
+  % List the authors of the design document. The Champion should go first.
+  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
+  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author names.
+    Philip~Linden\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
+    T.J.~Tarazevits\IEEEauthorrefmark{2},
+    Drew~Walters\IEEEauthorrefmark{3},
+    and
+    Austin~Bodzas\IEEEauthorrefmark{4}
+  }
+  \IEEEauthorblockA{% This block is for the department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}pjl7651@rit.edu,
+    \IEEEauthorrefmark{2}tjt3085@rit.edu,
+    \IEEEauthorrefmark{3}acw4729@rit.edu,
+    \IEEEauthorrefmark{4}abb6499@rit.edu
+  }
   %%   Below, we use the short-form author block and basically hack it to suit our needs.
   % Philip~Linden$^{*\dagger}$%
   %   \thanks{$^{*}$Project Champion}%
@@ -79,37 +86,6 @@
   %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
   %%   Note that these symbol codes work in math mode and text mode.
   %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
-\author{
-  %   Here, we use the IEEE long-form author block.
-  \IEEEauthorblockN{% This block is for author names.
-    Philip~Linden\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
-    T.J.~Tarazevits\IEEEauthorrefmark{2},
-    Drew~Walters\IEEEauthorrefmark{3},
-    and
-    Austin~Bodzas\IEEEauthorrefmark{4}
-  }
-  \IEEEauthorblockA{% This block is for the department and university
-    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
-    Rochester, N.Y. \\
-    Email:
-    \IEEEauthorrefmark{1}pjl7651@rit.edu,
-    \IEEEauthorrefmark{2}tjt3085@rit.edu,
-    \IEEEauthorrefmark{3}acw4729@rit.edu,
-    \IEEEauthorrefmark{4}abb6499@rit.edu
-  }
-  \begin{help}
-    List the authors of the design document. The Champion should go first.
-    The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
-
-    Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
-
-    The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
-
-    IEEE also has a ``long form'' author block for many authors. Check here for more information:
-    \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
-
-    Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
-  \end{help}
 }
 % page header for pages other than cover page
 \markboth{Project Design Document Standard}%
@@ -127,31 +103,28 @@
   Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
   Project Design Documents aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
   A standard for project design documents and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
-    \begin{help}
-      The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
-      Be sure not to confuse the abstract with the introduction.
-      It is easiest to write the abstract after the rest of the paper has been written.
-      That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-      Consider the abstract to be your elevator pitch to anyone reading this design document.
-      What are they reading?
-      What is the goal?
-      Why is it worth my time?
-      The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
-    \end{help}
+
+      % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+      % Be sure not to confuse the abstract with the introduction.
+      % It is easiest to write the abstract after the rest of the paper has been written.
+      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      % Consider the abstract to be your elevator pitch to anyone reading this design document.
+      % What are they reading?
+      % What is the goal?
+      % Why is it worth my time?
+      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
 \end{abstract}
 
 \label{sec:nomenclature}
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 \renewcommand{\nompreamble}{
-  \begin{help}
-    If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
-    The two lines below make it look nice when defining units/values to constants.
+    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
+    % The two lines below make it look nice when defining units/values to constants.
 
-    Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-    Read more about advanced nomenclature formatting here:\\
-    \url{https://www.sharelatex.com/learn/Nomenclatures}
-  \end{help}
+    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+    % Read more about advanced nomenclature formatting here:\\
+    % \url{https://www.sharelatex.com/learn/Nomenclatures}
   }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
@@ -161,20 +134,16 @@
 %   \nomunit{\,\si{\kilo\gram\per\second}}}
 % \nomenclature{$c$}{Speed of light
 %  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
-
 \printnomenclature{}
-\begin{help}
-  The sections included here are required. Additional sections and subsections may be added as necessary.
-\end{help}
+
 
 % HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
 
+% The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
 \label{sec:introduction}
-\begin{help}
-  The introduction is a place to give background and context before diving into the subject matter.
-  Establish context for the work you are about to propose and the main ideas of the proposition itself.
-\end{help}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
 \IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing Project Design Documents as easy and painless as possible.
 Writing documentation such as design documents and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
@@ -185,13 +154,11 @@ In the case of SPEX, a PDD carries value in the act of documenting ideas and eff
 
 \section{Primary Objective}
 \label{sec:primary-obj}
-\begin{help}
-  At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
-  Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
-  Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
-  What matters are what questions you intend to answer.
-  This is the main purpose or main goal the project hopes to achieve.
-\end{help}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
 
 The SPEX Standard defines format and style guidelines for project documentation. The Project Design Document Standard controls these guidelines as applicable to young, exploratory ideas.
 
@@ -205,24 +172,18 @@ The ultimate goal of a PDD is to capture all ideas (including ones that are beyo
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
-
-\begin{help}
-  Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
-\end{help}
+% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
-\begin{help}
-  [this help section is not yet defined]
-\end{help}
+% This help section is not yet defined.
 
 By writing design documents and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
 Ideally, an abundance of ideas and projects encapsulated in PDDs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
 Perhaps in the future, SPEX design documents may be used as baselines for grant applications and other funded research efforts.
 
-\begin{help}
-  Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
-\end{help}
+
+% Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
 
 \subsection{Mindset}
 \label{subsec:mindset}
@@ -236,10 +197,8 @@ This prevents blockers such as feature creep, rabbit holes, and spun tires, and 
 
 \subsection{Accessibility}
 \label{subsec:plug-n-play}
-\begin{help}
-  Note below that LaTeX uses weird formatting when it comes to quotation marks.
-  The style below is correct to display forward quotes \verb|``| at the start of the phrase and backquotes \verb|''| at the end.
-\end{help}
+  % Note below that LaTeX uses weird formatting when it comes to quotation marks.
+  % The style below is correct to display forward quotes `` at the start of the phrase and backquotes '' at the end.
 
 Having a ``plug-and-play'' template is the first step to learning how to one's own SPP\@.
 It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
@@ -247,9 +206,7 @@ It removes a major barrier of starting from scratch, providing example content t
 
 \section{Implementation}
 \label{sec:implementation}
-\begin{help}
-  What path do you anticipate the project to take?
-\end{help}
+  % What path do you anticipate the project to take?
 
 In the ideal case, every project begins with a design document.
 That design document gets sent around to SPEX members (and non-members) to draw support and build a team.
@@ -260,39 +217,27 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
-\begin{help}
-  When all is said and done, what will you have to show for it?
-  Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers\ldots
-\end{help}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
 
 \subsection{Milestones}
 \label{subsec:milestones}
-\begin{help}
-  Be as detailed as you can, but it's okay if there are unknowns.
-  At the very least, specify how many semester you expect the project to take until it reaches completion.
-\end{help}
+  % Be as detailed as you can, but it's okay if there are unknowns.
+  % At the very least, specify how many semester you expect the project to take until it reaches completion.
 
 \section{Externalities}
-\begin{help}
-  Things not directly related to the work or outcomes, but related to the project as a whole.
-\end{help}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
 
 \subsection{Prerequisite Skills}
-\begin{help}
-  Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
-\end{help}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
 A project's prerequisite skills are most easily
 
 \subsection{Funding Requirements}
-\begin{help}
-  Estimate costs that would be needed to meet objectives.
-\end{help}
+  % Estimate costs that would be needed to meet objectives.
 
 \subsection{Faculty Support}
-\begin{help}
-  Identify faculty that will be involved (or would need to be involved) to meet objectives.
-  Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-\end{help}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
