@@ -3,8 +3,8 @@
 %% This is an RIT Space Exploration Standard defining guidelines for content
 %% and formatting of project design documents.
 %%
-%% The document template SPEXformat.cls is based on the official IEEE LaTeX
-%% class for authors of the Institute of Electrical and Electronics Engineers
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
 %% (IEEE) Transactions journals and conferences.
 %%
 %% *************************************************************************
@@ -17,7 +17,7 @@
 %% *************************************************************************
 
 % tell \LaTeX what kind of formatting to use
-\documentclass[journal]{SPEXformat}
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
 % enable placeholder text generator
 \usepackage{blindtext}
 % enable toolbox for embedding figures and pictures
@@ -58,29 +58,58 @@
 
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{RIT Space Exploration Project Design Document Standard Format and Sample Content}
+
+  %%   Below, we use the short-form author block and basically hack it to suit our needs.
+  % Philip~Linden$^{*\dagger}$%
+  %   \thanks{$^{*}$Project Champion}%
+  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
+  % Austin~Bodzas$^{\ddagger}$%
+  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
+  % Drew~Walters$^{\S}$%
+  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
+  % T.J.~Tarazevits$^{**}$%
+  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
+
+  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
+  %% the recommended order for symbolic footnotes is
+  %%   (1) asterisk        *   *
+  %%   (2) dagger          †   \dagger
+  %%   (3) double dagger   ‡   \ddagger
+  %%   (4) section symbol  §   \S
+  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
+  %%   Note that these symbol codes work in math mode and text mode.
+  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 \author{
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author names.
+    Philip~Linden\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
+    T.J.~Tarazevits\IEEEauthorrefmark{2},
+    Drew~Walters\IEEEauthorrefmark{3},
+    and
+    Austin~Bodzas\IEEEauthorrefmark{4}
+  }
+  \IEEEauthorblockA{% This block is for the department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}pjl7651@rit.edu,
+    \IEEEauthorrefmark{2}tjt3085@rit.edu,
+    \IEEEauthorrefmark{3}acw4729@rit.edu,
+    \IEEEauthorrefmark{4}abb6499@rit.edu
+  }
   \begin{help}
     List the authors of the design document. The Champion should go first.
     The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+
+    Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+
     The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
-    Read here for a more advanced options:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+
+    IEEE also has a ``long form'' author block for many authors. Check here for more information:
+    \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+
+    Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
   \end{help}
-  Philip~Linden$^{*\dagger}$%
-    \thanks{$^{*}$Project Champion}%
-    \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
-  Austin~Bodzas$^{\ddagger}$%
-    \thanks{$^{\ddagger}$BS '19, Computer Science},
-  Drew~Walters$^{\S}$%
-    \thanks{$^{\S}$BS '18, Mechanical Engineering Technology}
-  % the recommended order for symbolic footnotes is
-  %   (1) asterisk        *   *
-  %   (2) dagger          †   \dagger
-  %   (3) double dagger   ‡   \ddagger
-  %   (4) section symbol  §   \S
-  %   (5) paragraph       ¶   \P
-  %   et cetera. For higher counts, use 2x symbols (1)-(5) (i.e. (6) two asterisks **). Keep cycling through (1)-(5) using 3x, 4x, and so on.
-  %   Note that these symbol codes work in math mode and text mode.
-  %   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
 % page header for pages other than cover page
 \markboth{Project Design Document Standard}%
@@ -137,6 +166,9 @@
 \begin{help}
   The sections included here are required. Additional sections and subsections may be added as necessary.
 \end{help}
+
+% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+
 \section{Introduction}
 \label{sec:introduction}
 \begin{help}
@@ -249,6 +281,7 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 \begin{help}
   Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
 \end{help}
+A project's prerequisite skills are most easily
 
 \subsection{Funding Requirements}
 \begin{help}
@@ -268,7 +301,7 @@ Knowledge will be preserved and easily shared.
 Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
 
 \section*{Acknowledgements}
-The author would like to thank Dr.~Bill Destler for being an exemplary human.
+The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
 
 \onecolumn
 \appendices{}
