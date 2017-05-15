@@ -1,7 +1,7 @@
 %% *************************************************************************
 %%
 %% This is an RIT Space Exploration Standard defining guidelines for content
-%% and formatting of project proposals.
+%% and formatting of project design documents.
 %%
 %% The document template SPEXformat.cls is based on the official IEEE LaTeX
 %% class for authors of the Institute of Electrical and Electronics Engineers
@@ -57,10 +57,10 @@
 \makenomenclature{}
 
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
-\title{RIT Space Exploration Project Proposal Standard Format and Sample Content}
+\title{RIT Space Exploration Project Design Document Standard Format and Sample Content}
 \author{
   \begin{help}
-    List the authors of the proposal. The Champion should go first.
+    List the authors of the design document. The Champion should go first.
     The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
     The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
     Read here for a more advanced options:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
@@ -83,7 +83,7 @@
   %   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
 % page header for pages other than cover page
-\markboth{Project Proposal Standard}%
+\markboth{Project Design Document Standard}%
 {Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
@@ -93,17 +93,17 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  A standard format for SPEX Project Proposals is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
+  A standard format for Project Design Documents is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
   The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
   Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
-  SPEX Project Proposals aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
-  A standard for project proposals and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
+  Project Design Documents aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
+  A standard for project design documents and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
     \begin{help}
-      The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
+      The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
       Be sure not to confuse the abstract with the introduction.
       It is easiest to write the abstract after the rest of the paper has been written.
       That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-      Consider the abstract to be your elevator pitch to anyone reading this proposal.
+      Consider the abstract to be your elevator pitch to anyone reading this design document.
       What are they reading?
       What is the goal?
       Why is it worth my time?
@@ -116,7 +116,7 @@
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 \renewcommand{\nompreamble}{
   \begin{help}
-    If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
+    If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
     The two lines below make it look nice when defining units/values to constants.
 
     Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
@@ -126,10 +126,12 @@
   }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
-\nomenclature{SPP}{SPEX Project Proposal}
-\nomenclature{$k$}{Linear spring stiffness coefficient}
-\nomenclature{$c$}{Speed of light
- \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
+\nomenclature{PDD}{Project Design Document}
+% Below are examples of using nomenclature for math symbols and constants or units
+% \nomenclature{$\dot{m}$}{Mass flow rate
+%   \nomunit{\,\si{\kilo\gram\per\second}}}
+% \nomenclature{$c$}{Speed of light
+%  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 
 \printnomenclature{}
 \begin{help}
@@ -142,12 +144,12 @@
   Establish context for the work you are about to propose and the main ideas of the proposition itself.
 \end{help}
 
-\IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing SPEX Project Proposals as easy and painless as possible.
-Writing documentation such as proposals and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
+\IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing Project Design Documents as easy and painless as possible.
+Writing documentation such as design documents and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
 In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
 For example, when applying to a grant from a scientific foundation, receiving funding to continue research impinges on how the motives and techniques of a research group resonate with the goals and objectives of the foundation.
 
-In the case of SPEX, an SPP carries value in the act of documenting ideas and effectively communicating them with others within and external to RIT Space Exploration.
+In the case of SPEX, a PDD carries value in the act of documenting ideas and effectively communicating them with others within and external to RIT Space Exploration.
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -159,13 +161,13 @@ In the case of SPEX, an SPP carries value in the act of documenting ideas and ef
   This is the main purpose or main goal the project hopes to achieve.
 \end{help}
 
-The SPEX Standard defines format and style guidelines for project documentation. The SPEX Project Proposal Standard controls these guidelines as applicable to young, exploratory ideas.
+The SPEX Standard defines format and style guidelines for project documentation. The Project Design Document Standard controls these guidelines as applicable to young, exploratory ideas.
 
-The ultimate goal of an SPP is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
+The ultimate goal of a PDD is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
-  \caption{An SPP is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new proposal may also refer to one or more previous SPPs.}
+  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
 \label{fig:lifecycle}
 \end{figure}
 
@@ -182,9 +184,9 @@ The ultimate goal of an SPP is to capture all ideas (including ones that are bey
   [this help section is not yet defined]
 \end{help}
 
-By writing proposals and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
-Ideally, an abundance of ideas and projects encapsulated in SPPs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
-Perhaps in the future, SPEX proposals may be used as baselines for grant applications and other funded research efforts.
+By writing design documents and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
+Ideally, an abundance of ideas and projects encapsulated in PDDs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
+Perhaps in the future, SPEX design documents may be used as baselines for grant applications and other funded research efforts.
 
 \begin{help}
   Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
@@ -193,11 +195,11 @@ Perhaps in the future, SPEX proposals may be used as baselines for grant applica
 \subsection{Mindset}
 \label{subsec:mindset}
 Firstly, it gets people in the right mindset for thinking about what is important and what needs to be considered before taking off on a project.
-Publishing an SPP imbues a sense of formality that hopefully makes its way into the level of seriousness and merit that is desirable for SPEX to pursue.
+Publishing a PDD imbues a sense of formality that hopefully makes its way into the level of seriousness and merit that is desirable for SPEX to pursue.
 
 \subsection{Traceability}
 \label{subsec:traceability}
-Similarly, an SPP serves to provide the foundation for traceability in requirements and objectives to projects as they grow and change.
+Similarly, a PDD serves to provide the foundation for traceability in requirements and objectives to projects as they grow and change.
 This prevents blockers such as feature creep, rabbit holes, and spun tires, and hopefully prevents good projects from dying by getting too off track.
 
 \subsection{Accessibility}
@@ -217,8 +219,8 @@ It removes a major barrier of starting from scratch, providing example content t
   What path do you anticipate the project to take?
 \end{help}
 
-In the ideal case, every project begins with a proposal.
-That proposal gets sent around to SPEX members (and non-members) to draw support and build a team.
+In the ideal case, every project begins with a design document.
+That design document gets sent around to SPEX members (and non-members) to draw support and build a team.
 Research and work takes place, documented along the way until  an ending point is reached (e.g.\ project completion, end of the semester, team attrition, etc.).
 
 At the end of the project (or end of semester, whichever comes first), the team writes a report of the project with what they did, if it was successful, and recommendations for future projects.
@@ -263,7 +265,7 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 \label{sec:vision}
 As SPEX student members get more experience writing these papers, thr group will build a library of meaningful work and be able to save it in an organized manner.
 Knowledge will be preserved and easily shared.
-Perhaps SPEX Project Proposal could eventually get published, in a journal or otherwise\ldots
+Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
 
 \section*{Acknowledgements}
 The author would like to thank Dr.~Bill Destler for being an exemplary human.
