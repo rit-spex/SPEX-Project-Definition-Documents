@@ -1,5 +1,5 @@
 # SPEX Standard - Project Design Document
-This is an RIT Space Exploration Standard defining guidelines for content and formatting of project design documents.
+This is an RIT Space Exploration Standard defining guidelines for content and formatting of project design documents (PDDs).
 
 ## When should I use this template?
 This document is intended for a member of RIT Space Exploration to bring forward an idea for a project to be conducted under the RIT SPEX banner.
@@ -17,13 +17,13 @@ Let us know in the [Issue Tracker](https://github.com/RIT-Space-Exploration/SPEX
 The intent of a Project Design Document (PDD) is to organize and document a project idea and its objectives. In the ideal project life cycle, an idea undergoes an initial research phase where a project _Champion_ and their small team develops the primary objectives and requirements. The PDD is a snapshot of the known challenges, risks, and anticipated areas for research at the very start of a project.
 
 ## Who should propose a project?
-The Champion is the primary author of the proposal and, similar to a Principal Investigator, leads a preliminary team in developing a project idea. The Champion is not necessarily the project manager for a project they propose. Faculty recommendations, advice, and support for a project is not necessary but is strongly encouraged. The Champion is the main point of contact for the PDD. The project's Champion be handed off over time, but a project must always have a Champion.
+The Champion is the primary author of the design document and, similar to a Principal Investigator, leads a preliminary team in developing a project idea. The Champion is not necessarily the project manager for a project they propose. Faculty recommendations, advice, and support for a project is not necessary but is strongly encouraged. The Champion is the main point of contact for the PDD. The project's Champion be handed off over time, but a project must always have a Champion.
 
-## Will my proposal be rejected?
-PDDs are not approved nor rejected. PDDs are archived, so a proposal that doesn't initially take off may be picked up by a new team somewhere down the line.
+## Will my PDD be rejected?
+PDDs are not approved nor rejected. PDDs are archived, so a design document that doesn't initially take off may be picked up by a new team somewhere down the line.
 
-## Is my proposal binding?
-In the ideal project life cycle, a proposal defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an PDD should guide a project such that "feature creep" is avoided and good science is achieved.
+## Is my design document binding?
+In the ideal project life cycle, a PDD defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an PDD should guide a project such that "feature creep" is avoided and good science is achieved.
 
 ## Note
 This LaTeX format is a derivative of [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html), modified to suit the needs of RIT SPEX with attribution to the original authors.
