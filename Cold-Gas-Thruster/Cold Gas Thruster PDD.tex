@@ -1,0 +1,461 @@
+%% *************************************************************************
+%%
+%% This is an RIT Space Exploration Standard defining guidelines for content
+%% and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+% enable placeholder text generator
+\usepackage{blindtext}
+% enable toolbox for embedding figures and pictures
+\usepackage{graphicx}
+% enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+\usepackage{nomencl}
+% enable package for easily formatting units
+\usepackage{siunitx}
+% enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+\usepackage{hyperref}
+% change text encoding to make it more crisp
+\usepackage[T1]{fontenc}
+% enable conditionals for help text
+\usepackage{etoolbox}
+
+\usepackage{float}
+
+% initialize nomenclature package
+\makenomenclature{}
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
+\title{An Investigation of a Cold Gas Thruster}
+
+
+\author{
+  % List the authors of the design document. The Champion should go first.
+  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
+  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author Names.
+    James~Emerson~Parkus\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
+    David~Breen\IEEEauthorrefmark{2}
+  }
+  \IEEEauthorblockA{% This block is for the author Afficliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}jep7631@rit.edu,
+    \IEEEauthorrefmark{2}djb1410@rit.edu
+}
+  %%   Below, we use the short-form author block and basically hack it to suit our needs.
+   James~Emerson~Parkus$^{*\dagger}$%
+     \thanks{$^{*}$Project Champion}%
+     \thanks{$^{\dagger}$BS '20, Mechanical Engineering Technology}
+   David~Breen$^{\ddagger}$%
+     \thanks{$^{\ddagger}$BS '19, Electrical-Mechanical Engineering Technology}
+
+  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
+  %% the recommended order for symbolic footnotes is
+  %%   (1) asterisk        *   *
+  %%   (2) dagger          †   \dagger
+  %%   (3) double dagger   ‡   \ddagger
+  %%   (4) section symbol  §   \S
+  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
+  %%   Note that these symbol codes work in math mode and text mode.
+  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
+}
+% page header for pages other than cover page
+\markboth{Project Design Document Standard}%
+{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+  This project will extend off the work of the SPEX propulsion team's cold gas thruster, from the 2017 spring semester. The goal of the project is
+  to create a cold gas thruster that functions well and provides experience and data from performing a cold burn. A well functioning cold gas thruster has no
+  hinderances in fluid flow and produces maximum thrust by means of optimal expansion.
+  The experience learned here will help in the ultimate goal of integrating such a system in a CubeSat for the initation of atmospheric reentry. The cold gas thruster will be a
+  closed system which contains all the required regulation and control to sufficiently model a realisitic propulsion system for a satellite, this does not refer
+  to the dimensions of the system or the material requirements. It will model a realistic propulsion system by maximized thrust and remote initation of
+  the cold burn.
+
+      % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+      % Be sure not to confuse the abstract with the introduction.
+      % It is easiest to write the abstract after the rest of the paper has been written.
+      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      % Consider the abstract to be your elevator pitch to anyone reading this design document.
+      % What are they reading?
+      % What is the goal?
+      % Why is it worth my time?
+      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+\end{abstract}
+
+\label{sec:nomenclature}
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\renewcommand{\nompreamble}{
+    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
+    % The two lines below make it look nice when defining units/values to constants.
+
+    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+    % Read more about advanced nomenclature formatting here:\\
+    % \url{https://www.sharelatex.com/learn/Nomenclatures}
+  }
+\nomenclature{RIT}{Rochester Institute of Technology}
+\nomenclature{SPEX}{RIT Space Exploration}
+\nomenclature{PDD}{Project Design Document}
+\nomenclature{CGT}{Cold Gas Thruster}
+\nomenclature{RCS}{Reaction Control System}
+%\nomenclature{\gamma}{Specific Heat Ratio}
+% Below are examples of using nomenclature for math symbols and constants or units
+% \nomenclature{$\dot{m}$}{Mass flow rate
+%   \nomunit{\,\si{\kilo\gram\per\second}}}
+% \nomenclature{$c$}{Speed of light
+%  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
+\printnomenclature{}
+
+
+% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+
+% The sections included here are required. Additional sections and subsections may be added as necessary.
+\section{Introduction}
+\label{sec:introduction}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
+
+\IEEEPARstart{T}{he} objective of this project is create a cold gas thruster. The CGT will allow the team to gain experience in designing, building, and testing propulsion systems.
+There will be two types of nozzles tested, a minimum length nozzle and an aerospike nozzle. The nozzles will be optimized for ambient conditions.
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
+The primary objective of this project is to create a cold gas thruster capable of sustained cold burns which can be applied to a CubeSat to achieve the reuqired
+velocity to reenter Earth's atmosphere. This is a system property, however using the thrust over time curves reasonable estimations can be made to say whether or not it is possible.
+A target specific impulse is 50s. This can be determined from testing by integrating the thrust over time curve. See the equation 1, below, to see why this is possible.
+
+\begin{equation} \label{specific impulse}
+  I_t    = \int_{t_i}^{t_f} F_{thrust} dt
+\end{equation}
+
+\begin{equation} \label{specific impulse}
+  I_s = \frac{I_t}{m_p g_0}
+\end{equation}
+
+Where $m_p$ is the propellant mass and $g_0$ is standard gravity, 9.81 $ms^{-2}$.
+As seen above, calculating the specific impulse is
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{figs/cold-gas-thruster.png}
+  \caption{This is the Solidworks Assembly of the current design of the SPEX cold gas thruster. The piping interface to the nozzle is omitted for clarity.}
+\label{fig:lifecycle}
+\end{figure}
+
+an easy matter if the data in reliable. It can be unreliable if the system does not perform well or if there is noise in the data.
+However, from previous testing noise is not a problem but error is slightly. The error in the last tests maxed at 0.05 Newtons, which is no terribly significant but still should be accounted.
+Vacuum condition availablity is low at RIT, so the team will need to account for ambient conditions. This primarily includes ambient pressure for achieveing maximum thrust, but there are other
+nuisances. The use of this cold gas thruster will give the team experience in the fabrication of propulsion systems and that can be used for designing more complex systems. These systems could
+ include a CubeSat-sized propulsion system.
+
+
+
+% \section{Secondary Objectives}
+% \label{sec:secondary-obj}
+% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
+% and to challenge them with interesting projects.
+% In this section, explain how the project would benefit SPEX members as students,
+% space enthusiasts, and young professionals.
+
+This project would be benefical to SPEX because of the pathway it creates. After its completion, SPEX will have a cold gas thruster that
+be shown to companies, faculty, students, and at any event where SPEX is on display. The CGT's high mobility will make transportation easy, and since
+the system is heavily dependent on chamber pressure for thrust, it is very safe to show to people when the tank is unpressurized. This project
+will also be the first foot in the door for CubeSat propulsion. There is also a continuation of this project ready to be initated upon its completion, the
+reaction control system.
+
+There are many levels of
+analysis that can be used to design one, but the best way is experimentation (trial \& error). This is especially true for cold gas propulsion of this
+size. The combination of the size of the nozzle and the high reynolds number of the gas does not allow and analytical solution to the optimal dimensions
+of the nozzle. An analytical solution usually concerns making a conical nozzle. However the thrust loss on these nozzles is maxmized. This is due to the
+direction of the outgoing flow. The particles travel away from the nozzle at an angle and this increases the horizontal velocity component, and decreases the
+vertical velocity (the direction pointing out of the nozzle), which decreases the thrust of the system. Since cold gas propulsion is inherently inefficient, due
+to the fact that their is no chemcial reaction or heat applied to the system, maxmizing the thrust is imperitive.
+
+Last, but certainly not least, is the nozzle determination experience. Because of the flow conditions and dimensions, an analytical solution will not be sufficient. To accurately determine
+the nozzle size experiementation must happen. This data will be immensely helpful for designing the RCS nozzles and any other CGT nozzles with similar
+size magnitudes. To do this the team will operate at several different inlet pressures and determine the correct size of these nozzles to create optimal expansion.
+The team will then plot this data and fit a polynomial approximation to it. This polynomial will serve as a initial guess for future nozzles that will be
+expanded upon and optimized during testing.
+
+% Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
+
+\section{Implementation}
+\label{sec:implementation}
+  % What path do you anticipate the project to take?
+
+This project will include a lot of design and data analysis. Once the design phase
+is complete, testing the system will be the primary concern of the team. The project will start off with a slight redesign of the test stand, optmizing it for new conditions if necessary.
+Then comes the design of the nozzles. The team will need to effectively and efficiently determine the appropriate chamber and inlet pressures with varying
+nozzle dimensions to create the polynomial curve approximation that will be an integral part of the rest of the research on the topic. Once that is complete, the
+testing and experimentation phase begins. After the culmination of this phase, the team can try to design, fabricate, and test an aerospike nozzle, only if time permits.
+There are benefits to aerospikes but there are also disadvantages. The advantages are concerned with the region of optimal expansion. The aerospike nozzle can match the
+ambient pressure over a larger region and therefore can produce more thrust. However, the disadvantages are increased thermal loading, which is not terribly important here but is worht mentioning,
+and high design and fabrication complexity. This is the projected path for the investigation of the cold gas thruster.
+\subsection{Deliverables}
+\label{subsec:deliverables}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+The deliverables of this project will be split into to two sections, physical and non-phsyical.
+
+\subsubsection{Physical Deliverables}
+\label{subsubsec: physical deliverables}
+
+The physical deliverables of this project with the CGT\@. This includes the propulsion system and the test stand. The propulsion system will include a regulator,
+a solenoid, a tank, a nozzle, piping, and the interfaces all connected in a series. The test stand will include the t-slot frame with the tank frame. They will be made entirely of aluminum. The interfaces between the aluminum parts will also be included. This
+consists of the various t-slot connections and the bolts and washers that connect the aluminum sheets.
+
+The system will also be displayed at Imagine RIT 2018. This will include a full poster and data representation.
+
+\subsubsection{Non-physical Deliverables}
+\label{subsubsec: non-physical deliverables}
+
+The non-physical deliverables of this project will be the project culmination report which will include a very detailed examination of the projects
+results. These results include the expected performance versus the test performance, the nozzle dimension polynomial approximation, the structure performance, and the
+propulsion system performance. The structure performance is basically a section that discusses the reasoning behind the initial design and any problems
+that were found during testing. The propulsion system performance will be very similar to this except it will focus on slightly different aspects, such as
+the mass flow under various ambient conditions and temperatures.
+
+\subsection{Milestones}
+\label{subsec:milestones}
+  % Be as detailed as you can, but it's okay if there are unknowns.
+  % At the very least, specify how many semester you expect the project to take until it reaches completion.
+
+There is a preliminary plan for the semester that is displayed in further detail in Appendix A. The following list will display the description and timing
+of the different phases; design, sanity tests, experimentation, and data analysis.
+
+\subsubsection{Design Phase}
+\label{subsubsec: design phase}
+    This will be the first phase and reappearing after the culmination of the experimentation phase.
+    Goals are to design the propulsion system, re-design the test stand, design the minimum length and aerospike nozzle
+
+    \textit{Projected End Date: Week 4 (maybe 5 if schedule slips, but no later)}
+
+\subsubsection{Build \& Preliminary Test Phase}
+\label{subsubsec: sanity test phase}
+    This phase is concerned with the building of the system. The test stand is already built. However a few revisions might be applied, then the team will need
+    to re-build to the new design. The main part of the building stage will be the construction of the propulsion system. This has not been built yet therefore, that
+    is where most of the work will be. Once the system is built, it will be tested at component-level then tested at system-level. This is to ensure there are no catastrophic
+    problems during the experiment. There will be no data collected during this phase.
+
+    \textit{Projected End Date: Week 6 (7 if fabrication takes longer than expected)}
+
+\subsubsection{Experimentation}
+\label{subsubsec:experimentation}
+    This phase is primarily concerned with the testing of the CGT\@. This includes gathering all the necessary data and experience to create the
+    polynomial approximation and to aid in the RCS phase and CREST phase of space propulsion research.
+    The testing will consist of 5 tests for each different chamber pressure. These chamber pressures will be; 80, 90, 100, 120, 140, 160, 180, and 200 Psi. There
+    will be a total of 40 tests, if time permits there can be more but this is the goal as it will serve as sufficient data for data analysis.
+     The data will be averaged for each chamber pressure and then plotted against the nozzle area ratio. Then a tenth-order polynomial
+    will be fit to the curve and used to determine a first-order approximation of the nozzle area ratio for future cold gas propulsion systems.
+
+    \textit{Projected End Date: Week 9 (10 if schedule slip occurs)}
+
+\subsubsection{Data Analysis}
+\label{subsubsec: data analysis}
+    This phase is concerned with the analysis of the data collected from the CGT testing. The polynomial approximation will be completed during this
+    phase for the minimum length nozzle. It is also the phase where the performance analysis takes place. This will inlcude the ultimate calculation of the specific impulse
+    of the thuster and if it attains the values we need to achieve the necessary velocity change for orbital decay to initiate atmospheric reentry.
+
+    \textit{Projected End Date: Week 14 or 15 (not terribly important since the team does not theoretically need to be at RIT to conduct this analysis)}
+
+\subsubsection{Final Report}
+\label{subsubsec: final report}
+    At the end of this project a final report will be made to report the outcome. It will outline the design process, fabrication process, and testing process.
+    It will also include the nozzle theory used in the calculations along with all the relevant assumptions and exterior information as needed. The report will provide
+    all the test data and data analysis results. The final product for the report will be the discussion of the polynomial curve-fit. This will be an extremely useful tool
+    for future similar cold gas propulsion systems and must be discussed in depth with an example of how it will be used.
+
+    Once this paper is complete it will be given to the advisors of the SPEX research group for review and then further publications will be discussed. The paper would
+    be great for job interviews to display the work you have done in a formal manner, and one that the interviewer can refer back to at a later date.
+
+    \textit{Projected End Date: End of winter break (the team does not need to be at RIT to write this and they can take advantage of the facilites for testing while they reside there)}
+
+This concludes the milestones for this project.
+
+\section{Externalities}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
+\subsection{Prerequisite Skills}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+
+Creating a CGT will require a few skills, many of which can be learned throughout the project. The design process will require knowledge of systems and how they
+work together, basic nozzle theory, computer-aided design (CAD), basic electrical engineering, basic coding abilities, and machining. The majors that would
+be most qualified for satisifing these requirements are mechanical engineering \& technology and electrical engineering \& technology. But this project is certainly
+open to all majors because most of these skills can be taught in at least a basic manner.
+
+The basic nozzle theory required here is laid out in several documents
+that are on the google drive, the best one being Nozzles.pdf. It is very consise and clear. The beginner propulsion project also lays out a lot of the basic theory in
+relation to minimum length converging diverging nozzles.
+
+ The CAD software of choice is Solidworks. It is very common for industry and has all the features that the team
+will need throughout the process. The education edition also includes the simulation premium package that can allow the team to run flow simulations if needed. The procedure for
+doing this is complicated but can be learned to a basic degree on youtube.
+
+The basic electrical engineering including setting up and arduino or raspberry pi to read out the data from the load cell and turning the solenoid on and off. It
+should not be difficult for a first year or second year EE or EET to set this up. If it proves to be difficult, the team can each out to older students or professors for assistance.
+Dr. Patru would certainly be a great resource for this kind of help.
+
+The basic coding abilites include writing a MATLAB script to analyze and plot data. This is not hard for anyone who has coded before. If it proves to be a roadblock
+one can look up the MATLAB scripts already in the google drive for reference. These scripts layout all required techniques and a bit more, such as an iterative approach.
+
+The machining will be the most difficult to learn if there are no MEs or METs that have taken the proper courses. Machining can be extremely dangerous and cannot be done
+without the proper safety training. If no one is trained on the machines one can ask a machinist to make simple parts or submit a job at the Brickmann lab, formula machine shop.
+They have professional engineers there that can make nearly anything one could need. But their timeline slips often, so leave an appropriate amount of time for them to make the part
+so it does not interfere with the projects timeline.
+
+\subsection{Funding Requirements}
+  % Estimate costs that would be needed to meet objectives.
+Fortunately, most of the materials for the test stand have been purchased. This eliminates much of the system cost. The most costly part of the project
+will be the propulsion system (the regulator, solenoid, nozzle, piping, and interfaces). A preliminary, worst-case, scenario was determined by finding most of the parts
+on McMaster Carr. The total cost was approximately \$450. That would be the last part of the system needed before testing can occur. Accounting for unforseen cost then rounding upwards,
+the consquentical estimated cost is put at \$600 for the entirty of the project. A bills of materials is displayed in Appendix B.
+
+\subsection{Faculty Support}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+Very limited faculty support will be necessary. The SPEX propulsion team has taken care of most of the parts that will need the assistance from faculty.
+This included the flow system and how it operates. Is it safe and is it necessary? Those questions were answered by Dr. Garrick of the MET department.
+There may be some assistance required if the nozzle performance if far below nominal, but guessing from past work it will not be a problem. There may also
+be the need for assistance during the data analysis phase or if the team chooses to perform flow simulations. But it will be a small amount of help.
+
+For the data analysis, if assistance is required for fully understanding it, Dr. Olles would be a good professor to ask. He has a PhD in rocket science
+so he could certainly help. Also, a SPEX member, Varun, has experience in flow simulation so he could probably understand the data sufficiently too.
+\subsection{Long-Term Vision}
+\label{sec:vision}
+
+The long term vision of this project is to be a building block to the next phase of space propulsion research. CREST, a mission that was theorized in the
+spring of 2016 by James Parkus, relies on a space propulsion system. It is the reason the SPEX propulsion subsystem was formed. Thus, it is natural for the
+CGT to assist in the furthering of this project as the complication of the propulsion system has been the main concern. The problem found with this was the required velocity change.
+The CubeSat would need to change its orbital velocity by 122 $ms^{-1}$, opposite its direction of motion. To do this with a cold gas thruster one needs a certain amount
+of propellant varing with the chamber pressure. If you increase the pressure, one can hold more propellant but the optimal value of both was far higher than we anticipated.
+With a spherical tank the chamber pressure would be near 15000 Psi and with a rectangular tank the pressure would be near 8000 Psi. Because this was the first propulsion system
+we had designed, we were doubtful that NASA would accept these conditions. Therefore, we are making one. This project will also be great for
+the members to put on their resume. At the end of this project a detailed document will be made which outlines the most important aspects of the project.
+Then the RCS will build off the momentum created by this project. And the understanding of space propulsion inside SPEX will continue to grow and flourish.
+
+Once the CGT is complete, the team can move onto the next phase of space propulsion research. This is the RCS\@. Reaction control systems are used very
+frequently in space propulsion and attitude adjustment systems as well as rockets. SpaceX uses them on the falcon 9 for landing orientation adjsutments. You
+can actually see them burning during landing. It is the burst of white gas coming from the side of rocket. Building an RCS is difficult. But if the team
+has prior experience with cold gas propulsion, their job becomes significantly easier. Because you need optimal nozzles for an RCS, and as mentioned before
+, it is nearly impossible to analytically design them. The team can refer back to their data for this.
+
+\section*{Acknowledgements}
+The author would like to thank Dr. Garrick and Dr. Olles for their help in understanding the theory of nozzles and the review of the system before testing.
+
+\onecolumn
+\appendices{}
+\section{\textbf{Detailed Fall Timeline}}
+\centering
+\begin{enumerate}
+  \item Week 1
+  \begin{enumerate}
+    \item Introductions \& Fall plan
+  \end{enumerate}
+  \item Week 2
+  \begin{enumerate}
+    \item Beginner Project: Supersonic Nozzle Design
+    \item Test Stand Re-design Discussion
+  \end{enumerate}
+  \item Week 3
+  \begin{enumerate}
+    \item Beginner Project
+    \item Test Stand Re-design fabrication
+  \end{enumerate}
+  \item Week 4
+  \begin{enumerate}
+    \item Beginner Project testing
+  \end{enumerate}
+  \item Week 5
+  \begin{enumerate}
+    \item Preliminary CGT testing (just to familarize ourselves with the system and safety procedure)
+  \end{enumerate}
+  \item Week 6
+  \begin{enumerate}
+    \item Discussion of nozzle design, nozzle design, and printing
+  \end{enumerate}
+  \item Week 7
+  \begin{enumerate}
+    \item Nozzle Design and printing
+  \end{enumerate}
+  \item Week 8
+  \begin{enumerate}
+    \item Round 1 of CGT Testing
+  \end{enumerate}
+  \item Week 9
+  \begin{enumerate}
+    \item Round 2 of CGT Testing
+  \end{enumerate}
+  \item Week 10
+  \begin{enumerate}
+    \item Data Concatenation and sorting
+  \end{enumerate}
+  \item Week 11
+  \begin{enumerate}
+    \item Aerospike Dicussion and theory
+  \end{enumerate}
+  \item Week 12
+  \begin{enumerate}
+    \item Aerospike nozzle design and fabrication
+  \end{enumerate}
+  \item Week 13
+  \begin{enumerate}
+    \item Aerospike Preliminary testing, make design adjustments if necessary
+  \end{enumerate}
+  \item Week 14
+  \begin{enumerate}
+    \item Round 1 of Aerospike testing
+  \end{enumerate}
+  \item Week 15
+  \begin{enumerate}
+    \item Round 2 of Aerospike testing
+  \end{enumerate}
+  \item Week 16
+  \begin{enumerate}
+    \item Data Analysis
+  \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Cold Gas Thruster Preliminary Bill of Materials}
+
+\begin{figure}[h]
+  \includegraphics[width = \linewidth]{figs/CGT-BoM.png}
+  \caption{This is the preliminary BoM that the propulsion team came up with last year. Most of the materials have already been acquired. But the propulsion system materials must still be purchased.}
+\label{fig: CGT BoM}
+\end{figure}
+\end{document}
