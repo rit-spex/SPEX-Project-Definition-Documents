@@ -35,6 +35,8 @@
 % enable conditionals for help text
 \usepackage{etoolbox}
 
+\usepackage{booktabs}
+
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -239,35 +241,26 @@ For the onboard software, the team should review the existing code, and try to d
 Once the primary electronics are ready, the software should be tested for functionality on the system hardware.
 
 The timeline below is preliminary:
-
-\begin{table}
-\centering
- \begin{tabular}{|c | c | c|}
- \hline
- Phase & Task & Duration \\ [0.5ex]
- \hline\hline
- 1 & Review the existing \$50SAT designs and materials &  no more than 2 weeks \\
- \hline
- 2 & Subsystem development & 6 weeks \\
- \hline
- 2 & Order PCB design and/or assembly & 6 weeks \\
- \hline
- 2 & Review changes to mechanical strcuture and order materials & no more than 2 weeks \\
- \hline
- 2 & Testing of individual subsystems & 2 weeks \\
- \hline
- 3 & System Assembly & 1 week  \\
- \hline
- 4 & System testing & 2 weeks  \\
- \hline
- 5 & Generate documentation and delivery to SPEX & 1 week  \\
- \hline
-\end{tabular}
+\begin{table*}
+  \caption{Estimated Timeline}
+  \small\centering
+  \begin{tabular}{@{}lll@{}} \toprule
+    Phase & Task & Duration \\ \midrule
+    1 & Review the existing \$50SAT designs and materials &  no more than 2 weeks \\
+    2 & Subsystem development & 6 weeks \\
+    2 & Order PCB design and/or assembly & 6 weeks \\
+    2 & Review changes to mechanical strucuture and order materials & no more than 2 weeks \\
+    2 & Testing of individual subsystems & 2 weeks \\
+    3 & System Assembly & 1 week  \\
+    4 & System testing & 2 weeks  \\
+    5 & Generate documentation and delivery to SPEX & 1 week  \\
+    \bottomrule
+  \end{tabular}
 \label{tab:timeline}
-\end{table}
+\end{table*}
 
 \begin{itemize}
-  \item Review the existing \$50SAT designs and materials - no more than 2 weeks
+  \item Review the existing \$50SAT designs and materials -- no more than 2 weeks
   \item Subsystem development - concurrent
   \begin{enumerate}
     \item Order PCB design and/or assembly - 6 weeks
@@ -280,7 +273,7 @@ The timeline below is preliminary:
   \item Generate documentation and delivery to SPEX
 \end{itemize}
 
-Schedule slip is tolerable, since there are few external considerations within the fall semester, e.g. a competition or public display event.
+Schedule slip is tolerable, since there are few external considerations within the fall semester, e.g.\ a competition or public display event.
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
@@ -296,7 +289,7 @@ Also, prior experience working with solar cells is a plus.
 The frame and interal structure of the satellite requires mechanical engineering design and fabrication skills.
 Mechanical team members should be able to machine required components and finish final assembly.
 At least one member should have the ability to run structural and vibrational FEA on the system designs.
-At least one member should have the ability to run thermal FEA.
+At least one member should have the ability to run thermal FEA.\@
 
 The software is written in Basic for the PICAXE processor, but will need computer science skillsets to validate the codebase and make any necessary modifications.
 Software team members should be familiar with C/C++ and object-oriented programming.
