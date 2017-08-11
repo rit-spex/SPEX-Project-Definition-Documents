@@ -1,4 +1,3 @@
-%% SPEXformat.cls 2017/2/24 version V0.0.1 based on
 %% IEEEtran.cls 2011/11/03 version V1.8
 %%
 %% Contributors to SPEXformat.cls:
