@@ -36,6 +36,7 @@
 \usepackage{etoolbox}
 
 \usepackage{booktabs}
+\usepackage{hyperref}
 
 
 % initialize nomenclature package
@@ -239,8 +240,8 @@ The mechanical team will also be responsible for testing the frame and whole ass
 
 For the onboard software, the team should review the existing code, and try to demonstrate functionality on similar hardware to prevent dependency on the electrical team.
 Once the primary electronics are ready, the software should be tested for functionality on the system hardware.
-
-The timeline below is preliminary:
+Table 1 shows a preliminary timeline for the project.
+\autoref{tab:timeline}
 \begin{table*}
   \caption{Estimated Timeline}
   \small\centering
@@ -258,20 +259,6 @@ The timeline below is preliminary:
   \end{tabular}
 \label{tab:timeline}
 \end{table*}
-
-\begin{itemize}
-  \item Review the existing \$50SAT designs and materials -- no more than 2 weeks
-  \item Subsystem development - concurrent
-  \begin{enumerate}
-    \item Order PCB design and/or assembly - 6 weeks
-    \item Review changes to mechanical strcuture and order materials - no more than 2 weeks
-    \item Setup software environment and prototyping test bed - no more than 4 weeks
-  \end{enumerate}\
-  \item Testing of individual subsystems - 2 weeks
-  \item System Assembly - 1 week
-  \item System testing - 2 weeks
-  \item Generate documentation and delivery to SPEX
-\end{itemize}
 
 Schedule slip is tolerable, since there are few external considerations within the fall semester, e.g.\ a competition or public display event.
 \section{Externalities}
@@ -328,6 +315,7 @@ If this project was iterated on, hardware developments and experience gained fro
 \section*{Acknowledgements}
 The author would like to thank Professor Bob Twiggs at Morehead State University and the rest of the \$50SAT team for publishing open source design for the mission, allowing similar student teams to work on flight-proven hardware.
 
+\bibliography{SPEX50SAT}
 \onecolumn
 \appendices{}
 \section{\$50SAT Reference Images}
