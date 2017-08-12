@@ -37,7 +37,7 @@
 
 \usepackage{booktabs}
 \usepackage{hyperref}
-
+\usepackage{tabularx}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -240,25 +240,25 @@ The mechanical team will also be responsible for testing the frame and whole ass
 
 For the onboard software, the team should review the existing code, and try to demonstrate functionality on similar hardware to prevent dependency on the electrical team.
 Once the primary electronics are ready, the software should be tested for functionality on the system hardware.
-Table 1 shows a preliminary timeline for the project.
-\autoref{tab:timeline}
-\begin{table*}
+\autoref{tab:timeline} shows a preliminary timeline for the project.
+
+\begin{table}
   \caption{Estimated Timeline}
-  \small\centering
-  \begin{tabular}{@{}lll@{}} \toprule
+  \centering
+  \begin{tabularx}{\columnwidth}{@{}cXl@{}} \toprule
     Phase & Task & Duration \\ \midrule
-    1 & Review the existing \$50SAT designs and materials &  no more than 2 weeks \\
+    1 & Review existing \$50SAT designs and materials & 2 weeks or less \\
     2 & Subsystem development & 6 weeks \\
-    2 & Order PCB design and/or assembly & 6 weeks \\
-    2 & Review changes to mechanical strucuture and order materials & no more than 2 weeks \\
-    2 & Testing of individual subsystems & 2 weeks \\
+      & Order PCB design and/or assembly & 6 weeks \\
+      & Review changes to mechanical strucuture and order materials & 2 weeks or less \\
+      & Testing of individual subsystems & 2 weeks \\
     3 & System Assembly & 1 week  \\
     4 & System testing & 2 weeks  \\
     5 & Generate documentation and delivery to SPEX & 1 week  \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \label{tab:timeline}
-\end{table*}
+\end{table}
 
 Schedule slip is tolerable, since there are few external considerations within the fall semester, e.g.\ a competition or public display event.
 \section{Externalities}
@@ -310,7 +310,7 @@ This project would result in SPEX's first functional, space-rated hardware proje
 Future teams could utilize the same low cost design philosphy while pushing the boundaries in one or more subsystems over time to create a more compelling spacecraft.
 The skils learned from this project would mitigate the risk of future projects with increased technical complexity.
 
-If this project was iterated on, hardware developments and experience gained from these projects could be applied to a CubeSat or other nanosatellite that would actually fly in space, through a launch partnership like CSLI.
+If this project was iterated on, hardware developments and experience gained from these projects could be applied to a CubeSat or other nanosatellite that would actually fly in space, through a launch partnership like CSLI.\@
 
 \section*{Acknowledgements}
 The author would like to thank Professor Bob Twiggs at Morehead State University and the rest of the \$50SAT team for publishing open source design for the mission, allowing similar student teams to work on flight-proven hardware.
