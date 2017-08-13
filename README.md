@@ -26,4 +26,4 @@ PDDs are not approved nor rejected. PDDs are archived, so a design document that
 In the ideal project life cycle, a PDD defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an PDD should guide a project such that "feature creep" is avoided and good science is achieved.
 
 ## Note
-This LaTeX format is a derivative of [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html), modified to suit the needs of RIT SPEX with attribution to the original authors.
+This LaTeX template uses [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html).
