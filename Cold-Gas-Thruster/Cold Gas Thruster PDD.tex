@@ -36,6 +36,11 @@
 
 \usepackage{float}
 
+\usepackage{array}
+
+%\usepackage{biblatex}
+%\addbibreasource{CGT-PDD.bib}
+
 % initialize nomenclature package
 \makenomenclature{}
 
@@ -122,7 +127,6 @@
   }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
-\nomenclature{PDD}{Project Design Document}
 \nomenclature{CGT}{Cold Gas Thruster}
 \nomenclature{RCS}{Reaction Control System}
 \nomenclature{$I_{sp}$}{Specific Impulse [s]}
@@ -169,7 +173,7 @@ layer effects are dominent, but also to achieve an specific impulse of 50s. Usin
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{figs/cold-gas-thruster.png}
-  \caption{This is the Solidworks Assembly of the current design of the SPEX cold gas thruster. The piping interface to the nozzle is omitted for clarity.}
+  \caption{The Solidworks Assembly of the Spring 2017 design of the SPEX cold gas thruster. The piping from the solenoid to the nozzle is omitted for clarity.}
 \label{fig:lifecycle}
 \end{figure}
 
@@ -195,7 +199,8 @@ Vacuum condition availablity is low at RIT, so the team will design the nozzles 
 % In this section, explain how the project would benefit SPEX members as students,
 % space enthusiasts, and young professionals.
 
-This project would be benefical to SPEX because of the experience given to SPEX in propulsion system design and experimentation. After its completion, SPEX will have a cold gas thruster that
+This project would be benefical to SPEX because of the experience given to SPEX in propulsion system design and experimentation. The experience includes learning how to contruct flow systems, design nozzles
+for a small propulsion system, and an understanding of the design complexites. These can help avoid roadblocks in future designs. After its completion, SPEX will have a cold gas thruster that
 be shown to companies, faculty, students, and at any event where SPEX is on display. The CGT's high mobility will make transportation easy and it is very safe to show to people when the tank is unpressurized. This project
 will also be the first foot in the door for CubeSat propulsion. There is also a continuation of this project ready to be initated upon its completion, the
 reaction control system.
@@ -218,11 +223,12 @@ size magnitudes.
 \label{sec:implementation}
   % What path do you anticipate the project to take?
 
-This project will include 4 to 5 weeks of design and 4 to 5 weeks of data analysis. The data analysis will go into winter break because RIT facilites are not needed to analyze data. Once the design phase
-is complete, testing the system will be the primary concern of the team. The project will start off with a redesign discussion of the test stand, optmizing it for new conditions if necessary.
+This project will include 4 to 5 weeks of design, 3 to 5 weeks of fabrication, and 4 to 5 weeks of data analysis. The project will start off with a redesign discussion of the test stand, optmizing it for new conditions if necessary.
 The team will need to effectively and efficiently determine the appropriate chamber and inlet pressures with varying
 nozzle dimensions to create the polynomial curve approximation that will be an integral part of the rest of the research on the topic. Once that is complete, the
-testing and experimentation phase begins. This is the projected path for the investigation of the cold gas thruster.
+testing and experimentation phase begins. At the end of the data analysis the final report will be the main focus. The aim is to complete it by the beginning of winter break
+so the team can focus on the new project when they return for the Spring 2018 semester.
+
 \subsection{Deliverables}
 \label{subsec:deliverables}
   % When all is said and done, what will you have to show for it?
@@ -232,9 +238,12 @@ The deliverables of this project will be split into to two sections, physical an
 \subsubsection{Physical Deliverables}
 \label{subsubsec: physical deliverables}
 
-The propulsion system will include a regulator,
-a solenoid, a tank, a nozzle, piping, and the interfaces all connected in a series. The test stand will include the t-slot frame with the tank frame. They will be made entirely of aluminum. The interfaces between the aluminum parts will also be included. This
-consists of the various t-slot connections and the bolts and washers that connect the aluminum sheets.
+The propulsion system will include a regulator, a solenoid, a tank, a nozzle, piping, and the interfaces all connected in a series.
+The test stand will include the t-slot frame with the tank frame. They will be made entirely of aluminum. Aluminum is a great material for its balance of strength, machinability, and
+weight. Steel is very difficult and hardous to machine and is very heavy, although its strength is greater than aluminum. Plastics are tedious to machine as they tend to melt to the cutting
+blade and that casues the machining to stop frequently to clean off the blade. The propulsion has a very large pressure drop and this will cause a large temperature drop. A plastic structure will
+effected greatly by this and will harden to the point where fracture could occur very easily. The interfaces between the
+aluminum parts will also be included. This consists of the various t-slot connections and the bolts and washers that connect the aluminum sheets.
 
 There will also be an arduino connected to a computer that will use Simulink for data acquisition. The arduino will be a conduit to relay the data from the load cell
 to Simulink. There will also be an arduino to control the use of the solenoid. The solenoid will be activated from the Simulink program, which will coincide with
@@ -252,7 +261,16 @@ that were found during testing. The problems to be avoided will be, unecessary f
 bad interfacing between structural components. The propulsion system performance will be very similar to this except it will focus on slightly different aspects, such as
 the mass flow under various ambient conditions and temperatures. The propulsion performance will mostly be measured through the data analysis. This specifically concerns the
 specific impulse. It will also concern the expansion of the flow, as the maximum thrust will occur when the exit pressure equals the ambient pressure and thus the shocks
-in the flow will expand optimally. This will be observed through schlieren lensing, as it has been performed before during nozzle testing.
+in the flow will expand optimally. This will be observed through schlieren lensing, as it has been performed before during nozzle testing. This was performed in the Spring 2017
+semester for flow visualization. The procedure was; turn the lights off, put the nozzle on the air hose, put a white piece of paper on a table, put it parallel to the table, initiate the cold burn, use a phone light
+to project the flow onto the white paper below it. Then distance between the nozzle and the light and the table were toggled until the best focus point was found. That is how the team
+was able to get the picture below.
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{figs/nozzle-shocks[2].png}
+  \caption{The flow is seen here exiting a small 3D printed supersonic nozzle. The procedure was not unlike schlieren lensing, but the clarity was much lower.}
+  \label{fig: nozzle shocks}
+\end{figure}
 
 \subsection{Milestones}
 \label{subsec:milestones}
@@ -269,7 +287,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     there will be a full system CAD model and a series of CAD nozzles to be fabricated. This CAD model is essential for the next phase, as the fabrication
     will use it as a guide (inlcuding drawings for machinists).
 
-    \textit{Projected End Date: Week 4 (maybe 5 if schedule slips, but no later)}
+    \textit{Projected Duration: 2-3 weeks}
 
 \subsubsection{Build \& Preliminary Test Phase}
 \label{subsubsec: sanity test phase}
@@ -279,7 +297,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     is where most of the work will be. Once the system is built, it will be tested at component-level then tested at system-level. This is to ensure there are no catastrophic
     problems during the experiment. There will be no data collected during this phase.
 
-    \textit{Projected End Date: Week 6 (7 if fabrication takes longer than expected)}
+    \textit{Projected Duration: 3-5 weeks}
 
 \subsubsection{Experimentation}
 \label{subsubsec:experimentation}
@@ -290,7 +308,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
      The data will be averaged for each chamber pressure and then plotted against the nozzle area ratio. Then a tenth-order polynomial
     will be fit to the curve and used to determine a first-order approximation of the nozzle area ratio for future cold gas propulsion systems.
 
-    \textit{Projected End Date: Week 9 (10 if schedule slip occurs)}
+    \textit{Projected Duration: 2-3 weeks}
 
 \subsubsection{Data Analysis}
 \label{subsubsec: data analysis}
@@ -298,7 +316,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     phase for the minimum length nozzle. It is also the phase where the performance analysis takes place. This will inlcude the ultimate calculation of the specific impulse
     of the thuster and if it attains the values we need to achieve the necessary velocity change for orbital decay to initiate atmospheric reentry.
 
-    \textit{Projected End Date: Week 13}
+    \textit{Projected Duration: 3 weeks}
 
 \subsubsection{Final Report}
 \label{subsubsec: final report}
@@ -310,7 +328,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     Once this paper is complete it will be given to the advisors of the SPEX research group for review and then further publications will be discussed. The paper would
     be great for job interviews to display the work you have done in a formal manner, and one that the interviewer can refer back to at a later date.
 
-    \textit{Projected End Date: Week 16}
+    \textit{Projected Duration: 2 weeks}
 
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
@@ -333,11 +351,11 @@ The basic electrical engineering including setting up and arduino or raspberry p
 should not be difficult for a first year or second year EE or EET to set this up. If it proves to be difficult, the team can each out to older students or professors for assistance.
 Dr. Patru would certainly be a great resource for this kind of help.
 
-The basic coding abilites include writing a MATLAB script to analyze and plot data. This is not hard for anyone who has coded before. If it proves to be a roadblock
-one can look up the MATLAB scripts already in the google drive for reference. These scripts layout all required techniques and a bit more, such as an iterative approach.
+The basic coding abilites include writing a MATLAB script to analyze and plot data. MATLAB is easy to learn and is very powerful. It is a very common choice for data analysis for mechancial engineering
+projects where the core skill set is not computer science. This is not hard for anyone who has coded before.
 
 The machining will be the most difficult to learn if there are no MEs or METs that have taken the proper courses. Machining can be extremely dangerous and cannot be done
-without the proper safety training. If no one is trained on the machines one can ask a machinist to make simple parts or submit a job at the Brickmann lab, formula machine shop.
+without the proper safety training. If no one is trained on the machines one can ask a machinist to make simple parts or submit a job at the Earl Brickman Machine Tools and Manufacturing Lab.
 They have professional engineers there that can make nearly anything one could need. But their timeline slips often, so leave an appropriate amount of time for them to make the part
 so it does not interfere with the projects timeline.
 
@@ -346,12 +364,31 @@ so it does not interfere with the projects timeline.
 Fortunately, most of the materials for the test stand have been purchased. This eliminates much of the system cost. The most costly part of the project
 will be the propulsion system (the regulator, solenoid, nozzle, piping, and interfaces). A preliminary budget that includes margin for cost overruns is \$600.
 The total cost was approximately \$450. That would be the last part of the system needed before testing can occur. Accounting for unforseen cost then rounding upwards,
-the consquentical estimated cost is put at \$600 for the entirty of the project. A bill of materials is displayed in Appendix B.
+the consquentical estimated cost is put at \$600 for the entirty of the project. A bill of materials is displayed in Appendix B. The table, displayed below, outlines
+the most expensive parts that the team will need to purchase for the propulsion system, these parts are worst-case scenario in cost and measures will be taken to
+try to alleviate these costs.
+
+\centering
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}| }
+  \hline
+  \multicolumn{3}{|c|}{Propulsion Part List} \\
+  \hline
+  Part & Cost & McMaster Part \# \\
+  \hline
+  Tank & \$ 131.35 & 7822A11 \\
+  \hline
+  Regulator & \$ 182.50 & 49305K21 \\
+  \hline
+  Solenoid & \$ 100.49 & 4711K511 \\
+  \hline
+\end{tabular}
+
 
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
   % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-Very limited faculty support will be necessary. The SPEX propulsion team has taken care of most of the parts that will need the assistance from faculty.
+Little faculty support will be necessary. The SPEX propulsion team has consulted faculty about structure and flow system concerns and made the suggested changes. Most of the
+faculty support was needed during the endevour to fabricate the structure and design the flow system.
 This included the flow system and how it operates. Dr.Garrick, MET department head, assisted the team in the design of the flow system and pointed out unecessary components, such
 as the flow straightener. He said that the flow was at such a high reynolds number that straightening it in the size constraints is impossible with our budget.
 There may be some assistance required if the nozzle performance if far below nominal, but guessing from past work it will not be a problem. This would concern the nozzle design.
@@ -364,7 +401,7 @@ so he could certainly help.
 \subsection{Long-Term Vision}
 \label{sec:vision}
 
-The long term vision of this project is to be a building block to the next phase of space propulsion research. CREST, a mission that was theorized in the
+The long term vision of this project is to be a building block to the next phase of space propulsion research. CREST, a mission that was proposed in the
 spring of 2016 by James Parkus, relies on a space propulsion system. It is the reason the SPEX propulsion subsystem was formed. Thus, it is natural for the
 CGT to assist in the furthering of this project. The main conern for CREST was the propulsion necessary to de-orbit quickly enough that SPEX can determine its entry location and therefore esitmatt its landing location.
 The problem found with this was the required velocity change.
@@ -385,85 +422,89 @@ and high design and fabrication complexity.
 \section*{Acknowledgements}
 The author would like to thank Dr. Garrick and Dr. Olles for their help in understanding the theory of nozzles and the review of the system before testing.
 
+
 \onecolumn
 \appendices{}
 \section{\textbf{Detailed Fall Timeline}}
 \centering
-\begin{enumerate}
-  \item Week 1
-  \begin{enumerate}
-    \item Introductions \& Fall plan
-  \end{enumerate}
-  \item Week 2
-  \begin{enumerate}
-    \item Beginner Project: Supersonic Nozzle Design
-    \item Test Stand Re-design Discussion
-  \end{enumerate}
-  \item Week 3
-  \begin{enumerate}
-    \item Beginner Project
-    \item Test Stand Re-design fabrication
-  \end{enumerate}
-  \item Week 4
-  \begin{enumerate}
-    \item Beginner Project testing
-  \end{enumerate}
-  \item Week 5
-  \begin{enumerate}
-    \item Preliminary CGT testing (just to familarize ourselves with the system and safety procedure)
-  \end{enumerate}
-  \item Week 6
-  \begin{enumerate}
-    \item Discussion of nozzle design, nozzle design, and printing
-  \end{enumerate}
-  \item Week 7
-  \begin{enumerate}
-    \item Nozzle Design and printing
-  \end{enumerate}
-  \item Week 8
-  \begin{enumerate}
-    \item Round 1 of CGT Testing
-  \end{enumerate}
-  \item Week 9
-  \begin{enumerate}
-    \item Round 2 of CGT Testing
-  \end{enumerate}
-  \item Week 10
-  \begin{enumerate}
-    \item Data Concatenation and sorting
-  \end{enumerate}
-  \item Week 11
-  \begin{enumerate}
-    \item Aerospike Dicussion and theory
-  \end{enumerate}
-  \item Week 12
-  \begin{enumerate}
-    \item Aerospike nozzle design and fabrication
-  \end{enumerate}
-  \item Week 13
-  \begin{enumerate}
-    \item Aerospike Preliminary testing, make design adjustments if necessary
-  \end{enumerate}
-  \item Week 14
-  \begin{enumerate}
-    \item Round 1 of Aerospike testing
-  \end{enumerate}
-  \item Week 15
-  \begin{enumerate}
-    \item Round 2 of Aerospike testing
-  \end{enumerate}
-  \item Week 16
-  \begin{enumerate}
-    \item Data Analysis
-  \end{enumerate}
-\end{enumerate}
+\begin{tabular}{ |p{1.25cm}||p{11.0cm}| }
+  \hline
+  Week \# & Plan \\
+  \hline
+  1 & Introductions \& Fall plan discussion \\
+  \hline
+  2 & Beginner Project: Supersonic Nozzle Design  \\
+  & Design Phase: Test stand \\
+  \hline
+  3 & Beginner Project: Nozzle Printing and Testing on weekend \\
+  & Design Phase: Propulsion System \\
+  \hline
+  4 & Design Phase: Propulsion System \\
+  \hline
+  5 & Design Phase: Arduino and MATLAB design \\
+  \hline
+  6 & Design Phase: Arduino and MATLAB design \\
+  \hline
+  7 & Fabrication Phase: Material order and making Solidworks drawings\\
+  \hline
+  8 & Fabrication Phase: Machining \\
+  \hline
+  9 & Fabrication Phase: Machining and assembly \\
+  \hline
+  10 & Experimentation Phase: Test 1 \\
+  \hline
+  11 & Experimentation Phase: Test 2 \\
+  \hline
+  12 & Data Analysis Phase: Data Organization \\
+  \hline
+  13 & Data Analysis Phase: Noise and error analysis \\
+  \hline
+  14 & Data Analysis Phase: Performance Analysis \\
+  \hline
+  15 & Project Culmination Report writing \\
+  \hline
+  16 & Project Culmination Report finalization \\
+  \hline
+\end{tabular}
 
 \newpage
-\section{Cold Gas Thruster Preliminary Bill of Materials}
+\section{\textbf{Cold Gas Thruster Preliminary Bill of Materials}}
 
-\begin{figure}[h]
-  \includegraphics[width = \linewidth]{figs/CGT-BoM.png}
-  \caption{This is the preliminary BoM that the propulsion team came up with last year. Most of the materials have already been acquired. But the propulsion system materials must still be purchased.}
-\label{fig: CGT BoM}
-\end{figure}
+\centering
+\begin{tabular}{ |p{4cm}||p{1.0cm}|p{1.5cm}|p{2.5cm}|p{2.0cm}|p{2.0cm}| }
+  %\hline
+  %\multicolumn{6}{|c|}{Cold Gas Thruster Bill of Materials} \\
+  \hline
+  Part & Cost & Quantity & Vendor & Part Number & Status \\
+  \hline
+  Tank & \$131.35 & 1 & McMaster Carr & 7822A11 & Not acquired \\
+  \hline
+  Regulator & \$182.50 & 1 & McMaster Carr & 49305K21 & Not acquired \\
+  \hline
+  Solenoid & \$100.49 & 1 & McMaster Carr & 4711K511 & Not acquired \\
+  \hline
+  Push-to-connect fitting & \$4.33 & 2 & McMaster Carr & 5779K116 & Not acquired \\
+  \hline
+  Aluminum Pipe & \$2.45 & 2 & McMaster Carr & 50785K172 & Not acquired \\
+  \hline
+  Nylon Pipe & \$8.90 & 1 & McMaster Carr & 5548K77 & Not acquired \\
+  \hline
+  Aluminum Sheet & \$7.00 & 1 & McMaster Carr & 8975K596 & Acquired \\
+  \hline
+  Aluminum T-Slot & \$6.49 & 7 & McMaster Carr & 47065T101 & Acquired \\
+  \hline
+  T-Slot Corner Frame & \$7.98 & 10 & McMaster Carr & 5537T51 & Acquired \\
+  \hline
+  T-Slot Length Frame & \$5.66 & 4 & McMaster Carr & 47065T235 & Acquired \\
+  \hline
+  \#8 Socket Head Cap Screws & \$6.58 & 1 [100] & McMaster Carr & 92196A194 & Acquired \\
+  \hline
+  Arduino & \$10.00 & 1 & RIT Construct & Unknown & Not Acquired \\
+  \hline
+  Grand Total & \$608.25 & N/A & N/A & N/A & N/A \\
+  \hline
+\end{tabular}
+
+\bibliography{CGT-PDD.bib}
+
 \end{document}
