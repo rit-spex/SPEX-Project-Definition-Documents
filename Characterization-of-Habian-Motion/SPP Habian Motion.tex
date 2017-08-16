@@ -1,0 +1,304 @@
+%% *************************************************************************
+%%
+%% This is an RIT Space Exploration Standard defining guidelines for content
+%% and formatting of project proposals.
+%%
+%% The document template SPEXformat.cls is based on the official IEEE LaTeX
+%% class for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
+\documentclass[journal]{SPEXformat}
+% enable placeholder text generator
+\usepackage{blindtext}
+% enable toolbox for embedding figures and pictures
+\usepackage{graphicx}
+% enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+\usepackage{nomencl}
+% enable package for easily formatting units
+\usepackage{siunitx}
+% enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+\usepackage{hyperref}
+% change text encoding to make it more crisp
+\usepackage[T1]{fontenc}
+% enable conditionals for help text
+\usepackage{etoolbox}
+
+% ----------------------------
+\newbool{showhelp}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+% SHOW HELP TEXT IN THE PDF?
+\setbool{showhelp}{false}
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~
+% define conditional help text environment
+\newsavebox{\helpbox}
+\newenvironment{help}{
+  \ttfamily\footnotesize\sloppy
+  \begin{lrbox}{\helpbox}\begin{minipage}{\linewidth}
+  }{
+  \end{minipage}\end{lrbox}
+  \ifbool{showhelp}{
+    \fbox{\usebox{\helpbox}}
+  }{}
+}
+% ----------------------------
+
+% initialize nomenclature package
+\makenomenclature{}
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
+\title{SPP: Characterization of Habian Motion}
+\author{
+  \begin{help}
+    List the authors of the proposal. The Champion should go first.
+    The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+    The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+    Read here for a more advanced options:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  \end{help}
+  James~Emerson~Parkus$^{*\dagger}$%
+    \thanks{$^{*}$Project Champion}%
+    \thanks{$^{\dagger}$BS '22, Mechanical Engineering Technology \& Physics}
+
+  % the recommended order for symbolic footnotes is
+  %   (1) asterisk        *   *
+  %   (2) dagger          †   \dagger
+  %   (3) double dagger   ‡   \ddagger
+  %   (4) section symbol  §   \S
+  %   (5) paragraph       ¶   \P
+  %   et cetera. For higher counts, use 2x symbols (1)-(5) (i.e. (6) two asterisks **). Keep cycling through (1)-(5) using 3x, 4x, and so on.
+  %   Note that these symbol codes work in math mode and text mode.
+  %   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
+}
+% page header for pages other than cover page
+\markboth{Project Proposal Standard}%
+{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+  This project would be for the RIT SPEX High Altitude Balloon team. The goal is to create a map of the HAB condtions throughout
+  flight. This would be extremely benefical when creating a HAB for an experiment. Being able to understand "habian" motion
+  can allow the project engineers to adequately design the payload to survive flight conditions.
+
+  \begin{help}
+      The abstract is a brief summary of the proposal. Typically it includes the purpose of the proposal, key goals or objectives, and justifications.
+      Be sure not to confuse the abstract with the introduction.
+      It is easiest to write the abstract after the rest of the paper has been written.
+      That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      Consider the abstract to be your elevator pitch to anyone reading this proposal.
+      What are they reading?
+      What is the goal?
+      Why is it worth my time?
+      The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+    \end{help}
+\end{abstract}
+
+\label{sec:nomenclature}
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\renewcommand{\nompreamble}{
+  \begin{help}
+    If you include mathematical expressions or express variables in the proposal, list them with their corresponding definitions here as a list.
+    The two lines below make it look nice when defining units/values to constants.
+
+    Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+    Read more about advanced nomenclature formatting here:\\
+    \url{https://www.sharelatex.com/learn/Nomenclatures}
+  \end{help}
+  }
+\nomenclature{RIT}{Rochester Institute of Technology}
+\nomenclature{SPEX}{RIT Space Exploration}
+\nomenclature{SPP}{SPEX Project Proposal}
+\nomenclature{HAB}{High Altitude Balloon}
+\nomenclature{Habian}{Pertaining to the HAB}
+
+\printnomenclature{}
+\begin{help}
+  The sections included here are required. Additional sections and subsections may be added as necessary.
+\end{help}
+\section{Introduction}
+\label{sec:introduction}
+\begin{help}
+  The introduction is a place to give background and context before diving into the subject matter.
+  Establish context for the work you are about to propose and the main ideas of the proposition itself.
+\end{help}
+\IEEEPARstart{H}{igh} altitude balloons are scientific experiments that allow teams to test experiments in \textit{space-like} conditions.
+  Of course, this is only one type of many types of possible high altitude experiments. During the course of experiment
+  design the team must include flight conditions in there engineering requirements. High altitude balloons are swung,
+  twisted, and rocked during flight. What are the accelerations? What are the G's that the payload experiences?
+  That is question this project will answer. This project will enlighten our understanding of how a high altitude balloon
+  is affected during flight by the conditions of the atmosphere at any given location throughout. Hence, the idea
+  of creating a map of habian motion.
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+\begin{help}
+  At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  What matters are what questions you intend to answer.
+  This is the main purpose or main goal the project hopes to achieve.
+\end{help}
+  The \textit{characterization of habian motion} project goal is to create a very detailed document, along with a
+  visual component, that will allow all HAB teams around the world to understand the types of conditions that
+  there HAB will endure through flight. The document will include many different components of HAB conditions (this will be
+  further explained in the following secions). A few of these components are rotation and the acceleration in
+  three dimensions. These can define the forces on the HAB during flights which in turn defines the necessary fixturing
+  that the internal components of the HAB must have
+
+% \section{Secondary Objectives}
+% \label{sec:secondary-obj}
+
+\begin{help}
+  Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+\end{help}
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+\begin{help}
+  [this help section is not yet defined]
+\end{help}
+  This project will allow SPEX to create a detailed document of which can be distributed to other HAB teams
+  so they can use it for there HAB design & launch. This will be benefical to SPEX because we will be able to have
+  our name (and logo) on such a document. A document that will be used throughout the design process of HAB teams
+  and give SPEX more contacts and credit.
+  For the SPEX HAB team it will; increase knowledge of HAB flight conditions, HAB Avionics, and HAB data analysis. The data
+  that SPEX will receive from the flight will be large. It will require a lot of work and data analysis to figure out what is
+  happening to the HAB during flight. It will also increase the HAB team's knowledge of experiment creation in the sense that
+  the team will need to use an instrument that the HAB team will create and utilize to obtain sufficient data.
+  In summary, the characterization of habian motion will increase the team's knowledge of HAB flight conditions, avionics, data analysis,
+  making instrumentation, utilizing self-made instrumentation, and distribution of important docmentation (the map of habian motion).
+
+  The knowledge accrued from this will greatly decrease the risk of components loosening during flight or becoming
+  disconnected due to unforeseen forces. It will decrease the probablity of instrumentation failure during flight.
+\section{Implementation}
+\label{sec:implementation}
+  This mission is very similar to previous missions that the SPEX HAB team has flown before in terms of space management and mechancial
+  design. The HAB bus will be a standard size of 20 $cm^3$ which allow a CubeSat/Atmospheric research duality, i.e. after this mission is
+  completed the bus can be recycled into another mission. Therefore, the mechanical deisgn will need little improvement or remodeling.
+  In terms of avionics, it is a bit more involved.
+
+  Previous HAB's have flown aprs modules which can capture a limited amount of atmospheric
+  data. The difference is this HAB will have precautionary measures taken to ensure the validity of the collected atmospheric data.
+  In past HABs the data collection has been a secondary and even tertiary part of the mission however, in this mission it will be
+  the primary objective. Therefore, the avionics side of this mission is critical and the most design time will be alloted to the
+  HAB avionics team. Once the avioncis team is confident in the ability for the sensors to function continuously in the specific conditions and
+  profiently collect data the next stage of the project will commence, HAB integration.
+
+  HAB integration will include combining the avionics and the mechanical features of the experiment (inside pendulum) into the HAB
+  bus. This stage will be complete when the HAB bus and payload are flight-ready. Proceeding this stage will be the full HAB integration.
+  This will include integrating cable to tie from the balloon plug to the parachute and onto the HAB bus.
+
+  After all this is complete, the final stage will commence, launch. This will begin the night before launch. There will
+  be a full test of the entire HAB payload. This will include testing the sensors to make sure they are collecting data appropriately and
+  also to make sure the mechanical components are secure for flight. Once this is complete the HAB will be flight-ready and revisted the
+  next day for the launch. The SPEX HAB team has completed three HAB launches so far and has experience in the launch procedure. However,
+  if unexperienced volunteers are needed a launch procedure document will be available for their enlightenment.
+
+\subsection{Deliverables}
+\label{subsec:deliverables}
+\begin{help}
+  When all is said and done, what will you have to show for it?
+  Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers\ldots
+\end{help}
+  After the launch is complete the data will be analyzed throughly. Proceeding the data analysis will be the habian motion mapping.
+  This will involve utilizing all the collected data for each point and summarizing into the key moments in the flight. A more comprehensive
+  document will be available however some HAB teams may be unexperienced and reading such a document could prove to be increasing difficult.
+  Hence, the reason to create a map that highlights the key points in the HAB flight. This document will be made for a simple crowd so even
+  people unexperienced in HAB flights can understand the conditions that the HAB withstands through flight.
+
+  These documents can be distributed across a region that is considered to be atmospherically similar to the northeast region. In some respects,
+  the atmosphere will be the same for other parts of the world such as ambient pressure drop over altitude however the temperature could vary
+  along with the photonic intensity depending on the region. This document will feature the SPEX name and logo and can be a great way to
+  get the SPEX name "out there." And if this mission is completed in the fall semester it is very likely that this project can be presented
+  at the next Imagine RIT (assuming there is one). The simple document can be distributed easily which will great for outreach. There
+  will also be a poster based on the mission that can be displayed in the mission control hallway with the other project posters.
+
+  Along with the Imagine RIT presentation there can be a technical report that can be used for future SPEX members or people whom are
+  looking for a more solid understanding of the project from start to finish.
+
+\subsection{Milestones}
+\label{subsec:milestones}
+\begin{help}
+  Be as detailed as you can, but it's okay if there are unknowns.
+  At the very least, specify how many semester you expect the project to take until it reaches completion.
+\end{help}
+  As stated above, the habian motion project is not mechanically intensive. This will cut down a lot of time for the mechanical engineers
+  but will place most of the work on the avionics team. The mechancial engineers will need to secure the sensors and other components to
+  the HAB, this will be their main task.
+
+  Assuming a steady-flow of work and integration the HAB could be launched in the fall semester of 2017. To meet this launch date,
+  the team will need to work over the summer at least on the avionics. Theoretically, if the avionics team could finish over the summer semester
+  the mechanical engineers could work on the integration for the remainder of the semester. This is an optimal path. Leaving this much time
+  for the mechancial engineers to integrate everything, work out the errors, and perform sufficient stress testing.
+  Schedule slip can be accounted for if the team begins working in July. If the project is not started until the fall it is unlikely the SPEX HAB
+  team will be able to finish all the stages of the project in time for a october/november launch.
+
+  Assuming optimal path,
+
+  July: Avionics will figure out all the necessary equipement and receive them by the end of the month
+
+  August: Avionics will begin designing how the HAB will collect the data; Structures will begin the theory on optimal sensor placement
+  and other component placement
+
+  September: Avionics will continue working on the data collection; Structures will setup the HAB bus for the sensor placement and will
+  install the camera
+
+  October: Avionics will end there work and then Structures /& Avionics will work together to integrate the sensors; Structures will conduct
+  simple and easy HAB stress testing to ensure mechanical securement of all systems; Launch (if time permits)
+
+  November: Launch
+\section{Externalities}
+\begin{help}
+  Things not directly related to the work or outcomes, but related to the project as a whole.
+\end{help}
+
+\subsection{Prerequisite Skills}
+\begin{help}
+  Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+\end{help}
+  The team members are expected to have experience when working on this project with previous HAB launches and failures. This is not a
+  massive undertaking to gain this experience if the member is brand-new. It will simply consist of speaking to a couple members about
+  their experience with HAB launches so the member can rudimentarily understand the complications that can occur in HAB launches and also
+  the complexity. There are no massive requirements for a new member. Most of the necessary skills will be taught /& learnt on the job.
+
+\subsection{Funding Requirements}
+\begin{help}
+  Estimate costs that would be needed to meet objectives.
+\end{help}
+  The costs are mostly unknown. The avionics members should be able to make a cost estimate at the end of july when the sensors are in delivery.
+  The most expensive part of this mission will be the avionics for accurate data collection. There will be the same costs for helium and no special
+  requirement for balloon size, a 1200 $cm^3$ balloon should be sufficient.
+\subsection{Faculty Support}
+\begin{help}
+  Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+\end{help}
+  There will need to be limited faculty involvement in the building and design process if not any at all. However, in preperation for launch
+  the SPEX HAB team will need Dr.Patru to contact the FAA and request launch permission on an appropriate timescale before the launch.
+  James Stefano should also help communicate with local HAM radio operators to locate the balloon once it has landed. The local HAM
+  operators are a big help in this sense. There will not be any other faculty involvement.
+\subsection{Long-Term Vision}
+\label{sec:vision}
+  The long-term vision of this project is create a very detailed document outlining the conditions and the forces that the HAB payload
+  is subjected to throughout flight and to distribute this map to other HAB teams to aid in their design process. This will be great for
+  SPEX outreach and will give SPEX a good reputation for HAB operators and community involvement.
+
+\section*{Acknowledgements}
+The author would like to thank Dr.~Bill Destler for being an exemplary human.
+
+\end{document}
