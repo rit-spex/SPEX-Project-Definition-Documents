@@ -46,7 +46,7 @@ You need to submit it for review so we can make it the best that it can be. This
 ### My bibliography won't show up!
 * Make sure you've created a `.bib` file and it's properly formatted! There are examples in the COPY_THIS folder. [sample-formats.bib](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-formats.bib) [sample-with-examples](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-with-examples.bib)
 * Have you made any citations? Whenever you reference an external work such as a textbook or research paper, you must use the `\cite{your-reference}` command to insert a citation. No matter how many references you have in your `.bib` file, LaTeX only shows the ones you have cited.
-* Are you telling LaTeX to make you bibliography? Insert the following commands after your acknowledgements and before your appendix:
+* Are you telling LaTeX to make the bibliography? Insert the following commands after your acknowledgements and before your appendix:
 ```tex
 \bibliographystyle{IEEEtran}
 \bibliography{YOUR-BIB}
