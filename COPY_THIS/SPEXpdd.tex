@@ -18,21 +18,15 @@
 
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
-% enable placeholder text generator
-\usepackage{blindtext}
-% enable toolbox for embedding figures and pictures
-\usepackage{graphicx}
-% enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
-\usepackage{nomencl}
-% enable package for easily formatting units
-\usepackage{siunitx}
-% enable package for cross-referencing figures, sections, references etc.
+\usepackage{blindtext} % enable placeholder text generator
+\usepackage{graphicx} % enable toolbox for embedding figures and pictures
+\usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+\usepackage{siunitx} % enable package for easily formatting units
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
 % how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
-\usepackage{hyperref}
-% change text encoding to make it more crisp
-\usepackage[T1]{fontenc}
-% enable conditionals for help text
-\usepackage{etoolbox}
+\usepackage[T1]{fontenc} % change text encoding to make it more crisp
+\usepackage{etoolbox} % enable conditionals for help text
+\usepackage{booktabs} % make beautiful tables!
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -130,10 +124,10 @@
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{PDD}{Project Design Document}
 % Below are examples of using nomenclature for math symbols and constants or units
-% \nomenclature{$\dot{m}$}{Mass flow rate
-%   \nomunit{\,\si{\kilo\gram\per\second}}}
-% \nomenclature{$c$}{Speed of light
-%  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
+\nomenclature{$\dot{m}$}{Mass flow rate
+  \nomunit{\,\si{\kilo\gram\per\second}}}
+\nomenclature{$c$}{Speed of light
+ \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 \printnomenclature{}
 
 
@@ -174,6 +168,32 @@ The ultimate goal of a PDD is to capture all ideas (including ones that are beyo
 % \label{sec:secondary-obj}
 % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
 
+\autoref{tab:long-example} lists a the relative level of detail expected of the documents written at each stage of a project's life.
+
+\begin{table*}
+% this table is too wide for the two-column format, so we let it expand across both columns
+% we haven't told LaTeX where to put this so it'll find the best place.
+    \caption{Relative detail expected at each stage of project development.}
+    \centering
+    \begin{tabular}{@{}llcc@{}}
+        % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+        \toprule % line on top external edge of table
+        % Separate cells in a row with &, move to the next row with \\
+        Document & Purpose & Contributors & Destination \\
+        \midrule % line separating two internal rows
+        Project Definition Document & To define the goals and requirements of a SPEX project. & 2--3 people & SPEX Archive \\
+        Project Plans & Specific plans for when work is to be done (Gantt charts) & 2--3 people & Project Repository \\
+        Design Reviews & To review designs before work is started. & 6--8 people & Project Repository \\
+        Test Procedures & Specific instructions and data logs for tests. & 3--4 people & Project Repository \\
+        User Manual & Instructions for future users of project deliverabels. & 3--4 people & Project Repository \\
+        Posters \& Presentations & Materials for sharing projects with the public. & 5--6 people & Project Repository \\
+        Technical Report & Final technical summary of work done and results. & 6 or more & SPEX Archive, Conferences \& Journals \\
+        % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
+        \bottomrule
+    \end{tabular}
+\label{tab:long-example}
+\end{table*}
+
 \section{Benefit to SPEX}
 \label{sec:benefit}
 % One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
@@ -203,9 +223,9 @@ This prevents blockers such as feature creep, rabbit holes, and spun tires, and 
   % Note below that LaTeX uses weird formatting when it comes to quotation marks.
   % The style below is correct to display forward quotes `` at the start of the phrase and backquotes '' at the end.
 
-Having a ``plug-and-play'' template is the first step to learning how to one's own SPP\@.
+Having a ``plug-and-play'' template is the first step to learning how to one's own PDD\@.
 It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
-\LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word.
+\LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word~\cite{lamp94}.
 
 \section{Implementation}
 \label{sec:implementation}
@@ -235,6 +255,35 @@ Deadlines and milestones provide clear goals from which timelines and schedules 
 Early on, these milestones include design reviews on system and subsystem levels.
 Later, milestones are usually important tests or experiments.
 Events such as ImagineRIT may also serve as milestones to mark a project's development progress or completion.
+
+A notional timeline is shown in \autoref{tab:short-example}.
+
+\begin{table}[hb!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Notional timeline of Project Milestones.}
+    \centering
+    \begin{tabular}{@{}cll@{}}
+    % the letters here ^^^^ designate the columns.
+    % (l=left align, c=center, r=right align)
+    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+    % so cells butt up right against the edge
+    \toprule
+    Phase & Task & Duration \\
+    \midrule
+    1 & Review existing designs and materials & 2 weeks or less\\
+    2 & Subsystem development & 6 weeks \\
+      & Order PCB design and/or assembly & 6 weeks \\
+      & Review changes and order materials & 2 weeks or less\\
+      & Testing of individual subsystems & 2 weeks \\
+    3 & System assembly & 1 week  \\
+    4 & System testing & 2 weeks  \\
+    5 & Generate documentation and delivery to SPEX & 1 week  \\
+    \bottomrule
+    \end{tabular}
+\label{tab:short-example}
+\end{table}
 
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
@@ -266,6 +315,9 @@ Perhaps Project Design Document could eventually get published, in a journal or 
 
 \section*{Acknowledgements}
 The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+
+\bibliographystyle{IEEEtran}
+\bibliography{sample-with-examples}
 
 \onecolumn
 \appendices{}
