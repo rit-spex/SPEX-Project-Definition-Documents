@@ -27,3 +27,46 @@ In the ideal project life cycle, a PDD defines a set of objectives or deliverabl
 
 ## Note
 This LaTeX template uses [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html).
+
+# FAQ
+### How to LaTeX?
+[LaTeX Quickstart Tutorial](LaTeX-Quickstart-Tutorial) ☕️
+
+### How to LaTeX on PC?
+[Setting up your computer to work with LaTeX](Setting-up-your-computer-to-work-with-LaTeX) ☕️ 👌
+
+### How do I make a PDD from this template?
+[Read this tutorial!](Creating-a-PDD-from-the-Template)
+Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
+Don't forget to assign reviewers!
+
+### I wrote my PDD. Now what?
+You need to submit it for review so we can make it the best that it can be. This is also covered in the [the tutorial](Creating-a-PDD-from-the-Template#make-a-new-pull-request-pr) as well.
+
+### My bibliography won't show up!
+* Make sure you've created a `.bib` file and it's properly formatted! There are examples in the COPY_THIS folder. [sample-formats.bib](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-formats.bib) [sample-with-examples](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-with-examples.bib)
+* Have you made any citations? Whenever you reference an external work such as a textbook or research paper, you must use the `\cite{your-reference}` command to insert a citation. No matter how many references you have in your `.bib` file, LaTeX only shows the ones you have cited.
+* Are you telling LaTeX to make you bibliography? Insert the following commands after your acknowledgements and before your appendix:
+```tex
+\bibliographystyle{IEEEtran}
+\bibliography{YOUR-BIB}
+``` 
+(in this example, I have a file called `YOUR-BIB.bib` in the same directory as my `.TeX` file.)
+
+### How do I make nice looking tables?
+I'm so glad you asked! [Here's a great style guide to effective and beautiful LaTeX tables](https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf).
+
+The package `booktabs` is highly recommended. Its usage is also described in the style guide.
+
+### Why is my linter yelling at me over periods and dashes?
+Because it matters!
+* `-` (hyphen), `--` (en-dash) and `---` (em-dash) are actually different characters and have different uses.
+    * Hyphens (`-`) are used for word breaks and hyphenated words like "noise-canceling headphones." Don't worry about this one too much. LaTeX automatically hyphenates word breaks and there's no real "proper" rule for hyphenating words.
+    * En-dashes (`--`) are used to delineate ranges like "1991--1995" or "2--3 weeks." Looks goofy in code, but really nice in print.
+    * Em-dashes (`---`) are used to place things like interjections---an uncommon grammar device in research papers---in among other parts of a sentence.
+    * More info: https://tex.stackexchange.com/questions/3819/dashes-vs-vs
+* Spacing is actually handled differently with periods that appear between letters of an abbreviation, after a word like "etc.", or, of course, at the end of a sentence. There are only a couple special cases to worry about, and even then this is only the "proper" usage (but it's optional).
+    * [READ THIS FIRST](https://tex.stackexchange.com/questions/99543/exhaustive-list-of-use-cases-for-the-interword-space).
+    * Non-breaking space (`~`) - This is used when you don't want two words to be separated if LaTeX wants to push one of them to a new line. It will appear as a space in text, but `these~words` will be handled like one "chunk." Use this one in between first and last names, or between titles and names like `Dr.~John~Smith`
+    * Interword space (`\ `) - The Guide to LaTeX (4e) states that \␣ is a "[n]ormal space between words after a command without arguments or after a period that is not the end of a sentence" (p. 467).
+    * Intersentence space (`\@`) - [Read this](https://tex.stackexchange.com/questions/55105/when-should-i-use-intersentence-spacing/55112#55112).
