@@ -1,22 +1,3 @@
-%% *************************************************************************
-%%
-%% This is an RIT Space Exploration Standard defining guidelines for content
-%% and formatting of project design documents.
-%%
-%% This document uses IEEEtran.cls, the official IEEE LaTeX class
-%% for authors of the Institute of Electrical and Electronics Engineers
-%% (IEEE) Transactions journals and conferences.
-%%
-%% *************************************************************************
-
-%% *************************************************************************
-% LaTeX REFERENCES
-% ----------------
-%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
-%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
-%% *************************************************************************
-
-% tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
 % enable placeholder text generator
 \usepackage{blindtext}
@@ -38,10 +19,9 @@
 
 \usepackage{array}
 
-\usepackage{biblatex}
+\usepackage{booktabs}
 
-\addbibreasource{CGT-PDD.bib}
-
+\usepackage{tabularx}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -131,12 +111,12 @@
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{CGT}{Cold Gas Thruster}
 \nomenclature{RCS}{Reaction Control System}
-\nomenclature{$I_{sp}$}{Specific Impulse \nomunit{\,\si{s}}}
-\nomenclature{$I_t$}{Total Impulse \nomunit{\,\si{Ns}}}
-\nomenclature{$g_0$}{Standard gravity \nomunit{\,\si{$ms^{-2}$}}}
-\nomenclature{$m_p$}{Propellant Mass \nomunit{\,\si{kg}}}
-\nomenclature{$t_f$}{Final time \nomunit{\,\si{s}}}
-\nomenclature{$t_i$}{Initial time \nomunit{\,\si{s}}}
+\nomenclature{$I_{sp}$}{Specific Impulse \nomunit{\,\si{\second}}}
+\nomenclature{$I_t$}{Total Impulse \nomunit{\,\si{\newton\second}}}
+\nomenclature{$g_0$}{Standard gravity \nomunit{\,\si{\meter\per\second\squared}}}
+\nomenclature{$m_p$}{Propellant Mass \nomunit{\,\si{\kilo\gram}}}
+\nomenclature{$t_f$}{Final time\nomunit{\,\si{\second}}}
+\nomenclature{$t_i$}{Initial time \nomunit{\,\si{\second}}}
 %\nomenclature{\gamma}{Specific Heat Ratio}
 % Below are examples of using nomenclature for math symbols and constants or units
 % \nomenclature{$\dot{m}$}{Mass flow rate
@@ -170,17 +150,17 @@ layer effects are dominant, but also to achieve an specific impulse of 50s. Usin
 calculated numerically using MATLAB\@. The data will be transferred and analyzed there using the following equations as a basis\cite{SPAD}.
 
 
-\begin{equation} \label{specific impulse}
+\begin{equation} \label{total-impulse}
   I_t    = \int_{t_i}^{t_f} F_{thrust} dt
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=\linewidth]{figs/cold-gas-thruster.png}
   \caption{The Solidworks Assembly of the Spring 2017 design of the SPEX cold gas thruster. The piping from the solenoid to the nozzle is omitted for clarity.}
 \label{fig:lifecycle}
 \end{figure}
 
-\begin{equation} \label{specific impulse}
+\begin{equation} \label{specific-impulse}
   I_s = \frac{I_t}{m_p g_0}
 \end{equation}
 
@@ -266,13 +246,13 @@ the mass flow under various ambient conditions and temperatures. The propulsion 
 specific impulse. It will also concern the expansion of the flow, as the maximum thrust will occur when the exit pressure equals the ambient pressure and thus the shocks
 in the flow will expand optimally. This will be observed through schlieren lensing, as it has been performed before during nozzle testing. This was performed in the Spring 2017
 semester for flow visualization. The procedure was; turn the lights off, put the nozzle on the air hose, put a white piece of paper on a table, put it parallel to the table, initiate the cold burn, use a phone light
-to project the flow onto the white paper below it. Then distance between the nozzle and the light and the table were toggled until the best focus point was found. \autoref{fig: nozzle shocks}
+to project the flow onto the white paper below it. Then distance between the nozzle and the light and the table were toggled until the best focus point was found. \autoref{fig: nozzle-shocks}
 shows the exiting flow from a 3D printed nozzle.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=\linewidth]{figs/nozzle-shocks[2].png}
   \caption{The flow is seen here exiting a small 3D printed supersonic nozzle. The procedure was not unlike schlieren lensing, however the clarity was much lower.}
-  \label{fig: nozzle-shocks}
+\label{fig: nozzle-shocks}
 \end{figure}
 
 \subsection{Milestones}
@@ -280,7 +260,7 @@ shows the exiting flow from a 3D printed nozzle.
   % Be as detailed as you can, but it's okay if there are unknowns.
   % At the very least, specify how many semester you expect the project to take until it reaches completion.
 
-There is a preliminary plan for the semester that is displayed in further detail in \autoref{table: fall-plan}. The following list will display the description and timing
+There is a preliminary plan for the semester that is displayed in further detail in \autoref{tab:fall-plan}. The following list will display the description and timing
 of the different phases; design, sanity tests, experimentation, and data analysis.
 
 \subsubsection{Design Phase}
@@ -289,7 +269,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     there will be a full system CAD model and a series of CAD nozzles to be fabricated. This CAD model is essential for the next phase, as the fabrication
     will use it as a guide (inlcuding drawings for machinists).
 
-    \textit{Projected Duration: 2-3 weeks}
+    \textit{Projected Duration: 2--3 weeks}
 
 \subsubsection{Build \& Preliminary Test Phase}
 \label{subsubsec: sanity test phase}
@@ -299,7 +279,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
     it will be tested at component-level then tested at system-level. This is to ensure there are no catastrophic problems during the experiment.
     There will be no data collected during this phase.
 
-    \textit{Projected Duration: 3-5 weeks}
+    \textit{Projected Duration: 3--5 weeks}
 
 \subsubsection{Experimentation}
 \label{subsubsec:experimentation}
@@ -310,7 +290,7 @@ of the different phases; design, sanity tests, experimentation, and data analysi
      The data will be averaged for each chamber pressure and then plotted against the nozzle area ratio. Then a tenth-order polynomial
     will be fit to the curve and used to determine a first-order approximation of the nozzle area ratio for future cold gas propulsion systems.
 
-    \textit{Projected Duration: 2-3 weeks}
+    \textit{Projected Duration: 2--3 weeks}
 
 \subsubsection{Data Analysis}
 \label{subsubsec: data analysis}
@@ -342,7 +322,7 @@ work together, basic nozzle theory, computer-aided design (CAD), basic electrica
 be most qualified for satisifing these requirements are mechanical engineering \& technology and electrical engineering \& technology. But this project is certainly
 open to all majors because most of these skills can be taught in at least a basic manner.
 
-The basic nozzle theory required here can be adequately learned by reading the introductory chapters of "Rocket Propulsion Elements" by Sutton\cite{RPE}. Chapter 1 through 4 will
+The basic nozzle theory required here can be adequately learned by reading the introductory chapters of \textit{Rocket Propulsion Elements} by Sutton\cite{RPE}. Chapter 1 through 4 will
 provide a sufficient basis of understanding for this project.
 
  The CAD software of choice is Solidworks. It is very common for industry and has all the features that the team
@@ -370,21 +350,24 @@ the consquentical estimated cost is put at \$600 for the entirty of the project.
 the most expensive parts that the team will need to purchase for the propulsion system, these parts are worst-case scenario in cost and measures will be taken to
 try to alleviate these costs.
 
-\begin{center}
-`\begin{tabular}{ c c c }
-  %\hline
-  \multicolumn{3}{ c }{\textbf{Propulsion Part List}} \\
-  \hline
-  Part & Cost & McMaster Part \# \\
-  %\hline
-  Tank & \$ 131.35 & 7822A11 \\
-  %\hline
-  Regulator & \$ 182.50 & 49305K21 \\
-  %\hline
-  Solenoid & \$ 100.49 & 4711K511 \\
-  %\hline
- \end{tabular}
-\end{center}
+\begin{table}
+  \centering
+  \begin{tabularx}{\columnwidth}{@{}cXc@{}cXc@{}}
+
+    \multicolumn{3}{ c }{\textbf{Propulsion System Part List}} \\ \toprule
+
+    Part & Cost & McMaster Part \# \\ \midrule
+
+    Tank & \$ 131.35 & 7822A11 \\
+
+    Regulator & \$ 182.50 & 49305K21 \\
+
+    Solenoid & \$ 100.49 & 4711K511 \\
+
+    \bottomrule
+  \end{tabularx}
+\label{tab:propulsion-part-list}
+\end{table}
 
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
@@ -422,94 +405,97 @@ There are benefits to aerospikes but there are also disadvantages. The advantage
 ambient pressure over a larger region and therefore can produce more thrust. However, the disadvantages are increased thermal loading and high design and fabrication complexity\cite{SPAD}.
 
 \section*{Acknowledgements}
-The author would like to thank Dr. Garrick and Dr. Olles for their help in understanding the theory of nozzles and the review of the system before testing.
+The author would like to thank Dr.\ Garrick and Dr.\ Olles for their help in understanding the theory of nozzles and the review of the system before testing.
 
 
 \onecolumn
 \appendices{}
+
 \section{\textbf{Detailed Fall Timeline}}
-\centering
-\begin{tabular}{ c l }
-  Week \# & Plan \\
-  \hline
-  1 & Introductions \& Fall plan discussion \\
+\begin{table}[ht]
+  \centering
+  \begin{tabularx}{\columnwidth}{@{}cXl@{}cXl@{}} \toprule
+    Week \# & Plan \\
+    \midrule
+    1 & Introductions \& Fall plan discussion \\
 
-  2 & Beginner Project: Supersonic Nozzle Design  \\
-  & Design Phase: Test stand \\
+    2 & Beginner Project: Supersonic Nozzle Design  \\
+    & Design Phase: Test stand \\
 
-  3 & Beginner Project: Nozzle Printing and Testing on weekend \\
-  & Design Phase: Propulsion System \\
+    3 & Beginner Project: Nozzle Printing and Testing on weekend \\
+    & Design Phase: Propulsion System \\
 
-  4 & Design Phase: Propulsion System \\
+    4 & Design Phase: Propulsion System \\
 
-  5 & Design Phase: Arduino and MATLAB design \\
+    5 & Design Phase: Arduino and MATLAB design \\
 
-  6 & Design Phase: Arduino and MATLAB design \\
+    6 & Design Phase: Arduino and MATLAB design \\
 
-  7 & Fabrication Phase: Material order and making Solidworks drawings\\
+    7 & Fabrication Phase: Material order and making Solidworks drawings\\
 
-  8 & Fabrication Phase: Machining \\
+    8 & Fabrication Phase: Machining \\
 
-  9 & Fabrication Phase: Machining and assembly \\
+    9 & Fabrication Phase: Machining and assembly \\
 
-  10 & Experimentation Phase: Test 1 \\
+    10 & Experimentation Phase: Test 1 \\
 
-  11 & Experimentation Phase: Test 2 \\
+    11 & Experimentation Phase: Test 2 \\
 
-  12 & Data Analysis Phase: Data Organization \\
+    12 & Data Analysis Phase: Data Organization \\
 
-  13 & Data Analysis Phase: Noise and error analysis \\
+    13 & Data Analysis Phase: Noise and error analysis \\
 
-  14 & Data Analysis Phase: Performance Analysis \\
+    14 & Data Analysis Phase: Performance Analysis \\
 
-  15 & Project Culmination Report writing \\
+    15 & Project Culmination Report writing \\
 
-  16 & Project Culmination Report finalization \\
-
-\end{tabular}
-\label{table: fall-plan}
-
-\newpage
-\section{\textbf{Cold Gas Thruster Preliminary Bill of Materials}}
-
-\centering
-\begin{tabular}{ l c c c c c }
-  %\hline
-  %\multicolumn{6}{|c|}{Cold Gas Thruster Bill of Materials} \\
-  \hline
-  Part & Cost & Quantity & Vendor & Part Number & Status \\
-  \hline
-  Tank & \$131.35 & 1 & McMaster Carr & 7822A11 & Not acquired \\
-  %\hline
-  Regulator & \$182.50 & 1 & McMaster Carr & 49305K21 & Not acquired \\
-  %\hline
-  Solenoid & \$100.49 & 1 & McMaster Carr & 4711K511 & Not acquired \\
-  %\hline
-  Push-to-connect fitting & \$4.33 & 2 & McMaster Carr & 5779K116 & Not acquired \\
-  %\hline
-  Aluminum Pipe & \$2.45 & 2 & McMaster Carr & 50785K172 & Not acquired \\
-  %\hline
-  Nylon Pipe & \$8.90 & 1 & McMaster Carr & 5548K77 & Not acquired \\
-%  \hline
-  Aluminum Sheet & \$7.00 & 1 & McMaster Carr & 8975K596 & Acquired \\
-  %\hline
-  Aluminum T-Slot & \$6.49 & 7 & McMaster Carr & 47065T101 & Acquired \\
-  %\hline
-  T-Slot Corner Frame & \$7.98 & 10 & McMaster Carr & 5537T51 & Acquired \\
-  %\hline
-  T-Slot Length Frame & \$5.66 & 4 & McMaster Carr & 47065T235 & Acquired \\
-  %\hline
-  \#8 Socket Head Cap Screws & \$6.58 & 1 [100] & McMaster Carr & 92196A194 & Acquired \\
-  %\hline
-  Arduino & \$10.00 & 1 & RIT Construct & Unknown & Not Acquired \\
-  \hline
-  Grand Total & \$608.25 &&&& \\
-  %\hline
-\end{tabular}
-
-\bibliography{CGT-PDD.bib}
+    16 & Project Culmination Report finalization \\
+    \bottomrule
+  \end{tabularx}
+\label{tab:fall-plan}
+\end{table}
 
 \newpage
-\printbibliography
+\section{\textbf{Bill of Materials}}
+\begin{table}[ht]
+  %\caption{Cold Gas Thruster Bill of Materials}
+  \centering
+  \begin{tabularx}{\columnwidth}{@{}lXc@{}cXc@{}cXc@{}} \toprule
+
+    Part & Cost & Quantity & Vendor & Part Number & Status \\ \midrule
+
+    Tank & \$131.35 & 1 & McMaster Carr & 7822A11 & Not acquired \\
+    %\hline
+    Regulator & \$182.50 & 1 & McMaster Carr & 49305K21 & Not acquired \\
+    %\hline
+    Solenoid & \$100.49 & 1 & McMaster Carr & 4711K511 & Not acquired \\
+    %\hline
+    Push-to-connect fitting & \$4.33 & 2 & McMaster Carr & 5779K116 & Not acquired \\
+    %\hline
+    Aluminum Pipe & \$2.45 & 2 & McMaster Carr & 50785K172 & Not acquired \\
+    %\hline
+    Nylon Pipe & \$8.90 & 1 & McMaster Carr & 5548K77 & Not acquired \\
+  %  \hline
+    Aluminum Sheet & \$7.00 & 1 & McMaster Carr & 8975K596 & Acquired \\
+    %\hline
+    Aluminum T-Slot & \$6.49 & 7 & McMaster Carr & 47065T101 & Acquired \\
+    %\hline
+    T-Slot Corner Frame & \$7.98 & 10 & McMaster Carr & 5537T51 & Acquired \\
+    %\hline
+    T-Slot Length Frame & \$5.66 & 4 & McMaster Carr & 47065T235 & Acquired \\
+    %\hline
+    \#8 Socket Head Cap Screws & \$6.58 & 1 [100] & McMaster Carr & 92196A194 & Acquired \\
+    %\hline
+    Arduino & \$10.00 & 1 & RIT Construct & Unknown & Not Acquired \\
+    \midrule
+    Grand Total & \$608.25 &&&& \\
+    \bottomrule
+    %\hline
+  \end{tabularx}
+\label{tab:CGT-part-list}
+\end{table}
+
+\bibliographystyle{IEEEtran}
+\bibliography{CGT-PDD}
 
 \end{document}
