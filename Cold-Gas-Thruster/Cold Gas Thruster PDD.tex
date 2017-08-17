@@ -69,8 +69,8 @@
   %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
 % page header for pages other than cover page
-\markboth{Project Design Document Standard}%
-{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+\markboth{Design \& Implementation of a Cold Gas Thruster}%
+{Parkus \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
 \begin{document}
@@ -406,9 +406,10 @@ ambient pressure over a larger region and therefore can produce more thrust. How
 
 \section*{Acknowledgements}
 The author would like to thank Dr.\ Garrick and Dr.\ Olles for their help in understanding the theory of nozzles and the review of the system before testing and
-Phil Lindin and T.J. Tarazevits for creating the PDD process and making it as easy as possible and for their continued help.
+Phil Linden and T.J. Tarazevits for creating the PDD process and making it as easy as possible and for their continued help.
 
-
+\bibliographystyle{IEEEtran}
+\bibliography{CGT-PDD}
 
 \onecolumn
 \appendices{}
@@ -496,8 +497,5 @@ Phil Lindin and T.J. Tarazevits for creating the PDD process and making it as ea
   \end{tabularx}
 \label{tab:CGT-part-list}
 \end{table}
-
-\bibliographystyle{IEEEtran}
-\bibliography{CGT-PDD}
 
 \end{document}
