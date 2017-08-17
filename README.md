@@ -30,18 +30,18 @@ This LaTeX template uses [the IEEE Conference Proceedings LaTeX formatting templ
 
 # FAQ
 ### How to LaTeX?
-[LaTeX Quickstart Tutorial](LaTeX-Quickstart-Tutorial) ☕️
+[LaTeX Quickstart Tutorial](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/LaTeX-Quickstart-Tutorial) ☕️
 
 ### How to LaTeX on PC?
-[Setting up your computer to work with LaTeX](Setting-up-your-computer-to-work-with-LaTeX) ☕️ 👌
+[Setting up your computer to work with LaTeX](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Setting-up-your-computer-to-work-with-LaTeX) ☕️ 👌
 
 ### How do I make a PDD from this template?
-[Read this tutorial!](Creating-a-PDD-from-the-Template)
+[Read this tutorial!](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template)
 Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
 Don't forget to assign reviewers!
 
 ### I wrote my PDD. Now what?
-You need to submit it for review so we can make it the best that it can be. This is also covered in the [the tutorial](Creating-a-PDD-from-the-Template#make-a-new-pull-request-pr) as well.
+You need to submit it for review so we can make it the best that it can be. This is also covered in the [the tutorial](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template#make-a-new-pull-request-pr) as well.
 
 ### My bibliography won't show up!
 * Make sure you've created a `.bib` file and it's properly formatted! There are examples in the COPY_THIS folder. [sample-formats.bib](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-formats.bib) [sample-with-examples](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-with-examples.bib)
@@ -50,7 +50,7 @@ You need to submit it for review so we can make it the best that it can be. This
 ```tex
 \bibliographystyle{IEEEtran}
 \bibliography{YOUR-BIB}
-``` 
+```
 (in this example, I have a file called `YOUR-BIB.bib` in the same directory as my `.TeX` file.)
 
 ### How do I make nice looking tables?
