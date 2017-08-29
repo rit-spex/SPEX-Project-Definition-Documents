@@ -27,7 +27,7 @@
 
 \makenomenclature{}
 
-\title{RIT Space Exploration Project Design Document Standard Format and Sample Content}
+\title{Microhab}
 
 
 \author {
@@ -99,7 +99,12 @@
   % The introduction is a place to give background and context before diving into the subject matter.
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
-\IEEEPARstart{T}{raditional} HAB launches are very expensive for the SPEX team.
+\IEEEPARstart{S}{pex} has launched 3 High Altitude Balloons (HABs) to date.  The
+motivate for a launch is to educate students on engineering, test experiments in
+a near space-like environment, and to have fun. The HAB team within Spex aims to
+launch a balloon at the end of every full semester.
+
+Traditional HAB launches are very expensive for the SPEX team.
 A large 1200g balloon can cost, at a minimum, over 125USD.  Helium tank fills,
 which these launches require a full fill, can cost over 200USD. These two costs
 are a definite non-reusable resource. An avionics package consisting of COTS
@@ -107,11 +112,6 @@ Arduino, breakout sensors, and a large battery pack can easily add up to over
 90USD. The avionics hardware can be reused but every launch should be assumed a
 one time only use of hardware due to high risks of losing the payload.
 
-Microhab will reduce the costs of these three large costs that make frequent HAB
-launches unaffordable for undergraduate research. A smaller, simpler, more
-focused payload will result in cheaper avionics hardware costs. A lighter
-payload also doesn't require such a large balloon, enabling a cheaper, smaller
-balloon and orders of magnitude less helium use per launch.
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -120,20 +120,26 @@ balloon and orders of magnitude less helium use per launch.
   % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
+Microhab will reduce the magnitude of these three large costs that make frequent HAB
+launches unaffordable for undergraduate research. A smaller, simpler, more
+focused payload will result in cheaper avionics hardware costs. A lighter
+payload also doesn't require such a large balloon, enabling a cheaper, smaller
+balloon and orders of magnitude less helium use per launch.
 
-The SPEX Standard defines format and style guidelines for project documentation. The Project Design Document Standard controls these guidelines as applicable to young, exploratory ideas.
-
-The ultimate goal of a PDD is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
-  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
-\label{fig:lifecycle}
-\end{figure}
-
-% \section{Secondary Objectives}
-% \label{sec:secondary-obj}
+\section{Secondary Objectives}
+\label{sec:secondary-obj}
 % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+Educational benefit is a very large secondary objective of Microhab.  This
+project shall be designed to be engineered in a fashion that teaches both
+established senior members and new greenhorn SPEX members alike.
+
+Electrical hardware design is a skill that many members have shown a desire to
+pick up. Design of the PCB shall be simplistic and incorporate a few different
+important skills for engineering in the electrical hardware domain.
+
+Embedded software is another useful skill that many students in the Computing
+skill aren't taught formally. Arduino development and embedded C software
+engineering skills will be obtained from writing code for the avionics board.
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
@@ -142,32 +148,31 @@ The ultimate goal of a PDD is to capture all ideas (including ones that are beyo
 % In this section, explain how the project would benefit SPEX members as students,
 % space enthusiasts, and young professionals.
 
-By writing design documents and familiarizing undergraduate and graduate students from any discipline with this type of approach and execution, SPEX members will be better equipped convey their ideas to others in a methodical and organized manner.
-Ideally, an abundance of ideas and projects encapsulated in PDDs would outlive their respective authors and continue to sustain SPEX with valuable research opportunities invariant of individual members' absences due to co-ops or graduations.
-Perhaps in the future, SPEX design documents may be used as baselines for grant applications and other funded research efforts.
+Each of the objectives grant their own benefit to SPEX.  Cheaper launch costs
+allow for more SPEX funding to be allocated to other projects while not
+sacrificing the quality of HAB launches significantly.
 
+Educational benefit, while not the primary benefit, could be the largest
+benefit.  PCB design has always been a very in demand with low supply skill.
+Embedded software is required for almost every large project. Arduino software
+design is a great stepping stone for software oriented people into the world of
+embedded. Avionics design in C would be the final transition, from Arduino into
+the real world application of embedded software.
 
 % Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
-
-\subsection{Mindset}
-\label{subsec:mindset}
-Firstly, it gets people in the right mindset for thinking about what is important and what needs to be considered before taking off on a project.
-Publishing a PDD imbues a sense of formality that hopefully makes its way into the level of seriousness and merit that is desirable for SPEX to pursue.
-
-\subsection{Traceability}
-\label{subsec:traceability}
-Similarly, a PDD serves to provide the foundation for traceability in requirements and objectives to projects as they grow and change.
-This prevents blockers such as feature creep, rabbit holes, and spun tires, and hopefully prevents good projects from dying by getting too off track.
 
 \subsection{Accessibility}
 \label{subsec:plug-n-play}
   % Note below that LaTeX uses weird formatting when it comes to quotation marks.
   % The style below is correct to display forward quotes `` at the start of the phrase and backquotes '' at the end.
 
-Having a ``plug-and-play'' template is the first step to learning how to one's own SPP\@.
-It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
-\LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word.
+In regards to the software half, Arduino is a very approachable language.  There
+is a vast amount of libraries out there already for interfacing with ancillary
+hardware such as sensors or memory. The C portion to come at a later date (or in
+parallel) will be quite a bit more difficult; it requires a ton of datasheet
+reading, innovative code (not taking from examples), and customizing toolchains.
 
+PCB design accessibility
 \section{Implementation}
 \label{sec:implementation}
   % What path do you anticipate the project to take?
@@ -231,10 +236,5 @@ The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being ex
 \onecolumn
 \appendices{}
 \section{Project Life Cycle}
-\begin{figure}[h]
-  \centering
-  \includegraphics[]{figs/project-life-cycle.png}
-  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
-\end{figure}
 
 \end{document}
