@@ -17,6 +17,7 @@
 %% *************************************************************************
 
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage[euler]{textgreek}
 \usepackage{blindtext}
 \usepackage{graphicx}
 \usepackage{nomencl}
@@ -24,10 +25,9 @@
 \usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage{etoolbox}
-
 \makenomenclature{}
 
-\title{Microhab}
+\title{\textmu{}Hab}
 
 
 \author {
@@ -42,7 +42,7 @@
   }
 }
 % page header for pages other than cover page
-\markboth{Microhab}%
+\markboth{\textmu{}hab}%
 {Bodzas \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
@@ -62,7 +62,7 @@
       % What is the goal?
       % Why is it worth my time?
       % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
-    A project definition for the Microhab project.  Microhab is the term the
+    A project definition for the \textmu{}Hab project.  \textmu{}Hab is the term the
     HAB team has been using to describe a smaller balloon and payload than is
     typically used by the group (1200 grams). However, this project expands upon
     the term with the main goal of minimizing costs that go into building and
@@ -72,14 +72,7 @@
 \label{sec:nomenclature}
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-\renewcommand{\nompreamble}{
-    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
-    % The two lines below make it look nice when defining units/values to constants.
-
-    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-    % Read more about advanced nomenclature formatting here:\\
-    % \url{https://www.sharelatex.com/learn/Nomenclatures}
-  }
+\renewcommand{\nompreamble}{}
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{PDD}{Project Design Document}
@@ -120,7 +113,7 @@ one time only use of hardware due to high risks of losing the payload.
   % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
-Microhab will reduce the magnitude of these three large costs that make frequent HAB
+\textmu{}Hab will reduce the magnitude of these three large costs that make frequent HAB
 launches unaffordable for undergraduate research. A smaller, simpler, more
 focused payload will result in cheaper avionics hardware costs. A lighter
 payload also doesn't require such a large balloon, enabling a cheaper, smaller
@@ -129,7 +122,7 @@ balloon and orders of magnitude less helium use per launch.
 \section{Secondary Objectives}
 \label{sec:secondary-obj}
 % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
-Educational benefit is a very large secondary objective of Microhab.  This
+Educational benefit is a very large secondary objective of \textmu{}Hab.  This
 project shall be designed to be engineered in a fashion that teaches both
 established senior members and new greenhorn SPEX members alike.
 
@@ -148,7 +141,7 @@ engineering skills will be obtained from writing code for the avionics board.
 % In this section, explain how the project would benefit SPEX members as students,
 % space enthusiasts, and young professionals.
 
-Each of the objectives grant their own benefit to SPEX.  Cheaper launch costs
+Each of the objectives grant their own benefit to SPEX.\@ Cheaper launch costs
 allow for more SPEX funding to be allocated to other projects while not
 sacrificing the quality of HAB launches significantly.
 
@@ -172,7 +165,12 @@ hardware such as sensors or memory. The C portion to come at a later date (or in
 parallel) will be quite a bit more difficult; it requires a ton of datasheet
 reading, innovative code (not taking from examples), and customizing toolchains.
 
-PCB design accessibility
+PCB design accessibility is a lot more restricted. Members that have had PCB
+design classes (4th-5th year Electrical Engineers) or have experience from co-op
+will be able to contribute to the design.
+
+
+
 \section{Implementation}
 \label{sec:implementation}
   % What path do you anticipate the project to take?
@@ -188,20 +186,45 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 \label{subsec:deliverables}
   % When all is said and done, what will you have to show for it?
   % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
-Physical or intellectual property may constitute a project's deliverables.
-Test articles, test stands, and other hardware, software, as well as posters, presentations or other reports are all valid deliverables.
-Not all deliverables may be known at the time of writing a PDD, but at least several key deliverables should be identified at the start of a project.
-This helps guide the final outcome and is a fundamental part of a project's life cycle.
+\begin{itemize}
+    \item Bill of Materials for Hardware
+    \item PCB schematics
+    \item Arduino software source files
+    \item C software source files
+    \item Fully assembled balloon, parachute, and payload
+\end{itemize}
 
 \subsection{Milestones}
 \label{subsec:milestones}
   % Be as detailed as you can, but it's okay if there are unknowns.
   % At the very least, specify how many semester you expect the project to take until it reaches completion.
-Deadlines and milestones provide clear goals from which timelines and schedules may be developed, and also set up a project for a series of ``sanity checks'' along the project's development cycle.
-Early on, these milestones include design reviews on system and subsystem levels.
-Later, milestones are usually important tests or experiments.
-Events such as ImagineRIT may also serve as milestones to mark a project's development progress or completion.
+\subsubsection*{Electrical}
+\begin{itemize}
+    \item 2 weeks --- PCB design
+    \item 1 week --- PCB reviews
+    \item 1 week --- Order hardware
+    \item 1 week --- PCB assembly
+    \item 1 week --- PCB testing
+\end{itemize}
 
+\subsubsection*{Arduino software}
+\begin{itemize}
+    \item 1 week --- gather libraries needed
+    \item 1 week --- plan out software design and flow
+    \item 2 weeks --- write software
+    \item 1 week --- test software
+    \item 1 week --- neaten up software
+\end{itemize}
+
+\subsubsection*{C software}
+\begin{itemize}
+    \item 1 week - prepare standard development environment
+    \item 1 week - plan out software design and flow
+    \item 4 weeks - create drivers
+    \item 8 weeks - write software
+    \item 2 weeks - test software
+    \item 1 week - neaten up software
+\end{itemize}
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
