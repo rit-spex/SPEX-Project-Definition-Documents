@@ -27,7 +27,7 @@
 \makenomenclature{}
 
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
-\title{Design \& Implementation of a Cold Gas Thruster}
+\title{Cold Gas Propulsion Analysis and Design}
 
 
 \author{
@@ -224,15 +224,13 @@ The deliverables of this project will be split into to two sections, physical an
 The propulsion system will include a regulator, a solenoid, a tank, a nozzle, piping, and the interfaces all connected in a series.
 The test stand will include the t-slot frame with the tank frame. They will be made entirely of aluminum. Aluminum is a great material for its balance of strength, machinability, and
 weight. Steel is very difficult and hardous to machine and is very heavy, although its strength is greater than aluminum. Plastics are tedious to machine as they tend to melt to the cutting
-blade and that casues the machining to stop frequently to clean off the blade. The propulsion has a very large pressure drop and this will cause a large temperature drop. A plastic structure will
+blade and that casues the machining to stop frequently to clean off the blade. A plastic structure will
 effected greatly by this and will harden to the point where fracture could occur very easily. The interfaces between the
 aluminum parts will also be included. This consists of the various t-slot connections and the bolts and washers that connect the aluminum sheets.
 
 There will also be an arduino connected to a computer that will use Simulink for data acquisition. The arduino will be a conduit to relay the data from the load cell
 to Simulink. There will also be an arduino to control the use of the solenoid. The solenoid will be activated from the Simulink program, which will coincide with
 the beginning of data acquisition.
-
-The system will also be displayed at Imagine RIT 2018. This will include a full poster and data representation.
 
 \subsubsection{Non-physical Deliverables}
 \label{subsubsec: non-physical deliverables}
@@ -242,12 +240,11 @@ results. These results include the expected performance versus the test performa
 propulsion system performance. The structural performance is a section that discusses the reasoning behind the initial design and any problems
 that were found during testing. The problems to be avoided will be, unecessary frictional loss due to bad connection points or instability of the test stand due to
 bad interfacing between structural components. The propulsion system performance will be very similar to this except it will focus on slightly different aspects, such as
-the mass flow under various ambient conditions and temperatures. The propulsion performance will mostly be measured through the data analysis. This effects the
-specific impulse. It will also concern the expansion of the flow, as the maximum thrust will occur when the exit pressure equals the ambient pressure and thus the shocks
+the mass flow under various ambient conditions and temperatures. The propulsion performance will be determined by data analysis. The specific impulse is a performance
+characteristic that will be calculated and optimized through testing. It will also concern the expansion of the flow, as the maximum thrust will occur when the exit pressure equals the ambient pressure and thus the shocks
 in the flow will expand optimally. This will be observed through schlieren lensing, as it has been performed before during nozzle testing. This was performed in the Spring 2017
-semester for flow visualization. The procedure was; turn the lights off, put the nozzle on the air hose, put a white piece of paper on a table, put it parallel to the table, initiate the cold burn, use a phone light
-to project the flow onto the white paper below it. Then distance between the nozzle and the light and the table were toggled until the best focus point was found. \autoref{fig: nozzle-shocks}
-shows the exiting flow from a 3D printed nozzle.
+semester for flow visualization. The distance between the nozzle and the light and the table were toggled until the best focus point was found. \autoref{fig: nozzle-shocks}
+shows the exiting flow from a 3D printed nozzle. The system will be displayed at Imagine RIT 2018. This will include a full poster and data representation.
 
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{figs/nozzle-shocks[2].png}
@@ -266,8 +263,8 @@ of the different phases; design, sanity tests, experimentation, and data analysi
 \subsubsection{Design Phase}
 \label{subsubsec: design phase}
     The goals are to design the propulsion system, the test stand, the nozzle. At the end of this phase
-    there will be a full system CAD model and a series of CAD nozzles to be fabricated. This CAD model is essential for the next phase, as the fabrication
-    will use it as a guide (inlcuding drawings for machinists).
+    there will be a full system CAD model and a series of nozzles. This CAD model is essential for the next phase, as the fabrication
+    will use it as a guide (including drawings for machinists).
 
     \textit{Projected Duration: 2--3 weeks}
 
@@ -295,14 +292,14 @@ of the different phases; design, sanity tests, experimentation, and data analysi
 \subsubsection{Data Analysis}
 \label{subsubsec: data analysis}
     This phase is concerned with the analysis of the data collected from the CGT testing. The polynomial approximation will be completed during this
-    phase for the minimum length nozzle. It is also the phase where the performance analysis takes place. This will inlcude the ultimate calculation of the specific impulse
-    of the thuster and if it attains the values we need to achieve the necessary velocity change for orbital decay to initiate atmospheric reentry.
+    phase for the minimum length nozzle. It is also the phase where the performance analysis takes place. The calculation of the specific impulse is a very important
+    performance characteristic that will ultimately determine whether or not the system achieves optimization.
 
     \textit{Projected Duration: 3 weeks}
 
 \subsubsection{Final Report}
 \label{subsubsec: final report}
-    At the end of this project a final report will be made to report the outcome. It will outline the design process, fabrication process, and testing process.
+    The project will conclude with the production of a final report. It will outline the design process, fabrication process, and testing process.
     It will also include the nozzle theory used in the calculations along with all the relevant assumptions and exterior information as needed. The report will provide
     all the test data and data analysis results. The final product for the report will be the discussion of the polynomial curve-fit. This will be an extremely useful tool
     for future similar cold gas propulsion systems and must be discussed in depth with an example of how it will be used.
@@ -325,16 +322,15 @@ open to all majors because most of these skills can be taught in at least a basi
 The basic nozzle theory required here can be adequately learned by reading the introductory chapters of \textit{Rocket Propulsion Elements} by Sutton\cite{RPE}. Chapter 1 through 4 will
 provide a sufficient basis of understanding for this project.
 
- The CAD software of choice is Solidworks. It is very common for industry and has all the features that the team
-will need throughout the process. The education edition also includes the simulation premium package that can allow the team to run flow simulations if needed. The procedure for
-doing this is complicated but can be learned to a basic degree on YouTube.
+The CAD software of choice is Solidworks. It is very common for industry and has all the features that the team
+will need throughout the process. The education edition also includes the simulation premium package that can allow the team to run flow simulations if needed.
 
-The basic electrical engineering including setting up and arduino or raspberry pi to read out the data from the load cell and turning the solenoid on and off. It
+Basic circuits knowledge will be required to setup the load cell and solenoid to the microcontroller. It
 should not be difficult for a first year or second year EE or EET to set this up. If it proves to be difficult, the team can each out to older students or professors for assistance.
 Dr.\ Patru would certainly be a great resource for this kind of help.
 
 The basic coding abilites include writing a MATLAB script to analyze and plot data. MATLAB is easy to learn and is very powerful. It is a very common choice for data analysis for mechancial engineering
-projects where the core skill set is not computer science. This is not hard for anyone who has coded before.
+projects where the core skill set is not computer science.
 
 The machining will be the most difficult to learn if there are no MEs or METs that have taken the proper courses. Machining can be extremely dangerous and cannot be done
 without the proper safety training. If no one is trained on the machines one can ask a machinist to make simple parts or submit a job at the Earl Brickman Machine Tools and Manufacturing Lab.
@@ -343,12 +339,8 @@ so it does not interfere with the projects timeline.
 
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
-Fortunately, most of the materials for the test stand have been purchased. This eliminates much of the system cost. The most costly part of the project
-will be the propulsion system (the regulator, solenoid, nozzle, piping, and interfaces). A preliminary budget that includes margin for cost overruns is \$600.
-The total cost was approximately \$450. That would be the last part of the system needed before testing can occur. Accounting for unforseen cost then rounding upwards,
-the consquentical estimated cost is put at \$600 for the entirty of the project. A bill of materials is displayed in Appendix B. The table, displayed below, outlines
-the most expensive parts that the team will need to purchase for the propulsion system, these parts are worst-case scenario in cost and measures will be taken to
-try to alleviate these costs.
+The estimated cost for the project is approximately \$450. However, to cover unexpected costs a \$600 budget is optimal. This will allow some leway in the mechanical
+design. If a part must be totally redesigned and the material must be purchased. This budget will be sufficient for the project.
 
 \begin{table}
   \centering
@@ -372,18 +364,16 @@ try to alleviate these costs.
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
   % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-Facculty support will be necessary. The SPEX propulsion team has consulted faculty about structure and flow system concerns and made the suggested changes. However, the propulsion system
-has not been tested. It is likely that faculty assistance will be necessary to get the propulsion to a functional stage. This would most likely inlcude the design of an optimally expanding
+Faculty support will be necessary. The SPEX propulsion team has consulted faculty about structure and flow system concerns and made the suggested changes. However, the propulsion system
+has not been tested. It is likely that faculty assistance will be necessary to get the propulsion system to a functional stage. This would most likely include the design of an optimally expanding
 nozzle. Faculty support was needed during the endevour to fabricate the structure and design the flow system.
-This included the flow system and how it operates. Dr.\ Garrick, MET department head, assisted the team in the design of the flow system and pointed out unnecessary components, such
-as the flow straightener. He said that the flow was at such a high reynolds number that straightening it in the size constraints is impossible with our budget.
-There may be some assistance required if the nozzle performance is far below nominal, but guessing from past work it will not be a problem. This would concern the nozzle design.
-Nozzle design is very difficult for the necessary size for the CGT, about 1 inch in length and 0.5 inches in diameter. Boundary layer effects are dominent. To accurately design them
+This included the flow system and how it operates.
+There may be some assistance required if the nozzle performance is far below nominal, but guessing from past work it will not be a problem. The past nozzles have achieved
+near optimal expansion. Nozzle design is very difficult for the necessary size for the CGT, about 1 inch in length and 0.5 inches in diameter. Boundary layer effects are dominent. To accurately design them
 on a computer would include high level numerical smulation which beyond the team's skill set. If there are recurring problems here, Dr.\ Olles can be consulted as he has experience with this.
 There may also be the need for assistance during the data analysis phase or if the team chooses to perform flow simulations. But it will be a small amount of help.
 
-If assistance is needed for the data analysis, Dr.\ Olles would be a good professor to ask. He has a PhD in rocket science
-so he could certainly help.
+If assistance is needed for the data analysis, Dr.\ Olles would be a good professor to ask. He has a PhD in rocket propulsion engineering.
 \subsection{Long-Term Vision}
 \label{sec:vision}
 
@@ -391,14 +381,8 @@ The long term vision of this project is to be a building block to the next phase
 spring of 2016 by James Parkus, relies on a space propulsion system. It is the reason the SPEX propulsion subsystem was formed. Thus, it is natural for the
 CGT to assist in the furthering of this project. The main conern for CREST was the propulsion necessary to de-orbit quickly enough that SPEX can determine its entry location and therefore estimate its landing location.
 
-This project will also be great for
-the members to put on their resume. At the end of this project a detailed document will be made which outlines the most important aspects of the project.
-Then the RCS will build off the momentum created by this project. And the understanding of space propulsion inside SPEX will continue to grow and flourish.
-
-Once the CGT is complete, the team can move onto the next phase of space propulsion research. This is the RCS\@. Reaction control systems are used very
-frequently in space propulsion and attitude adjustment systems as well as rockets. Building an RCS is difficult. But if the team
-has prior experience with cold gas propulsion, their job becomes significantly easier. The team can refer back to their data for the determination of the
-appropriate nozzle characteristics.
+Cold gas propulsion is the main constiuent of reaction control systems. Because of the low thrust and basic theory, they are commonly used to the keep space vehicles or rockets oriented
+in specific directions. A natural continuation of the Cold Gas Propulsion Analysis and Design project would be to integrate the system into a more relatistic setting, such as an RCS\@.
 
 After the culmination of the cold gas thruster project, the team can try to design, fabricate, and test an aerospike nozzle, only if time permits.
 There are benefits to aerospikes but there are also disadvantages. The advantages are concerned with the region of optimal expansion. The aerospike nozzle can match the
