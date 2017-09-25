@@ -152,7 +152,7 @@ The competing rockets are typically seen with a diameter of 4 to 8 inches, a len
 feet depending on whether or not the competing team opts to enroll into the basic or advanced category. The Space Dynamics Laboratory sponsors a separate competition at the
 Spaceport America Cup called the SDL Payload Challenge where scientific payloads integrated into the IREC rockets are judged based on criteria such as scientific relevance and technical execution.
 
-The RIT Space Exploration team is a student-faculty research organization dedicated to giving students the opportunity to gain hands-on expereience by working with space systems.
+The RIT Space Exploration team is a student-faculty research organization dedicated to giving students the opportunity to gain hands-on experience by working with space systems.
 By cooperating with Launch Initiative, SPEX would like to enter IREC in the basic category. LI will provide the rocket body and the rocket engine while SPEX will focus on the
 integrated scientific payload with the intent of competing in the SDL payload challenge.
 
@@ -242,7 +242,7 @@ score based on importance to the selection process:
 
   \item \textbf{Weight (5 pts)}
   \begin{itemize}
-    \item Will it be easy to meet the 8.8lbs minimum requirement while also not being too heavy?
+    \item Will it be easy to meet the 8.8lbs minimum requirement?
   \end{itemize}
 
   \item \textbf{Programmability (5 pts)}
@@ -268,11 +268,11 @@ follow a traditional cubesat standard. It is estimated that a 3U (10cm x 10cm x 
 On the self-diagnostics side, data gathered from the rocket and the payload will be written to nonvolaltile
 memory as well as transmitted to a receiving ground station. The data gathered within the payload includes linear acceleration, angular rate, magnetic field detection,
 temperature, absolute barometric pressure, GPS information, pressure within the landing balloons, and a variety of analog measurements from the circuit itself. Other data
-gathered from the rocket includes vibration, mechanical strain, and a potential for engine data such as fuel consumption depending on the engine selected for use by LI.
+gathered from the rocket includes vibration, mechanical strain, and a potential for engine data depending on the engine selected for use by LI.
 
-During apogee at 10,000 feet, Hyperion will separate from the rocket and fall back to Earth. At a sufficient altitude, Hyperion will electrically open valves that
-control the flow of CO2 from compressed canisters to inflate the balloons before striking the ground with a designed force of 500 Joules. This relatively low impact force
-will allow for proof of concept without subjecting the payload to unnecessary stresses.
+During apogee at 10,000 feet, Hyperion will separate from the rocket and fall back to Earth with a controlled descent from a parachute. At a sufficient altitude, Hyperion will
+electrically open valves that control the flow of CO2 from compressed canisters to inflate the balloons before striking the ground with a designed energy. These designed impact
+conditions will allow for proof of concept without subjecting the payload to unnecessary stresses.
 
 \subsection{Timeline}
 \label{subsec:Timeline}
@@ -284,8 +284,8 @@ suggest that it will be held during late June. The timeline is as follows:
 \begin{itemize}
   \item September 1st: Begin narrowing down payload ideas using a decision matrix based on the SDL Payload Challenge scoring rubric
   \item September 8th: Decide on the specific payload and make a plan of action for research and design
-  \item September 30th: Present a preliminary design with estimates for size, cost, and weight
-  \item November 1st: Mechanical design and delivery to LI. No changes to the external frame can be made after this point
+  \item October 1st: Present a preliminary design with estimates for size, cost, and weight
+  \item November 1st: Mechanical design delivery to LI. No changes to the external frame can be made after this point
   \item Semester's End: Final hardware design completed and materials ordered
   \item April 1st: Integration testing of rocket and payload
   \item April/May: Test launch of rocket and payload
@@ -302,12 +302,10 @@ used for manufacturing, programming, integration, testing, and characterization.
 \label{subsec:Deliverables}
   % When all is said and done, what will you have to show for it?
   % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
-The first deliverable is the preliminary design and bill of materials with a corresponding estimate of size, weight, and
-cost. If it is found that additional funds need to be raised, then the preliminary design can be used in fundraising requests
-so that businesses and investors know that sufficient research and development has already been put into the project. After the
-preliminary designs, the next deliverable is the final external dimensions and interfaces so that LI can proceed with their
-construction of the rocket. Finally, the actual payload will need to be delivered by the competition date although it will be provided
-much earlier than that due to the necessity of integration and testing.
+In order to be compliant with the SDL Payload Challenge requirements, a poster is needed as part of the judging criteria.
+Other deliverables for this project include the open-source technical documentation such as circuit schematics, CAD drawings,
+and embedded software. The final deliverable is a functioning payload module conforming to the IREC SDL payload challenge
+standard with accompanying ground station hardware and operating documentation.
 
 \section{Externalities}
 \label{subsec:Externalities}
@@ -322,8 +320,8 @@ There will also need to be individuals proficient in electronic design, specific
 These members are responsible for sensor selection and implementation, power regulation, and maintaining electrical connections
 between each part of the payload. Individuals proficient in programming will be required for embedded systems design, ground-station processing,
 and the overarching communication network that is needed to meet the goals of the project.  Finally, there will need to be some individuals
-who are willing to ensure that each subsystem is compatible and properly interfaced. These indiduals will be responsible for communicating with
-the separate LI team and acting as a resource to those designing the hardware and software.
+who are willing to fill the role of system engineers who will be responsible for communicating with the separate LI team and acting as a resource
+to those designing the hardware and software.
 
 \subsection{Funding Requirements}
 \label{subsec:Funding Requirements}
@@ -331,7 +329,7 @@ the separate LI team and acting as a resource to those designing the hardware an
 Although the preliminary design has not yet been completed, component selection has already begun and estimates for total cost have been
 gathered. The high-level cost breakdown assessment is as follows:
 \begin{itemize}
-  \item \textbf{Mechanical Construction}
+  \item \textbf{Mechanical Construction - 950}
   \begin{itemize}
     \item Aluminum - 200
     \item Kevlar - 60
@@ -343,22 +341,24 @@ gathered. The high-level cost breakdown assessment is as follows:
     \item Miscellaneous - 30
   \end{itemize}
 
-  \item \textbf{Electrical}
+  \item \textbf{Electrical - 320}
   \begin{itemize}
     \item Sensors - 220
     \item PCBs - 40
     \item Other Components - 60
   \end{itemize}
 
-  \item \textbf{Communications}
+  \item \textbf{Communications - 180}
   \begin{itemize}
     \item Radios - 100
-    \item Antennas - 40
+    \item Antennas - 80
   \end{itemize}
+
+  \item \textbf{Total - 1450}
 \end{itemize}
 
-Although these numbers are preliminary, a realistic estimate of total cost is roughly 1,500 dollars. The SPEX internal budget has allocated 500 dollars
-towards this project. The remaining 1,000 needs to come from external sources. One such potential source is the Students for the Exploration and Development
+Although these numbers are preliminary, a realistic estimate of total cost with an included margin is roughly 1,700 dollars. The SPEX internal budget has allocated 500 dollars
+towards this project. The remaining funds need to come from external sources. One such potential source is the Students for the Exploration and Development
 of Space (SEDS) non-profit which has grants available for participating chapters. If additional sources are needed, the preliminary designs and this
 project definition document will be used in a fundraising campaign to reach out to local individuals and businesses.
 
