@@ -1,7 +1,7 @@
 %% *************************************************************************
 %%
-%% This is an RIT Space Exploration Standard defining guidelines for content
-%% and formatting of project design documents.
+%% This is a derivative work of the RIT Space Exploration Standard defining
+%% guidelines for content and formatting of project design documents.
 %%
 %% This document uses IEEEtran.cls, the official IEEE LaTeX class
 %% for authors of the Institute of Electrical and Electronics Engineers
@@ -9,14 +9,6 @@
 %%
 %% *************************************************************************
 
-%% *************************************************************************
-% LaTeX REFERENCES
-% ----------------
-%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
-%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
-%% *************************************************************************
-
-% tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
 \usepackage{blindtext} % enable placeholder text generator
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
@@ -28,25 +20,12 @@
 \usepackage{etoolbox} % enable conditionals for help text
 \usepackage{booktabs} % make beautiful tables!
 
-% initialize nomenclature package
-% \makenomenclature{}
-
-% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{Vegetation Density Mapping with Computer Vision Techniques using On-Board Image Processing}
 
-
 \author{
-  % List the authors of the design document. The Champion should go first.
-  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
-  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
-  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
-  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
-  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
-  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
-  %   Here, we use the IEEE long-form author block.
-  \IEEEauthorblockN{% This block is for author Names.
+   \IEEEauthorblockN{% This block is for author Names.
     Jeff~Maggio\IEEEauthorrefmark{1},
-    Philip~Linden\IEEEauthorrefmark{2}, 
+    Philip~Linden\IEEEauthorrefmark{2},
     T.J.~Tarazevits\IEEEauthorrefmark{3}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
@@ -57,81 +36,41 @@
     \IEEEauthorrefmark{2}pjl7651@rit.edu,
     \IEEEauthorrefmark{3}tjt3085@rit.edu
   }
-  %%   Below, we use the short-form author block and basically hack it to suit our needs.
-  % Philip~Linden$^{*\dagger}$%
-  %   \thanks{$^{*}$Project Champion}%
-  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
-  % Austin~Bodzas$^{\ddagger}$%
-  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
-  % Drew~Walters$^{\S}$%
-  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
-  % T.J.~Tarazevits$^{**}$%
-  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
-
-  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
-  %% the recommended order for symbolic footnotes is
-  %%   (1) asterisk        *   *
-  %%   (2) dagger          †   \dagger
-  %%   (3) double dagger   ‡   \ddagger
-  %%   (4) section symbol  §   \S
-  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
-  %%   Note that these symbol codes work in math mode and text mode.
-  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
 % page header for pages other than cover page
 \markboth{Vegetation Density Mapping with Computer Vision}%
 {Maggio \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
-% Initial setup is over, start building the document itself
 \begin{document}
 \maketitle%
 % correct bad hyphenation here, separated by spaces
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  A standard format for Project Design Documents is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
-  The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
-  Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
-  Project Design Documents aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
-  A standard for project design documents and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
+    Advanced on-board image processing is a foundational component of a wide range of future space science and Earth observation missions.
+    Extending these techniques to include computer vision opens the door to even more opportunities for science.
+    It is critical to develop these techniques on low-cost, consumer hardware platforms so that the missions need not require expensive, specialized systems for every experiment.
+    Demonstrating these systems are themselves opportunities for science as well.
 \end{abstract}
 
-% \label{sec:nomenclature}
-% \newcommand{\nomunit}[1]{%
-% \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-% \renewcommand{\nompreamble}{
-%     % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
-%     % The two lines below make it look nice when defining units/values to constants.
-% 
-%     % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-%     % Read more about advanced nomenclature formatting here:\\
-%     % \url{https://www.sharelatex.com/learn/Nomenclatures}
-%   }
-% \nomenclature{RIT}{Rochester Institute of Technology}
-% \nomenclature{SPEX}{RIT Space Exploration}
-% \nomenclature{PDD}{Project Design Document}
-% % Below are examples of using nomenclature for math symbols and constants or units
-% \nomenclature{$\dot{m}$}{Mass flow rate
-%   \nomunit{\,\si{\kilo\gram\per\second}}}
-% \nomenclature{$c$}{Speed of light
-%  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
-% \printnomenclature{}
-
-
-% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
-
-% The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
 \label{sec:introduction}
   % The introduction is a place to give background and context before diving into the subject matter.
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
-\IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing Project Design Documents as easy and painless as possible.
-Writing documentation such as design documents and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
-In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
-For example, when applying to a grant from a scientific foundation, receiving funding to continue research impinges on how the motives and techniques of a research group resonate with the goals and objectives of the foundation.
+\IEEEPARstart{I}{mage} processing has long been a critical element of Earth observation and space science.
+In recent years, the capabilities of inexpensive consumer electronics and computers have reached a point where advanced image processing can be performed on-board with lightweight, low-power computers.
+This has opened the door for low-cost, rapid development experiment payloads and platforms such as high altitude balloons, drones, and small satellites.
+Usually these platforms have limited communications bandwidth, so on-board processing may be used to significantly reduce the amount of data transferred back to ground without losing the information that the images contain.
 
-In the case of SPEX, a PDD carries value in the act of documenting ideas and effectively communicating them with others within and external to RIT Space Exploration.
+Computer vision (CV) is defined as the automatic extraction, analysis and understanding of useful information from a single image or a sequence of images.
+CV is the realm between image processing and computer science where useful information is identified, extracted, and interpreted from images without human input.
+In addition to edge detection and other transforms applied to the pixel arrays directly, deeper and more abstract algorithms to interpret the contents of the images continue to mature in the field of machine learning.
+These algorithms are trained, or iteratively tuned with a large set of data, to classify objects or cluster multivariate data from an arbitrary set of inputs.
+
+Naturally, any implementation of image processing or CV for space science must be tested in a flight setting.
+As this technilogy is developed, all tests are themselves opportunities for science.
+This Project Definition Document considers the logistics of this development in addition to discussing a number of experiments that may be conducted as tests or end-user applications of on-board image processing and computer vision with low-cost, consumer electronics.
 
 \section{Primary Objective}
 \label{sec:primary-obj}
