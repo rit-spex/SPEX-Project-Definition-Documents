@@ -20,7 +20,7 @@
 \usepackage{etoolbox} % enable conditionals for help text
 \usepackage{booktabs} % make beautiful tables!
 
-\title{Vegetation Density Mapping with Computer Vision Techniques using On-Board Image Processing}
+\title{Vegetation Density Mapping and Other Experiments with Computer Vision Techniques using On-Board Image Processing}
 
 \author{
    \IEEEauthorblockN{% This block is for author Names.
@@ -80,19 +80,18 @@ This Project Definition Document considers the logistics of this development in 
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
 
-The SPEX Standard defines format and style guidelines for project documentation. The Project Design Document Standard controls these guidelines as applicable to young, exploratory ideas.
+The ideal result of developing robust image processing and computer vision techniques on flight electronics is a payload module for a high altitude balloon, small satellite or other flight system which is capable of reducing a video or image stream into a stream of processed useful information which can be relayed back to a ground station or efficiently saved to system memory.
 
-The ultimate goal of a PDD is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
+While it is obvious that more powerful (and more expensive) electronics are capable of more advanced processing, the goal of this project is to push the limits of what entry-level hardware is capable of.
+This way, software development takes the lead over hardware development.
+Since software can be reused between flights, loss of mission is not critical with low-cost flight electronics.
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
-  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
-\label{fig:lifecycle}
-\end{figure}
-
-% \section{Secondary Objectives}
-% \label{sec:secondary-obj}
-% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+\section{Secondary Objectives}
+\label{sec:secondary-obj}
+Second to generalized platform development for an imaging and computer vision payload module is the science that payload would actually conduct.
+Every flight is a new opportunity to collect data, perform an experiment, or demonstrate new technology.
+Every module test will have a science goal in addition to any technology advancement goals.
+Specific experiment ideas are discussed in \autoref{sec:payloads}.
 
 \autoref{tab:long-example} lists a the relative level of detail expected of the documents written at each stage of a project's life.
 
@@ -151,7 +150,7 @@ This prevents blockers such as feature creep, rabbit holes, and spun tires, and 
 
 Having a ``plug-and-play'' template is the first step to learning how to one's own PDD\@.
 It removes a major barrier of starting from scratch, providing example content to which one could refer when creating their own.
-\LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word~\cite{lamp94}.
+\LaTeX{} may prove to be daunting for some people, but it is arguably better to encourage people to learn LaTeX than to rely on something like Microsoft Word.
 
 \section{Implementation}
 \label{sec:implementation}
@@ -182,7 +181,7 @@ Early on, these milestones include design reviews on system and subsystem levels
 Later, milestones are usually important tests or experiments.
 Events such as ImagineRIT may also serve as milestones to mark a project's development progress or completion.
 
-A notional timeline is shown in \autoref{tab:short-example}.
+A notional timeline is shown in .
 
 \begin{table}[hb!]
     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
@@ -239,19 +238,20 @@ As SPEX student members get more experience writing these papers, the group will
 Knowledge will be preserved and easily shared.
 Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
 
+\section{Applications and Experiments}
+\label{sec:payloads}
+Vegetation density and NDVI. Mapping with gps data. morphological transformations to apply images to spatial coordinates. object tracking. scene (biome) identification. stereo 3d ground mapping and photometry.
+
+as an instrument: horizon detection. star tracking.
+
 \section*{Acknowledgements}
-The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+The authors would like to thank all contributors to the Python open source community, especially the authors of the OpenCV and Numpy libraries.
 
 \bibliographystyle{IEEEtran}
 \bibliography{sample-with-examples}
 
 \onecolumn
 \appendices{}
-\section{Project Life Cycle}
-\begin{figure}[h]
-  \centering
-  \includegraphics[]{figs/project-life-cycle.png}
-  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
-\end{figure}
+
 
 \end{document}
