@@ -244,16 +244,24 @@ The following experiments are some initial ideas for experiments using on-board 
 
 \subsection{WUAP: where u at plants?}
 \label{subsec:wuap}
-Vegetation density and NDVI. Mapping density with gps data.
+Raspberry Pi camera modules, one with and one without a near-infrared filter, are mounted to the ground-facing side of a HAB payload module.
+During flight, many color and near-IR images of the Earth are collected and may be used as training data for future computer vision algorithms.
+In flight, the visible-color frames are used to generate a binary mask from all ``green'' colors in each frame to identify areas of vegetation.
+Post-flight, the visible and near-IR images are aligned and used to find the Normalized Difference Vegetation Index (NDVI)\cite{nasa:ndvi} in each frame.
+The vegetation color masks are cross referenced with the NDVI results to create a vegetation density map.
+
+A machine learning algorithm may be trained to estimate vegetation density from visible light images using the visible image frames as the training data and NDVI results as truth values.
+This way, the algorithm could be used as a computer vision method of estimating vegetation density without an infrared imager.
 
 \subsection{WTFbiome: Wayfinding TransFormations and Biome identification}
 \label{subsec:wtfbiome}
-scene (biome) identification.
-morphological transformations to apply images to spatial coordinates.
+Morphological transformations are applied to images of the Earth using 3D spatial instrument data collected in-flight on a HAB and aligned with open source map data.
+Using the transformed images as training data and the map data as truth, a machine learning algorithm is trained to identify biomes or urban areas from visible light aerial images.
 
 \subsection{SUP: Stereo groUnd mapping and Photometry}
 \label{subsec:sup}
-stereo 3d ground mapping and photometry.
+With two camera modules facing the same direction, stereo image data is transformed into 3D coordinates or distance measurements.
+Distance data is used to create 3D photometric models of the scene or used to estimate altitude.
 
 \subsection{PIP: Passive Instrument Payload}
 \label{subsec:pip}
@@ -263,7 +271,7 @@ as an instrument: horizon detection. star tracking.
 The authors would like to thank all contributors to the Python open source community, especially the authors of the OpenCV and Numpy libraries, and all contributors to Stack Overflow.
 
 \bibliographystyle{IEEEtran}
-\bibliography{sample-with-examples}
+\bibliography{hab-cv.bib}
 
 \onecolumn
 \appendices{}
