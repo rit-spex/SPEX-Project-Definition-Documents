@@ -24,22 +24,22 @@
 
 \author{
    \IEEEauthorblockN{% This block is for author Names.
-    Jeff~Maggio\IEEEauthorrefmark{1},
-    Philip~Linden\IEEEauthorrefmark{2},
+    Philip~Linden\IEEEauthorrefmark{1},
+    Jeff~Maggio\IEEEauthorrefmark{2},
     T.J.~Tarazevits\IEEEauthorrefmark{3}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
     RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
     Rochester, N.Y. \\
     Email:
-    \IEEEauthorrefmark{1}jxm9264.rit.edu,
-    \IEEEauthorrefmark{2}pjl7651@rit.edu,
+    \IEEEauthorrefmark{1}pjl7651@rit.edu,
+    \IEEEauthorrefmark{2}jxm9264.rit.edu,
     \IEEEauthorrefmark{3}tjt3085@rit.edu
   }
 }
 % page header for pages other than cover page
-\markboth{Vegetation Density Mapping with Computer Vision}%
-{Maggio \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+\markboth{On-board Image Processing \& Computer Vision}%
+{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 \begin{document}
 \maketitle%
@@ -151,7 +151,12 @@ In terms of software, computer vision and image processing requires a moderate f
 \section{Implementation}
 \label{sec:implementation}
   % What path do you anticipate the project to take?
-
+This project will build off of work that's already been done by the RIT SPEX high-altitude balloon (HAB) team.
+First, simple data collection will be developed and flown along with basic image processing (see \autoref{subsec:wuap}).
+Once stable video processing is tested and a large dataset of images has been collected, more advanced computer vision techniques can be developed on the ground.
+These advanced methods may later be optimized for low-cost hardware and tested as a primary or secondary payload on future HAB flights.
+As this cycle of development repeats, more and more advanced image processing and comuter vision algorithms may require higher performance hardware.
+This is a natural progression, but the spirit of pushing to achieve the most out of the hardware available and keeping hardware costs low must be upheld.
 
 
 \subsection{Deliverables}
@@ -159,12 +164,23 @@ In terms of software, computer vision and image processing requires a moderate f
   % When all is said and done, what will you have to show for it?
   % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
 
+  % \begin{table}[hb]
+  %     \caption{Deliverables}
+  %     \label{tab:deliverables}
+  %     \begin{tabular}{@{}ll@{}}
+  %         \toprule
+  %         Experiment-specific source code & Open sourced \\
+  %         Experiment-specific approach documentation & Archived document \\
+  %         Experiment-specific results documentation & Archived document \\
+  %         Convenience \& utility scripts & Open sourced \\
+  %         \bottomrule
+  %     \end{tabular}
+  % \end{table}
 
 \subsection{Milestones}
 \label{subsec:milestones}
   % Be as detailed as you can, but it's okay if there are unknowns.
   % At the very least, specify how many semester you expect the project to take until it reaches completion.
-
 
 % \begin{table}[hb!]
 %     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
@@ -172,7 +188,7 @@ In terms of software, computer vision and image processing requires a moderate f
 %     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
 %     \caption{Notional timeline of Project Milestones.}
 %     \centering
-%     \begin{tabular}{@{}cll@{}}
+%     \begin{tabularx}{@{}cll@{}}
 %     % the letters here ^^^^ designate the columns.
 %     % (l=left align, c=center, r=right align)
 %     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
@@ -189,7 +205,7 @@ In terms of software, computer vision and image processing requires a moderate f
 %     4 & System testing & 2 weeks  \\
 %     5 & Generate documentation and delivery to SPEX & 1 week  \\
 %     \bottomrule
-%     \end{tabular}
+% \end{tabularx}
 % \label{tab:short-example}
 % \end{table}
 
@@ -197,12 +213,17 @@ In terms of software, computer vision and image processing requires a moderate f
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
   % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
-
+ This project is best suited for SPEX student members and alumni with at least some programming experience in Python or C++, and novice-level familiarity with using terminal commands.
+ Some familiarity with image processing or imaging science is preferred, but is not required.
+ There are plenty of online and university resources available for newbies to get up to speed on image processing, computer vision, machine learning, and programming with some effort.
 
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
 Since the premise of this project is developing robust systems on low-cost consumer electronics, funding requirements are marginal compared to other hardware-centric projects and missions.
 For example, a Raspberry Pi 3, camera module, SD memory card, and barrty pack can be purchased for about $\$100$, and the hardware may be reused in almost any other SPEX project.
+
+Since machine learning and computer vision are at the forefront of technology at this time, ``cool'' experiments like these may lend themselves easily toward outreach and in turn building relationships with companies in the industry.
+There may be opportunities to receive in-kind donations such as software licenses (e.g.~Matlab) or hardware (e.g.~Raspberry Pi, Nvidia).
 
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
@@ -213,21 +234,29 @@ And, of course, all of the objectives of this project are directly applicable to
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
-
+This project is intentionally broad.
+By keeping the focus on pushing the limits of hardware and doing science at every opportunity, it is easy to imagine an imaging payload on every HAB launch for the foreseeable future.
+Likewise, imaging experiments make for some of the simplest and most versatile small satellite payloads --- perfect for a student-faculty research group striving to do space science like SPEX.
 
 \section{Applications and Experiments}
 \label{sec:payloads}
+The following experiments are some initial ideas for experiments using on-board image processing and computer vision.
+
 \subsection{WUAP: where u at plants?}
+\label{subsec:wuap}
 Vegetation density and NDVI. Mapping density with gps data.
 
 \subsection{WTFbiome: Wayfinding TransFormations and Biome identification}
+\label{subsec:wtfbiome}
 scene (biome) identification.
 morphological transformations to apply images to spatial coordinates.
 
 \subsection{SUP: Stereo groUnd mapping and Photometry}
+\label{subsec:sup}
 stereo 3d ground mapping and photometry.
 
 \subsection{PIP: Passive Instrument Payload}
+\label{subsec:pip}
 as an instrument: horizon detection. star tracking.
 
 \section*{Acknowledgements}
