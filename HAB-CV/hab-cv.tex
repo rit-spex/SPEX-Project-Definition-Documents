@@ -176,38 +176,44 @@ This is a natural progression, but the spirit of pushing to achieve the most out
   %         \bottomrule
   %     \end{tabular}
   % \end{table}
+Hardware deliverables may vary, but each experiment is expected to have a healthy repository of documentation for all systems.
+These documents will describe the usage and functionality of all software, hardware, and interfaces between the two such that experimental results are reproduceable by an independent investigator.
 
-\subsection{Milestones}
-\label{subsec:milestones}
-  % Be as detailed as you can, but it's okay if there are unknowns.
-  % At the very least, specify how many semester you expect the project to take until it reaches completion.
+While thorough documentation is appreciated, it may be beneficial for the focus and vernacular to center on reproduceability and lessons learned.
+This way an experiment's supporting documentation will be more useful for future work that may expand upon or improve work that was done in the past.
 
-% \begin{table}[hb!]
-%     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
-%     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
-%     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
-%     \caption{Notional timeline of Project Milestones.}
-%     \centering
-%     \begin{tabularx}{@{}cll@{}}
-%     % the letters here ^^^^ designate the columns.
-%     % (l=left align, c=center, r=right align)
-%     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
-%     % so cells butt up right against the edge
-%     \toprule
-%     Phase & Task & Duration \\
-%     \midrule
-%     1 & Review existing designs and materials & 2 weeks or less\\
-%     2 & Subsystem development & 6 weeks \\
-%       & Order PCB design and/or assembly & 6 weeks \\
-%       & Review changes and order materials & 2 weeks or less\\
-%       & Testing of individual subsystems & 2 weeks \\
-%     3 & System assembly & 1 week  \\
-%     4 & System testing & 2 weeks  \\
-%     5 & Generate documentation and delivery to SPEX & 1 week  \\
-%     \bottomrule
-% \end{tabularx}
-% \label{tab:short-example}
-% \end{table}
+% \subsection{Milestones}
+% \label{subsec:milestones}
+%   % Be as detailed as you can, but it's okay if there are unknowns.
+%   % At the very least, specify how many semester you expect the project to take until it reaches completion.
+%
+% % \begin{table}[hb!]
+% %     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+% %     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+% %     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+% %     \caption{Notional timeline of Project Milestones.}
+% %     \centering
+% %     \begin{tabularx}{@{}cll@{}}
+% %     % the letters here ^^^^ designate the columns.
+% %     % (l=left align, c=center, r=right align)
+% %     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+% %     % so cells butt up right against the edge
+% %     \toprule
+% %     Phase & Task & Duration \\
+% %     \midrule
+% %     1 & Review existing designs and materials & 2 weeks or less\\
+% %     2 & Subsystem development & 6 weeks \\
+% %       & Order PCB design and/or assembly & 6 weeks \\
+% %       & Review changes and order materials & 2 weeks or less\\
+% %       & Testing of individual subsystems & 2 weeks \\
+% %     3 & System assembly & 1 week  \\
+% %     4 & System testing & 2 weeks  \\
+% %     5 & Generate documentation and delivery to SPEX & 1 week  \\
+% %     \bottomrule
+% % \end{tabularx}
+% % \label{tab:short-example}
+% % \end{table}
+
 
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
@@ -236,13 +242,13 @@ And, of course, all of the objectives of this project are directly applicable to
 \label{sec:vision}
 This project is intentionally broad.
 By keeping the focus on pushing the limits of hardware and doing science at every opportunity, it is easy to imagine an imaging payload on every HAB launch for the foreseeable future.
-Likewise, imaging experiments make for some of the simplest and most versatile small satellite payloads --- perfect for a student-faculty research group striving to do space science like SPEX.
+Likewise, imaging experiments make for some of the simplest and most versatile small satellite payloads --- perfect for a student-faculty research group striving to do space science like SPEX.\@
 
 \section{Applications and Experiments}
 \label{sec:payloads}
 The following experiments are some initial ideas for experiments using on-board image processing and computer vision.
 
-\subsection{WUAP: where u at plants?}
+\subsection{WUAP:~where u at plants?}
 \label{subsec:wuap}
 Raspberry Pi camera modules, one with and one without a near-infrared filter, are mounted to the ground-facing side of a HAB payload module.
 During flight, many color and near-IR images of the Earth are collected and may be used as training data for future computer vision algorithms.
@@ -253,28 +259,24 @@ The vegetation color masks are cross referenced with the NDVI results to create 
 A machine learning algorithm may be trained to estimate vegetation density from visible light images using the visible image frames as the training data and NDVI results as truth values.
 This way, the algorithm could be used as a computer vision method of estimating vegetation density without an infrared imager.
 
-\subsection{WTFbiome: Wayfinding TransFormations and Biome identification}
+\subsection{WTFbiome:~Wayfinding TransFormations and Biome identification}
 \label{subsec:wtfbiome}
 Morphological transformations are applied to images of the Earth using 3D spatial instrument data collected in-flight on a HAB and aligned with open source map data.
 Using the transformed images as training data and the map data as truth, a machine learning algorithm is trained to identify biomes or urban areas from visible light aerial images.
 
-\subsection{SUP: Stereo groUnd mapping and Photometry}
+\subsection{SUP:~Stereo groUnd mapping and Photometry}
 \label{subsec:sup}
 With two camera modules facing the same direction, stereo image data is transformed into 3D coordinates or distance measurements.
 Distance data is used to create 3D photometric models of the scene or used to estimate altitude.
 
-\subsection{PIP: Passive Instrument Payload}
-\label{subsec:pip}
-as an instrument: horizon detection. star tracking.
-
 \section*{Acknowledgements}
-The authors would like to thank all contributors to the Python open source community, especially the authors of the OpenCV and Numpy libraries, and all contributors to Stack Overflow.
+The authors would like to thank all contributors to the Python open source community, especially the authors of the OpenCV and Numpy libraries, Adrian Rosebrock for his contributions at PyImageSearch.com, and all contributors to Stack Overflow.
 
 \bibliographystyle{IEEEtran}
 \bibliography{hab-cv.bib}
 
-\onecolumn
-\appendices{}
+% \onecolumn
+% \appendices{}
 
 
 \end{document}
