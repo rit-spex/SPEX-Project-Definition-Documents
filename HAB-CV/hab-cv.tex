@@ -1,0 +1,282 @@
+%% *************************************************************************
+%%
+%% This is a derivative work of the RIT Space Exploration Standard defining
+%% guidelines for content and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage{blindtext} % enable placeholder text generator
+\usepackage{graphicx} % enable toolbox for embedding figures and pictures
+\usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+\usepackage{siunitx} % enable package for easily formatting units
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+\usepackage[T1]{fontenc} % change text encoding to make it more crisp
+\usepackage{etoolbox} % enable conditionals for help text
+\usepackage{booktabs} % make beautiful tables!
+
+\title{On-Board Image Processing and Computer Vision Techniques on Low-Cost Consumer Electronics for Vegetation Density Mapping and Other Experiments}
+
+\author{
+   \IEEEauthorblockN{% This block is for author Names.
+    Philip~Linden\IEEEauthorrefmark{1},
+    Jeff~Maggio\IEEEauthorrefmark{2},
+    T.J.~Tarazevits\IEEEauthorrefmark{3}
+  }
+  \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}pjl7651@rit.edu,
+    \IEEEauthorrefmark{2}jxm9264.rit.edu,
+    \IEEEauthorrefmark{3}tjt3085@rit.edu
+  }
+}
+% page header for pages other than cover page
+\markboth{On-board Image Processing \& Computer Vision}%
+{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+    Advanced on-board image processing is a foundational component of a wide range of future space science and Earth observation missions.
+    Extending these techniques to include computer vision opens the door to even more opportunities for science.
+    It is critical to develop these techniques on low-cost, consumer hardware platforms so that the missions need not require expensive, specialized systems for every experiment.
+    Demonstrating these systems are themselves opportunities for science as well.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
+
+\IEEEPARstart{I}{mage} processing has long been a critical element of Earth observation and space science.
+In recent years, the capabilities of inexpensive consumer electronics and computers have reached a point where advanced image processing can be performed on-board with lightweight, low-power computers.
+This has opened the door for low-cost, rapid development experiment payloads and platforms such as high altitude balloons, drones, and small satellites.
+Usually these platforms have limited communications bandwidth, so on-board processing may be used to significantly reduce the amount of data transferred back to ground without losing the information that the images contain.
+
+Computer vision (CV) is defined as the automatic extraction, analysis and understanding of useful information from a single image or a sequence of images.
+CV is the realm between image processing and computer science where useful information is identified, extracted, and interpreted from images without human input.
+In addition to edge detection and other transforms applied to the pixel arrays directly, deeper and more abstract algorithms to interpret the contents of the images continue to mature in the field of machine learning.
+These algorithms are trained, or iteratively tuned with a large set of data, to classify objects or cluster multivariate data from an arbitrary set of inputs.
+
+Naturally, any implementation of image processing or CV for space science must be tested in a flight setting.
+As this technilogy is developed, all tests are themselves opportunities for science.
+This Project Definition Document considers the logistics of this development in addition to discussing a number of experiments that may be conducted as tests or end-user applications of on-board image processing and computer vision with low-cost consumer electronics.
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
+
+The ideal result of developing robust image processing and computer vision techniques on flight electronics is a payload module for a high altitude balloon, small satellite or other flight system which is capable of reducing a video or image stream into a stream of processed useful information which can be relayed back to a ground station or efficiently saved to system memory.
+
+While it is obvious that more powerful (and more expensive) electronics are capable of more advanced processing, the goal of this project is to push the limits of what entry-level hardware capabilities.
+In this way, software development takes the lead over hardware development.
+Since software can be reused between flights, loss of mission is not critical with low-cost flight electronics.
+
+\section{Secondary Objectives}
+\label{sec:secondary-obj}
+Second to generalized platform development for an imaging and computer vision payload module is the science that payload would actually conduct.
+Every flight is a new opportunity to collect data, perform an experiment, or demonstrate new technology.
+Every module test will have a science goal in addition to any technology advancement goals.
+Specific experiment ideas are discussed in \autoref{sec:payloads}.
+
+% \begin{table*}
+% % this table is too wide for the two-column format, so we let it expand across both columns
+% % we haven't told LaTeX where to put this so it'll find the best place.
+%     \caption{Relative detail expected at each stage of project development.}
+%     \centering
+%     \begin{tabular}{@{}llcc@{}}
+%         % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+%         \toprule % line on top external edge of table
+%         % Separate cells in a row with &, move to the next row with \\
+%         Document & Purpose & Contributors & Destination \\
+%         \midrule % line separating two internal rows
+%         Project Definition Document & To define the goals and requirements of a SPEX project. & 2--3 people & SPEX Archive \\
+%         Project Plans & Specific plans for when work is to be done (Gantt charts) & 2--3 people & Project Repository \\
+%         Design Reviews & To review designs before work is started. & 6--8 people & Project Repository \\
+%         Test Procedures & Specific instructions and data logs for tests. & 3--4 people & Project Repository \\
+%         User Manual & Instructions for future users of project deliverabels. & 3--4 people & Project Repository \\
+%         Posters \& Presentations & Materials for sharing projects with the public. & 5--6 people & Project Repository \\
+%         Technical Report & Final technical summary of work done and results. & 6 or more & SPEX Archive, Conferences \& Journals \\
+%         % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
+%         \bottomrule
+%     \end{tabular}
+% \label{tab:long-example}
+% \end{table*}
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
+% and to challenge them with interesting projects.
+% In this section, explain how the project would benefit SPEX members as students,
+% space enthusiasts, and young professionals.
+
+In addition to cultivating computer vision and image processing knowledge within SPEX, this approach favors clever and innovative solutions to squeeze every ounce out of inexpensive consumer hardware.
+By pushing the capabilities of these entry-level electronics, SPEX gains the most technological and science value possible.
+Computer-on-a-chip boards like Raspberry Pi are well-documented online and skills earned by SPEX members developing for this platform are easily applied to other projects that may also use this platform for computation.
+
+\subsection{Mindset}
+\label{subsec:mindset}
+
+The mindset for development is to drive the hardware platform, software techniques, and science goals to the limit.
+Each experiment and every flight should aim to demonstrate a new technique and should have a strong science objective.
+
+\subsection{Traceability}
+\label{subsec:traceability}
+
+GitHub shall be used for version control and issue tracking for software development.
+All library dependencies shall be documented.
+
+\subsection{Accessibility}
+\label{subsec:accessibility}
+
+The possibilities for scientific experiments with computer vision and image progessing are virtually limitless, and so are the opportunities for advancing knowledge within SPEX in imaging science.
+There are as many experiments accessible to beginners as there are available to experience imaging scientists.
+
+In terms of software, computer vision and image processing requires a moderate familiarity in one of several computer languages, i.e.~Python, and interfacing with hardware such as Raspberry Pi.
+
+\section{Implementation}
+\label{sec:implementation}
+  % What path do you anticipate the project to take?
+This project will build off of work that's already been done by the RIT SPEX high-altitude balloon (HAB) team.
+First, simple data collection will be developed and flown along with basic image processing (see \autoref{subsec:wuap}).
+Once stable video processing is tested and a large dataset of images has been collected, more advanced computer vision techniques can be developed on the ground.
+These advanced methods may later be optimized for low-cost hardware and tested as a primary or secondary payload on future HAB flights.
+As this cycle of development repeats, more and more advanced image processing and comuter vision algorithms may require higher performance hardware.
+This is a natural progression, but the spirit of pushing to achieve the most out of the hardware available and keeping hardware costs low must be upheld.
+
+
+\subsection{Deliverables}
+\label{subsec:deliverables}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+
+  % \begin{table}[hb]
+  %     \caption{Deliverables}
+  %     \label{tab:deliverables}
+  %     \begin{tabular}{@{}ll@{}}
+  %         \toprule
+  %         Experiment-specific source code & Open sourced \\
+  %         Experiment-specific approach documentation & Archived document \\
+  %         Experiment-specific results documentation & Archived document \\
+  %         Convenience \& utility scripts & Open sourced \\
+  %         \bottomrule
+  %     \end{tabular}
+  % \end{table}
+Hardware deliverables may vary, but each experiment is expected to have a healthy repository of documentation for all systems.
+These documents will describe the usage and functionality of all software, hardware, and interfaces between the two such that experimental results are reproduceable by an independent investigator.
+
+While thorough documentation is appreciated, it may be beneficial for the focus and vernacular to center on reproduceability and lessons learned.
+This way an experiment's supporting documentation will be more useful for future work that may expand upon or improve work that was done in the past.
+
+% \subsection{Milestones}
+% \label{subsec:milestones}
+%   % Be as detailed as you can, but it's okay if there are unknowns.
+%   % At the very least, specify how many semester you expect the project to take until it reaches completion.
+%
+% % \begin{table}[hb!]
+% %     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+% %     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+% %     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+% %     \caption{Notional timeline of Project Milestones.}
+% %     \centering
+% %     \begin{tabularx}{@{}cll@{}}
+% %     % the letters here ^^^^ designate the columns.
+% %     % (l=left align, c=center, r=right align)
+% %     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+% %     % so cells butt up right against the edge
+% %     \toprule
+% %     Phase & Task & Duration \\
+% %     \midrule
+% %     1 & Review existing designs and materials & 2 weeks or less\\
+% %     2 & Subsystem development & 6 weeks \\
+% %       & Order PCB design and/or assembly & 6 weeks \\
+% %       & Review changes and order materials & 2 weeks or less\\
+% %       & Testing of individual subsystems & 2 weeks \\
+% %     3 & System assembly & 1 week  \\
+% %     4 & System testing & 2 weeks  \\
+% %     5 & Generate documentation and delivery to SPEX & 1 week  \\
+% %     \bottomrule
+% % \end{tabularx}
+% % \label{tab:short-example}
+% % \end{table}
+
+
+\section{Externalities}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
+\subsection{Prerequisite Skills}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+ This project is best suited for SPEX student members and alumni with at least some programming experience in Python or C++, and novice-level familiarity with using terminal commands.
+ Some familiarity with image processing or imaging science is preferred, but is not required.
+ There are plenty of online and university resources available for newbies to get up to speed on image processing, computer vision, machine learning, and programming with some effort.
+
+\subsection{Funding Requirements}
+  % Estimate costs that would be needed to meet objectives.
+Since the premise of this project is developing robust systems on low-cost consumer electronics, funding requirements are marginal compared to other hardware-centric projects and missions.
+For example, a Raspberry Pi 3, camera module, SD memory card, and barrty pack can be purchased for about $\$100$, and the hardware may be reused in almost any other SPEX project.
+
+Since machine learning and computer vision are at the forefront of technology at this time, ``cool'' experiments like these may lend themselves easily toward outreach and in turn building relationships with companies in the industry.
+There may be opportunities to receive in-kind donations such as software licenses (e.g.~Matlab) or hardware (e.g.~Raspberry Pi, Nvidia).
+
+\subsection{Faculty Support}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+Imaging and image processing experiments provide fertile ground for building a relationship between SPEX and the Carlson Center for Imaging Science, Center for Detectors, and Future Photon Initiative.
+Computer vision development poses an opportunity for SPEX to continue to network within the Golisano Center for Computing and Information Sciences.
+And, of course, all of the objectives of this project are directly applicable to space science and Earth observation, further building SPEX's mission of space exploration research.
+
+\subsection{Long-Term Vision}
+\label{sec:vision}
+This project is intentionally broad.
+By keeping the focus on pushing the limits of hardware and doing science at every opportunity, it is easy to imagine an imaging payload on every HAB launch for the foreseeable future.
+Likewise, imaging experiments make for some of the simplest and most versatile small satellite payloads --- perfect for a student-faculty research group striving to do space science like SPEX.\@
+
+\section{Applications and Experiments}
+\label{sec:payloads}
+The following experiments are some initial ideas for experiments using on-board image processing and computer vision.
+
+\subsection{WUAP:~where u at plants?}
+\label{subsec:wuap}
+Raspberry Pi camera modules, one with and one without a near-infrared filter, are mounted to the ground-facing side of a HAB payload module.
+During flight, many color and near-IR images of the Earth are collected and may be used as training data for future computer vision algorithms.
+In flight, the visible-color frames are used to generate a binary mask from all ``green'' colors in each frame to identify areas of vegetation.
+Post-flight, the visible and near-IR images are aligned and used to find the Normalized Difference Vegetation Index (NDVI)\cite{nasa:ndvi} in each frame.
+The vegetation color masks are cross referenced with the NDVI results to create a vegetation density map.
+
+A machine learning algorithm may be trained to estimate vegetation density from visible light images using the visible image frames as the training data and NDVI results as truth values.
+This way, the algorithm could be used as a computer vision method of estimating vegetation density without an infrared imager.
+
+\subsection{WTFbiome:~Wayfinding TransFormations and Biome identification}
+\label{subsec:wtfbiome}
+Morphological transformations are applied to images of the Earth using 3D spatial instrument data collected in-flight on a HAB and aligned with open source map data.
+Using the transformed images as training data and the map data as truth, a machine learning algorithm is trained to identify biomes or urban areas from visible light aerial images.
+
+\subsection{SUP:~Stereo groUnd mapping and Photometry}
+\label{subsec:sup}
+With two camera modules facing the same direction, stereo image data is transformed into 3D coordinates or distance measurements.
+Distance data is used to create 3D photometric models of the scene or used to estimate altitude.
+
+\section*{Acknowledgements}
+The authors would like to thank all contributors to the Python open source community, especially the authors of the OpenCV and Numpy libraries, Adrian Rosebrock for his contributions at PyImageSearch.com, and all contributors to Stack Overflow.
+
+\bibliographystyle{IEEEtran}
+\bibliography{hab-cv.bib}
+
+% \onecolumn
+% \appendices{}
+
+
+\end{document}
