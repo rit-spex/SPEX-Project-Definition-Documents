@@ -1,6 +1,8 @@
 # SPEX Standard - Project Definition Document
 This is an RIT Space Exploration Standard defining guidelines for content and formatting of project definition documents (PDDs).
 
+This repository includes [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html) (the SPEX internal standard), a sample document with style guidelines, and an archive of reviewed and approved PDDs.
+
 ## When should I use this template?
 This document is intended for a member of RIT Space Exploration to bring forward an idea for a project to be conducted under the RIT SPEX banner.
 
@@ -9,6 +11,11 @@ Replace the text in this document with your own information and generate a PDF d
 
 ## Why use LaTeX instead of a regular word processor?
 LaTeX is not a word processor. It allows you to write content without worrying about formatting or typesetting -- LaTeX handles all the organization, placement of text, spacing, headings, and so on. It is the de facto standard for technical and scientific documents, and it is beneficial for you to be at least somewhat familiar with using it, especially if you plan to do research in the future. For more about LaTeX, [visit their homepage](https://www.latex-project.org/about/).
+
+## But I don't know how to write LaTeX code!
+Fear not, my apprentice. LaTeX can be tricky to work with, especially when starting out. Lucky for you there is a vibrant TeX community on [stack exchange](https://tex.stackexchange.com/) and across the web. I recommend new users to modify templates, ask lots of questions, and experiment.
+
+Answers to frequently asked questions are found at the [end of this Readme](#how-to-latex).
 
 ## The template is broken or missing something important!
 Let us know in the [Issue Tracker](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/issues) so we can fix it!
@@ -19,23 +26,24 @@ The intent of a Project Definition Document (PDD) is to organize and document a 
 ## Who should propose a project?
 The Champion is the primary author of the definition document and, similar to a Principal Investigator, leads a preliminary team in developing a project idea. The Champion is not necessarily the project manager for a project they propose. Faculty recommendations, advice, and support for a project is not necessary but is strongly encouraged. The Champion is the main point of contact for the PDD. The project's Champion be handed off over time, but a project must always have a Champion.
 
-## Will my PDD be rejected?
+### Will my PDD be rejected?
 PDDs are not approved nor rejected. PDDs are archived, so a definition document that doesn't initially take off may be picked up by a new team somewhere down the line.
 
-## Is my definition document binding?
+### Is my definition document binding?
 In the ideal project life cycle, a PDD defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an PDD should guide a project such that "feature creep" is avoided and good science is achieved.
 
-## Note
-This LaTeX template uses [the IEEE Conference Proceedings LaTeX formatting template](https://www.ieee.org/conferences_events/conferences/publishing/templates.html).
+### Should I rewrite my PDD?
+Probably not. The purpose of a design document is to capture and preserve the essence of your original idea. In reality, ideas may grow and change over time. If this is the case, it is better to use your old PDD as a template for a new one than to go for a rewrite. On the other hand, it is acceptable to polish and edit a PDD for the sake of clarity and concision, but usually this is done before work has begun on that project. This question lies squarely in the _spirit_ of a PDD, and is thus up to interpretation. Use your best judgement, I trust you.
 
-# FAQ
-### How to LaTeX?
+# How to LaTeX?
 [LaTeX Quickstart Tutorial](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/LaTeX-Quickstart-Tutorial) ☕️
+
+[Begin LaTeX in minutes](https://github.com/LewisVo/Begin-Latex-in-minutes) :fire:
 
 ### How to LaTeX on PC?
 [Setting up your computer to work with LaTeX](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Setting-up-your-computer-to-work-with-LaTeX) ☕️ 👌
 
-### How do I make a PDD from this template?
+## How do I make a PDD from this template?
 [Read this tutorial!](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template)
 Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
 Don't forget to assign reviewers!
