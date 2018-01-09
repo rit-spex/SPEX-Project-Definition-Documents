@@ -9,6 +9,10 @@ This document is intended for a member of RIT Space Exploration to bring forward
 ## How do I use this template?
 Replace the text in this document with your own information and generate a PDF document by using a LaTeX compiler. For a brief user's guide on using this template and setting up LaTeX on your computer, check [this repository's Wiki](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki).
 
+[Read this tutorial!](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template)
+Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
+Don't forget to assign reviewers!
+
 ## Why use LaTeX instead of a regular word processor?
 LaTeX is not a word processor. It allows you to write content without worrying about formatting or typesetting -- LaTeX handles all the organization, placement of text, spacing, headings, and so on. It is the de facto standard for technical and scientific documents, and it is beneficial for you to be at least somewhat familiar with using it, especially if you plan to do research in the future. For more about LaTeX, [visit their homepage](https://www.latex-project.org/about/).
 
@@ -26,13 +30,13 @@ The intent of a Project Definition Document (PDD) is to organize and document a 
 ## Who should propose a project?
 The Champion is the primary author of the definition document and, similar to a Principal Investigator, leads a preliminary team in developing a project idea. The Champion is not necessarily the project manager for a project they propose. Faculty recommendations, advice, and support for a project is not necessary but is strongly encouraged. The Champion is the main point of contact for the PDD. The project's Champion be handed off over time, but a project must always have a Champion.
 
-### Will my PDD be rejected?
+## Will my PDD be rejected?
 PDDs are not approved nor rejected. PDDs are archived, so a definition document that doesn't initially take off may be picked up by a new team somewhere down the line.
 
-### Is my definition document binding?
+## Is my definition document binding?
 In the ideal project life cycle, a PDD defines a set of objectives or deliverables which are fulfilled and discussed in a final report or paper. In practice, this is not always the case but an PDD should guide a project such that "feature creep" is avoided and good science is achieved.
 
-### Should I rewrite my PDD?
+## Should I rewrite my PDD?
 Probably not. The purpose of a design document is to capture and preserve the essence of your original idea. In reality, ideas may grow and change over time. If this is the case, it is better to use your old PDD as a template for a new one than to go for a rewrite. On the other hand, it is acceptable to polish and edit a PDD for the sake of clarity and concision, but usually this is done before work has begun on that project. This question lies squarely in the _spirit_ of a PDD, and is thus up to interpretation. Use your best judgement, I trust you.
 
 # How to LaTeX?
@@ -40,18 +44,13 @@ Probably not. The purpose of a design document is to capture and preserve the es
 
 [Begin LaTeX in minutes](https://github.com/LewisVo/Begin-Latex-in-minutes) :fire:
 
-### How to LaTeX on PC?
+## How to LaTeX on PC?
 [Setting up your computer to work with LaTeX](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Setting-up-your-computer-to-work-with-LaTeX) ☕️ 👌
 
-## How do I make a PDD from this template?
-[Read this tutorial!](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template)
-Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
-Don't forget to assign reviewers!
-
-### I wrote my PDD. Now what?
+## I wrote my PDD. Now what?
 You need to submit it for review so we can make it the best that it can be. This is also covered in the [the tutorial](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template#make-a-new-pull-request-pr) as well.
 
-### My bibliography won't show up!
+## My bibliography won't show up!
 * Make sure you've created a `.bib` file and it's properly formatted! There are examples in the COPY_THIS folder. [sample-formats.bib](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-formats.bib) [sample-with-examples](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/blob/master/COPY_THIS/sample-with-examples.bib)
 * Have you made any citations? Whenever you reference an external work such as a textbook or research paper, you must use the `\cite{your-reference}` command to insert a citation. No matter how many references you have in your `.bib` file, LaTeX only shows the ones you have cited.
 * Are you telling LaTeX to make the bibliography? Insert the following commands after your acknowledgements and before your appendix:
@@ -61,12 +60,12 @@ You need to submit it for review so we can make it the best that it can be. This
 ```
 (in this example, I have a file called `YOUR-BIB.bib` in the same directory as my `.TeX` file.)
 
-### How do I make nice looking tables?
+## How do I make nice looking tables?
 I'm so glad you asked! [Here's a great style guide to effective and beautiful LaTeX tables](https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf).
 
 The package `booktabs` is highly recommended. Its usage is also described in the style guide.
 
-### Why is my linter yelling at me over periods and dashes?
+## Why is my linter yelling at me over periods and dashes?
 Because it matters!
 * `-` (hyphen), `--` (en-dash) and `---` (em-dash) are actually different characters and have different uses.
     * Hyphens (`-`) are used for word breaks and hyphenated words like "noise-canceling headphones." Don't worry about this one too much. LaTeX automatically hyphenates word breaks and there's no real "proper" rule for hyphenating words.
