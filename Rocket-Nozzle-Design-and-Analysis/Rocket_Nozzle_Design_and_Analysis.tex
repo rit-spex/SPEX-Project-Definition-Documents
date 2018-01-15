@@ -120,6 +120,7 @@
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{PDD}{Project Design Document}
+\nomencalture{BoM}{Bill of Materials}
 % Below are examples of using nomenclature for math symbols and constants or units
 % \nomenclature{$\dot{m}$}{Mass flow rate
 %   \nomunit{\,\si{\kilo\gram\per\second}}}
@@ -127,15 +128,11 @@
 %  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 \printnomenclature{}
 
-\section{Introduction}
-\label{sec:introduction}
-\IEEEPARstart{P}{ropulsion} systems are very difficult to design and test. The SPEX propulsion team has worked for two semesters, Spring 2017 & Fall 2017, to design and test a cold gas propulsion system.
-There was moderate success in the design and testing of this system. The successes included, nozzle design, nozzle fabrication, test stand fabrication, and experimentation.
-The nozzles were designed through the Aerospike software given to us by an advisor, Dr. Dorin Patru. The nozzles were fabricated by methods of additive manufacturing.
-The test stand was properly designed and fabricated to work with thrust levels up to 10 Newtons. The experimentation was successful because
-the team was able to test multiple nozzles with different operating characteristics. There developed a problem in the fabrication of conical nozzles that the team designed using the analytical rocket equations.
-The nozzles for the thrust levels were too small. The fabrication process would be inhibitively difficult. The solution to this is an increase in the thrust level.
- This project will focus on the design of a conical nozzle for a 100 Newton thrust force test.
+\section{Introduction}\label{sec:introduction}
+\IEEEPARstart{T}{he} project will be concerned with the design, fabrication, and experimentation of a cold gas propulsion system. This is a propulsion system
+that is solely based off momentum transfer with little to no heat considerations. The project should have a team consisting of 10 to 15 members willing to dedicate
+5 to 10 hours a week to this project. The end result of the project will be a propulsion system, mounted on a test stand ready to test when the appropriate propellant
+is attached.
 
 \section{Primary Objective}\label{sec:primary-obj}
 The primary goal of this project is to use the analytical rocket equations to design a conical rocket nozzle to produce 100 Newtons of thrust.
@@ -149,8 +146,10 @@ the first time that the propulsion team has fully designed and operated a rocket
 propulsion engineers to understand. The project would have a full life cycle which includes design, manufacture, test, and reporting the results.
 
 \section{Implementation}\label{sec:implementation}
-The project will start with a brief eduation of the rocket equations. The team will go through each one so everyone on the team is acquainted with them before we dive into the
-nozzle design. Then the team will start with the nozzle design. Once the nozzle design is complete the team will design the test stand that can adequately contain the
+The project will begin by informing new members on past projects. The team will discuss the events that went well, and the reasons some did not. The objective is to prevent
+the same problem occuring twice. Each team member will be instructed to read chapter 3 out of the \textit{Rocket Propulsion Elements} book written by Sutton.
+Then the team will start with the nozzle design. The nozzle design process begins by defining the requirements, then using the analytical rocket equations, find the
+physical dimensions of the nozzle so it can be 3D modeled and sent to a manufacturer. During the nozzle design process, a second part of the team will design the test stand that can adequately contain the
 propulsion system. Then the team will manufacture the nozzle and test stand. After testing, if time permits, the team will use a schlieren lensing setup to
 get a very good look at the fluid flowing out of the nozzle.
 
@@ -168,40 +167,38 @@ The milestones for this project are, in chronological order; nozzle design, test
 The nozzle design and fabrication proceed the test stand because the test stand must be designed to fit the nozzle, the nozzle should not be designed to fit the test stand.
 The following, is a proposed project schedule.
 
-\begin{table}
+\begin{table}\label{tab:proposed-timeline}
   \centering
   \begin{tabularx}{\columnwidth}{@{}cXc@{}}
     \multicolumn{2}{ c }{\textbf{Proposed Timeline}} \\ \toprule
     Week & Description \\ \midrule
     1 & Team Introductions and project planning \\
-    2 & Nozzle Design \\
-    3 & Nozzle Design \\
-    4 & Nozzle Design \\
-    5 & Nozzle Design \\
-    6 & Test Stand Design \\
-    7 & Test Stand Design \\
-    8 & Test Stand Design \\
-    9 & Nozzle Fabrication \\
-    10 & Test Stand Fabrication \\
-    11 & Test Stand Fabrication \\
-    12 & Order Gas \\
-    13 & Setup experiment \\
-    14 & Test \#1 \\
-    15 & Test \#2 \& Schlieren Lensing \\
+    2 & Nozzle Design \& Test Stand Design\\
+    3 & Nozzle Design \& Test Stand Design\\
+    4 & Nozzle Design \& Test Stand Design\\
+    5 & Nozzle Design \& Test Stand Design\\
+    6 & Order nozzle from manufacturer \& Test Stand BoM Purchase \\
+    7 & Test Stand Fabrication \\
+    8 & Test Stand Fabrication \\
+    9 & Order Gas \\
+    10 & Setup experiment \\
+    11 & Test \#1 \\
+    12 & Test \#2 \& Schlieren Lensing \\
+    13 & Data Analysis \\
+    14 & Final Report \\
     \bottomrule
   \end{tabularx}
-\label{tab:proposed-timeline}
 \end{table}
 
 \begin{}
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
-No skills are required. But the recommended skills are as follows; Differential \& Integral Calculus and MATLAB coding. The rocket equations
+No skills are required. All necessary skills will be taught. These skills include; Differential \& Integral Calculus (to a degree so understanding the rocket equations is possible), MATLAB coding, engineering decisions, machining design choices, and using the rocket equations. The rocket equations
 require a basic knowledge of calculus to understand. Rates of change and integration show up very regularly in this type of physics and mathematics. MATLAB
 is a very usefull resource. MATLAB will be used for the data collection and the data analysis. It's ability to handle vectors and large datasets is unparalleled.
 A very basic understanding of MATLAB would be great, but the team plans to host MATLAB training sessions so everyone can be brought to a rudimentary understanding
-level of MATLAB.
+level of MATLAB\@. The machining for this project will mainly concern the test stand, the nozzle will most likely be outsourced due to high machining complexity.
 
 \subsection{Funding Requirements}
 The project will most likely require a budget of \$400. There will be material costs for the test stand and the nozzle.
@@ -210,7 +207,7 @@ Then there will be the cost of a proper load cell. There will also be the cost o
 
 Measuring the thrust is extremely important to this project. The accuracy of this measurement must be high enough that it can fully register the data output. This will
 entail a very high sampling rate and a appropriately sensitive load cell. The best contender for data acquisition is the National Instruments USB-6008. It is capable of
-a 48000 sampling rate. But they are slightly expensive, usually falling between \$150 - \$200. This DAQ is easy to setup with MATLAB and can easily and effectively pull the data and
+a 48000 sampling rate. But they are slightly expensive, usually falling between \$150 to \$200. This DAQ is easy to setup with MATLAB and can easily and effectively pull the data and
 store the data.
 
 \subsection{Faculty Support}
@@ -222,14 +219,12 @@ for safely storing and operating these bottles. The team may also have to get RI
 
 \subsection{Long-Term Vision}\label{sec:vision}
 The long-term vision of this project is provide experience of analytical nozzle design. Understanding what is happening in the computer that designs the better nozzles, is very important
-for propulsion engineers. This project will open a gateway to more complex projects. This project will show the team how properly contain a high thrust
+for propulsion engineers. This project will open a gateway to more complex projects. This project will show the team how to properly contain a high thrust
 system. The data analysis experience is also very valueable as it will assist in connecting physical outcomes due to internal conditions. That kind of experience is
-invaluable for students in the learning process. 
+invaluable for students in the learning process.
 
 \section*{Acknowledgements}
-The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
-
-\onecolumn
-\appendices{}
+The author would like to thank Phil Linden and TJ Tarazevits for there continued contribution to the SPEX project definition document process, Jeff Lonneville for
+his assistance is providing lab space so SPEX members can conduct propulsion experiments, Dr.Patru for providing storage space, and Dr.Barbosu for his support.
 
 \end{document}
