@@ -45,20 +45,13 @@
   % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
   %   Here, we use the IEEE long-form author block.
   \IEEEauthorblockN{% This block is for author Names.
-    Philip~Linden\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
-    T.J.~Tarazevits\IEEEauthorrefmark{2},
-    Drew~Walters\IEEEauthorrefmark{3},
-    and
-    Austin~Bodzas\IEEEauthorrefmark{4}
+    Thomas~Hall\IEEEauthorrefmark{1}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
     RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
     Rochester, N.Y. \\
     Email:
-    \IEEEauthorrefmark{1}pjl7651@rit.edu,
-    \IEEEauthorrefmark{2}tjt3085@rit.edu,
-    \IEEEauthorrefmark{3}acw4729@rit.edu,
-    \IEEEauthorrefmark{4}abb6499@rit.edu
+    \IEEEauthorrefmark{1}tjh2822@g.rit.edu
   }
   %%   Below, we use the short-form author block and basically hack it to suit our needs.
   % Philip~Linden$^{*\dagger}$%
@@ -83,7 +76,7 @@
 }
 % page header for pages other than cover page
 \markboth{Project Design Document Standard}%
-{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+{Hall \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
 \begin{document}
@@ -158,16 +151,15 @@ The SPEX Standard defines format and style guidelines for project documentation.
 
 The ultimate goal of a PDD is to capture all ideas (including ones that are beyond our capability, interesting ideas, or things we just dont have time for, in addition to the ones that we actually work on and develop) and archive them such that if a student goes on coop or graduates, these ideas would not leave with them.
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
-  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
-\label{fig:lifecycle}
-\end{figure}
+%\begin{figure}
+%  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
+%  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
+%\label{fig:lifecycle}
+%\end{figure}
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
 % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
-
 \autoref{tab:long-example} lists a the relative level of detail expected of the documents written at each stage of a project's life.
 
 \begin{table*}
@@ -321,11 +313,11 @@ The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being ex
 
 \onecolumn
 \appendices{}
-\section{Project Life Cycle}
-\begin{figure}[h]
-  \centering
-  \includegraphics[]{figs/project-life-cycle.png}
-  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
-\end{figure}
+%\section{Project Life Cycle}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[]{figs/project-life-cycle.png}
+%  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
+%\end{figure}
 
 \end{document}
