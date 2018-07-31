@@ -1,7 +1,6 @@
 %% *************************************************************************
 %%
-%% This is a derivative work of the RIT Space Exploration Standard defining 
-%% guidelines for content and formatting of project design documents.
+%% This is the PDD for the Rovers Study - Fall 2018
 %%
 %% This document uses IEEEtran.cls, the official IEEE LaTeX class
 %% for authors of the Institute of Electrical and Electronics Engineers
@@ -36,14 +35,7 @@
 
 
 \author{
-  % List the authors of the design document. The Champion should go first.
-  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
-  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
-  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
-  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
-  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
-  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
-  %   Here, we use the IEEE long-form author block.
+  % List the authors of the design document. 
   \IEEEauthorblockN{% This block is for author Names.
     Thomas~Hall\IEEEauthorrefmark{1}
   }
@@ -53,27 +45,8 @@
     Email:
     \IEEEauthorrefmark{1}tjh2822@g.rit.edu
   }
-  %%   Below, we use the short-form author block and basically hack it to suit our needs.
-  % Philip~Linden$^{*\dagger}$%
-  %   \thanks{$^{*}$Project Champion}%
-  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
-  % Austin~Bodzas$^{\ddagger}$%
-  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
-  % Drew~Walters$^{\S}$%
-  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
-  % T.J.~Tarazevits$^{**}$%
-  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
-
-  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
-  %% the recommended order for symbolic footnotes is
-  %%   (1) asterisk        *   *
-  %%   (2) dagger          †   \dagger
-  %%   (3) double dagger   ‡   \ddagger
-  %%   (4) section symbol  §   \S
-  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
-  %%   Note that these symbol codes work in math mode and text mode.
-  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
+
 % page header for pages other than cover page
 \markboth{Project Design Document Standard}%
 {Hall \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
@@ -87,27 +60,13 @@
 \begin{abstract}
   Conduct a feasibility study on the design and construction of a self driving rover. A rover would be an area of space exploration completely new to SPEX, because of this there are a lot of unknowns that need to be answered before starting this project. The study would look at the talent and skills of RIT Space Exploration and answer the question: what caliber of rover are we able to make. It would employ a multidisciplinary team to cover for construction and development. The study would lean directly into a rover project in the future. The rover would be extremely promotable and would look great at Imagine RIT. 
       % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
-      % Be sure not to confuse the abstract with the introduction.
-      % It is easiest to write the abstract after the rest of the paper has been written.
-      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
-      % Consider the abstract to be your elevator pitch to anyone reading this design document.
-      % What are they reading?
-      % What is the goal?
-      % Why is it worth my time?
-      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
 \end{abstract}
 
 \label{sec:nomenclature}
 \newcommand{\nomunit}[1]{%
 \renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-\renewcommand{\nompreamble}{
-    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
-    % The two lines below make it look nice when defining units/values to constants.
+\renewcommand{\nompreamble}{}
 
-    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-    % Read more about advanced nomenclature formatting here:\\
-    % \url{https://www.sharelatex.com/learn/Nomenclatures}
-  }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
 \nomenclature{PDD}{Project Design Document}
@@ -117,9 +76,6 @@
 \nomenclature{$c$}{Speed of light
  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
 \printnomenclature{}
-
-
-% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
 
 % The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
@@ -144,7 +100,6 @@ In the case of SPEX, a PDD carries value in the act of documenting ideas and eff
 
 The goal of this study is to asses the technical ability and skills of RIT Space Exploration regarding the constuction and implementation of a mock rover. 
 This study will create a plan including answering unknowns about the rover, how the rover will be built and progammed, and what skills / resourses are needed to build the afforementioned rover. 
-The study will also look into the University Rover Competition (URC) as hosted by the mars Society as a potential long term goal.
 
 At the end of the semester these questions will lead to a well developed PDD for the following semester.  
 
@@ -154,9 +109,11 @@ At the end of the semester these questions will lead to a well developed PDD for
 %\label{fig:lifecycle}
 %\end{figure}
 
-% \section{Secondary Objectives}
-% \label{sec:secondary-obj}
-% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+\section{Secondary Objectives}
+\label{sec:secondary-obj}
+  % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+The study will also look into the University Rover Competition (URC) as hosted by the mars Society as a potential long term goal. The competition is held annually and features 4 very intense competitions. Such a rover would need to be fully self navigating, perform scintific analysis on soil samples, and haveing a robotic arm capable of fine motor contol. Sucha project would be among the most ambitious SPEX has ever attempted. 
+
 \autoref{tab:questions} lists questions the project will need to answer in order to make a PDD.
 
 \begin{table*}
@@ -188,9 +145,9 @@ At the end of the semester these questions will lead to a well developed PDD for
         How can this project be broken up into smaller sub projects? & General \\
         What will the team aim to have present ar ImagineRIT 2019? & General \\ 
         Will the rover feature and special scientific equiptment? & Hardware \\
-        Do any areas of the rover design overlap with other SPEX areas? & General \\
+        Do any areas of the rover design overlap with other SPEX areas? What about other clubs at RIT? & General \\
         To what spec will the rover be built? & Hardware \\
-
+        Could RIT SPEX partner with another organization for the URC & Competition \\
         % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
         \bottomrule
     \end{tabular}
@@ -199,10 +156,7 @@ At the end of the semester these questions will lead to a well developed PDD for
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
-% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
-% and to challenge them with interesting projects.
-% In this section, explain how the project would benefit SPEX members as students,
-% space enthusiasts, and young professionals.
+% Explains the benefit to RIT SPEX
 
 Rovers are a huge part of space exploration. It is also an area that SPEX is not currently involved with. It would be beneficial to our members to get some experience in this area.
 A rover would look super good for SPEX at Imagine RIT. The rover would be rather large and would attract many eyes. We could even demo it outside if there is sufficient space. 
@@ -214,7 +168,7 @@ This study would figure out the capabilities of SPEX in regards to this goal. It
 
 
 
-% Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
+% Subsections
 
 \subsection{Mindset}
 \label{subsec:mindset}
@@ -250,10 +204,9 @@ A future SPEX member might pick up where the last paper left off, and the cycle 
 \label{subsec:deliverables}
   % When all is said and done, what will you have to show for it?
   % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
-Physical or intellectual property may constitute a project's deliverables.
-Test articles, test stands, and other hardware, software, as well as posters, presentations or other reports are all valid deliverables.
-Not all deliverables may be known at the time of writing a PDD, but at least several key deliverables should be identified at the start of a project.
-This helps guide the final outcome and is a fundamental part of a project's life cycle.
+The primary deliverable of this study will be a PDD for the spring. It is also noted that the materials that the team will come accross or notes should also be saved in an Google Drive folder for future reference.  
+The team will also present at SPEX design reviews and the weekly checkups at general meetings with the areas the team members are studying that week.
+The should have a rough CAD model for the PDD showing the spacing and layout of the potential rover. The team may decide to use said CAD model to prototype. 
 
 \subsection{Milestones}
 \label{subsec:milestones}
@@ -317,12 +270,10 @@ SPEX projects do not require faculty support, but it is highly recommended to id
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
-As SPEX student members get more experience writing these papers, the group will build a library of meaningful work and be able to save it in an organized manner.
-Knowledge will be preserved and easily shared.
-Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
+The long term vision of this project is to open RIT Space Exploration up to a new area of projects and development. Robotics and rovers are at the core of deep space exploration and most science missions. 
 
 \section*{Acknowledgements}
-The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+The author would like to thank SPEX alumni Phil Linden for creating the PDD templat, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
 
 \bibliographystyle{IEEEtran}
 \bibliography{sample-with-examples}
