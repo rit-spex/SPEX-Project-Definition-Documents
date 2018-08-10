@@ -138,7 +138,8 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     % (l=left align, c=center, r=right align)
     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
     % so cells butt up right against the edge
-    \begin{tabularx}{\linewidth}{|L|L|} 
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\linewidth}{LL} 
     \hline
     Feature & Reason \\
     \hline
@@ -155,6 +156,7 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     Present at Imagine RIT & This is essential for promotional value. \\
     \hline
     \end{tabularx}
+    }
 \label{tab:mvp-one}
 \end{table}
 
@@ -173,11 +175,11 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     % (l=left align, c=center, r=right align)
     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
     % so cells butt up right against the edge
-
-    \begin{tabularx}{\linewidth}{|L|L|} 
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\linewidth}{LL} 
     \hline
     Feature & Reason \\
-    \midrule
+    \hline
     Lidar based CV & Autonomous or partially autonomous navigation for future URC readiness. \\
     \hline
     Improved navigation with use of GPS system & Additional navigation options. \\
@@ -199,6 +201,7 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     On board batteries & Lithium Ion, 18650s or similar battery technology for remote abilities. \\
     \hline
     \end{tabularx}
+    }
 \label{tab:mvp-two}
 \end{table}
 
@@ -342,7 +345,8 @@ Support from faculty could greatly advance this study and what RIT SPEX is capab
     % (l=left align, c=center, r=right align)
     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
     % so cells butt up right against the edge
-    \begin{tabularx}{\linewidth}{|L|L|} 
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\linewidth}{LLL} 
     \hline
     Professor & Department / Feild & Email Address \\
     \hline
@@ -351,6 +355,7 @@ Support from faculty could greatly advance this study and what RIT SPEX is capab
     Dr Ferat Sahin & KGCOE (Robotics) & feseee@rit.edu \\
     \hline
     \end{tabularx}
+    }
 \label{tab:fac-sup}
 \end{table}
 
