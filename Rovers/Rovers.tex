@@ -17,6 +17,8 @@
 
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage{tabularx} % fix tables
+  \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \usepackage{blindtext} % enable placeholder text generator
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
 \usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
@@ -53,7 +55,7 @@
 
 % Initial setup is over, start building the document itself
 \begin{document}
-\maketitle%
+\maketitle
 % correct bad hyphenation here, separated by spaces
 \hyphenation{explor-ation}
 
@@ -122,36 +124,83 @@ the minimum viable product section.
 
 
 \subsubsection{Minimum Viable Product}
-\label{mvp}
   % Mvp
-  The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
+The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
 
-\begin{itemize}
-  \item Rocker-bogie-like suspension as this is the NASA perfered rover suspension style. 
-  \item Ability to control remotely (such as a gamepad) as movement is necessary for rovers.
-  \item Ability to traverse terrain such as gravel, cement, and asphalt because multi-terrain traversal is important for rovers. 
-  \item Technical report on GitHub as deliverable for future teams.
-  \item Rover hardware as deliverable as having a physical rover is important for a rover project. 
-  \item Rover project present at Imagine RIT for promotional value.
-\end{itemize}
+\begin{table}[hb!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Minimum Viable Product}
+    \centering
+    %%\begin{tabular}{l\p{15mm}}%%{\textwidth}%%{@{}XX@{}}
+    % the letters here ^^^^ designate the columns.
+    % (l=left align, c=center, r=right align)
+    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+    % so cells butt up right against the edge
+    \begin{tabularx}{\linewidth}{|L|L|} 
+    \hline
+    Feature & Reason \\
+    \hline
+    Rocker-bogie-like suspension & This is the NASA perfered rover suspension style. \\
+    \hline
+    Ability to control remotely (such as a gamepad) & Remote controle is essential for rovers. \\
+    \hline
+    Ability to traverse terrain such as gravel, cement, and asphalt & Multi-terrain traversal is important for rovers. \\
+    \hline
+    Technical report on GitHub & This will allow for future teams to easily learn from htis teams experience. \\
+    \hline
+    Rover hardware  & Having a physical rover is important for a rover project as it allows for lessons to be learned in construction. \\ 
+    \hline
+    Present at Imagine RIT & This is essential for promotional value. \\
+    \hline
+    \end{tabularx}
+\label{tab:mvp-one}
+\end{table}
 
 \subsubsection{Improvements}
-\label{improvements}
 
   The MVP is intended to be flexible in implementation depending on funding. The size and materials are not defined because of this. Should the funding allow for it there are many improvements that can be made beyond the MVP. 
 
-\begin{itemize}
-  \item Lidar based CV for autonomous or partially autonomous navigation for future URC readiness. 
-  \item Improved navigation with use of GPS system for additional navigation options. 
-  \item Robotic arm with 3+ degrees of freedom for URC readiness and rover capabilities. 
-  \item Drill or grasper attachment for increased  capabilities  of the robotic arm.
-  \item Soil sample analysis with Archimedes' screw for scientific possibilities. 
-  \item Larger and or faster rover that is able to traverse obstacles of greater magnitude or hold more scientific equipment for future expansion. % Pop, Pop! %
-  \item Solar cells for additional long-term navigation viability and experience. 
-  \item Web control interface with GUI for easier navigation. 
-  \item Durable construction with carbon fiber or similar materials for long term viability.
-  \item On board batteries using Lithium Ion, 18650s or similar battery technology for remote abilities.
-\end{itemize}
+\begin{table}[hb!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Improvements}
+    \centering
+    %%\begin{tabularx}%%{\textwidth}{@{}XX@{}}
+    % the letters here ^^^^ designate the columns.
+    % (l=left align, c=center, r=right align)
+    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+    % so cells butt up right against the edge
+
+    \begin{tabularx}{\linewidth}{|L|L|} 
+    \hline
+    Feature & Reason \\
+    \midrule
+    Lidar based CV & Autonomous or partially autonomous navigation for future URC readiness. \\
+    \hline
+    Improved navigation with use of GPS system & Additional navigation options. \\
+    \hline
+    Robotic arm with 3+ degrees of freedom & URC readiness and rover capabilities. \\ 
+    \hline
+    Drill or grasper attachment & Increased capabilities of the robotic arm. \\
+    \hline
+    Soil sample analysis with Archimedes' screw & Scientific possibilities. \\
+    \hline
+    Larger and or faster rover & Able to traverse obstacles of greater magnitude or hold more scientific equipment for future expansion. \\
+    \hline
+    Solar cells & Additional long-term navigation viability and experience. \\
+    \hline
+    Web control interface with GUI & Easier navigation. \\
+    \hline
+    Durable construction & Carbon fiber or similar materials for long term viability. \\
+    \hline
+    On board batteries & Lithium Ion, 18650s or similar battery technology for remote abilities. \\
+    \hline
+    \end{tabularx}
+\label{tab:mvp-two}
+\end{table}
 
 %\begin{figure}
 %  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
@@ -178,7 +227,6 @@ Rovers are a huge part of space exploration.
 It is also an area that SPEX is not currently involved with. 
 It would be beneficial to our members to get some experience in this area.
 \subsubsection{Promotions and Funding}
-\label{promos}
 A rover would look super good for SPEX at Imagine RIT. 
 The rover would be rather large and would attract many eyes. We could even demo it outside if there is sufficient space. 
 A rover would be very easy to get video and photos of for SPEX promotions. 
@@ -186,7 +234,6 @@ Having a rover is also another opportunity for SPEX to fundraise.
 There is plenty of space to place company logos on the body of the rover. 
 It would also allow for SPEX to reach out to robotics companies.
 \subsubsection{Computer Science}
-\label{cs}
 The potential self-driving component would be the heaviest computer science project SPEX would have attempted, this would help with retention of CS and SE majors. 
 Some of the potential self-driving features could be implemented with artificial intelligence.
 Machine learning and artificial intelligence are at the forefront of computer science right now. 
@@ -279,25 +326,32 @@ The rover project is looking at a minimal funding amount of \$500.00 USD from RI
   % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
 Support from faculty could greatly advance this study and what RIT SPEX is capable robotics wise. It is not necessary but would be very helpful. Professors could help with funding, rover design, hardware selection and general advice. Rovers and robotics are new to SPEX and someone with experience could help this. The team should reach out to professors for advice and help. There are many professors at RIT with interest in robotics or computer vision. With some recemendations from SPEX alumni we have a short list of professors who might be interested. 
 
+%%\begin{itemize}
+%%  \item Dr. Ugur Sahin | Mathematics (Researches Computer Vision) | us-grd@cs.rit.edu
+%%  \item Dr Ferat Sahin | KGCOE (Robotics) | feseee@rit.edu
+%%\end{itemize}
+
 \begin{table}[hb!]
     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
     \caption{Potential Faculty support.}
     \centering
-    \begin{tabular}{@{}cll@{}}
+    %%\begin{tabular}%%{\textwidth}{@{}XX@{}}
     % the letters here ^^^^ designate the columns.
     % (l=left align, c=center, r=right align)
     % the weird @{} thingies tell LaTeX to not have left-right padding between cells
     % so cells butt up right against the edge
-    \toprule
+    \begin{tabularx}{\linewidth}{|L|L|} 
+    \hline
     Professor & Department / Feild & Email Address \\
-    \midrule
-    Dr. Ugur Sahin & Mathematics (Researches Computer Vision) & us-grd@cs.rit.edu\\
+    \hline
+    Dr. Ugur Sahin & Mathematics (Researches Computer Vision) & us-grd@cs.rit.edu \\
+    \hline
     Dr Ferat Sahin & KGCOE (Robotics) & feseee@rit.edu \\
-    \bottomrule
-    \end{tabular}
-\label{tab:short-example}
+    \hline
+    \end{tabularx}
+\label{tab:fac-sup}
 \end{table}
 
 \subsection{Long-Term Vision}
