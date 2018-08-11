@@ -146,9 +146,19 @@ the minimum viable product section.
     \hline
     Present at Imagine RIT & This is essential for promotional value. \\
     \hline
-    \multicolumn{2}{c}{} \\ %spacer
-    \multicolumn{2}{c}{ \textbf{Improvements:}}  \\
-    \multicolumn{2}{c}{} \\ %spacer 
+    \end{tabularx}
+    }
+\label{tab:mvp-one}
+\end{table}
+
+\begin{table}[hb!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Improvements}
+    \centering
+    {\renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\linewidth}{LL}   
     \hline
     Lidar based CV & Autonomous or partially autonomous navigation for future URC readiness. \\
     \hline
@@ -174,7 +184,7 @@ the minimum viable product section.
     \hline
     \end{tabularx}
     }
-\label{tab:mvp-one}
+\label{tab:mvp-two}
 \end{table}
 
 \subsubsection{Minimum Viable Product}
