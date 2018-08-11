@@ -1,0 +1,299 @@
+%% *************************************************************************
+%%
+%% This is a derivative work of the RIT Space Exploration Standard defining 
+%% guidelines for content and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage{blindtext} % enable placeholder text generator
+\usepackage{graphicx} % enable toolbox for embedding figures and pictures
+\usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+\usepackage{siunitx} % enable package for easily formatting units
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+\usepackage[T1]{fontenc} % change text encoding to make it more crisp
+\usepackage{etoolbox} % enable conditionals for help text
+\usepackage{booktabs} % make beautiful tables!
+
+% initialize nomenclature package
+\makenomenclature{}
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
+\title{SDL / IREC - Spectroscopy Protein EXperiment Through Reaction Observation (SPEXTRO)}
+
+
+\author{
+  % List the authors of the design document. The Champion should go first.
+  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
+  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author Names.
+    Dylan~Wagner\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
+    T.J.~Tarazevits\IEEEauthorrefmark{2},
+    Keshav~Adhyay\IEEEauthorrefmark{3},
+    and
+    Matthew~Glazer\IEEEauthorrefmark{4}
+  }
+  \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}drw6528@rit.edu,
+    \IEEEauthorrefmark{2}tjt3085@rit.edu,
+    \IEEEauthorrefmark{3}kar4669@rit.edu,
+    \IEEEauthorrefmark{4}msg1254@rit.edu
+  }
+  %%   Below, we use the short-form author block and basically hack it to suit our needs.
+  % Philip~Linden$^{*\dagger}$%
+  %   \thanks{$^{*}$Project Champion}%
+  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
+  % Austin~Bodzas$^{\ddagger}$%
+  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
+  % Drew~Walters$^{\S}$%
+  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
+  % T.J.~Tarazevits$^{**}$%
+  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
+
+  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
+  %% the recommended order for symbolic footnotes is
+  %%   (1) asterisk        *   *
+  %%   (2) dagger          †   \dagger
+  %%   (3) double dagger   ‡   \ddagger
+  %%   (4) section symbol  §   \S
+  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
+  %%   Note that these symbol codes work in math mode and text mode.
+  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
+}
+% page header for pages other than cover page
+\markboth{Project Design Document Standard}%
+{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+This describes RIT Space Exploration participation in the SDL Payload Challenge at the Spaceport America Cup 2019. A 3U cubesat-like payload featuring a protein spectroscopy experiment will be launched and recovered.
+
+      % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+      % Be sure not to confuse the abstract with the introduction.
+      % It is easiest to write the abstract after the rest of the paper has been written.
+      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      % Consider the abstract to be your elevator pitch to anyone reading this design document.
+      % What are they reading?
+      % What is the goal?
+      % Why is it worth my time?
+      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+\end{abstract}
+
+\label{sec:nomenclature}
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\renewcommand{\nompreamble}{
+    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
+    % The two lines below make it look nice when defining units/values to constants.
+
+    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
+    % Read more about advanced nomenclature formatting here:\\
+    % \url{https://www.sharelatex.com/learn/Nomenclatures}
+  }
+\nomenclature{RIT}{Rochester Institute of Technology}
+\nomenclature{SPEX}{RIT Space Exploration}
+\nomenclature{PDD}{Project Design Document}
+% Below are examples of using nomenclature for math symbols and constants or units
+\nomenclature{$\dot{m}$}{Mass flow rate
+  \nomunit{\,\si{\kilo\gram\per\second}}}
+\nomenclature{$c$}{Speed of light
+ \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
+\printnomenclature{}
+
+
+% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+
+% The sections included here are required. Additional sections and subsections may be added as necessary.
+\section{Introduction}
+\label{sec:introduction}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
+
+\IEEEPARstart{T}{he} Space Dynamics Laboratory (SDL) payload challenge 2019 is held at the Intercollegiate rocket engineering challenge (IREC) in Las Cruces, New Mexico. The SDL payload challenge is a sub competition at IREC designed to “Encourage participants to create payloads that accomplish a relevant function and provide useful learning opportunities”. Throughout the competition, team will be judged on: Scientific or Technical Objective(s), Payload Construction and Overall Professionalism, Readiness / Turnkey Operation, Execution of Objective(s). Following this judging criteria, teams will be slotted into first, second and third place with selected others receiving honorable mentions.
+
+The SDL/IREC team formed within RIT SPEX will work in collaboration with RIT Launch Initiative (LI). LI will design, test and construct a sounding rocket with a target altitude of 30,000ft. The sounding rocket developed by RIT LI will fit a 3U CubeSat form factor payload deployable at apogee, the maximum altitude the rocket achieves. 
+
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
+
+The goal of this project is to test how high acceleration and zero net acceleration (freefall) affects the folding of proteins as a payload for the SDL Payload Challenge at IREC 2019. To accomplish this, the team will construct a microfluidic spectroscopy experiment that fits within the payload restrictions of the competition. The payload itself must be safe to fly within the competition launch vehicle, provided by RIT Launch Initiative, and should be capable of operating successfully in the desert environment of Las Cruces, as well as safely returning to Earth intact as specified by SDL competition rules.
+
+\section{Secondary Objective}
+\label{sec:secondary-obj}
+
+This project builds upon the experience and work done for IREC 2018. The  IREC 2018 Technical Report identifies several key areas for improvement that should be pursued. Testing methodology and execution should be emphasized. Several system defects were only discovered during final system integration. Component and subsystem test plans should be formulated and executed well before the deadline to hand-off the payload to the launch team.
+
+Ease of use in manufacturing, assembly, and operation should be considered paramount. For most payload types, mass margins are sufficient enough to trade mass saving designs and machining work for quicker production times. Experience from IREC 2018 clearly identifies the need to have physical access to the internals of the payload frequently over the course of the launch campaign. Consideration should be spent on ease of access and speed of final assembly and disassembly. Finally, due to the nature of the IREC competition, payloads can spend extended periods of time loaded in rockets prior to a launch opportunity (> 2 hours). The system should allow for inert stowage in the launch vehicle, until the rocket is on the launch pad.
+
+Two-way Command and Data Handling (C\&DH) should be included and improvements to transmit/receive throughput should be considered. Signal interrupts and the overhead of task switching between radio modes led to less than expected data throughput. Data received by the ground station was critical in understanding payload performance, since the physical data was lost due to external recovery complications.
+
+Recovery operations are a critical requirement for all IREC and SDL competitors. Due to external factors, the IREC 2018 team was unable to recover the payload, although they believe it landed softly after launch. Known concerns with the payload recovery hardware should be investigated and solutions implemented. Specifically, GPS tracking during the competition was unreliable and the root cause is not known. Also the deployment mechanism for the parachute proved to be unreliable during pre-flight integration. This is a relatively common issue experienced by many teams at IREC 2018. The parachute system should be modified to improve reliability, reduce the chance of accidental deployment, and increase confidence in mission success.
+
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
+% and to challenge them with interesting projects.
+% In this section, explain how the project would benefit SPEX members as students,
+% space enthusiasts, and young professionals.
+
+Competing in the Spaceport America Cup provides extensive benefits to SPEX. Firstly, the competition is internationally recognized, with many prestigious engineering schools competing with extensive funding and faculty involvement. Competing at this level shows RIT faculty and staff, potential corporate sponsors and recruiters, and potential members that SPEX is serious about engaging in multidisciplinary engineering projects. A successful payload will require challenging engineering, but also discipline, organization, and creativity; all valuable skills. Spaceport America Cup provides a fantastic learning opportunity for the members who are able to go and many lessons that can be brought back and shared. Hundreds of passionate engineering teams like SPEX are congregated in one place, sharing tips, tricks, advice, and stories of adversity that allow SPEX to learn and evolve to be more effective in the future.
+
+Also, this project will integrate with other SPEX activities, such as HAB, SPEX-sponsored MSD projects, and other potential test equipment and developed technologies like HABnet. This provides opportunities for members not directly involved with the project to get excited and inspired by the work being done.
+
+Historically, SPEX membership has mainly been dominated by physical engineering disciplines. A project of this type holds opportunities for involvement from members with fields of study in bio or chemical engineering. This allows SPEX to cater to a wider range of disciplines further diversifying membership opportunities. 
+
+
+\section{Implementation}
+\label{sec:implementation}
+  % What path do you anticipate the project to take?
+  
+The payload will iterate and expand on a RIT Multidisciplinary Senior Design Project P16104: Microfluidic Spectroscopy for Proteins within CubeSats  conducted during the 2015-2016 school year by SPEX members. The experiment measures the emission spectra generated by proteins after exposure to light. The concept of operations is defined below. 
+
+\subsection{Concept of Operations - Science}
+\label{subsec:operations}
+A sample of lyophilized protein which contains tryptophan is mixed to reinstate the protein. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode is used to measure intensity of the emitted wavelength.
+
+\subsection{Deliverables}
+\label{subsec:deliverables}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+The project team will produce a qualifying entry into the SDL Payload Challenge 2019. 
+
+\subsection{Payload Module}
+\label{subsec:payload}
+The payload module is a maximum 3U (10x10x30cm) module that includes the experiment hardware, telemetry collection and transmission system, and power system for the whole payload.
+
+\subsection{System Software}
+\label{subsec:sysware}
+
+The system software is at the heart of the payload, it controls everything from mission critical events to pulling sensors. It may be the trickiest part of the payload and is the most important to get right. This being said, much of the flight proven system software which handled mission critical events can be migrated from IREC 2018 to SPEXTRO. However, any other pieces of system software from IREC 2018 will have to be re-implemented. The system software built for IREC 2018 used a custom RTOS to handle execution of routines within the system. This piece of software may be reused if necessary. However, an improved successor has been developed independently of the project. The system software should be developed using coding guidelines for safety critical systems. Using safety critical guidelines will help reduce risk of failure within the payload and sync up programming style across developers. For clarity it is recommended to follow the Joint Strike Fighter C++ Safety Critical Coding Guidelines. 
+
+\subsection{Recovery System}
+\label{subsec:recovery}
+
+The recovery system is co-located within the payload module. A parachute system is required to reduce terminal velocity to acceptable levels for a soft landing. Intentional uncontrolled descent is not allowed by competition rules. Multi-stage parachutes may be used to provide control while reducing the potential landing ellipse for the payload. The system should detect ejection from the launch vehicle  and safely deploy parachutes to avoid unintended recontact with the launch vehicle. Recovery aids are encouraged to reduce time to recovery, including but not limited to buzzers, lights, reflective coatings, and radio beacons.
+
+\subsection{Ground Station}
+\label{subsec:ground}
+
+The ground station includes the receiving radio system, Command and Data Handling (C\&DH) software, and any additional visualization and data processing the team needs for mission success. IREC 2018 uses radio hardware with a python data processing script linked to HABnet, a SPEX-developed data visualization system. The IREC 2018 system is most likely suitable for reuse, but new features could be developed if additional CS talent is available. Many IREC teams brought self-contained ground control stations integrating computers, screens, physical buttons, radios, and other peripherals into a single unit. This is beneficial in the minimal desert environment of the competition. Another potential concept is using a computer to generate a wifi access point. Using a wireless LAN, other computers or mobile devices could connect using a client program to monitor the launch. This would enable increased participation during launch activities. The IREC 2018 team used a Commercial Off the Shelf (COTS) antenna but several teams use hand-made helical antennas. Given enough interest, members could develop various antennas and test their performance during test flights on HAB or LI launches before the competition. 
+
+\subsection{Operations and Procedures}
+\label{subsec:opsproc}
+
+A key deliverable is written documentation covering proper assembly and operation of the payload system. IREC requires rocket teams produce procedures for nominal operation of the rocket system as well as contingency procedures in case of failures or anomalies. Not only are extra points awarded for safety procedures and contingencies, these will aid the team during launch week. Having the payload fully assembled and integrated into the rocket quickly aids in securing an early launch spot. Ideally, an individual without in-depth knowledge of the system should be able to use the documentation to operate the payload. Assembly documentation should also be produced to aid future teams assembling IREC payloads or to enable reproduction of the paytoad system in case the flight unit is damaged before the competition.
+
+For the IREC competition, the team must produce detailed documentation explaining the design and operation of their payload as part of the overall report. This section gets judged along with Conference Day presentations and flight performance.
+
+\subsection{ImagineRIT and Conference Day Presentation}
+\label{subsec:imagine}
+
+A key aspect of the Spaceport America Cup is Conference Day. For rocket teams, this includes a full teardown and safety inspection. For payload teams, it is the primary point where team members get to present their work to judges. The project team should rigorously prepare since this a scored event. Team shirts, posters, prototypes, and physical documentation should be produced to aid in the presentation. ImagineRIT provides a great opportunity to practice presentation skills and validate that presentation materials are accurate.
+
+\section{Milestones}
+\label{sec:milestones}
+  % Be as detailed as you can, but it's okay if there are unknowns.
+  % At the very least, specify how many semester you expect the project to take until it reaches completion.
+This project would start at the beginning of the Fall 2018 semester and conclude at the launch events of Spaceport America Cup 2019, predicted to be in June 2019.
+A key priority for the project team is timeline management, as IREC 2018 experience significant schedule slip. Effort should be made to reduce project risk as soon as possible so that roadblocks can be identified early and workaround or project adjustments can be implemented with suitable time remaining.
+
+A notional timeline is shown in \autoref{tab:milestone}.
+
+\begin{table*}
+    \caption{Notional timeline of Project Milestones.}
+    \centering
+    \begin{tabular}{|p{0.1\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|p{0.07\linewidth}|p{0.2\linewidth}|l|}
+    		\toprule
+    		Category    & Activity    & In-depth Description    & Time Estimate & Deliverable/Milestone     \\
+    		\midrule
+    		Scientific                 & Initial Requirement Generation                   & The team should research the prior work of  IREC 2018, the MSD team, and other similar experiments to understand the challenge of the scientific payload.  Mission and System requirements should be formalized beyond the scope of this document, and technical requirements should be generated for each major subsystem. & 4 weeks       & Requirements Review by Admin Team                  \\
+    		\addlinespace[.25cm]
+    		Scientific Recovery        & Prototyping                                      & Small-scale prototypes of components or subsystems should be developed to validate assumptions and provide contextual experience                                                                                                                                                                                          & 4 weeks       & Prototype Demo at Critical Design Review           \\
+    		\addlinespace[.25cm]
+		Scientific Recovery Ground & Design                                           & Design work on flight subsystems that meets the technical requirements                                                                                                                                                                                                                                                    & 4 weeks       & Critical Design Review                             \\
+		\addlinespace[.25cm]
+    		Scientific Recover Ground  & Engineering Design Unit Fabrication              & Approved designs begin fabrication and software development begins. This period covers winter break, which enables long component lead times. BoMs should be generated, approved, and ordered before the end of the semester                                                                                              & 8 weeks       & BoM order, Manufacturing Milestone review          \\
+    		\addlinespace[.25cm]
+    		Scientific Ground          & Component/Subsystem Testing                      & Components and subsystems begin testing to ensure they meet technical requirements. Examples include LED and photodiode circuit operation, structural test fits, and mechanical switch testing                                                                                                                            & 4 weeks       & Test plan milestones/data collection               \\
+    		\addlinespace[.25cm]
+    		Scientific Recovery        & System Integration                               & Subsystems are integrated into the full system for the first time. Integration procedures are validated and any deviations are noted and revalidated                                                                                                                                                                      & 2 weeks       & First Flight Test with LI, ImagineRIT Presentation \\
+    		\addlinespace[.25cm]
+    		Scientific Recovery Ground & Flight Test iterations and procedure development & After a full system test on a demo flight, either on an LI rocket or HAB flight, data should be analyzed and changes should be made to the system to ensure performance matches or exceeds requirements                                                                                                                   & 6 weeks       & Final Pre-competition Review                       \\
+    		\addlinespace[.25cm]
+    		Scientific Recovery Ground & Spaceport America Cup                            & Launch week and final checks and verifications.                                                                                                                                                                                                                                                                           & 1 week        & Flight during SDL Payload Challenge. \\
+    		\bottomrule
+    		\end{tabular}
+\label{tab:milestone}
+\end{table*}
+
+\section{Externalities}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
+\subsection{Prerequisite Skills}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+This project is multidisciplinary, requiring mechanical engineering, electrical engineering, and computer science skills. The structure for the payload and experiment mechanisms will require CAD, machining skills, and FEA. Structural and thermal analysis is required to ensure the payload survives launch and the harsh environment of the launch site.
+
+The scientific payload would greatly benefit from on-site Biomedical engineering expertise. Alumni involved in the prior MSD project can advise, but the processes being observed by the experiment are unfamiliar to most students.
+
+The avionics and scientific electronics will require basic circuit experience. Reusing the flight board design from IREC 2018 is possible if no PCB layout experience is available. The photodiode and LED assembly will require basic wiring/soldering experience to prototype. Changes to the flight PCB or radio subsystem will require more electrical engineering experience.
+
+The flight software will require students with C++ experience and the knowledge or willingness to learn rather advanced programming concepts. Debugging sensor and radio drivers requires students with considerable practical coding experience. Existing ground station software is written in Python and minimal work is required to make it compatible with proposed radio upgrades. Additional feature development including LAN access, additional visualization, or physical/electrical controls will require students with python and JS knowledge. Most concepts are straightforward and can be taught by available mentors, given enough time to get students up to speed.
+
+The minimum number of people required for project success is roughly 5-6 people. This is partially based on the MSD project team, and on practical experience with IREC 2018. These would need to be dedicated individuals available for the whole project cycle and with enough bandwidth outside of classes. This would include 2 mechanical engineers experienced in design and manufacturing, 1 payload specialist/biomedical engineer with experience with electronics, 2 software engineers for flight avionics and ground station improvements, and 1 electrical engineer/electrically capable engineer that could handle PCB manufacturing, power system assembly, and radio system testing.
+
+The maximum cap on this project is flexible but must be constrained to 25. This cap is intended to restrict dynamic scope creep. Each subsystem has capacity to grow in complexity, up to a point, where development risk exceeds potential benefit. Since the payload is a tightly integrated system, a delay in a subsystem due to feature creep has compounding effects on the system. 
+
+\subsection{Funding Requirements}
+  % Estimate costs that would be needed to meet objectives.
+The IREC 2018 project spent roughly \$1700 including prototyping, concept validation, and final flight hardware. The MSD project had a budget of ~\$1500 and spent ~\$1100. The actual payload described here is fundamentally more complex than the MSD demonstration, but concept validation activities are included in both numbers. A first order scope-based number is \$1000. Additional refinement in the number is possible by evaluating the PCB BoM, as well as a detailed analysis of the cost of just the science demonstrator. It is likely within an order of magnitude.
+
+IREC 2018 was graciously sponsored by SEDS USA with a \$1000 project grant. This is a potential source of funding, but is not guaranteed. Alumni funds were also used by IREC 2018 and could possibly be secured. Additional corporate in-kind sponsorship, like PCB printing by Bay Area Circuits is possible, and pure financial donations could be considered. Funding should be considered a primary risk for this project.
+
+\subsection{Faculty Support}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+This project is somewhat unique in that it stems from a prior MSD project at RIT. The two faculty advisors for that project, Mr. Harold Paschal and Dr. Lea Michel, should be contacted, at a minimum to learn more about the MSD project’s approach and challenges. Also MSD project members are SPEX alumni, and should be contacted as early as possible. A basic rundown of the project is definitely likely and long term mentorship is possible.
+
+\subsection{Long-Term Vision}
+\label{sec:vision}
+This project continues the collaboration with RIT Launch Initiative established with the IREC 2018 project. The MSD project was originally envisioned as a potential cubesat payload, and this project would increase the technology readiness level of that experiment. Extensive testing with rocket launch conditions and miniaturization are on the critical path for this experiment to fly into space.
+
+\section*{Acknowledgements}
+The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+
+\bibliographystyle{IEEEtran}
+\bibliography{sample-with-examples}
+
+\end{document}
