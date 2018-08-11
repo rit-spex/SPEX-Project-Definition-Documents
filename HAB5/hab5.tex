@@ -118,53 +118,102 @@ Many of the algorithms can be trained to recognize particular features or object
 
 The application of CV to space exploration is boundless, with many missions being impossible without autonomous processing of visual information. 
 As missions explore regions increasingly many light-seconds from earth, this impact is set to increase. 
-The testing of CV payloads for these purposes is best carried out in a flight environment, with each flight then providing valuable information on both the CV implementation and the flight itself. 
+With each flight, testing of CV payloads will provide valuable information on both the CV implementation and the flight itself. 
 
-This Project Definition Document describes a High Altitude Balloon suited to flying imaging and CV payloads as discussed in the “On-Board Image Processing and Computer Vision Techniques on Low-Cost Consumer Electronics for Vegetation Density Mapping and Other Experiments” Project Definition Document~\cite{habcvpdd}. These payloads are designed to be achievable using readily available consumer electronics within a reasonable development budget. 
+This Project Definition Document describes a High Altitude Balloon suited to flying imaging and CV payloads as discussed in the ``On-Board Image Processing and Computer Vision Techniques on Low-Cost Consumer Electronics for Vegetation Density Mapping and Other Experiments'' Project Definition Document~\cite{habcvpdd}. 
+These payloads are designed to be achievable using readily available consumer electronics within a reasonable development budget. 
 
 \section{Primary Objective}
 \subsection{Vehicle}
-Development of a reliable HAB vehicle capable of flying modular payloads, as described in (VI) Implementation, is a primary objective. The distinction here is that the process, and not the result, is being classified as a primary task. The reason for this is that the process generates the knowledge, experience and greater benefit to SPEX which is the primary draw for this proposal.
+\label{vehicleobjectives}
+Development of a reliable HAB vehicle capable of flying modular payloads, as described in (\autoref{benefittospex}), is a primary objective. 
+The distinction here is that the process, and not the result, is being classified as a primary task. 
+The reason for this is that the process generates the knowledge, experience and greater benefit to SPEX which is the primary draw for this proposal.
 
 \subsection{Payload}
-The primary payload is Where U At Plants? Follow-on (WUAP2) is a continuation of \textit{Where U At Plants?} (WUAP), a payload that flew on the SPEX high altitude balloon  HAB4 in Spring of 2018~\cite{wuaphab4}. WUAP2’s primary objectives to measure vegetation density using the Normalized Difference Vegetation Index (NDVI) with visible to near-infrared (VNIR) imaging, demonstrate on-board image processing, and gather large datasets of aerial images using low cost, entry-level electronics. NDVI data collected in flight will be validated using NASA NDVI or Enhanced Vegetation Index (EVI) datasets.
+\label{payloadobjectives}
+The primary payload is Where U At Plants? Follow-on (WUAP2) is a continuation of \textit{Where U At Plants?} (WUAP), a payload that flew on the SPEX high altitude balloon  HAB4 in Spring of 2018~\cite{wuaphab4}. 
+WUAP2's primary objectives to measure vegetation density using the Normalized Difference Vegetation Index (NDVI) with visible to near-infrared (VNIR) imaging, demonstrate on-board image processing, and gather large datasets of aerial images using low cost, entry-level electronics. 
+NDVI data collected in flight will be validated using NASA NDVI or Enhanced Vegetation Index (EVI) datasets.
 
-WUAP demonstrated the core concepts of image processing and imaging payloads on high altitude balloon missions but did not meet all of its objectives or design goals and encountered unexpected problems in flight~\cite[Post-Flight Analysis]{hab4}. Though WUAP2 will attempt the same mission as WUAP as a follow-on payload, it will place more emphasis and effort on testing, reliability, and system architecture. A list of “essential questions” to be addressed during WUAP2’s development is given in \ref{essentialquestions}.
+WUAP demonstrated the core concepts of image processing and imaging payloads on high altitude balloon missions but did not meet all of its objectives or design goals and encountered unexpected problems in flight~\cite[Post-Flight Analysis]{wuaphab4}. 
+Though WUAP2 will attempt the same mission as WUAP as a follow-on payload, it will place more emphasis and effort on testing, reliability, and system architecture. A list of ``essential questions'' to be addressed during WUAP2's development is given in appendix \ref{essentialquestions}.
 
 
 \section{Secondary Objectives}
-
-A two-way communication system is desired but may be scaled back due to resource limitations based on the choice of payload. Similarly, consistent location information has been an elusive target. As the HAB is trusted with more complex payloads, the tracking becomes of greater importance.
+\label{secondaryobjectives}
+A two-way communication system is desired but may be scaled back due to resource limitations based on the choice of payload. 
+Similarly, consistent location information has been an elusive target. 
+As the HAB is trusted with more complex payloads, the tracking becomes of greater importance.
 
 The fidelity of scientific knowledge and technical experience generated with respect to the particular is an objective requiring sustained effort.
-Normalized Difference Vegetation Index (NDVI) implementation also acts as an objective worth investigating, in no small part because it expands our list of known and utilized input metrics, enabling implementation of similar for a wider range of future projects. SPEX is yet to use near-Infrared imaging, and this analysis for NDVI serves as a new but relatively simple processing exercise.
+Normalized Difference Vegetation Index (NDVI) implementation also acts as an objective worth investigating, in no small part because it expands our list of known and utilized input metrics, enabling implementation of similar for a wider range of future projects. 
+SPEX is yet to use near-Infrared imaging, and this analysis for NDVI serves as a new but relatively simple processing exercise.
  
-In addition to NDVI studies of vegetation density in the VNIR band, WUAP2 aims to demonstrate CV techniques such as object detection and image segmentation of populated areas. On the ground, methods of determining and mapping vegetation density from RGB visible images alone will be developed using Computer Vision and Machine Learning techniques with public NDVI data and aerial photography, and then applied to WUAP2 datasets. 
+In addition to NDVI studies of vegetation density in the VNIR band, WUAP2 aims to demonstrate CV techniques such as object detection and image segmentation of populated areas. 
+On the ground, methods of determining and mapping vegetation density from RGB visible images alone will be developed using computer vision and machine learning techniques with public NDVI data and aerial photography, and then applied to WUAP2 datasets. 
 
 \section{Benefit to SPEX}
-Having a reliable, modular and iterated HAB platform is absolutely invaluable to SPEX. First and foremost, HAB is a target worth hitting in its own right. The high altitude balloon system offers a unique environment to develop skills and demonstrate prowess to RIT faculty and staff, potential SPEX members, and potential sponsors. A HAB bearing the mark of RIT SPEX is a declaration that we can confidently launch non-trivial payloads in a system of our making and have enough faith in our secure apparatus to link ourselves so. HAB demands careful planning, intelligent utilization of resources, considerable multidisciplinary engineering and long-term teamwork. A successful HAB is thus linked to a success-ready SPEX, whose members are now better prepared for any task. HAB also serves as a unique testing platform for projects involving different temperatures, altitudes or pressures than those experienced normally. This is particularly useful for lower-altitude rocket payloads, testing them for a fraction of the cost or risk. HABs designed with a payload form resembling a cubesat or combination thereof have an even wider utilization. HABs are also the easiest platform for testing of longer-range communication systems.
+\label{benefittospex}
+Having a reliable, modular and iterated HAB platform is absolutely invaluable to SPEX. First and foremost, HAB is a target worth hitting in its own right. 
+The high altitude balloon system offers a unique environment to develop skills and demonstrate prowess to RIT faculty and staff, potential SPEX members, and potential sponsors.
+A HAB bearing the mark of RIT SPEX is a declaration that we can confidently launch non-trivial payloads in a system of our making and have enough faith in our secure apparatus to link ourselves so. 
+HAB demands careful planning, intelligent utilization of resources, considerable multidisciplinary engineering and long-term teamwork. 
+A successful HAB is thus linked to a success-ready SPEX, whose members are now better prepared for any task. 
+HAB also serves as a unique testing platform for projects involving different temperatures, altitudes or pressures than those experienced normally. 
+This is particularly useful for lower-altitude rocket payloads, testing them for a fraction of the cost or risk. 
+HABs designed with a payload form resembling a cubesat or combination thereof have an even wider utilization. 
+HABs are also the easiest platform for testing of longer-range communication systems.
 
-The pursuit of HAB is the pursuit of maximizing scientific output using off-the-shelf components and present limitations of SPEX’s human capital. Progress here develops SPEX’s knowledge base for all future missions, including SPEX’s understanding of what can and cannot be achieved. Presently proposed operations include rigorous pre-flight testing for diagnosis and correction of software and hardware components, post-flight analysis and amelioration and inculcation of this into the design cycle. Potential payloads also include “training” for payloads utilizing machine learning. All aspects SPEX greatly benefits from having.
+The pursuit of HAB is the pursuit of maximizing scientific output using off-the-shelf components and present limitations of SPEX's human capital. 
+Progress here develops SPEX's knowledge base for all future missions, including SPEX's understanding of what can and cannot be achieved. 
+Presently proposed operations include rigorous pre-flight testing for diagnosis and correction of software and hardware components, post-flight analysis and amelioration and inculcation of this into the design cycle. 
+Potential payloads also include ``training'' for payloads utilizing machine learning. 
+All aspects SPEX greatly benefits from having.
 
-Another aspect to SPEX is the learning in the process, with documentation specified as a deliverable. Also, by incorporating testing and training processes into the design and execution process, SPEX can iterate on more advanced software tools. Specific focus on algorithmic improvisation may also draw in more talent, which in turn advances the scope of possible missions.
+Another aspect to SPEX is the learning in the process, with documentation specified as a deliverable. 
+Also, by incorporating testing and training processes into the design and execution process, SPEX can iterate on more advanced software tools. 
+Specific focus on algorithmic improvisation may also draw in more talent, which in turn advances the scope of possible missions.
 
-Computer vision is field skirting the line between nascent and burgeoning. As image processing tools advance, ever more useful information can be garnered from the same physical equipment. Progress here automatically increases SPEX’s potential to make news, capture imaginations and talent, and grow, for we will be at the relative forefront of technology-- unlike projects aiming at aero-braking/recovery, novel communication or astronomical tracking, which are likely to lag behind by decades. This advantage is both due to us maximizing the knowledge gleamed from cheap and readily available hardware, as well as the abundance of open source resources for computer vision. While the entry requirements are non-zero, the acquisition of talent utilizing OpenCV or useful Python libraries broadens SPEX’s options for other ventures, such as IREC’s SDL Payload Challenge. Further, this project offers great flexibility in terms of team composition, once beyond a requisite minimum. The scope for inclusion of mechanically “solved” or immensely complicated designs is immense, while the electrical or computer science requirement becomes static after surpassing a threadbare. An electrically gifted team may choose to consider much more advanced imaging equipment or image processing using other factors to control, requiring only a moderate CS investment. Similarly, the potential for much more advanced algorithmic excursions on maintained or minimally modified hardware is substantial. As RIT looks to expand its research endeavors, especially in fields such as Imaging Science where it possesses an advantage, developing a long and mutually beneficial relationship with that department is also a goal unto itself. A relationship where we alone can provide the testing and utilization offered by us. By acting as an experimentalist’s platform, SPEX (HAB) has the unique opportunity to be a student body involved in the synthesis, publication and presentation of materials. Be it in academic journals or otherwise, our unique selling point can enable increasing reach and developing leads and future deliverables allowing for assistance and funding from sustainable sources.
+Computer vision is field skirting the line between nascent and burgeoning. 
+As image processing tools advance, ever more useful information can be garnered from the same physical equipment. 
+Progress here automatically increases SPEX's potential to make news, capture imaginations and talent, and grow, for we will be at the relative forefront of technology---unlike projects aiming at aero-braking/recovery, novel communication or astronomical tracking, which are likely to lag behind by decades. 
+This advantage is both due to us maximizing the knowledge gleamed from cheap and readily available hardware, as well as the abundance of open source resources for computer vision. 
+While the entry requirements are non-zero, the acquisition of talent utilizing OpenCV or useful Python libraries broadens SPEX's options for other ventures, such as IREC's SDL Payload Challenge. 
+Further, this project offers great flexibility in terms of team composition, once beyond a requisite minimum. 
+The scope for inclusion of mechanically ``solved'' or immensely complicated designs is immense, while the electrical or computer science requirement becomes static after surpassing a threadbare. 
+An electrically gifted team may choose to consider much more advanced imaging equipment or image processing using other factors to control, requiring only a moderate CS investment. 
+Similarly, the potential for much more advanced algorithmic excursions on maintained or minimally modified hardware is substantial. 
+As RIT looks to expand its research endeavors, especially in fields such as Imaging Science where it possesses an advantage, developing a long and mutually beneficial relationship with that department is also a goal unto itself. 
+A relationship where we alone can provide the testing and utilization offered by us. 
+By acting as an experimentalist's platform, SPEX (HAB) has the unique opportunity to be a student body involved in the synthesis, publication and presentation of materials. 
+Be it in academic journals or otherwise, our unique selling point can enable increasing reach and developing leads and future deliverables allowing for assistance and funding from sustainable sources.
 
 \section{Implementation}
-
+\label{implementation}
 \subsection{Deliverables}
-
 \subsubsection{Documentation}
- HAB5 will require GitHub repositories for all software implementations utilized, with documentation utilized referenced. Duplication of online resources, with citations, will be made to aid in reproduction of results or retracing of errors. Library dependencies are to be mapped. Electronic components utilized will be logged in a bill of materials (BoM) and KiCad files for any custom PCBs will be archived. Printed mechanical parts will have files saved and machined components’ sketches will be included. Expectations, hurdles and solutions are to be tabled in documents both before and after the flight.
+ HAB5 will require GitHub repositories for all software implementations utilized, with documentation utilized referenced. Duplication of online resources, with citations, will be made to aid in reproduction of results or retracing of errors. 
+ Library dependencies are to be mapped. 
+ Electronic components utilized will be logged in a bill of materials (BoM) and KiCad files for any custom PCBs will be archived. 
+ Printed mechanical parts will have files saved and machined components' sketches will be included. 
+ Expectations, hurdles and solutions are to be tabled in documents both before and after the flight.
 
 \subsubsection{Vehicle}
-The desired product at the end of the development is a modular HAB vehicle capable of reliably, predictably, and safely carrying a payload compatible with a n*cubesat size. The vehicle is defined as the mechanically sound HAB structure and common electronic/software components necessary for payload deployment. Mechanical soundness includes, but is not limited to, protection from disintegration, temperature, winds, pressure, charge buildup and vibration. To this end a power system, APRS transmitter, pressure/temperature/humidity sensor, payload arming/disarming mechanism and all facilitating processing and memory elements. There must also be a data analytics system to record flight data and provide information leading to more advanced HABs and missions. This must consist of sensors, processing and memory required for the task.  It is expected that the payload will be modular, fitting both an x-u form factor and having a power supply of its own. This is because optimization of a HAB vehicle capable of handling any modular payload results in selection for a power system dedicated solely to the HAB vehicle board and merely arming/disarming the payload electronics. Past issues have included adhesives melting, batteries breaking apart and damage due to environmental factors. Each of these contingencies is to be specifically tested and solved for.
+The desired product at the end of the development is a modular HAB vehicle capable of reliably, predictably, and safely carrying a payload compatible with a n*cubesat size. 
+The vehicle is defined as the mechanically sound HAB structure and common electronic/software components necessary for payload deployment. 
+Mechanical soundness includes, but is not limited to, protection from disintegration, temperature, winds, pressure, charge buildup and vibration. 
+To this end a power system, APRS transmitter, pressure/temperature/humidity sensor, payload arming/disarming mechanism and all facilitating processing and memory elements. 
+There must also be a data analytics system to record flight data and provide information leading to more advanced HABs and missions. 
+This must consist of sensors, processing and memory required for the task.
+It is expected that the payload will be modular, fitting both an x-u form factor and having a power supply of its own. 
+This is because optimization of a HAB vehicle capable of handling any modular payload results in selection for a power system dedicated solely to the HAB vehicle board and merely arming/disarming the payload electronics. Past issues have included adhesives melting, batteries breaking apart and damage due to environmental factors. Each of these contingencies is to be specifically tested and solved for.
 
 \subsubsection{Software and Payload}
-Python, instead of C/C++ allows for greater accessibility and the tradeoff in moving isn’t worth the increased development costs. Previous HAB teams have considered this question, and given the resources on the team, their findings are restated. OpenCV 3 will continue to be used as a major part.
+Python, instead of C/C++ allows for greater accessibility and the tradeoff in moving isn't worth the increased development costs. Previous HAB teams have considered this question, and given the resources on the team, their findings are restated. OpenCV 3 will continue to be used as a major part.
 The primary payload utilized is the WUAP2 payload. This is to build on the previous WUAP payload while adding a NDVI system. Use of NDVI is to be investigated on the ground and considerable attention paid to how NDVI results may be linked to visual spectrum analysis of vegetation. While specific to the payload mission selected, exploring the linking of different realms of sensor information is a pursuit which will further aid SPEX. An example could be the linking of IMU attitude data to images at the corresponding time, which in turn may allow for correction of apparent areas due to the angle of the camera with respect to the horizon. This in turn prepares SPEX for projects requiring this correction be done on-flight, and for other projects such as horizon detection which could “train” on-flight by comparing analyzed data to known IMU readings. To this end the synchronization of clocks may be pursued. Another consistent challenge has been the processing of information on a stream, without information being skipped or resampled. Raw and processed information should be saved for later evaluation and iteration of systems.
 Significant departures from prior procedures in this proposition include the rigorous testing of components and assembled hardware before flight, training/tuning of algorithms where needed and the inclusion of metrics to detect components going offline, development and propagation of errors. As SPEX moves to consider CV modules, it is expected that the development of training knowledge in pre-flight testing will become crucial. Among the tests are those for: camera alignment; camera stability; spectral response/quantum efficiency; software processing of simulations; payload NDVI/visual functioning while on ground; an electronics functional test with specific focus on power systems and APRS reliability; electronics environmental testing; integrated system testing.  Time-stamping of information received by different processes may be considered. It is also desired that metrics be included for post-flight analysis.
-Among the physical requirements for the payload, it is required that the HAB vehicle and payload system be better capable of protecting from environmental factors such as humidity, winds and temperature. Specific to this payload, the alignment of cameras is a question needing further exploration. An angle and separation optimal for the combination of data acquisition and securedness is required. Vibration or displacement during flights can significantly impair or corrupt all information gathered. Fixing this hurdle is critical for future projects which may look to infer distance data with a combination of two cameras or a radar altimeter setup. While the project doesn’t expect that these will all be met as results, it is firmly held that the steps taken to implement these goals as best as possible will transformatively improve SPEX’s advanced payload capabilities.
+Among the physical requirements for the payload, it is required that the HAB vehicle and payload system be better capable of protecting from environmental factors such as humidity, winds and temperature. Specific to this payload, the alignment of cameras is a question needing further exploration. An angle and separation optimal for the combination of data acquisition and securedness is required. Vibration or displacement during flights can significantly impair or corrupt all information gathered. Fixing this hurdle is critical for future projects which may look to infer distance data with a combination of two cameras or a radar altimeter setup. While the project doesn't expect that these will all be met as results, it is firmly held that the steps taken to implement these goals as best as possible will transformatively improve SPEX's advanced payload capabilities.
 
 \subsection{Milestones}
 
@@ -201,7 +250,7 @@ Imagine RIT
 
 
 Mechanical deadlines assume rebuilding the box; truncated if not damaged
-EE deadlines assume Matt’s board is supplying power+APRS
+EE deadlines assume Matt's board is supplying power+APRS
 
 \section{Externalities}
 \subsection{Prerequisite Skills}
@@ -218,11 +267,12 @@ Proficiency in Python (CS 1 or equivalent) is required for implementing WUAP2 im
 % 	1x nir filter = $100 https://www.thorlabs.com/thorproduct.cfm?partnumber=FB880-70 
 
 It is restated that this estimate is based off of the inclusion of a prior HAB board for baseline functionality, an existing APRS module and some functional WUAP-I hardware. The cost of the balloon and helium are not included. Significant leeway was left specifically because the exact implementation topology(for processing) and level of pre-fabrication of components scales inversely with availability of time dedicated by advanced electrical engineering students.
+
 \subsection{Faculty Support}
-The project laid forth doesn’t assume that faculty support is guaranteed or that any particular faculty members will be forthcoming. The project is undertaken in part hoping to build these connections without any significant one-way reliance. It is for that reason that specific, informed and meaningful discussions with possible candidates are recommended as the project progresses and substantive results can be shared.
+The project laid forth doesn't assume that faculty support is guaranteed or that any particular faculty members will be forthcoming. The project is undertaken in part hoping to build these connections without any significant one-way reliance. It is for that reason that specific, informed and meaningful discussions with possible candidates are recommended as the project progresses and substantive results can be shared.
 
 \subsection{Long-term Vision}
-As laid out in the Primary Objectives(III) and benefit to SPEX(V) sections, this document is tabled with an eye to the future. Data collection will focus not just on raw data but also on how processing develops and compares to the knowns. Cataloging of progress, as described in the Deliverables(VI:A), builds on present resources and knowledge in a manner amenable to future growth. Image processing and CV are again endorsed for their ability to enable the transcendence of components and hardware acquisition with the aid of free, relatively easier to acquire open-source knowledge. SPEX’s in-house ability is developed in line with estimates for skills required for later missions. It is also held that missions be pursued on the basis of ability to draw in more permanent and sustainable sources of recognition and funding. A divergence from the current model of resetting every year and relying on alumni limits the ability of organization to attempt challenges worthy of its aspirations. This PDD explicitly seeks a realization capable of winning eyeballs and sponsors.
+As laid out in the Primary Objectives(III) and benefit to SPEX(V) sections, this document is tabled with an eye to the future. Data collection will focus not just on raw data but also on how processing develops and compares to the knowns. Cataloging of progress, as described in the Deliverables(VI:A), builds on present resources and knowledge in a manner amenable to future growth. Image processing and CV are again endorsed for their ability to enable the transcendence of components and hardware acquisition with the aid of free, relatively easier to acquire open-source knowledge. SPEX's in-house ability is developed in line with estimates for skills required for later missions. It is also held that missions be pursued on the basis of ability to draw in more permanent and sustainable sources of recognition and funding. A divergence from the current model of resetting every year and relying on alumni limits the ability of organization to attempt challenges worthy of its aspirations. This PDD explicitly seeks a realization capable of winning eyeballs and sponsors.
 \section*{Acknowledgements}
 The invaluable
 
@@ -235,8 +285,11 @@ The invaluable
 
 \section{Where U At Plants? Follow On (WUAP2) Key Investigations.}
 \noindent
-\begin{table}
-\begin{tabularx}{\linewidth}{@{}p{.25\textwidth}X@{}}
+\begin{table}[h!]
+  \label{essentialquestions}
+  \caption{Essential Questions}
+  \centering
+\begin{tabularx}{\linewidth}{@{}p{.2\textwidth}X@{}}
     \textbf{Discipline} & \textbf{Essential questions} \\
     \midrule
     Imaging & What is the spectral response of the Pi Camera V2? The Pi Camera V2 NoIR? \\
@@ -247,7 +300,7 @@ The invaluable
     Imaging, Embedded Systems & What is the best way to control/command the cameras capture timing? \\
     Image Processing & What framerate is optimal for processing? For image quality? Where's the pareto frontier for framerate/resolution combinations vs processing? \\
     Image Processing & How can image saving and processing operations be more efficient? More reliable? \\
-    Image Processing, ppenidx C: Computer Vision & How much processing is reasonable to do in flight? How complex? Where's the pareto frontier for usefulness/complexity of operations vs processing capability? \\
+    Image Processing, Computer Vision & How much processing is reasonable to do in flight? How complex? Where's the pareto frontier for usefulness/complexity of operations vs processing capability? \\
     Image Processing, Computer Vision & Can images be preprocessed in flight to make analysis/development on the ground easier? \\
     Image Processing, Computer Vision, System Integration & Can auxiliary data (other sensor data) be combined with image data for useful for Computer Vision algorithms? Which metrics are needed? \\
     Computer Vision & How can vegetated areas and vegetation density be estimated from visible RGB images? \\
@@ -268,9 +321,12 @@ The invaluable
 \end{table}
 
 \section{Potential Payload Architectures}
+\label{architectures}
     - Example architecture 1: 2 SBCs, 1 camera each (like WUAP) - SBCs independently capture frames based on a master trigger/clock.
     - Example architecture 2: 1 SBC, 2 cameras - Command 2 camera modules from a single SBC, "outsource" processing to a second SBC if needed.
     - Example architecture 3: 1 SBC, 1+ auxiliary boards - Use an SBC to handle images and processing but "outsource" timing and frame captures to a specialized daughter board for each camera.
+
+depending on the chosen topology, a possible alteration enabling greater processing power would involve two sbcs per camera for processing. in this setup, processing and tasking would be parallelized between the two additional sbcs.
 
 \section{Suggested Tasks}
 
@@ -282,9 +338,6 @@ The invaluable
 - [Imaging/Image Processing/Mechanical] Develop the most efficient architecture for reliably differencing images from two cameras, including calibration, hardware alignment or mounting, and software alignment techniques.
 - [Image Processing/Software] Develop reliable software for retrieving, saving and processing images.
 - [Software] Develop dev tools for debugging, monitoring, benchmarking, and tuning payload systems.
-- [Embedded Systems] Design a system architecture that reliably and efficiently captures synchronized images.
-    - Example architacture 1: 2 SBCs, 1 camera each (like WUAP) - SBCs independently capture frames based on a master trigger/clock.
-    - Example architecture 2: 1 SBC, 2 cameras - Command 2 camera modules from a single SBC, "outsource" processing to a second SBC if needed.
-    - Example architecture 3: 1 SBC, 1+ auxiliary boards - Use an SBC to handle images and processing but "outsource" timing and frame captures to a specialized daughter board for each camera.
+- [Embedded Systems] Design a system architecture that reliably and efficiently captures synchronized images. (see \autoref{architectures})
 
 \end{document}
