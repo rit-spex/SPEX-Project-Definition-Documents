@@ -18,7 +18,8 @@
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
 \usepackage{tabularx} % fix tables
-  \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+  \newcolumntype{L}{>{\raggedright\arraybackslash}X}  
+\usepackage{multirow}  
 \usepackage{blindtext} % enable placeholder text generator
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
 \usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
@@ -122,11 +123,6 @@ the rocker-bogie system works as intended’, ’will the rover stop
 when directed at an obstacle’, etc. The details are defined in
 the minimum viable product section.
 
-
-\subsubsection{Minimum Viable Product}
-  % Mvp
-The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
-
 \begin{table}[hb!]
     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
@@ -150,7 +146,9 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     \hline
     Present at Imagine RIT & This is essential for promotional value. \\
     \hline
-    \multicolumn{2}{c}{\textbf{Improvements:}} \\
+    \multicolumn{2}{c}{} \\ %spacer
+    \multicolumn{2}{c}{ \textbf{Improvements:}}  \\
+    \multicolumn{2}{c}{} \\ %spacer 
     \hline
     Lidar based CV & Autonomous or partially autonomous navigation for future URC readiness. \\
     \hline
@@ -178,6 +176,10 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     }
 \label{tab:mvp-one}
 \end{table}
+
+\subsubsection{Minimum Viable Product}
+  % Mvp
+The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
 
 \subsubsection{Improvements}
 
