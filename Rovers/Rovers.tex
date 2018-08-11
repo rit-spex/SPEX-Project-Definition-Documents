@@ -133,11 +133,6 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
     \caption{Minimum Viable Product}
     \centering
-    %%\begin{tabular}{l\p{15mm}}%%{\textwidth}%%{@{}XX@{}}
-    % the letters here ^^^^ designate the columns.
-    % (l=left align, c=center, r=right align)
-    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
-    % so cells butt up right against the edge
     {\renewcommand{\arraystretch}{1.2}
     \begin{tabularx}{\linewidth}{LL} 
     \hline
@@ -151,7 +146,7 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     \hline
     Technical report on GitHub & This will allow for future teams to easily learn from htis teams experience. \\
     \hline
-    Rover hardware  & Having a physical rover is important for a rover project as it allows for lessons to be learned in construction. \\ 
+    Rover hardware & Having a physical rover is important for a rover project as it allows for lessons to be learned in construction. \\ 
     \hline
     Present at Imagine RIT & This is essential for promotional value. \\
     \hline
@@ -177,6 +172,8 @@ The minimum viable product (MVP) has been defined by the basics of what can be c
     \hline
     On board batteries & Lithium Ion, 18650s or similar battery technology for remote abilities. \\
     \hline
+    Long range communications & Ability to communicate with the rover at lengths of up to one kilometer allows for URC readiness. \\
+    \hline
     \end{tabularx}
     }
 \label{tab:mvp-one}
@@ -200,7 +197,9 @@ The team will accomplish this by evaluating how many of the MVP improvements are
 If none of these improvements are not able to be implemented then the team is not near URC ready.
 The competition is held annually and features four very intense competitions. 
 Such a rover would need to be fully self navigating, perform scientific analysis on soil samples, and having a robotic arm capable of fine motor control. 
-Such a project would be among the most ambitious SPEX has ever attempted. The skills learned from this project should be applicable to such a future project. 
+Such a project would be among the most ambitious SPEX has ever attempted. 
+These features line up with the improvements section of the MVP.
+The skills learned from this project should be applicable to such a future project. 
 This secondary objective is directly related to the long-term vision of the rover project. 
 
 \section{Benefit to SPEX}
@@ -282,11 +281,17 @@ The technical report of the rover is a design document complete with the hardwar
 
 \subsubsection{Rover Software}
 \label{roversoftware}
-The rover software has to be written and hosted on GitHub. This will include rover features such as navigation, control, and power regulation. 
+The rover software has to be written and hosted on GitHub. This will include rover features such as navigation, control, and power regulation. The rover need to be controlled so software must be made to do so. This means the rover electronics must be integrated with a control application. The rover will need to distribute power to the motors in the wheels so software will need to be made to regulate such power. There will also need to be software for the autonomous or partially autonomous features on the rover. 
 
 \subsubsection{Rover Hardware}
 \label{roverhardware}
-The rover will need to be constructed and tested. Because of this a physically constructed rover is needed. This will be necessary for ImagineRIT for cool factor. 
+The rover will need to be constructed and tested. Because of this a physically constructed rover is needed. This will be necessary for ImagineRIT for cool factor. This includes the rover body, mast, suspension, and wheels. 
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figs/rocker-bogie.png}
+  \caption{Rocker-Bogie mechanism}
+\label{fig:lifecycle}
+\end{figure}
 
 \subsection{Milestones}
 \label{subsec:milestones}
@@ -308,12 +313,12 @@ It will also let us know to what spec we are currently capable of building such 
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
 
-The rover project is looking at a minimal funding amount of \$500.00 USD from RIT SPEX. This funding is needed to make a rover that fulfills the MVP defined in the Primary Objective section. In order to give a better deliverable the team will also be reaching out to a large list of companies looking for further funding through sponsorship. 
+The rover project is looking at a minimal funding amount of \$500.00 USD from RIT SPEX. This funding is needed to make a rover that fulfills the MVP defined in the Primary Objective section. In order to give a better deliverable the team will also be reaching out to a large list of companies looking for further funding through sponsorship. Increasing the funding to \$2500.00 USD would allow for the team to construct a more feature complete rover. Components like LIDAR sensors and long-range remote communications are expensive. Though a rover can be made without them additional funding allows for the rover project to expand in scope. 
 
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
   % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-Support from faculty could greatly advance this study and what RIT SPEX is capable robotics wise. It is not necessary but would be very helpful. Professors could help with funding, rover design, hardware selection and general advice. Rovers and robotics are new to SPEX and someone with experience could help this. The team should reach out to professors for advice and help. There are many professors at RIT with interest in robotics or computer vision. With some recemendations from SPEX alumni we have a short list of professors who might be interested. 
+Support from faculty could greatly advance this study and what RIT SPEX is capable robotics wise. It is not necessary but would be very helpful. Professors could help with funding, rover design, hardware selection and general advice. Rovers and robotics are new to SPEX and someone with experience could help this. The team should reach out to professors for advice and help. There are many professors at RIT with interest in robotics or computer vision. With some recommendations from SPEX alumni we have a short list of professors who might be interested. 
 
 %%\begin{itemize}
 %%  \item Dr. Ugur Sahin | Mathematics (Researches Computer Vision) | us-grd@cs.rit.edu
@@ -334,7 +339,7 @@ Support from faculty could greatly advance this study and what RIT SPEX is capab
     {\renewcommand{\arraystretch}{1.2}
     \begin{tabularx}{\linewidth}{LLL} 
     \hline
-    \textbf{Professor} & \textbf{Department / Feild} & \textbf{Email Address} \\
+    \textbf{Professor} & \textbf{Department / Field} & \textbf{Email Address} \\
     \hline
     Dr. Ugur Sahin & Mathematics (Researches Computer Vision) & us-grd@cs.rit.edu \\
     \hline
@@ -350,7 +355,7 @@ Support from faculty could greatly advance this study and what RIT SPEX is capab
 The long-term vision of this project is to open RIT Space Exploration up to a new area of projects and development. 
 Robotics and rovers are at the core of deep space exploration and most science missions. 
 The project is also intended to lead into a future rover project with expanded capabilities.
-The University Rover Challenge is hosted by the mars society. 
+The University Rover Challenge is hosted by the Mars Society. 
 It features very competitive and expensive rovers. 
 These rovers feature autonomous navigation, fine control robotics, scientific drill and more. 
 It is a worthy long term goal. 
