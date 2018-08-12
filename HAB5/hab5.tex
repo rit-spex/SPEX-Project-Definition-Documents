@@ -84,10 +84,10 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  A High Altitude Balloon will fly \textit{Where U At Plants Follow-On} (WUAP2) payload module to 100,000ft. 
-  The HAB and WUAP2 are to be developed in parallel over one year. 
+  A High Altitude Balloon will fly \textit{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon} (PLANTHAB) payload module to altitudes near 100,000ft. 
+  The HAB5 and PLANTHAB payload are to be developed in parallel over one year. 
   The vehicle and payload are both designed to be modular so that the HAB is able to support diverse mission payloads on the same platform. 
-  WUAP2 will use multispectral imaging to measure vegetation density, and will demonstrate on-board image processing and computer vision techniques with low cost, consumer level components.
+  PLANTHAB will use multispectral imaging to measure vegetation density, and will demonstrate on-board image processing and computer vision techniques with low cost, consumer level components.
 
   % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
   % Be sure not to confuse the abstract with the introduction.
@@ -107,8 +107,7 @@ A HAB will usually fly with, at the very least, a power system, one-way communic
 For this purpose a HAB must have a safe and reliable structure capable of providing protection from different atmospheric conditions, including temperature and pressure. 
 It is also preferred if this structure allows for modular payload development and is compatible with cubesat designs. 
 Constraints of mass and volume follow naturally, leading to limitations then on power, processing and memory capabilities and communication rate and range. 
-It is therefore to optimize not only the design and execution of a payload for the HAB, but also optimize in selection of a task. 
-Similarly, for those elements of a HAB which must be executed regardless of payload, such as an Automatic Packet Reporting System (APRS), a reliable design with a minimal footprint is sought.
+Essential HAB functions such as position tracking and power delivery should be as weight and volume efficient as possible to optimize payload volume and mass budgets.
 
 Image processing is the application of computer algorithms or digital processing techniques to images. 
 Recent advances have made it possible to carry out image processing on relatively cheap, light and easily interfaceable consumer electronic equipment. 
@@ -117,10 +116,6 @@ CV allows for autonomous extraction and interpretation of information from an im
 Among these are the identification of objects or the detection of a horizon. 
 Many of the algorithms can be trained to recognize particular features or objects, or a combination thereof, to recognize, predict or quantify another feature or quantity.
 
-The application of CV to space exploration is boundless, with many missions being impossible without autonomous processing of visual information. 
-As missions explore regions increasingly many light-seconds from earth, this impact is set to increase. 
-With each flight, testing of CV payloads will provide valuable information on both the CV implementation and the flight itself. 
-
 This Project Definition Document describes a High Altitude Balloon suited to flying imaging and CV payloads as discussed in the ``On-Board Image Processing and Computer Vision Techniques on Low-Cost Consumer Electronics for Vegetation Density Mapping and Other Experiments'' Project Definition Document~\cite{habcvpdd}. 
 These payloads are designed to be achievable using readily available consumer electronics within a reasonable development budget. 
 
@@ -128,26 +123,24 @@ These payloads are designed to be achievable using readily available consumer el
 \label{primaryobjectives}
 \subsection{Vehicle}
 \label{vehicleobjectives}
-Development of a reliable HAB vehicle capable of flying modular payloads, as described in (\autoref{benefittospex}), is a primary objective. 
-The distinction here is that the process, and not the result, is being classified as a primary task. 
-The reason for this is that the process generates the knowledge, experience and greater benefit to SPEX which is the primary draw for this proposal.
+Development of a reliable HAB vehicle capable of flying modular payloads, as described in (\autoref{implementation}), is a primary objective. 
 
 \subsection{Payload}
 \label{payloadobjectives}
-The primary payload, \textit{Where U At Plants? Follow-on} (WUAP2) is a continuation of \textit{Where U At Plants?} (WUAP), a payload that flew on the SPEX high altitude balloon  HAB4 in Spring of 2018~\cite{wuaphab4}. 
-WUAP2 shares its predecessor's primary objectives to measure vegetation density using the Normalized Difference Vegetation Index (NDVI) with visible to near-infrared (VNIR) imaging, demonstrate on-board image processing, and gather large datasets of aerial images using low cost, entry-level electronics. 
+The primary payload, \textit{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon} (PLANTHAB) is a continuation of \textit{Where U At Plants?} (WUAP), a payload that flew on the SPEX high altitude balloon  HAB4 in Spring of 2018~\cite{wuaphab4}. 
+PLANTHAB shares its predecessor's primary objectives to measure vegetation density using the Normalized Difference Vegetation Index (NDVI) with visible to near-infrared (VNIR) imaging, demonstrate on-board image processing, and gather large datasets of aerial images using low cost, entry-level electronics. 
 NDVI data collected in flight will be validated using NASA NDVI or Enhanced Vegetation Index (EVI) datasets.
 
 WUAP demonstrated the core concepts of image processing and imaging payloads on high altitude balloon missions but did not meet all of its objectives or design goals and encountered unexpected problems in flight~\cite[Post-Flight Analysis]{wuaphab4}. 
-Though WUAP2 will attempt the same mission as WUAP as a follow-on payload, it will place more emphasis and effort on testing, reliability, and system architecture. 
-The priorities for WUAP2 development are as follows. 
+Though PLANTHAB will attempt the same mission as WUAP as a follow-on payload, it will place more emphasis and effort on testing, reliability, and system architecture. 
+The priorities for PLANTHAB development are as follows. 
 \begin{enumerate}\small
     \item \textbf{Understanding the system.} There should be no surprises in flight, and if goals or target performanceare not met it should be known by how much.
     \item \textbf{Reliability and stability.} The system should behave the same way every time, and should produce the same output for a given (known) set of inputs.
     \item \textbf{Performance.} The quality of output data should reach the maximum possible for the system's capability. Realize all the potential of the system.
 \end{enumerate}
 
-A list of ``essential questions'' to be addressed during WUAP2's development is given in appendix \ref{essentialquestions}.
+A list of ``essential questions'' to be addressed during PLANTHAB's development is given in appendix \ref{essentialquestions}.
 
 
 \section{Secondary Objectives}
@@ -155,19 +148,14 @@ A list of ``essential questions'' to be addressed during WUAP2's development is 
 A two-way communication system is desired but may be scaled back due to resource limitations based on the choice of payload. 
 Similarly, consistent location information has been an elusive target. 
 As the HAB is trusted with more complex payloads, the tracking becomes of greater importance.
-
-The fidelity of scientific knowledge and technical experience generated with respect to the particular is an objective requiring sustained effort.
-Normalized Difference Vegetation Index (NDVI) implementation also acts as an objective worth investigating, in no small part because it expands our list of known and utilized input metrics, enabling implementation of similar for a wider range of future projects. 
-SPEX is yet to use near-Infrared imaging, and this analysis for NDVI serves as a new but relatively simple processing exercise.
  
-In addition to NDVI studies of vegetation density in the VNIR band, WUAP2 aims to demonstrate CV techniques such as object detection and image segmentation of populated areas. 
-On the ground, methods of determining and mapping vegetation density from RGB visible images alone will be developed using computer vision and machine learning techniques with public NDVI data and aerial photography, and then applied to WUAP2 datasets. 
+In addition to NDVI studies of vegetation density in the VNIR band, PLANTHAB aims to demonstrate CV techniques such as object detection and image segmentation of populated areas. 
+On the ground, methods of determining and mapping vegetation density from RGB visible images alone will be developed using computer vision and machine learning techniques with public NDVI data and aerial photography, and then applied to PLANTHAB datasets. 
 
 \section{Benefit to SPEX}
 \label{benefittospex}
-Having a reliable, modular and iterated HAB platform is absolutely invaluable to SPEX. First and foremost, HAB is a target worth hitting in its own right. 
 The high altitude balloon system offers a unique environment to develop skills and demonstrate prowess to RIT faculty and staff, potential SPEX members, and potential sponsors.
-A HAB bearing the mark of RIT SPEX is a declaration that we can confidently launch non-trivial payloads in a system of our making and have enough faith in our secure apparatus to link ourselves so. 
+A HAB bearing the mark of RIT SPEX is a declaration that we can confidently launch non-trivial payloads in a system of our making.
 HAB demands careful planning, intelligent utilization of resources, considerable multidisciplinary engineering and long-term teamwork. 
 A successful HAB is thus linked to a success-ready SPEX, whose members are now better prepared for any task. 
 HAB also serves as a unique testing platform for projects involving different temperatures, altitudes or pressures than those experienced normally. 
@@ -178,27 +166,27 @@ HABs are also the easiest platform for testing of longer-range communication sys
 The pursuit of HAB is the pursuit of maximizing scientific output using off-the-shelf components and present limitations of SPEX's human capital. 
 Progress here develops SPEX's knowledge base for all future missions, including SPEX's understanding of what can and cannot be achieved. 
 Presently proposed operations include rigorous pre-flight testing for diagnosis and correction of software and hardware components, post-flight analysis and amelioration and inculcation of this into the design cycle. 
-Potential payloads also include ``training'' for payloads utilizing machine learning. 
-All aspects SPEX greatly benefits from having.
 
 Another aspect to SPEX is the learning in the process, with documentation specified as a deliverable. 
 Also, by incorporating testing and training processes into the design and execution process, SPEX can iterate on more advanced software tools. 
 Specific focus on algorithmic improvisation may also draw in more talent, which in turn advances the scope of possible missions.
 
-Computer vision is field skirting the line between nascent and burgeoning. 
 As image processing tools advance, ever more useful information can be garnered from the same physical equipment. 
-Progress here automatically increases SPEX's potential to make news, capture imaginations and talent, and grow, for we will be at the relative forefront of technology---unlike projects aiming at aero-braking/recovery, novel communication or astronomical tracking, which are likely to lag behind by decades. 
-This advantage is both due to us maximizing the knowledge gleamed from cheap and readily available hardware, as well as the abundance of open source resources for computer vision. 
+Progress here automatically increases SPEX's potential to make news, capture imaginations and talent, and grow.  
+This advantage is both due to us maximizing the knowledge gleaned from cheap and readily available hardware, as well as the abundance of open source resources for computer vision. 
 While the entry requirements are non-zero, the acquisition of talent utilizing OpenCV or useful Python libraries broadens SPEX's options for other ventures, such as IREC's SDL Payload Challenge. 
 
+Developing the capability to perform Normalized Difference Vegetation Index (NDVI) provides a foundation for a wide range of future imaging payloads. 
+SPEX is yet to use near-Infrared imaging, and this analysis for NDVI serves as a new but relatively simple processing exercise.
+
 Further, this project offers great flexibility in terms of team composition, once beyond a requisite minimum.
-The scope for inclusion of mechanically ``solved'' or immensely complicated designs is immense, while the electrical or computer science requirement becomes static after surpassing a threadbare. 
-An electrically gifted team may choose to consider much more advanced imaging equipment or image processing using other factors to control, requiring only a moderate CS investment. 
+While the mechanical design of the HAB is quite mature, its electrical systems are not.
+An gifted electronics team may choose to consider much more advanced imaging equipment or image processing using other factors to control, requiring only a moderate CS investment. 
 Similarly, the potential for much more advanced algorithmic excursions on maintained or minimally modified hardware is substantial. 
 
 As RIT looks to expand its research endeavors, especially in fields such as Imaging Science where it possesses an advantage, developing a long and mutually beneficial relationship with that department is also a goal unto itself. 
-By acting as an experimentalist's platform, SPEX (HAB) has the unique opportunity to be a student body involved in the synthesis, publication and presentation of materials. 
-Be it in academic journals or otherwise, our unique selling point can enable increasing reach and developing leads and future deliverables allowing for assistance and funding from sustainable sources.
+As a platform for experiments, SPEX has the unique opportunity to be a student body involved in the synthesis, publication and presentation of materials. 
+This can build SPEX's reputation and foster relationships with faculty and research organizations, leading to opportunities for mentorship and funding from sustainable sources.
 
 \section{Implementation}
 \label{implementation}
@@ -206,8 +194,7 @@ Be it in academic journals or otherwise, our unique selling point can enable inc
 \label{deliverables}
 \subsubsection{Documentation}
 \label{deliverables-documentation}
- HAB5 will require GitHub repositories for all software implementations utilized, with documentation utilized referenced. Duplication of online resources, with citations, will be made to aid in reproduction of results or retracing of errors. 
- Library dependencies are to be mapped. 
+ HAB5 will require GitHub repositories for all software that is developed. Library dependencies will be listed with references or citations to existing codebases. Duplication of online resources, with citations, will be made to aid in reproduction of results or retracing of errors.  
  Electronic components utilized will be logged in a bill of materials (BoM) and KiCad files for any custom PCBs will be archived. 
  Printed mechanical parts will have files saved and machined components' sketches will be included. 
  Expectations, hurdles and solutions are to be tabled in documents both before and after the flight.
@@ -229,8 +216,7 @@ Past issues have included adhesives melting, batteries breaking apart and damage
 Python, instead of C/C++ allows for greater accessibility and the tradeoff in moving isn't worth the increased development costs. 
 Previous HAB teams have considered this question, and given the resources on the team, their findings are restated. OpenCV 3 will continue to be used as a major part.
 
-The primary payload utilized is the WUAP2 payload. 
-This is to build on the previous WUAP payload while adding a NDVI system.
+The primary payload on HAB5 is the PLANTHAB payload.
 Use of NDVI is to be investigated on the ground and considerable attention paid to how NDVI results may be linked to visual spectrum analysis of vegetation. 
 While specific to the payload mission selected, exploring the linking of different realms of sensor information is a pursuit which will further aid SPEX. 
 An example could be the linking of IMU attitude data to images at the corresponding time, which in turn may allow for correction of apparent areas due to the angle of the camera with respect to the horizon. 
@@ -239,9 +225,8 @@ To this end the synchronization of clocks may be pursued.
 Another consistent challenge has been the processing of information on a stream, without information being skipped or resampled. 
 Raw and processed information should be saved for later evaluation and iteration of systems.
 
-Significant departures from prior procedures in this proposition include the rigorous testing of components and assembled hardware before flight, training/tuning of algorithms where needed and the inclusion of metrics to detect components going offline, development and propagation of errors. 
-As SPEX moves to consider CV modules, it is expected that the development of training knowledge in pre-flight testing will become crucial. 
-Among the tests are those for: camera alignment; camera stability; spectral response/quantum efficiency; software processing of simulations; payload NDVI/visual functioning while on ground; an electronics functional test with specific focus on power systems and APRS reliability; electronics environmental testing; integrated system testing.
+Detailed test plans and test reports will record the method and results from rigorous testing of mechanical and electrical components, software algorithms, telemetry collection, and fault detection.
+Additional and calibrations unique to HAB5 and PLANTHAB include camera alignment; camera stability; spectral response/quantum efficiency; software processing of simulations; payload NDVI/visual functioning while on ground; an electronics functional test with specific focus on power systems and APRS reliability; electronics environmental testing; and integrated system testing.
 Time-stamping of information received by different processes may be considered. 
 It is also desired that metrics be included for post-flight analysis.
 
@@ -249,6 +234,9 @@ Among the physical requirements for the payload, it is required that the HAB veh
 
 \subsection{Milestones}
 Development and fabrication milestones are listed in \autoref{milestones-table}.
+One key consideration in choosing a time of year to launch HAB5 with PLANTHAB is the abundance of plant life in the area where it will be launched.
+In upstate New York, plant vitality is at its highest in late spring through early fall.
+
 \begin{table}[!ht]
   \centering
   \caption{Milestones to design and build HAB5}
@@ -280,7 +268,7 @@ Development and fabrication milestones are listed in \autoref{milestones-table}.
 
 \section{Externalities}
 \subsection{Prerequisite Skills}
-Proficiency in Python (CS 1 or equivalent) is required for implementing WUAP2 image capturing and processing software. 
+Proficiency in Python (CS 1 or equivalent) is required for implementing PLANTHAB image capturing and processing software. 
 Experience with Python computer vision and machine learning tools is required for developing the advanced CV objectives like object detection and segmentation. 
 EE skill set varies greatly based on method of implementation---purchasing ready-to-assemble products to design and fabrication of custom PCBs. 
 The result is that we have the opportunity to tune implementation based on the EEs we find. 
@@ -327,7 +315,11 @@ The authors would like to thank Dan Mitchell, Matt Glazer, Dylan Wagner, and T.\
 \appendices{}
 
 
-\section{Where U At Plants? Follow On (WUAP2) Key Investigations.}
+\section{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon (PLANTHAB) Key Investigations.}
+PLANTHAB is a multidisciplinary effort at the convergence of electrical engineering, imaging science, software engineering, and artificial intelligence. 
+In order to accomplish PLANTHAB's goals, students working on the project must find answers to the questions in \autoref{essentialquestions}.
+Although some of the concepts are somewhat advanced, all are within reach to motivated undergraduate students provided they have guidance from individuals with experience in the respective fields, such as student or alumni mentors or university faculty members.
+
 \noindent
 \begin{table}[h!]
   \label{essentialquestions}
@@ -366,7 +358,7 @@ The authors would like to thank Dan Mitchell, Matt Glazer, Dylan Wagner, and T.\
 
 \section{Notional Payload Architectures}
 \label{architectures}
-There are several topologies to address WUAP2 image capture and processing needs as described in appendix \ref{essentialquestions}.
+There are several topologies to address PLANTHAB image capture and processing needs as described in appendix \ref{essentialquestions}.
 This appendix suggests notional payload architecture topologies to be considered during development.
 
 \begin{enumerate}
@@ -376,18 +368,18 @@ This appendix suggests notional payload architecture topologies to be considered
     \item \textbf{2+ SBCs for each of 2 cameras.} Timing and capturing is handled by any of the topologies above. The processing workload is parallelized between multiple SBCs for each image stream so that processing signal chains can keep up with image capture rates.
 \end{enumerate}
 
-The architecture selected for the WUAP2 payload must balance cost, performance, complexity, and difficulty.
-While the objectives of WUAP2 may be trivial to handle on more powerful or more specialized---andhence more expensive---hardware, the intent of the mission is to push the limits of low cost consumer level electronics~\cite{habcvpdd}.
+The architecture selected for the PLANTHAB payload must balance cost, performance, complexity, and difficulty.
+While the objectives of PLANTHAB may be trivial to handle on more powerful or more specialized---and thus more expensive---hardware, the intent of the mission is to push the limits of low cost consumer level electronics~\cite{habcvpdd}.
 
 \section{Suggested Tasks for Payload Development}
-This section names some actionable tasks to address the essential questions of WUAP2 described in \autoref{essentialquestions}.
+This section names some actionable tasks to address the essential questions of PLANTHAB described in \autoref{essentialquestions}.
 
 \noindent
 \begin{table}[h!]
   \label{tasks}
   \caption{Suggested tasks}
   \centering
-\begin{tabularx}{\linewidth}{@{}p{.2\textwidth}X@{}}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
     \textbf{Discipline} & \textbf{Essential questions} \\
     \midrule
 Imaging & Measure camera module average pixel response vs wavelength, targeting 400nm-1100nm. \\
