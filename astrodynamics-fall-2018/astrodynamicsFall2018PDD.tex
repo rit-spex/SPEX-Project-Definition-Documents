@@ -27,6 +27,7 @@
 \usepackage[T1]{fontenc} % change text encoding to make it more crisp
 \usepackage{etoolbox} % enable conditionals for help text
 \usepackage{booktabs} % make beautiful tables!
+\usepackage{tabularx}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -246,7 +247,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
   % we haven't told LaTeX where to put this so it'll find the best place.
       \caption{Notional Timeline of Project Milestones I}
       \centering
-      \begin{tabular}{@{}cll@{}}
+      \begin{tabularx}{\linewidth}{lXl}
           % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
           \toprule % line on top external edge of table
           % Separate cells in a row with &, move to the next row with \\
@@ -267,7 +268,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
           5 & Generate documentation and delivery to SPEX & 1 week \\
           % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
           \bottomrule
-      \end{tabular}
+      \end{tabularx}
   \label{tab:timeline1}
   \end{table}
 
@@ -276,7 +277,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
     % we haven't told LaTeX where to put this so it'll find the best place.
         \caption{Notional Timeline of Project Milestones II}
         \centering
-        \begin{tabular}{@{}cll@{}}
+        \begin{tabularx}{\linewidth}{lXl}
             % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
             \toprule % line on top external edge of table
             % Separate cells in a row with &, move to the next row with \\
@@ -305,7 +306,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
             8 & Generate documentation and delivery to SPEX & 1 week \\
             % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
             \bottomrule
-        \end{tabular}
+        \end{tabularx}
     \label{tab:timeline2}
     \end{table}
 
@@ -331,7 +332,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
     % we haven't told LaTeX where to put this so it'll find the best place.
         \caption{Estimated Budget}
         \centering
-        \begin{tabular}{@{}cll@{}}
+        \begin{tabularx}{\linewidth}{lXl}
             % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
             \toprule % line on top external edge of table
             % Separate cells in a row with &, move to the next row with \\
@@ -342,7 +343,7 @@ A strong bond with the observatory also opens up more opportunities there for SP
             12" Telescope Modifications & 100 \\
             % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
             \bottomrule
-        \end{tabular}
+        \end{tabularx}
     \label{tab:costEstimate}
     \end{table}
 
