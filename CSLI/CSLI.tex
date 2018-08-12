@@ -90,7 +90,7 @@
 The CSLI mission encompasses the entire process of building the CubeSat, launching it, and performing its mission in orbit. This project will be primarily concerned
 with the first phase of this mission, the design and research of the CubeSat and scientific payload. The payload will be selected during the project to fit needs
 that the team develops. The CubeSat will be built to incorporate the payload and function at a specific orbit. The final deliverable of this project will be a
-fully researched and developed payload and CubeSat in a 3D CAD model.
+fully researched and developed payload and CubeSat in a 3D CAD model, with an accompanying document that fully describes the payload.
 
       % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
       % Be sure not to confuse the abstract with the introduction.
@@ -137,16 +137,22 @@ fully researched and developed payload and CubeSat in a 3D CAD model.
 \label{sec:introduction}
   % The introduction is a place to give background and context before diving into the subject matter.
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
-\IEEEPARstart{T}{he} CubeSat Launch Initiative will be a great opportunity for RIT SPEX members to use their technical skills to make an electromechanical system.
-CubeSats were designed with the intent of creating a low-cost opportunity for launching satellites, geared toward allowing university students to put there skills to
-real use. The CSLI gives the team a free ride to space, thus eliminating a massive amount of cost to put a satellite in orbit. RIT SPEX will create a team
-to design, fabricate, and launch RIT's first CubeSat. There are several phases to this mission and will not be restricted to a tight-timeline.
+\IEEEPARstart{T}{he} CubeSat Launch Initiative allows teams to launch small satellites to specified orbits with the launch free of cost. The launch is typically millions of dollars for a
+satellite mission. However, through the CSLI, the team can hitch a ride on a rocket that is already going up and therefore does not need to pay for the launch, effectively cutting
+an enormous amount of money. CubeSats are standardized in their dimensions and functional requirements, such as weight, power, etc. One of the most important aspects of
+a CubeSat is the form factor. A standard CubeSat form is 10 cm x 10 cm x 10 cm, this is defined as a 1U CubeSat, common CubeSat form factors ar 1U, 2U, 3U, and 6U.
+A 2U is 10 cm x 10 cm x 20 cm, and so on to a 6U where the form factor is 20 cm x 10 cm x 30 cm. This standardized form factor allows a launch provider to put the CubeSat in a
+standard launch pod. This pod is adaptable to all CubeSats, called a P-Pod. CubeSat contain integrated scientific payloads. These payloads are typically either experiments or technology
+demonstrations.
+
+This project is the first step in the proposed CSLI mission. The payload is going to be chosen as the first order of business and the mission will be developed.
 
 The phases for this entire CSLI mission are summarized in \autoref{tab:phases}. The first phase is the primary focus and goal of this immediate project, design and
-research of the CubeSat with a scientific payload. The second phase will be concerned with securing funding. The third phase will be writing the CSLI proposal and submitting it.
+research of the CubeSat with a scientific payload and a technical report on the system. The second phase will be concerned with securing funding. The third phase will be writing the CSLI proposal and submitting it.
 The fourth phase will be building the CubeSat. This includes the component-level testing and full fabrication of the system. The fifth phase, testing, will concern with system-level
 testing and scientific payload testing. The goal of this phase is to verify that the CubeSat will function as intended. The sixth phase will be the launch phase. The seventh phase
 will be communciating with the CubeSat in-orbit to perform its scientific goals and complete the mission.
+
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -158,7 +164,7 @@ will be communciating with the CubeSat in-orbit to perform its scientific goals 
 The primary goal and focus of this project is the first phase, outlined in \autoref{sec:introduction} and \autoref{tab:phases}. The team will
 choose a scientific payload, design the CubeSat and payload, perform the necessary orbital calculations, power requirements, etc. The final goal of
 this project is deliver a full CAD design, with all the necessary integrated electonic components. This CAD model will include a fully researched and
-developed scientific payload.
+developed scientific payload. There will also be a technical report in the final deliverable package, which is further described in \autoref{subsec:deliverables}.
 
 % \section{Secondary Objectives}
 % \label{sec:secondary-obj}
@@ -191,8 +197,7 @@ developed scientific payload.
 % In this section, explain how the project would benefit SPEX members as students,
 % space enthusiasts, and young professionals.
 This project would be beneficial to SPEX for the following reasons; experience (project management, engineering, coding, etc.) given to current members, opportunities
-for data analytics on collected data, PR, provides base for further funding and sponserships.
-The PR for this would be great for getting recognition in the aerospace community. A successful CubeSat is
+for data analytics on collected data, PR, provides base for further funding and sponserships. The PR for this would be great for getting recognition in the aerospace community. A successful CubeSat is
 difficult to attain. If SPEX is able to excute this project well, it would be a serious step in being national recognized as an aerospace/astronautical research group.
 The marketing team at RIT SPEX would be able to leverage this project to get interested companies to donate supplies, money, or their time so RIT SPEX can build
 and grow in their research. The experience for the team would be great because it would bring a project from pure design and research to flight. Allowing students
@@ -266,7 +271,9 @@ their progress and contribute to a master logbook in which documentation will be
 or designs, etc. Powerpoints are preferred for presenting to other members.
 
 This phase of the project will be considered complete when the following is delivered; a fully developed CAD model, electrical diagrams describing the electrical functionality,
-and a full fabrication estimation (this does not include an cost for experimentation).
+, and a full technical guide to the CubeSat. This technical guide will outline the product, engineering requirements, mechanical and electrical design, operations, orbital calculations, and
+requirements. It will not be drafted in the CSLI standard, it will be geared more toward informing the general person. This document will essentially outline how the CubeSat works and all
+thought and decisions that went into the design.
 
 \subsection{Milestones}
 \label{subsec:milestones}
@@ -289,7 +296,7 @@ It would be most beneficial to have mechanical, electrical, software engineers, 
 that may extend beyond the reach of their speciality. While it extends beyond their speciality, it will not extend beyond their capability. In the event that is unavoidable, outside
 help will be sought through professors or the appropriate student body.
 
-In general, it is expected that mechanical engineers will be profficient in Solidworks and MATLAB. Solidworks is the chosen 3D modeling software due wide availability and experience.
+In general, it is expected that mechanical engineers will be profficient in Solidworks and MATLAB. Solidworks is the chosen 3D modeling software due to wide availability and experience.
 MATLAB will be used for calculating orbits or performing mechanical analysis. It is not required for people that have a refined coding ability. Mechanical engineers will need to
 have taken a strength of materials, thermodynamics, and the university physics sequence, or equivalent courses. They will also be responsible for performing finite element analysis
 on the system. This requires previous knowledge on the subject.
@@ -343,8 +350,7 @@ summarized in \autoref{tab:phases}.
 The team that works on this project does not need to be on the future stages of the project. The goal of the rigorous documentation is to allow any and all members
 to pick up where this team left off, with minimal reading to get caught up to speed.
 \section*{Acknowledgements}
-The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
-
+The authors would like to thank T.J. Tarazevits and Philip Linden for their support.
 %\bibliographystyle{IEEEtran}
 %\bibliography{sample-with-examples}
 
