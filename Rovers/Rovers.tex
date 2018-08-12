@@ -17,8 +17,9 @@
 
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
-\usepackage{tabularx} % fix tables
-  \newcolumntype{L}{>{\raggedright\arraybackslash}X}  
+ \usepackage{ltxtable, tabularx, longtable} 
+%\usepackage{tabularx} % fix tables
+  \newcolumntype{L}{>{\raggedright\arraybackslash}X}   
 \usepackage{multirow}  
 \usepackage{blindtext} % enable placeholder text generator
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
@@ -83,50 +84,38 @@
 % The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
 \label{sec:introduction}
-  % The introduction is a place to give background and context before diving into the subject matter.
-  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
 \IEEEPARstart{R}{obotics}  and by extension rovers are a tremendously important
 part of space exploration. 
-This is also an area that RIT
-Space Exploration has very little experience with project-wise.
-The purpose of this project is to assess and assert the capability
-of RIT SPEX regarding the construction and fabrication of a mock-rover and then begin construction. 
+This is also an area that RIT Space Exploration has very little experience with project-wise.
+The purpose of this project is to assess and assert the capability of RIT SPEX regarding the construction and fabrication of a mock-rover and then begin construction. 
 As this is a new area to RIT SPEX, prototyping and experimenting is necessary to most effectively accomplish this goal. 
-This project will look at the unknowns, technical challenges, project management, and member skills of RIT Space Exploration in regard to a University Rover Competition (URC) capable rover. 
+This project will look at the unknowns, technical challenges, project management, and member skills of RIT Space Exploration in regard to a University Rover Competition (URC) capable rover and rover construction. 
 The URC is hosted by The Mars Society annually. 
 It is very competitive and requires a very complex and expensive rover that is currently out of scope for SPEX. 
 This rover would need to be capable of full autonomous navigation, soil collection and analysis, and precise robotics. 
 This project is the first step in building the skills for such a team.
-
+Rovers are important, they are one of the primary ways we explore space and other planets. 
+This project exists to get our members experience with rovers by building such a rover. 
 
 \section{Primary Objective}
 \label{sec:primary-obj}
-  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
-  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
-  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
-  % What matters are what questions you intend to answer.
-  % This is the main purpose or main goal the project hopes to achieve.
-
 The goal of this project is delivering a functioning mock rover.
 We define mock rover as a functioning rover built to specifications
-for a mock mission as it will not be launched. The rover
-will allow the team to develop skills and knowledge to build a
-more feature completer rover in the future. These skills include
-rover fabrication and design, autonomous navigation, electrical
-system design, rover testing, computer vision, and robotics.
-The rover will be testing using events designed like
-the URC but scaled down to fit the scope of this rover. We
-will be using time as a metric as well as binary metrics for
-completion of the parts of the competition. This includes ’does
-the rocker-bogie system works as intended’, ’will the rover stop
-when directed at an obstacle’, etc. The details are defined in
-the minimum viable product section.
+for a mock mission as it will not be launched. 
+We define rover as a vehicle for driving over rough terrain, especially one driven by remote control.
+The rover will allow the team to develop skills and knowledge to build a
+more feature completer rover in the future. 
+These skills include rover fabrication and design, autonomous navigation, electrical system design, rover testing, computer vision, and robotics.
+The rover will be testing using events designed like the URC but scaled down to fit the scope of this rover. 
+We will be using time as a metric as well as binary metrics for completion of the parts of the competition. 
+This includes ’does the rocker-bogie system works as intended’, ’will the rover stop when directed at an obstacle’, etc. 
+The details are defined in the minimum viable product section.
+
+\subsection{Minimum Viable Product}
+The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
 
 \begin{table}[hb!]
-    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
-    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
-    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
     \caption{Minimum Viable Product}
     \centering
     {\renewcommand{\arraystretch}{1.2}
@@ -151,10 +140,10 @@ the minimum viable product section.
 \label{tab:mvp-one}
 \end{table}
 
-\begin{table}[hb!]
-    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
-    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
-    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+\subsection{Improvements}
+The MVP is intended to be flexible in implementation depending on funding. The size and materials are not defined because of this. Should the funding allow for it there are many improvements that can be made beyond the MVP. 
+
+\begin{table}[ht!]
     \caption{Improvements}
     \centering
     {\renewcommand{\arraystretch}{1.2}
@@ -187,23 +176,8 @@ the minimum viable product section.
 \label{tab:mvp-two}
 \end{table}
 
-\subsubsection{Minimum Viable Product}
-  % Mvp
-The minimum viable product (MVP) has been defined by the basics of what can be called a 'functioning rover'. This includes features like suspension, motors, power and controls. The MVP is defined by the following features: 
-
-\subsubsection{Improvements}
-
-  The MVP is intended to be flexible in implementation depending on funding. The size and materials are not defined because of this. Should the funding allow for it there are many improvements that can be made beyond the MVP. 
-
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figs/project-life-cycle.png}
-%  \caption{A PDD is the first piece of documentation to be archived in the project life cycle. Since the life cycle can be iterative, a new design document may also refer to one or more previous SPPs.}
-%\label{fig:lifecycle}
-%\end{figure}
-
 \section{Secondary Objectives}
 \label{sec:secondary-obj}
-  % Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
 The study will also investigate the University Rover Competition (URC) as hosted by the Mars Society as a potential long term goal. 
 The team will accomplish this by evaluating how many of the MVP improvements are accomplished. 
 If none of these improvements are not able to be implemented then the team is not near URC ready.
@@ -216,7 +190,6 @@ This secondary objective is directly related to the long-term vision of the rove
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
-% Explains the benefit to RIT SPEX
 
 \subsection{Space Exploration}
 Rovers are a huge part of space exploration. 
@@ -227,57 +200,54 @@ Currently RIT SPEX is not involved with rovers.
 It would be beneficial to our members to get some experience in this area.
 \subsection{Promotions and Funding}
 A rover would look super good for SPEX at Imagine RIT. 
-The rover would be rather large and would attract many eyes. We could even demo it outside if there is sufficient space. 
+The rover would be rather large and would attract many eyes. 
+We could even demo it outside if there is sufficient space. 
 A rover would be very easy to get video and photos of for SPEX promotions. 
 Having a rover is also another opportunity for SPEX to fundraise. 
 There is plenty of space to place company logos on the body of the rover. 
 It would also allow for SPEX to reach out to robotics companies.
 \subsection{Computer Science}
+\subsubsection{Member Retention and Expansion}
 The potential self-driving component would be the heaviest computer science project SPEX would have attempted, this would help with retention of CS and SE majors. 
-Some of the potential self-driving features could be implemented with artificial intelligence.
+There are many features included in the MVP that require signifigant computer science skills as well.
+This includes navigation, power management, communications and more.
+That will give computing-related majors another option for SPEX involvement, also helping retention.
+\subsubsection{Artificial Intelligence}
+Some of the potential self-driving features will likely implemented with artificial intelligence.
 Machine learning and artificial intelligence are at the forefront of computer science right now. 
-They are heavily desired in industry including space exploration.
+They are heavily desired in industry, including space exploration.
+There are limited options for students to get involved with AI project wise, this can help with that. 
 \subsection{Robotics}
-\label{robotics}
-Robotics are also a heavily desired area in the space industry. Currently RIT SPEX does not have any projects with robotics as a focus. Robotics is also a potential area for collaboration with faculty as there are RIT faculty that are investigating this area.
+Robotics are also a heavily desired area in the space industry. 
+Currently RIT SPEX does not have any projects with robotics as a focus. Robotics is also a potential area for collaboration with faculty as there are RIT faculty that are investigating this area.
+RIT has limited options for students to get involved with robotics just as it has limited options related to space exploration. 
 \subsection{Challenge}
-\label{challenge}
 The project would be very ambitious. 
 It would require at a minimum a handful (4-5) members each with different areas of expertise. 
 Asside from technical skills, members would need to be knowledge in \LaTeX{}, notetaking, and good research practices. 
 A larger team would be able to accomplish more. 
 Challenging projects allow for members to gain even more experience. 
 \subsection{Documentation}
-\label{subsec:documentation}
 It is important that the team members document the sources they use to gather information. 
 There will be a Google Drive folder that will hold notes with links to any books, articles, media or their sources that are relevant to the rover project. 
 The software and hardware will be tracked on GitHub (including the technical report).
 One of the areas SPEX is currently strugling with is knowledge transfer.
 This project should serve as an example to other SPEX projects on how information should be passed on from year to year.
-
-% Subsections
-
-%\subsection{Mindset}
-%\label{subsec:mindset}
-%The purpose of this project is to investigate and implement a mock rover.
-%Because of this the team members must be in the mindset to analyze each part of the project and identify as many problem areas that need answers as possible. 
-%This means being specific on how we are going to accomplish our goals.
-%We want our team asking the question:"what material, what algorithm, with what method will we be accomplishing this?"
-%It is very easy to over estimate the team's ability especially when the project is so new to the team.
-  
+\subsection{Project Management Skills}
+The purpose of this project is to investigate and implement a mock rover.
+Because of this the team members must be in the mindset to analyze each part of the project and identify as many problem areas that need answers as possible. 
+This means being specific on how we are going to accomplish our goals.
+We want our team asking the question:"what material, what algorithm, with what method will we be accomplishing this?"
+It is very easy to over estimate the team's ability especially when the project is so new to the team.
+These are skills that benefit RIT SPEX. 
 
 \section{Implementation}
 \label{sec:implementation}
-  % What path do you anticipate the project to take?
-
 This project would involve divvying out the different project areas to the different team members or small groups and each week meeting to discuss progress. 
 The team would take this information, refine it and put it into the technical report along with construction.  
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
-  % When all is said and done, what will you have to show for it?
-  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
-
 The deliverable includes the technical report, Rover software, and Rover hardware.
 The primary deliverables of this project will be the technical report and the rover itself by the end of the second semester.
 It is also noted that the materials that the team will come across or notes should also be saved in an Google Drive folder for future reference. 
@@ -286,7 +256,6 @@ The project is intended to last 2 semesters with the deliverable of a basic rove
 
 \subsubsection{Technical Report}
 \label{techreport}
-
 The technical report of the rover is a design document complete with the hardware, software, and electrical components of the rover. This report is important as it allows for a future team to easily learn from the past team's experience. This Technical Report will be hosted on GitHub. This will also include the results of the rover tests and the teams recommendations  based on them. 
 
 \subsubsection{Rover Software}
@@ -297,7 +266,7 @@ The rover software has to be written and hosted on GitHub. This will include rov
 \label{roverhardware}
 The rover will need to be constructed and tested. Because of this a physically constructed rover is needed. This will be necessary for ImagineRIT for cool factor. This includes the rover body, mast, suspension, and wheels. 
 
-\begin{figure}
+\begin{figure}[ht!]
   \includegraphics[width=\linewidth]{figs/rocker-bogie.png}
   \caption{Rocker-Bogie mechanism}
 \label{fig:lifecycle}
@@ -305,15 +274,11 @@ The rover will need to be constructed and tested. Because of this a physically c
 
 \subsection{Milestones}
 \label{subsec:milestones}
-  % Be as detailed as you can, but it's okay if there are unknowns.
-  % At the very least, specify how many semester you expect the project to take until it reaches completion.
 The largest milestones for the technical report would be the would be draft and completion. 
 The rover itself would include the various CAD models of the rover, software milestones, electrical system completion, and drive train system. 
 
 \section{Externalities}
-  % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
-  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
 The project is going to require members that are knowledgeable in mechanical design and manufacturing, software engineering, (potentially) machine learning, electrical engineering, and project management. These members will also need to be experienced in research and design document work. Though this seems simple, finding SPEX members to do this well may be a challenge due to competition from other projects. 
 
 Building a rover, especially one built to URC specifications requires a large team with a diverse set of technical skills. 
@@ -321,31 +286,14 @@ This project will require SPEX to look at and asses what areas are sufficient an
 It will also let us know to what spec we are currently capable of building such a rover. 
 
 \subsection{Funding Requirements}
-  % Estimate costs that would be needed to meet objectives.
-
 The rover project is looking at a minimal funding amount of \$500.00 USD from RIT SPEX. This funding is needed to make a rover that fulfills the MVP defined in the Primary Objective section. In order to give a better deliverable the team will also be reaching out to a large list of companies looking for further funding through sponsorship. Increasing the funding to \$2500.00 USD would allow for the team to construct a more feature complete rover. Components like LIDAR sensors and long-range remote communications are expensive. Though a rover can be made without them additional funding allows for the rover project to expand in scope. 
 
 \subsection{Faculty Support}
-  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
-  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
 Support from faculty could greatly advance this study and what RIT SPEX is capable robotics wise. It is not necessary but would be very helpful. Professors could help with funding, rover design, hardware selection and general advice. Rovers and robotics are new to SPEX and someone with experience could help this. The team should reach out to professors for advice and help. There are many professors at RIT with interest in robotics or computer vision. With some recommendations from SPEX alumni we have a short list of professors who might be interested. 
 
-%%\begin{itemize}
-%%  \item Dr. Ugur Sahin | Mathematics (Researches Computer Vision) | us-grd@cs.rit.edu
-%%  \item Dr Ferat Sahin | KGCOE (Robotics) | feseee@rit.edu
-%%\end{itemize}
-
 \begin{table}[hb!]
-    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
-    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
-    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
     \caption{Potential Faculty support.}
     \centering
-    %%\begin{tabular}%%{\textwidth}{@{}XX@{}}
-    % the letters here ^^^^ designate the columns.
-    % (l=left align, c=center, r=right align)
-    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
-    % so cells butt up right against the edge
     {\renewcommand{\arraystretch}{1.2}
     \begin{tabularx}{\linewidth}{LLL} 
     \hline
@@ -376,11 +324,5 @@ The author would like to thank SPEX alumni Phil Linden for creating the PDD temp
 
 \onecolumn
 \appendices{}
-%\section{Project Life Cycle}
-%\begin{figure}[h]
-%  \centering
-%  \includegraphics[]{figs/project-life-cycle.png}
-%  \caption{Enlarged version of the diagram in \autoref{fig:lifecycle}.}
-%\end{figure}
 
 \end{document}
