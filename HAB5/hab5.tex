@@ -42,7 +42,7 @@
   % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
   %   Here, we use the IEEE long-form author block.
   \IEEEauthorblockN{% This block is for author Names.
-    Keshav-Adhyay\IEEEauthorrefmark{1}
+    Keshav~Adhyay\IEEEauthorrefmark{1}
     Philip~Linden\IEEEauthorrefmark{2}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
@@ -84,10 +84,11 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  The High Altitude Balloon project accounts for both the HAB vehicle and the Where U At Plants 2 payload module, which is to be integrated with this deployment. 
-  They are to be developed in parallel. 
-  The vehicle and payload are both designed for modularity enabling changing mission payloads without needing to redevelop the vehicle again. 
-  The aspect of image processing is stressed for the benefits it enables while using relatively trivial electronic components.
+  A High Altitude Balloon will fly \textit{Where U At Plants Follow-On} (WUAP2) payload module to 100,000ft. 
+  The HAB and WUAP2 are to be developed in parallel over one year. 
+  The vehicle and payload are both designed to be modular so that the HAB is able to support diverse mission payloads on the same platform. 
+  WUAP2 will use multispectral imaging to measure vegetation density, and will demonstrate on-board image processing and computer vision techniques with low cost, consumer level components.
+
   % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
   % Be sure not to confuse the abstract with the introduction.
   % It is easiest to write the abstract after the rest of the paper has been written.
@@ -100,7 +101,7 @@
 \end{abstract}
 
 \section{Introduction}
-\IEEEPARstart{H}{igh} Altitude Balloons (HABs) are mostly unmanned balloons sent up to 100,000 feet and serve as research platforms for a variety of purposes. 
+\IEEEPARstart{H}{igh} Altitude Balloons (HABs) are autonomous balloons sent up to 100,000 feet and serve as research platforms for a variety of purposes. 
 SPEX has designed, constructed and launched a number of HABs, with HAB4 being the latest iteration. 
 A HAB will usually fly with, at the very least, a power system, one-way communication notifying a ground station of its position and basic electronics. 
 For this purpose a HAB must have a safe and reliable structure capable of providing protection from different atmospheric conditions, including temperature and pressure. 
@@ -308,10 +309,10 @@ The project is undertaken in part hoping to build these connections without any 
 It is for that reason that specific, informed and meaningful discussions with possible candidates are recommended as the project progresses and substantive results can be shared.
 
 \subsection{Long-term Vision}
-As laid out in the \autoref{primaryobjectives} and \autoref{benefittospex} sections, this document is tabled with an eye to the future. Data collection will focus not just on raw data but also on how processing develops and compares to the knowns. 
-Cataloguing of progress, as described in the \autoref{deliverables}, builds on present resources and knowledge in a manner amenable to future growth. 
-Image processing and CV are again endorsed for their ability to enable the transcendence of components and hardware acquisition with the aid of free, relatively easier to acquire open-source knowledge. 
+As laid out in the \autoref{primaryobjectives} and \autoref{benefittospex}, this document is tabled with an eye to the future. Data collection will focus not just on raw data but also on how processing develops and compares to the knowns. 
+Cataloguing the progress, as described in \autoref{deliverables}, builds on present resources and knowledge in a manner amenable to future growth. 
 SPEX's in-house ability is developed in line with estimates for skills required for later missions. 
+
 It is also held that missions be pursued on the basis of ability to draw in more permanent and sustainable sources of recognition and funding. 
 A divergence from the current model of resetting every year and relying on alumni limits the ability of organization to attempt challenges worthy of its aspirations. 
 This PDD explicitly seeks a realization capable of winning eyeballs and sponsors.
@@ -365,29 +366,39 @@ The authors would like to thank Dan Mitchell, Matt Glazer, Dylan Wagner, and T.\
 
 \section{Notional Payload Architectures}
 \label{architectures}
-There are several topologies to address image capture and processing needs as described in appendix \ref{essentialquestions}.
+There are several topologies to address WUAP2 image capture and processing needs as described in appendix \ref{essentialquestions}.
 This appendix suggests notional payload architecture topologies to be considered during development.
 
 \begin{enumerate}
-    \item 2 SBCs, 1 camera each (like WUAP) - SBCs independently capture frames based on a master trigger/clock.\\
-    - Example architecture 2: 1 SBC, 2 cameras - Command 2 camera modules from a single SBC, "outsource" processing to a second SBC if needed.
-    - Example architecture 3: 1 SBC, 1+ auxiliary boards - Use an SBC to handle images and processing but "outsource" timing and frame captures to a specialized daughter board for each camera.
+    \item \textbf{2 SBCs, 1 camera each (like WUAP).} SBCs capture frames based on a master trigger or clock. The SBCs operate completely independently and are not connected.
+    \item \textbf{1 SBC controlling 2 cameras.} Two camera modules are commanded from a single SBC, processing is handled by a dedicated SBC that receives images from the upstream SBC.
+    \item \textbf{1 SBC, 1+ auxiliary boards.} An SBC handles images and processing but timing and frame captures are controlled by to a specialized FPGA or microcontroller daughter board for each camera. The SBC manages on the high level but processing and timing occurs on the daughter boards.
+    \item \textbf{2+ SBCs for each of 2 cameras.} Timing and capturing is handled by any of the topologies above. The processing workload is parallelized between multiple SBCs for each image stream so that processing signal chains can keep up with image capture rates.
 \end{enumerate}
 
-depending on the chosen topology, a possible alteration enabling greater processing power would involve two sbcs per camera for processing. in this setup, processing and tasking would be parallelized between the two additional sbcs.
+The architecture selected for the WUAP2 payload must balance cost, performance, complexity, and difficulty.
+While the objectives of WUAP2 may be trivial to handle on more powerful or more specialized---andhence more expensive---hardware, the intent of the mission is to push the limits of low cost consumer level electronics~\cite{habcvpdd}.
 
-\section{Suggested Tasks}
-This section names some 
+\section{Suggested Tasks for Payload Development}
+This section names some actionable tasks to address the essential questions of WUAP2 described in \autoref{essentialquestions}.
 
-
-- [Imaging] Measure camera module average pixel response vs wavelength, targeting 400nm-1100nm.
-- [Imaging] Calculate spatial resolution (GSD) from pixel density, field of view, and altitude.
-- [Imaging] Measure lens distortion by imaging a standard target and generate a distortion correction map.
-- [Computer Vision] Develop NDVI and vegetation density estimation algorithms using NASA aerial photography (Visible and VNIR), and use NASA NDVI/EVI data as ground truth.
-- [Computer Vision] Investigate the effectiveness of these algorithms at very low resolution images, and determine the minimum viable resolution.
-- [Imaging/Image Processing/Mechanical] Develop the most efficient architecture for reliably differencing images from two cameras, including calibration, hardware alignment or mounting, and software alignment techniques.
-- [Image Processing/Software] Develop reliable software for retrieving, saving and processing images.
-- [Software] Develop dev tools for debugging, monitoring, benchmarking, and tuning payload systems.
-- [Embedded Systems] Design a system architecture that reliably and efficiently captures synchronized images. (see \autoref{architectures})
-
+\noindent
+\begin{table}[h!]
+  \label{tasks}
+  \caption{Suggested tasks}
+  \centering
+\begin{tabularx}{\linewidth}{@{}p{.2\textwidth}X@{}}
+    \textbf{Discipline} & \textbf{Essential questions} \\
+    \midrule
+Imaging & Measure camera module average pixel response vs wavelength, targeting 400nm-1100nm. \\
+Imaging & Calculate spatial resolution (GSD) from pixel density, field of view, and altitude. \\
+Imaging & Measure lens distortion by imaging a standard target and generate a distortion correction map. \\
+Computer Vision & Develop NDVI and vegetation density estimation algorithms using NASA aerial photography (Visible and VNIR), and use NASA NDVI/EVI data as ground truth. \\
+Computer Vision & Investigate the effectiveness of these algorithms at very low resolution images, and determine the minimum viable resolution. \\
+Imaging/Image Processing/Mechanical & Develop the most efficient architecture for reliably differencing images from two cameras, including calibration, hardware alignment or mounting, and software alignment techniques. \\
+Image Processing/Software & Develop reliable software for retrieving, saving and processing images. \\
+Software & Develop dev tools for debugging, monitoring, benchmarking, and tuning payload systems. \\
+Embedded Systems & Design a system architecture that reliably and efficiently captures synchronized images. (see \autoref{architectures}) \\
+\end{tabularx}
+\end{table}
 \end{document}
