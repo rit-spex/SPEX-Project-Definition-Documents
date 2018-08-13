@@ -278,6 +278,7 @@ The HAB structure leverages HAB4 designs so the brunt of mechanical design will 
 University Physics II (with optics) is recommended for imaging systems testing and calibration tasks.
 
 \subsection{Funding Requirements}
+\label{funding}
 % Payload:  ~$200 (hard cap at $300)
 % 2x raspberry pi 3 = $100 @ $40-50 each
 % 1x pi camera v2 = $28
@@ -287,9 +288,35 @@ University Physics II (with optics) is recommended for imaging systems testing a
 % 	1x vis filter (reddish) $100 https://www.thorlabs.com/thorproduct.cfm?partnumber=FB650-40 
 % 	1x nir filter = $100 https://www.thorlabs.com/thorproduct.cfm?partnumber=FB880-70 
 
-This estimate is based off of the inclusion of a prior HAB board for baseline functionality, an existing APRS module and some functional WUAP-I hardware. 
-The cost of the balloon and helium are not included. 
-Significant leeway was left specifically because the exact implementation topology(for processing) and level of pre-fabrication of components scales inversely with availability of time dedicated by advanced electrical engineering students.
+% 2x rpi $100 refly ones 
+% 2x pi cam $60
+% hab avionics (from last year) $150
+% helium $120
+% balloon $100 
+The budget described in \autoref{budget} assume the worst case where no material is reused from HAB4, and uses HAB4 and WUAP to baseline costs.
+From this baseline cost estimate, the components and materials for HAB5 and PLANTHAB module should not exceed \$600.
+
+\begin{table}[ht]
+  \caption{Estimated cost}
+  \centering
+  \begin{tabular}{@{}llc@{}}
+    \label{budget}
+    \textbf{Item} & \textbf{Cost} & \textbf{Reused?} \\
+    \midrule
+    Balloon & \$100 & No \\
+    Helium & \$120 & No\\
+    Avionics, sensors \& batteries & \$150 & Yes\\
+    (2x) Raspberry Pi 3 & \$100 & Yes\\
+    Pi Camera V2 & \$30 & Yes \\
+    Pi Camera NoIR & \$30 & No \\
+    Foam \& structural materials & \$50 & Yes \\
+    \midrule
+    \textit{Total} & \$580 & \\
+  \end{tabular}
+\end{table} 
+
+This estimate is based off of the inclusion of a prior HAB board for baseline functionality, an existing APRS module and some functional WUAP hardware. 
+Significant leeway was left specifically because the exact implementation topology (for processing) and level of pre-fabrication of components scales inversely with availability of time dedicated by advanced electrical engineering students.
 
 \subsection{Faculty Support}
 The project laid forth doesn't assume that faculty support is guaranteed or that any particular faculty members will be forthcoming. 
