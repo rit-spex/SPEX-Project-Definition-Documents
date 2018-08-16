@@ -27,6 +27,7 @@
 \usepackage[T1]{fontenc} % change text encoding to make it more crisp
 \usepackage{etoolbox} % enable conditionals for help text
 \usepackage{booktabs} % make beautiful tables!
+\usepackage{tabularx}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -85,7 +86,7 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  This proposal describes a project to build a controlled thermal vacuum chamber, called and Environmental Test Chamber or ETC, as well as associated test automation software, and documentation describing its safe operation and use by other SPEX teams.
+  This proposal describes a project to build a controlled thermal vacuum chamber, called an Environmental Test Chamber or ETC, as well as associated test automation software, and documentation describing its safe operation and use by other SPEX teams. Low-cost pumps and off the shelf hardware enable useful vacuum to be generated. Vacuum pumps under \$200 have been shown to achieve up to -28 inHG. While this is not an accurate representation of the space environment, these vacuum conditions are suitable for High Altitude Balloon component testing, and other flight hardware. \cite{vacChamberExp}
 
       % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
       % Be sure not to confuse the abstract with the introduction.
@@ -130,8 +131,9 @@ Hardware designed to operate in this environment needs to be validated in realis
 An Environmental Test Chamber (ETC) provides a controlled test bed for simulating the atmospheric and thermal environment of space and near-space environments that can be repeated at low cost.
 RIT does not have readily available and suitable ETCs for student use.
 Some laboratories have expensive vacuum pumps but are unwilling to allow unsupervised use by students or testing of unproven engineering designs.
+For example, space-qualified thermal vacuum chambers built by other universities can cost over \$5,000 for the vacuum pump alone.\cite{teb13}
 Low cost, commercial vacuum pumps provide the opportunity to achieve relatively low pressures in a small testing volume for dramatically lower cost.
-DIY vacuum chambers are a relatively popular project for amateurs on Youtube and other online forums.
+DIY vacuum chambers are a relatively popular project for amateurs on Youtube and other online forums.\cite{korYoutube}
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -141,7 +143,7 @@ DIY vacuum chambers are a relatively popular project for amateurs on Youtube and
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
 
-  The goal of this project is to design, build, and verify a functioning ETC that enables low pressure testing of flight components and flight systems as well as a controllable thermal environment.
+  The goal of this project is to design, build, and verify a functioning ETC that enables testing of flight components and flight systems in a controllable thermal and low pressure environment.
   Students will research the expected environmental conditions of high altitude flight and the on-orbit environment.
   Using low cost components, students will construct an ETC that can replicate those environments within a reasonable degree.
   Accuracy in simulation will be traded for reduced cost.
@@ -171,7 +173,7 @@ An ETC would have reduced mission risk for each of those projects and will be us
 \section{Implementation}
 \label{sec:implementation}
   % What path do you anticipate the project to take?
-  At the end of the project, a working Environmental Test Chamber should be delivered. It should be capable of maintaining a near-vacuum for extended periods of time, as well as cycling between standard and vacuum-like pressures at reasonable rates.
+  At the end of the project, a working Environmental Test Chamber should be delivered. It should be capable of maintaining a near-vacuum for extended periods of time, as well as cycling between 0 and > -25 inHG at reasonable rates (< 1 hour duty-cycle).
 \subsection{Deliverables}
 \label{subsec:deliverables}
   % When all is said and done, what will you have to show for it?
@@ -180,7 +182,7 @@ An ETC would have reduced mission risk for each of those projects and will be us
 
   An additional feature would be the ability to direct the applied thermal energy to simulate satellite tumbling or orbital cycles. Another metric to consider is the ability to apply the average solar radiation ( 1,368 W/m2) to the working surface of the test article to simulate on-orbit thermal conditions.
 
-  Along with the ETC hardware, there should be a control system allowing for software control of pressure and temperature, as well as data recording and real-time monitoring of the current environment. Users should be able to define preset environmental conditions that the ETC should attempt to maintain within reasonable bounds. Also users should be able to define a test sequence, which may consist of a number of environmental conditions varying over time, as well as the ability to cycle between high and low values for controlled environmental conditions. These should be repeatable N times or for a preset time period.
+  Along with the ETC hardware, there should be a control system allowing for software control of pressure and temperature, as well as data recording and real-time monitoring of the current environment. Users should be able to define preset environmental conditions that the ETC should attempt to maintain within reasonable bounds. Also users should be able to define a test sequence, which may consist of a number of environmental conditions varying over time, as well as the ability to cycle between high and low values for controlled environmental conditions. These should be repeatable N times or for a preset time period. A stretch goal should be to determine the temperature and pressure rates of change for the system, and if possible, determine ways to adjust these rates.
 
   Finally, detailed operating instructions should be written and validated, to provide a safe way for other members to utilize the ETC. Instructions on setup, operation, maintenance, as well as detailed safety procedures in case of an accident or malfunction should be written and tested with the final hardware.
 
@@ -190,23 +192,31 @@ An ETC would have reduced mission risk for each of those projects and will be us
   % At the very least, specify how many semester you expect the project to take until it reaches completion.
   This list is preliminary and should be considered a placeholder to be refined during the review process. Times are approximate.
 
-  Students research the particular variables of the near-space and space environment. The requirements for test article dimensions and usability are determined.
-
-  Mechanisms for controlling temperature and pressure and researched and proposed.
-
-  Initial design work begins on the mechanical system. Students research materials and component selection, including unorthodox sources like craigslist, to meet requirements.
-
-  Initial Assembly begins. Software and sensors are introduced to begin characterizing the responsiveness of the chamber.
-
-  Students work to automate control of ETC temperature and pressure.
-
-  Dry(empty) testing occurs to validate ETC meets minimum performance requirements.
-
-  First component test occurs while software automation continues to be refined. Procedure writing begins.
-
-  Full procedure writing finishes alongside completion of automation software. Long duration automated tests are attempted to verify the design.
-
-  Remaining time can be dispersed across real testing of flight components, improvements to hardware, software, and procedures as more tests are conducted, as well as completion of the final Technical Report
+  \begin{table}[hb!]
+    % this table is too wide for the two-column format, so we let it expand across both columns
+    % we haven't told LaTeX where to put this so it'll find the best place.
+        \caption{Notional Timeline of Project Milestones}
+        \centering
+        \begin{tabularx}{\linewidth}{lX}
+            % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+            \toprule % line on top external edge of table
+            % Separate cells in a row with &, move to the next row with \\
+            Phase & Task  \\
+            \midrule % line separating two internal rows
+            1 & Students research the particular variables of the near-space and space environment. The requirements for test article dimensions and usability are determined. \\
+            2 & Mechanisms for controlling temperature and pressure and researched and proposed. \\
+            3 & Initial design work begins on the mechanical system. Students research materials and component selection, including unorthodox sources like craigslist, to meet requirements. \\
+            4 & Initial Assembly begins. Software and sensors are introduced to begin characterizing the responsiveness of the chamber. \\
+            5 & Students work to automate control of ETC temperature and pressure. \\
+            6 & Dry(empty) testing occurs to validate ETC meets minimum performance requirements. \\
+            7 & First component test occurs while software automation continues to be refined. Procedure writing begins. \\
+            8 & Full procedure writing finishes alongside completion of automation software. Long duration automated tests are attempted to verify the design. \\
+            9 & Remaining time can be dispersed across real testing of flight components, improvements to hardware, software, and procedures as more tests are conducted, as well as completion of the final Technical Report \\
+            % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
+            \bottomrule
+        \end{tabularx}
+    \label{tab:timeline1}
+    \end{table}
 
 % A notional timeline is shown in \autoref{tab:short-example}.
 
@@ -261,12 +271,12 @@ An ETC would have reduced mission risk for each of those projects and will be us
 \label{sec:vision}
 The ETC enables better testing and validation of SPEX projects. As these projects increase in cost and complexity, accepting the risk of no environmental testing becomes increasingly unadvisable. A fully functional and safe ETC would increase project success and provide data to aid in engineering analysis and validation.
 
-%\section*{Acknowledgements}
-%The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary %humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that %continue to invest their time and energy into the pursuit of space exploration.
+\section*{Acknowledgements}
+The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary %humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that %continue to invest their time and energy into the pursuit of space exploration.
 
-%\bibliographystyle{IEEEtran}
-%\bibliography{sample-with-examples}
-%
+\bibliographystyle{IEEEtran}
+\bibliography{etc}
+
 %\onecolumn
 %\appendices{}
 %\section{Project Life Cycle}
