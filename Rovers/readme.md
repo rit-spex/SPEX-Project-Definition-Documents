@@ -1,10 +1,6 @@
 # Rovers
 
----
-
 ## Author: Thomas Hall tjh2822
-
----
 
 Design and construction of a mock rover. 
 A rover would be an area of space exploration completely new to RIT SPEX, because of this there are a lot of unknowns that need to be answered before starting this project. 
