@@ -1,0 +1,255 @@
+%% *************************************************************************
+%%
+%% This is an RIT Space Exploration Standard defining guidelines for content
+%% and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage[euler]{textgreek}
+\usepackage{blindtext}
+\usepackage{graphicx}
+\usepackage{nomencl}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\makenomenclature{}
+
+\title{\textmu{}Hab 2017 Proposal}
+
+
+\author{
+  \IEEEauthorblockN{% This block is for author Names.
+    Austin~Bodzas\IEEEauthorrefmark{1}
+  }
+  \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}abb6499@rit.edu
+  }
+}
+% page header for pages other than cover page
+\markboth{\textmu{}hab}%
+{Bodzas \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+
+      % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+      % Be sure not to confuse the abstract with the introduction.
+      % It is easiest to write the abstract after the rest of the paper has been written.
+      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      % Consider the abstract to be your elevator pitch to anyone reading this design document.
+      % What are they reading?
+      % What is the goal?
+      % Why is it worth my time?
+      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+    A project definition for the \textmu{}Hab project.  \textmu{}Hab is the term the
+    HAB team has been using to describe a smaller balloon and payload than is
+    typically used by the group (1200 grams). However, this project expands upon
+    the term with the main goal of minimizing costs that go into building and
+    launching a HAB.\@
+\end{abstract}
+\label{sec:nomenclature}
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\renewcommand{\nompreamble}{}
+\nomenclature{RIT}{Rochester Institute of Technology}
+\nomenclature{SPEX}{RIT Space Exploration}
+\nomenclature{HAB}{High Altitude Balloon}
+% Below are examples of using nomenclature for math symbols and constants or units
+% \nomenclature{$\dot{m}$}{Mass flow rate
+%   \nomunit{\,\si{\kilo\gram\per\second}}}
+% \nomenclature{$c$}{Speed of light
+%  \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
+\printnomenclature{}
+
+
+% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+
+% The sections included here are required. Additional sections and subsections may be added as necessary.
+\section{Introduction}
+\label{sec:introduction}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
+
+\IEEEPARstart{S}{PEX} has launched three High Altitude Balloons (HABs) to date.  The
+motive for a launch is to educate students on engineering processes, test experiments in
+a near space-like environment, and to have fun in the process. The HAB team within SPEX aims to
+launch a balloon at the end of every full semester.
+
+Traditional HAB launches are very expensive for the SPEX team.
+A large 1200g balloon can cost, at a minimum, over 125USD.\@  Helium tank fills,
+which these launches require a full fill, can cost over 200USD.\@ These two costs
+are a definite non-reusable resource. An avionics package consisting of a COTS
+Arduino, breakout sensors, and a large battery pack can easily add up to over
+90USD. The avionics hardware can be reused, but every launch should be assumed a
+one time only use of hardware due to high risks of losing the payload.
+
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
+\textmu{}Hab will reduce the magnitude of these three large costs that make frequent HAB
+launches unaffordable for undergraduate research. A smaller, simpler, more
+focused payload will result in cheaper avionics hardware costs. A lighter
+payload also doesn't require such a large balloon, enabling a cheaper, smaller
+balloon and orders of magnitude less helium use per launch.
+
+\section{Secondary Objectives}
+\label{sec:secondary-obj}
+% Secondary Objectives are lower priority or bonus objectives that are significant but not the main focus of the project. This template does not have secondary objectives.
+Educational benefit is a very large secondary objective of \textmu{}Hab.  This
+project shall be designed to be engineered in a fashion that teaches both
+established senior members and new greenhorn SPEX members alike.
+
+Electrical hardware design is a skill that many members have shown a desire to
+pick up. Design of the PCB shall be simplistic and incorporate a few different
+important skills for engineering in the electrical hardware domain.
+
+Embedded software is another useful skill that many students in the Computing
+skill aren't taught formally. Arduino development and embedded C software
+engineering skills will be obtained from writing code for the avionics board.
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
+% and to challenge them with interesting projects.
+% In this section, explain how the project would benefit SPEX members as students,
+% space enthusiasts, and young professionals.
+
+Each of the objectives grant their own benefit to SPEX.\@ Cheaper launch costs
+allow for more SPEX funding to be allocated to other projects while not
+sacrificing the quality of HAB launches significantly.
+
+Educational benefit, while not the primary benefit, could be the largest
+benefit.  PCB design has always been a very in demand with low supply skill.
+Embedded software is required for almost every large project. Arduino software
+design is a great stepping stone for software oriented people into the world of
+embedded. Avionics design in C would be the final transition, from Arduino into
+the real world application of embedded software.
+
+% Below I have used subsections to identify key ideas in this section. These particular subsections are not required as part of the SPEX Standard, but serve as an example of using subsections in a text.
+
+\subsection{Accessibility}
+\label{subsec:plug-n-play}
+  % Note below that LaTeX uses weird formatting when it comes to quotation marks.
+  % The style below is correct to display forward quotes `` at the start of the phrase and backquotes '' at the end.
+
+In regards to the software half, Arduino is a very approachable language.  There
+is a vast amount of libraries out there already for interfacing with ancillary
+hardware such as sensors or memory. The C portion to come at a later date (or in
+parallel) will be quite a bit more difficult; it requires a ton of datasheet
+reading, innovative code (not taking from examples), and customizing toolchains.
+
+PCB design accessibility is a lot more restricted. Members that have had PCB
+design classes (4th-5th year Electrical Engineers) or have experience from co-op
+will be able to contribute to the design.
+
+
+
+\section{Implementation}
+\label{sec:implementation}
+  % What path do you anticipate the project to take?
+Documentation for each step of the respected engineering paths is required. It
+is important during the implementation aspect to retain problems experienced and
+the solutions used to overcome.
+
+\subsection{Deliverables}
+\label{subsec:deliverables}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+\begin{itemize}
+    \item Bill of Materials for Hardware
+    \item PCB schematics
+    \item Arduino software source files
+    \item C software source files
+    \item Fully assembled balloon, parachute, and payload
+\end{itemize}
+
+\subsection{Milestones}
+\label{subsec:milestones}
+  % Be as detailed as you can, but it's okay if there are unknowns.
+  % At the very least, specify how many semester you expect the project to take until it reaches completion.
+\subsubsection*{Electrical}
+\begin{itemize}
+    \item 2 weeks --- PCB design
+    \item 1 week --- PCB reviews
+    \item 1 week --- Order hardware
+    \item 1 week --- PCB assembly
+    \item 1 week --- PCB testing
+\end{itemize}
+
+\subsubsection*{Arduino software}
+\begin{itemize}
+    \item 1 week --- gather libraries needed
+    \item 1 week --- plan out software design and flow
+    \item 2 weeks --- write software
+    \item 1 week --- test software
+    \item 1 week --- neaten up software
+\end{itemize}
+
+\subsubsection*{C software}
+\begin{itemize}
+    \item 1 week --- prepare standard development environment
+    \item 1 week --- plan out software design and flow
+    \item 4 weeks --- create drivers
+    \item 8 weeks --- write software
+    \item 2 weeks --- test software
+    \item 1 week --- neaten up software
+\end{itemize}
+\section{Externalities}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
+\subsection{Prerequisite Skills}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+
+  % Estimate costs that would be needed to meet objectives.
+Covered in Accessibility.
+\subsection{Faculty Support}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+\textmu{}Hab should be able to be completely engineered by students. Faculty
+support could be helpful for hardware testing. Also access to surface mounting
+labs would need to be gained through faculty as well.
+\subsection{Funding Requirements}
+As the purpose of the project is to minimize costs of launching a HAB to the
+fullest extent, funding requirements will be minimal. PCB print costs should be
+free due to a HAB sponsorship. Lighter balloons can cost less than 25USD, Helium
+price is hard to calculate but will also be significantly cheaper.
+\subsection{Long-Term Vision}
+\label{sec:vision}
+The boards for \textmu{}Hab can be used for a few different cases.
+
+One idea is the possible sale of these boards as a kit to other groups as a
+fundraiser for the HAB team.  These boards could be used for other projects as
+well as their nature is simple and can be applied in many situations for
+tracking. The design can be taken and upgraded to work with a larger
+multipurpose HAB.
+
+\section*{Acknowledgements}
+While this \textmu{}Hab project proposal was made in 2017, a substantially different project with the same name was executed in the Summer of 2018.
+This project did not enter the development phase.
+Treat references to work done on \textmu{}Hab as relevant to this other project.
+\end{document}
