@@ -22,6 +22,16 @@
 \usepackage[T1]{fontenc} % change text encoding to make it more crisp
 \usepackage{etoolbox} % enable conditionals for help text
 \usepackage{booktabs} % make beautiful tables!
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+ 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -90,6 +100,7 @@ more feature completer rover in the future.
 These skills include rover fabrication and design, autonomous navigation, electrical system design, rover testing, computer vision, and robotics.
 The rover will be testing using events designed like the URC but scaled down to fit the scope of this rover. 
 We will be using time as a metric as well as binary metrics for completion of the parts of the competition. 
+Some features might behave differently than expected or planned these features will be evaluated accordingly.
 This includes ’does the rocker-bogie system works as intended’, ’will the rover stop when directed at an obstacle’, etc. 
 The details are defined in the minimum viable product section.
 
@@ -155,7 +166,7 @@ This allows for more experience to be gained, thus fulfilling the goals of the p
 \label{sec:secondary-obj}
 The study will also investigate the University Rover Competition (URC) as hosted by the Mars Society as a potential long term goal. 
 The team will accomplish this by evaluating how many of the MVP improvements are accomplished. 
-If none of these improvements are not able to be implemented then the team is not near URC ready.
+If none of these improvements are able to be implemented then the team is not near URC ready.
 The competition is held annually and features four very intense competitions. 
 Such a rover would need to be fully self navigating, perform scientific analysis on soil samples, and having a robotic arm capable of fine motor control. 
 Such a project would be among the most ambitious SPEX has ever attempted. 
@@ -288,7 +299,8 @@ Other milestones include securing funding and completion of the learning period 
 The improvements would be developed in tandem with the MVP, however the MVP will always come first. 
 The improvements will attempted only if there is funding and members to spare. 
 The improvements are varied in complexity and some would take more time than others. 
-Each improvement would be on its own timeline with milestones.
+Each improvement would be on its own timeline with milestones alson with the funding.
+However the team will try to be proactive with funding and always stay a little ahead so improvements can be started right away.
 
 \begin{table}[ht!]
     \caption{Timeline}
@@ -379,8 +391,13 @@ These rovers feature autonomous navigation, fine control robotics, scientific dr
 It is a worthy long term goal. 
 
 \section*{Acknowledgements}
-The author would like to thank SPEX alumni Phil Linden for creating the PDD template, SPEX alumni 'TJ' Tarazevits for feedback on project design and management, SPEX alumni Daniel Mitchell and Matthew Glazer for their feedback on electrical system design design, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+The author would like to thank SPEX alumni Phil Linden for creating the PDD template, SPEX alumni 'TJ' Tarazevits for feedback on project design and management, SPEX alumni Daniel Mitchell and Matthew Glazer for their feedback on electrical system design design, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration. 
 
+\section{References}
+\begin{itemize}
+  \item \href{http://urc.marssociety.org/files/University%20Rover%20Challenge%20Rules%202018.pdf}{University Rover Challenge Download the Requirements and Guidelines PDF}
+  \item \href{http://urc.marssociety.org/home/q-a}{RC2018 Q\&A}
+\end{itemize}
 \onecolumn
 \appendices{}
 
