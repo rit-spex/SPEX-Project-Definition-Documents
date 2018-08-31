@@ -180,3 +180,9 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# Intellij IDE
+**/.idea
+
+# VS Code
+**/.workspace
