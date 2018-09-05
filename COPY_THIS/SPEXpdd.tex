@@ -172,8 +172,18 @@ The ultimate goal of a PDD is to capture all ideas (including ones that are beyo
 % we haven't told LaTeX where to put this so it'll find the best place.
     \caption{Relative detail expected at each stage of project development.}
     \centering
-    \begin{tabular}{@{}llcc@{}}
+    \begin{tabularx}{\textwidth}{@{}lXcc@{}}
         % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+        %
+        % Normal tables are made using \begin{tabular}, but some extra features are
+        % available to us if we use the tabularx package, including autosized cells
+        % and word-wrap within cells containing lots of text.
+        %
+        % \begin{tabularx}{WIDTH OF TABLE}{ALIGNMENT OPTIONS}
+        % we can use our regular column alignment settings like l, r, and c like normal
+        % tabularx adds the X column alignment option, which autosizes the cell and 
+        % word wraps within the cell. X inherits from l.
+        %
         \toprule % line on top external edge of table
         % Separate cells in a row with &, move to the next row with \\
         Document & Purpose & Contributors & Destination \\
@@ -187,7 +197,7 @@ The ultimate goal of a PDD is to capture all ideas (including ones that are beyo
         Technical Report & Final technical summary of work done and results. & 6 or more & SPEX Archive, Conferences \& Journals \\
         % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
         \bottomrule
-    \end{tabular}
+    \end{tabularx}
 \label{tab:long-example}
 \end{table*}
 
