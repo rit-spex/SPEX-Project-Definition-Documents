@@ -18,15 +18,15 @@
 
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
-\usepackage{blindtext} % enable placeholder text generator
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
 \usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
 \usepackage{siunitx} % enable package for easily formatting units
-\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
 % how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
 \usepackage[T1]{fontenc} % change text encoding to make it more crisp
 \usepackage{etoolbox} % enable conditionals for help text
+\usepackage{tabularx} % add stretchy cells and autosizes to tables
 \usepackage{booktabs} % make beautiful tables!
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
 
 % initialize nomenclature package
 \makenomenclature{}
@@ -81,9 +81,6 @@
   %%   Note that these symbol codes work in math mode and text mode.
   %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
 }
-% page header for pages other than cover page
-\markboth{Project Design Document Standard}%
-{Linden \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
 
 % Initial setup is over, start building the document itself
 \begin{document}
