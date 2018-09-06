@@ -19,7 +19,6 @@
 % tell \LaTeX what kind of formatting to use
 \documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
 \usepackage{graphicx} % enable toolbox for embedding figures and pictures
-\usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
 \usepackage{siunitx} % enable package for easily formatting units
 % how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
 \usepackage[T1]{fontenc} % change text encoding to make it more crisp
@@ -28,12 +27,8 @@
 \usepackage{booktabs} % make beautiful tables!
 \usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
 
-% initialize nomenclature package
-\makenomenclature{}
-
 % set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
 \title{RIT Space Exploration Project Design Document Standard Format and Sample Content}
-
 
 \author{
   % List the authors of the design document. The Champion should go first.
@@ -105,30 +100,9 @@
       % Why is it worth my time?
       % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
 \end{abstract}
-
-\label{sec:nomenclature}
-\newcommand{\nomunit}[1]{%
-\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-\renewcommand{\nompreamble}{
-    % If you include mathematical expressions or express variables in the design document, list them with their corresponding definitions here as a list.
-    % The two lines below make it look nice when defining units/values to constants.
-
-    % Note that math terms and non-math terms are separated and alphabetized, regardless of the order in which they are defined. (Recall terms \$like this\$ are in the math environment)
-    % Read more about advanced nomenclature formatting here:\\
-    % \url{https://www.sharelatex.com/learn/Nomenclatures}
-  }
-\nomenclature{RIT}{Rochester Institute of Technology}
-\nomenclature{SPEX}{RIT Space Exploration}
-\nomenclature{PDD}{Project Design Document}
-% Below are examples of using nomenclature for math symbols and constants or units
-\nomenclature{$\dot{m}$}{Mass flow rate
-  \nomunit{\,\si{\kilo\gram\per\second}}}
-\nomenclature{$c$}{Speed of light
- \nomunit{\,\SI{2.9979e8}{\meter\per\second}}}
-\printnomenclature{}
-
-
-% HELPFUL HINT: If you get the warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+% HELPFUL HINTS
+% 1. If you get the linter warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+% 2. For proper quotes, begin with `` and close with ''. For single quotes, use '. Double quotes characters copied from Word or Docs (") will show up as weird characters.
 
 % The sections included here are required. Additional sections and subsections may be added as necessary.
 \section{Introduction}
@@ -136,7 +110,7 @@
   % The introduction is a place to give background and context before diving into the subject matter.
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
-\IEEEPARstart{E}{xamples} of proper formatting, organizational techniques and content make writing Project Design Documents as easy and painless as possible.
+Examples of proper formatting, organizational techniques and content make writing Project Design Documents as easy and painless as possible.
 Writing documentation such as design documents and reports is a lot of work, but it supports the continued growth of knowledge and experience in science and engineering for SPEX as a whole.
 In technical research and academia, communicating one's thoughts and ideas is arguably more important than the ideas themselves.
 For example, when applying to a grant from a scientific foundation, receiving funding to continue research impinges on how the motives and techniques of a research group resonate with the goals and objectives of the foundation.
