@@ -124,7 +124,6 @@ This project definition document describes RIT Space Exploration Participation i
 	\item Readiness / Turnkey Operation and Execution of Objective(s) ~\cite{sdl}
 \end{itemize} Following this judging criteria, teams will be slotted into first, second and third place with selected others receiving honorable mentions.
 
-%%TODO: Expand on why it should not be a problem to deploy at apogee - luc
 Currently a launch provider has not been selected. We plan on partnering with another University in order to compete in IREC 2019 and this is not seen as a problem for the fallowing reasons. Our payload is based around a 3U CubeSat form factor which is a common form factor for teams competing in IREC to design for. According to the Spaceport America Cup official rules and requirements document revision A, section 2.2.5.1.\begin{quote} Any launch vehicle carrying strictly non-functional, 'boiler-plate' mass as it's payload shall do so in the form of one or more CubeSats, which equal no less than 3U when stacked together.\cite{sdl}\end{quote} Since our payload does not depend on altitude, we would be a desirable option for team whose rockets are designed for a target altitude of either of the two IREC categories, 10,000ft or 30,000ft.\cite{sdl} It should not be a problem to expect our launch provider to be able to deploy our play load at apogee, the maximum altitude the rocket achieves.
 
 %
@@ -137,7 +136,9 @@ Currently a launch provider has not been selected. We plan on partnering with an
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
 
-The goal of this project is to test how high acceleration and zero net acceleration (freefall) affects the folding of proteins as a payload for the SDL Payload Challenge at IREC 2019. To accomplish this, the team will construct a microfluidic spectroscopy experiment that fits within the payload restrictions of the competition. The payload itself must be safe to fly within the competition launch vehicle, provided by RIT Launch Initiative, and should be capable of operating successfully in the desert environment of Las Cruces, as well as safely returning to Earth intact as specified by SDL competition rules.
+This payload will test how zero net acceleration (micro gravity) affects the folding of proteins. While this topic has been explore at a much larger scale and with a much greater budget, such as NASA preforming crystal specogtaphy of proteins folded in micro gravity on the ISS, this type of experiment has never been done at this scale. The goal of this project is to explore if protein folding in micro gravity can be done as a payload for the SDL Payload Challenge at IREC 2019. 
+
+To accomplish this, the team will construct a micro fluid spectroscopy experiment that fits within the payload restrictions of the competition. The payload itself must be safe to fly within the competition launch vehicle, provided by our chosen launch provider, and should be capable of operating successfully in the desert environment of Las Cruces, as well as safely returning to Earth intact as specified by SDL competition rules. 
 
 \section{Secondary Objective}
 \label{sec:secondary-obj}
@@ -152,7 +153,7 @@ Recovery operations are a critical requirement for all IREC and SDL competitors.
 
 
 \section{Benefit to SPEX}
-\label{sec:benefit}
+\label{sec:benefit-spex}
 % One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
 % and to challenge them with interesting projects.
 % In this section, explain how the project would benefit SPEX members as students,
@@ -162,8 +163,12 @@ Competing in the Spaceport America Cup provides extensive benefits to SPEX. Firs
 
 Also, this project will integrate with other SPEX activities, such as HAB, SPEX-sponsored MSD projects, and other potential test equipment and developed technologies like HABnet. This provides opportunities for members not directly involved with the project to get excited and inspired by the work being done.
 
-Historically, SPEX membership has mainly been dominated by physical engineering disciplines. A project this diverse holds opportunities for involvement from members with fields of study in biological or chemical engineering. This allows SPEX to be more accessible to a wider range of disciplines that further diversify membership opportunities. 
+Historically, SPEX membership has mainly been dominated by physical engineering disciplines. A project this diverse holds opportunities for involvement from members with fields of study in biological or chemical engineering. This allows SPEX to be more accessible to a wider range of disciplines that further diversify membership opportunities.
 
+\section{Benefit to the Greater Scientific Community}
+\label{sec:benefit-sci}
+
+Protein spectography has not been preformed at this scale before. While the topic of the effects on protein folding in micro gravity has already been explored and is thus well understand, this payload is a tech demo to show that protein spectography can be preformed in a 3U cubesat abord an IREC rocket. 
 
 \section{Implementation}
 \label{sec:implementation}
@@ -171,9 +176,18 @@ Historically, SPEX membership has mainly been dominated by physical engineering 
   
 The payload will iterate and expand on RIT Multidisciplinary Senior Design Project P16104: Microfluidic Spectroscopy for Proteins within CubeSats ~\cite{msd} conducted during the 2015-2016 school year by SPEX members. The experiment measures the emission spectra generated by proteins after exposure to light. The concept of operations is defined below. 
 
+\subsection{Science Overview}
+\label{subsec:sci-overview}
+
+Protein folding is when a protein chain folds into its three dimensional structure allowing it to preform its desired biological function. Proteins can fold in to many different structures depending on environmental factors, such as the effects of micro gravity. When proteins fold incorrectly they are unable to preform their desired biological functions, and in some cases may even preform an unwanted function. Proteins are known to have trouble folding while under micro gravity; NASA has observed a phenomena that the protein rhodopsin has trouble folding correctly while experiencing micro gravity. The importance is of this is highlighted by that fact that rhodopsin is critical to the function of the photo receptors present in humans eyes, which leads to astronauts having worse vision while experiencing micro gravity.
+
+Certain proteins can develop a property called florescence when folded properly. Which means that they can be excited by a certain wavelength of light, and in turn fluoresce to emit a different wavelength of light. Tryptophan is a readily available amino acid that when present in a protein has this behavior. This property can be exploited to determine if the protein can still fold correctly while experiencing a certain environmental condition.
+
 \subsection{Concept of Operations - Science}
 \label{subsec:operations}
-A sample of lyophilized protein which contains tryptophan is mixed to reinstate the protein. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode is used to measure intensity of the emitted wavelength.
+A sample of BSA lyophilized (freeze dried) protein which contains tryptophan is mixed with a PBS buffer, which mimics the fluids in the human body, to reinstate the protein. The PBS and BSA are located in two separate Polydimethylsiloxane (PDMS) chambers connected by tubing. A solenoid contacted to the container containing PBS is energized pushing the PBS into the chamber containing the BSA. Another solenoid located in the container containing BSA is then energized in order to ensure that the two subsistence are properly mixed. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded correctly then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode with a filter to only allow 350nm light is used to measure intensity of the emitted wavelength. If the sample has folded incorrectly or not at all then the sample with either not emit light or will emit light of a different wavelength. By comparing the results of ground control tests and the results of the mission we will be able to see if the proteins have folded correctly.
+
+Estimates put an upper bound of the time it will take for the proteins to fold at approximately twenty seconds. This is within the buget we can allow our payload to freefall fall. 
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
@@ -203,7 +217,7 @@ The ground station includes the receiving radio system, Command and Data Handlin
 \subsection{Operations and Procedures}
 \label{subsec:opsproc}
 
-A key deliverable is written documentation covering proper assembly and operation of the payload system. IREC requires rocket teams produce procedures for nominal operation of the rocket system as well as contingency procedures in case of failures or anomalies. Not only are extra points awarded for safety procedures and contingencies, these will aid the team during launch week. Having the payload fully assembled and integrated into the rocket quickly aids in securing an early launch spot. Ideally, an individual without in-depth knowledge of the system should be able to use the documentation to operate the payload. Assembly documentation should also be produced to aid future teams assembling IREC payloads or to enable reproduction of the paytoad system in case the flight unit is damaged before the competition.
+A key deliverable is written documentation covering proper assembly and operation of the payload system. IREC requires rocket teams produce procedures for nominal operation of the rocket system as well as contingency procedures in case of failures or anomalies. Not only are extra points awarded for safety procedures and contingencies, these will aid the team during launch week. Having the payload fully assembled and integrated into the rocket quickly aids in securing an early launch spot. Ideally, an individual without in-depth knowledge of the system should be able to use the documentation to operate the payload. Assembly documentation should also be produced to aid future teams assembling IREC payloads or to enable reproduction of the payload system in case the flight unit is damaged before the competition.
 
 For the IREC competition, the team must produce detailed documentation explaining the design and operation of their payload as part of the overall report. This section gets judged along with Conference Day presentations and flight performance.
 
@@ -239,7 +253,7 @@ A notional timeline is shown in \autoref{tab:milestone}.
     		\addlinespace[.25cm]
     		Scientific Recovery        & System Integration                               & Subsystems are integrated into the full system for the first time. Integration procedures are validated and any deviations are noted and revalidated                                                                                                                                                                      & 2 weeks       & First Flight Test with LI, ImagineRIT Presentation \\
     		\addlinespace[.25cm]
-    		Scientific Recovery Ground & Flight Test iterations and procedure development & After a full system test on a demo flight, either on an LI rocket or HAB flight, data should be analyzed and changes should be made to the system to ensure performance matches or exceeds requirements                                                                                                                   & 6 weeks       & Final Pre-competition Review                       \\
+    		Scientific Recovery Ground & Flight Test iterations and procedure development & After a full system test on a demo flight, either on a HAB flight, data should be analyzed and changes should be made to the system to ensure performance matches or exceeds requirements                                                                                                                   & 6 weeks       & Final Pre-competition Review                       \\
     		\addlinespace[.25cm]
     		Scientific Recovery Ground & Spaceport America Cup                            & Launch week and final checks and verifications.                                                                                                                                                                                                                                                                           & 1 week        & Flight during SDL Payload Challenge. \\
     		\bottomrule
