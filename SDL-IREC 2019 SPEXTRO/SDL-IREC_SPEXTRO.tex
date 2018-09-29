@@ -49,9 +49,10 @@
     Dylan~Wagner\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
     T.J.~Tarazevits\IEEEauthorrefmark{2},
     Keshav~Adhyay\IEEEauthorrefmark{3},
-    Matthew~Glazer\IEEEauthorrefmark{4},
-    and 
-    Luc Chartier\IEEEauthorrefmark{5}
+    Matthew~Glazer\IEEEauthorrefmark{4}, 
+    Luc Chartier\IEEEauthorrefmark{5},
+    and
+    Chris Johnson\IEEEauthorrefmark{6}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
     RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
@@ -61,7 +62,8 @@
     \IEEEauthorrefmark{2}tjt3085@rit.edu,
     \IEEEauthorrefmark{3}kar4669@rit.edu,
     \IEEEauthorrefmark{4}msg1254@rit.edu,
-    \IEEEauthorrefmark{5}lmc7150@rit.edu
+    \IEEEauthorrefmark{5}lmc7150@rit.edu,
+    \IEEEauthorrefmark{6}cxj9051@rit.edu
   }
   %%   Below, we use the short-form author block and basically hack it to suit our needs.
   % Philip~Linden$^{*\dagger}$%
@@ -187,7 +189,7 @@ Many proteins have a property of intrinsic fluoresence which means that electron
 \label{subsec:operations}
 A sample of lyophilized (freeze-dried) Bovine Serum Albumin (BSA) protein is mixed with a phosphate buffer saline (PBS) to reconstitute the protein. The PBS and BSA are located in two separate Polydimethylsiloxane (PDMS) chambers connected by a single channel. A solenoid contacting the container containing PBS is energized pushing the PBS liquid into the chamber containing the BSA. Another solenoid contacting the container containing BSA is then energized in order to ensure that the two subsistence are properly mixed. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded correctly then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode with a filter to only allow 350nm light is used to measure intensity of the emitted wavelength. If the sample has folded incorrectly then the emission spectrum will look different than our ground-based control. By comparing the results of ground control tests and the results of the mission we will be able to see if the proteins have folded correctly.
 
-Estimates put an upper bound of the time it will take for the proteins to fold at approximately twenty seconds. This is within the buget we can allow our payload to freefall fall. 
+Estimates put an upper bound of the time it will take for the proteins to fold at approximately fifteen to twenty seconds. If the payload is not ejected from the launch vehicle at apogee at 10,000 feet, we estimate that the payload will be in free-fall for roughly fifteen seconds from when the engine is cut off to when apogee is reached. This will likely be enough time for the proteins to fold. The period of free-fall could be extended if the payload is ejected at apogee, or by launcing to a higher altitude.
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
@@ -202,12 +204,14 @@ The payload module is a maximum 3U (10x10x30cm) module that includes the experim
 \subsection{System Software}
 \label{subsec:sysware}
 
-The system software is at the heart of the payload, it controls everything from mission critical events to pulling sensors. It may be the trickiest part of the payload and is the most important to get right. This being said, much of the flight proven system software which handled mission critical events can be migrated from IREC 2018 to SPEXTRO. However, any other pieces of system software from IREC 2018 will have to be re-implemented. The system software built for IREC 2018 used a custom RTOS to handle execution of routines within the system. This piece of software may be reused if necessary. However, an improved successor has been developed independently of the project. The system software should be developed using coding guidelines for safety critical systems. Using safety critical guidelines will help reduce risk of failure within the payload and sync up programming style across developers. For clarity it is recommended to follow the Joint Strike Fighter C++ Safety Critical Coding Guidelines. 
+The system software is at the heart of the payload, it controls everything from mission critical events to polling sensors. It may be the trickiest part of the payload and is the most important to get right. This being said, much of the flight proven system software which handled mission critical events can be migrated from IREC 2018 to SPEXTRO. However, any other pieces of system software from IREC 2018 will have to be re-implemented. The system software built for IREC 2018 used a custom RTOS to handle execution of routines within the system. This piece of software may be reused if necessary. However, an improved successor has been developed independently of the project. The system software should be developed using coding guidelines for safety critical systems. Using safety critical guidelines will help reduce risk of failure within the payload and sync up programming style across developers. For clarity it is recommended to follow the Joint Strike Fighter C++ Safety Critical Coding Guidelines. 
 
 \subsection{Recovery System}
 \label{subsec:recovery}
 
-The recovery system is co-located within the payload module. A parachute system is required to reduce terminal velocity to acceptable levels for a soft landing. Intentional uncontrolled descent is not allowed by competition rules. Multi-stage parachutes may be used to provide control while reducing the potential landing ellipse for the payload. The system should detect ejection from the launch vehicle  and safely deploy parachutes to avoid unintended recontact with the launch vehicle. Recovery aids are encouraged to reduce time to recovery, including but not limited to buzzers, lights, reflective coatings, and radio beacons.
+The recovery system is co-located within the payload module. A parachute system is required to reduce terminal velocity to acceptable levels for a soft landing. Intentional uncontrolled descent is not allowed by competition rules. Multi-stage parachutes may be used to provide control while reducing the potential landing ellipse for the payload. The system should detect ejection from the launch vehicle and safely deploy parachutes to avoid unintended recontact with the launch vehicle. Recovery aids are encouraged to reduce time to recovery, including but not limited to buzzers, lights, reflective coatings, and radio beacons.
+
+A payload recovery system is only necessary if the payload is ejected from the launch vehicle. Otherwise, the payload will be recovered with the launch vehicle. Recovery aids may still be encouraged to recovery time of the entire rocket system.
 
 \subsection{Ground Station}
 \label{subsec:ground}
