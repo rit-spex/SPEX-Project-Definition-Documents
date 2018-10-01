@@ -49,9 +49,10 @@
     Dylan~Wagner\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
     T.J.~Tarazevits\IEEEauthorrefmark{2},
     Keshav~Adhyay\IEEEauthorrefmark{3},
-    Matthew~Glazer\IEEEauthorrefmark{4},
-    and 
-    Luc Chartier\IEEEauthorrefmark{5}
+    Matthew~Glazer\IEEEauthorrefmark{4}, 
+    Luc Chartier\IEEEauthorrefmark{5},
+    and
+    Chris Johnson\IEEEauthorrefmark{6}
   }
   \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
     RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
@@ -61,7 +62,8 @@
     \IEEEauthorrefmark{2}tjt3085@rit.edu,
     \IEEEauthorrefmark{3}kar4669@rit.edu,
     \IEEEauthorrefmark{4}msg1254@rit.edu,
-    \IEEEauthorrefmark{5}lmc7150@rit.edu
+    \IEEEauthorrefmark{5}lmc7150@rit.edu,
+    \IEEEauthorrefmark{6}cxj9051@rit.edu
   }
   %%   Below, we use the short-form author block and basically hack it to suit our needs.
   % Philip~Linden$^{*\dagger}$%
@@ -124,7 +126,7 @@ This project definition document describes RIT Space Exploration Participation i
 	\item Readiness / Turnkey Operation and Execution of Objective(s) ~\cite{sdl}
 \end{itemize} Following this judging criteria, teams will be slotted into first, second and third place, with selected others receiving honorable mentions.
 
-Currently, a launch provider has not been selected. We plan on partnering with another university in order to compete in IREC 2019, and this is not seen as a problem for the following reasons. Our payload is based around a 3U CubeSat form factor which is a common form factor for teams competing in IREC to design for. According to the Spaceport America Cup Official Rules and Requirements Document Revision A, Section 2.2.5.1.\begin{quote} Any launch vehicle carrying strictly non-functional, 'boiler-plate' mass as it's payload shall do so in the form of one or more CubeSats, which equal no less than 3U when stacked together.\cite{sdl}\end{quote} Since our payload does not depend on altitude, we would be a desirable option for team whose rockets are designed for a target altitude of either of the two IREC categories, 10,000ft or 30,000ft.\cite{sdl} It should not be a problem to expect our launch provider to be able to deploy our play load at apogee, the maximum altitude the rocket achieves.
+Currently a launch provider has not been selected. We plan on partnering with another university in order to compete in IREC 2019 and this is not seen as a problem for the following reasons. Our payload is based around a 3U CubeSat form factor which is a common form factor for teams competing in IREC to design for. According to the Spaceport America Cup Official Rules And Requirements Document Revision A, section 2.2.5.1.\begin{quote} Any launch vehicle carrying strictly non-functional, 'boiler-plate' mass as it's payload shall do so in the form of one or more CubeSats, which equal no less than 3U when stacked together.\cite{sdl}\end{quote} Since our payload does not depend on altitude, we would be a desirable option for team whose rockets are designed for a target altitude of either of the two IREC categories, 10,000ft or 30,000ft.\cite{sdl} It should not be a problem to expect our launch provider to be able to deploy our payload at apogee, the maximum altitude the rocket achieves.
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -134,7 +136,7 @@ Currently, a launch provider has not been selected. We plan on partnering with a
   % What matters are what questions you intend to answer.
   % This is the main purpose or main goal the project hopes to achieve.
 
-This payload will test how microgravity affects the folding of proteins. While this topic has been explore at a much larger scale and with a much greater budget, such as NASA's performance of crystal spectrography of proteins folded in microgravity on the ISS, this type of experiment has never been done at this scale. The goal of this project is to explore protein folding in microgravity as a payload for the SDL Payload Challenge at IREC 2019. 
+This payload will test how microgravity affects the folding of proteins. While this topic has been explored at a much larger scale and with a much greater budget, such as NASA preforming crystal spectrography of proteins folded in micro gravity on the ISS, this type of experiment has never been done at this scale. The goal of this project is to explore if protein folding in micro gravity can be done as a payload for the SDL Payload Challenge at IREC 2019. 
 
 To accomplish this, the team will construct a microfluidic spectroscopy experiment that fits within the payload restrictions of the competition. The payload itself must be safe to fly within the competition launch vehicle, provided by our chosen launch provider, and should be capable of operating successfully in the desert environment of Las Cruces, as well as safely returning to Earth intact as specified by SDL competition rules. 
 
@@ -177,16 +179,15 @@ The payload will iterate and expand on RIT Multidisciplinary Senior Design Proje
 \subsection{Science Overview}
 \label{subsec:sci-overview}
 
-Protein folding is the process of amino acid chains folding into a three dimensional structure, creating a protein that can perform a specific biological function. Proteins can fold into many different structures which can be influenced by environmental factors such as microgravity or radiation. When proteins fold incorrectly, they are unable to perform their desired biological functions, and in some cases may even perform an unwanted function. Proteins are critical to the function of nearly all of life’s biological processes. For example, the protein rhodopsin found in rod cells of the human eye converts light into electrical signals, which allows for sight. Astronauts tend to have worse vision over prolonged periods of time in space which could be due to proteins that are improperly folded.
+Protein folding is the process of amino acid chains foling into a three dimensional structure creating a protein that can perform a specific biological function. Proteins can fold into many different structures which can be influenced by environmental factors such as microgravity or radiation. When proteins fold incorrectly they are unable to perform their desired biological functions, and in some cases may even perform an unwanted function. Proteins are critical to the function of nearly all of life's biological processes. For example, the protein rhodopsin found in rod cells of the human eye converts light into electrical signals which allows for sight. Astronauts tend to have worse cision over prolonged periods of time in space which could be due to proteins that are improperly folded. 
 
-Many proteins have a property of intrinsic fluorescence which means that electrons that make up the amino acids within a protein can be excited to a higher energy state by a certain wavelength of light and in turn emit light at a longer wavelength of light. Tryptophan is one such amino acid which will emit 350nm light when excited by 280nm light. This property can be measured to determine if the protein folded naturally while experiencing certain environmental conditions.
+Many proteins have a property of intrinsic fluoresence which means that electrons that make up the amino acids within a protein can be excited to a higher energy state by a certain wavelength of light and in turn emit light at a longer wavelength of light. Tryptophan is one such amino acid which will emit 350nm light when exited by 280nm light. This property can be measured to determine if the protein folded naturally while experiencing certain environmental conditions.
 
 \subsection{Concept of Operations - Science}
 \label{subsec:operations}
-A sample of lyophilized (freeze-dried) Bovine Serum Albumin (BSA) protein is mixed with phosphate buffer saline (PBS) to reconstitute the protein. The PBS and BSA are located in two separate Polydimethylsiloxane (PDMS) chambers connected by a single channel. A solenoid contacting the chamber containing PBS is energized pushing the PBS liquid into the chamber containing the BSA. Another solenoid contacting the chamber containing BSA is then energized in
-order to ensure that the two subsistence are properly mixed. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded correctly then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode with a filter to only allow 350nm light is used to measure intensity of the emitted wavelength. If the sample has folded incorrectly then the emission spectrum will look different than our ground-based control. By comparing the results of ground control tests and the results of the mission we will be able to determine if the proteins have folded correctly.
+A sample of lyophilized (freeze-dried) Bovine Serum Albumin (BSA) protein is mixed with a phosphate buffer saline (PBS) to reconstitute the protein. The PBS and BSA are located in two separate Polydimethylsiloxane (PDMS) chambers connected by a single channel. A solenoid contacting the container containing PBS is energized pushing the PBS liquid into the chamber containing the BSA. Another solenoid contacting the container containing BSA is then energized in order to ensure that the two subsistence are properly mixed. Once mixing is completed a 280nm LED is turned on to provide an input to the sample. If the sample has folded correctly then the tryptophan will be excited by the 280nm LED and emit light at approximately 350nm. A photodiode with a filter to only allow 350nm light is used to measure intensity of the emitted wavelength. If the sample has folded incorrectly then the emission spectrum will look different than our ground-based control. By comparing the results of ground control tests and the results of the mission we will be able to see if the proteins have folded correctly.
 
-The payload will experience micro gravity as soon as it is ejected from the rocket. The period of freefall is bounded by the amount of velocity the  Estimates on the upper bound for mixing, reconstituting, and having the protein fold is 20 seconds. This is within the timeframe we expect the payload to be in free-fall.
+Estimates put an upper bound of the time it will take for the proteins to fold at approximately fifteen to twenty seconds. If the payload is not ejected from the launch vehicle at apogee at 10,000 feet, we estimate that the payload will be in free-fall for roughly fifteen seconds from when the engine is cut off to when apogee is reached. This will likely be enough time for the proteins to fold. The period of free-fall could be extended if the payload is ejected at apogee, or by launcing to a higher altitude.
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
@@ -201,12 +202,14 @@ The payload module is a maximum 3U (10x10x30cm) module that includes the experim
 \subsection{System Software}
 \label{subsec:sysware}
 
-The system software is at the heart of the payload, it controls everything from mission critical events to pulling sensors. It may be the trickiest part of the payload and is the most important to get right. This being said, much of the flight proven system software which handled mission critical events can be migrated from IREC 2018 to SPEXTRO. However, any other pieces of system software from IREC 2018 will have to be re-implemented. The system software built for IREC 2018 used a custom RTOS to handle execution of routines within the system. This piece of software may be reused if necessary. However, an improved successor has been developed independently of the project. The system software should be developed using coding guidelines for safety critical systems. Using safety critical guidelines will help reduce risk of failure within the payload and sync up programming style across developers. For clarity it is recommended to follow the Joint Strike Fighter C++ Safety Critical Coding Guidelines. 
+The system software is at the heart of the payload, it controls everything from mission critical events to polling sensors. It may be the trickiest part of the payload and is the most important to get right. This being said, much of the flight proven system software which handled mission critical events can be migrated from IREC 2018 to SPEXTRO. However, any other pieces of system software from IREC 2018 will have to be re-implemented. The system software built for IREC 2018 used a custom RTOS to handle execution of routines within the system. This piece of software may be reused if necessary. However, an improved successor has been developed independently of the project. The system software should be developed using coding guidelines for safety critical systems. Using safety critical guidelines will help reduce risk of failure within the payload and sync up programming style across developers. For clarity it is recommended to follow the Joint Strike Fighter C++ Safety Critical Coding Guidelines. 
 
 \subsection{Recovery System}
 \label{subsec:recovery}
 
-The recovery system is co-located within the payload module. A parachute system is required to reduce terminal velocity to acceptable levels for a soft landing. Intentional uncontrolled descent is not allowed by competition rules. Multi-stage parachutes may be used to provide control while reducing the potential landing ellipse for the payload. The system should detect ejection from the launch vehicle  and safely deploy parachutes to avoid unintended recontact with the launch vehicle. Recovery aids are encouraged to reduce time to recovery, including but not limited to buzzers, lights, reflective coatings, and radio beacons.
+The recovery system is co-located within the payload module. A parachute system is required to reduce terminal velocity to acceptable levels for a soft landing. Intentional uncontrolled descent is not allowed by competition rules. Multi-stage parachutes may be used to provide control while reducing the potential landing ellipse for the payload. The system should detect ejection from the launch vehicle and safely deploy parachutes to avoid unintended recontact with the launch vehicle. Recovery aids are encouraged to reduce time to recovery, including but not limited to buzzers, lights, reflective coatings, and radio beacons.
+
+A payload recovery system is only necessary if the payload is ejected from the launch vehicle. Otherwise, the payload will be recovered with the launch vehicle. Recovery aids may still be encouraged to recovery time of the entire rocket system.
 
 \subsection{Ground Station}
 \label{subsec:ground}
@@ -278,7 +281,7 @@ The maximum cap on this project is flexible but must be constrained to twenty-fi
 
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
-The IREC 2018 project spent roughly \$1700 including prototyping, concept validation, and final flight hardware. The MSD project had a budget of ~\$1500 and spent ~\$1100. The actual payload described here is fundamentally more complex than the MSD demonstration, but concept validation activities are included in both numbers. A first order scope-based number is \$1000. Additional refinement in the number is possible by evaluating the PCB BoM, as well as a detailed analysis of the cost of just the science demonstrator. It is likely within an order of magnitude.
+The IREC 2018 project spent roughly \$1700 including prototyping, concept validation, and final flight hardware. The MSD project had a budget of \~\$1500 and spent \~\$1100. The actual payload described here is fundamentally more complex than the MSD demonstration, but concept validation activities are included in both numbers. A first order scope-based number is \$1000. Additional refinement in the number is possible by evaluating the PCB BoM, as well as a detailed analysis of the cost of just the science demonstrator. It is likely within an order of magnitude.
 
 IREC 2018 was graciously sponsored by SEDS USA with a \$1000 project grant. This is a potential source of funding, but is not guaranteed. Alumni funds were also used by IREC 2018 and could possibly be secured. Additional corporate in-kind sponsorship, like PCB printing by Bay Area Circuits is possible, and pure financial donations could be considered. Funding should be considered a primary risk for this project.
 
@@ -289,7 +292,8 @@ This project is somewhat unique in that it stems from a prior MSD project at RIT
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
-This project continues the collaboration with RIT Launch Initiative ad, and this project would increase the technology readiness level of that experiment. Extensive testing with rocket launch conditions and miniaturization are on the critical path for this experiment to fly into space.
+
+This project expands upon the work done with the previous MSD and IREC 2018 projects. The MSD project was originally envisioned as a potential cubesat payload, and this project would increase the technology readiness level of that experiment. Extensive testing with rocket launch conditions and miniaturization are on the critical path for this experiment to fly into space.
 
 \section*{Acknowledgements}
 The authors would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members, past and present, that continue to invest their time and energy into the pursuit of space exploration.
