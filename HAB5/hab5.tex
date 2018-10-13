@@ -1,0 +1,422 @@
+%% *************************************************************************
+%%
+%% This is a derivative work of the RIT Space Exploration Standard defining
+%% guidelines for content and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage{graphicx} % enable toolbox for embedding figures and pictures
+\usepackage{nomencl} % enable package for adding a list of variables and constants at the beginning, aka "nomenclature"
+% \usepackage{siunitx} % enable package for easily formatting units
+\usepackage[T1]{fontenc} % change text encoding to make it more crisp
+\usepackage{etoolbox} % enable conditionals for help text
+\usepackage{booktabs} % make beautiful tables!
+\usepackage{tabularx} % autosizing cells in tables
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
+\title{High Altitude Balloon with Image Processing Module}
+
+
+\author{
+  % List the authors of the design document. The Champion should go first.
+  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
+  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author Names.
+    Keshav~Adhyay\IEEEauthorrefmark{1}
+    Philip~Linden\IEEEauthorrefmark{2}
+  }
+  \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}keshavadhyay@gmail.com
+    \IEEEauthorrefmark{2}pjl7651@rit.edu
+  }
+  %%   Below, we use the short-form author block and basically hack it to suit our needs.
+  % Philip~Linden$^{*\dagger}$%
+  %   \thanks{$^{*}$Project Champion}%
+  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
+  % Austin~Bodzas$^{\ddagger}$%
+  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
+  % Drew~Walters$^{\S}$%
+  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
+  % T.J.~Tarazevits$^{**}$%
+  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
+
+  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
+  %% the recommended order for symbolic footnotes is
+  %%   (1) asterisk        *   *
+  %%   (2) dagger          †   \dagger
+  %%   (3) double dagger   ‡   \ddagger
+  %%   (4) section symbol  §   \S
+  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
+  %%   Note that these symbol codes work in math mode and text mode.
+  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
+}
+% page header for pages other than cover page
+\markboth{HAB5}%
+{Adhyay \MakeLowercase{\textit{et al.}}: RIT Space Exploration}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+  A High Altitude Balloon will fly \textit{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon} (PLANTHAB) payload module to altitudes near 100,000ft.
+  The HAB5 and PLANTHAB payload are to be developed in parallel over one year.
+  The vehicle and payload are both designed to be modular so that the HAB is able to support diverse mission payloads on the same platform.
+  PLANTHAB will use multispectral imaging to measure vegetation density, and will demonstrate on-board image processing and computer vision techniques with low cost, consumer level components.
+
+  % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+  % Be sure not to confuse the abstract with the introduction.
+  % It is easiest to write the abstract after the rest of the paper has been written.
+  % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+  % Consider the abstract to be your elevator pitch to anyone reading this design document.
+  % What are they reading?
+  % What is the goal?
+  % Why is it worth my time?
+  % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+\end{abstract}
+
+\section{Introduction}
+\IEEEPARstart{H}{igh} Altitude Balloons (HABs) are autonomous balloons sent up to 100,000 feet and serve as research platforms for a variety of purposes.
+SPEX has designed, constructed and launched a number of HABs, with HAB4 being the latest iteration.
+A HAB will usually fly with, at the very least, a power system, one-way communication notifying a ground station of its position and basic electronics.
+For this purpose a HAB must have a safe and reliable structure capable of providing protection from different atmospheric conditions, including temperature and pressure.
+It is also preferred if this structure allows for modular payload development and is compatible with cubesat designs.
+Constraints of mass and volume follow naturally, leading to limitations then on power, processing and memory capabilities and communication rate and range.
+Essential HAB functions such as position tracking and power delivery should be as weight and volume efficient as possible to optimize payload volume and mass budgets.
+
+Image processing is the application of computer algorithms or digital processing techniques to images.
+Recent advances have made it possible to carry out image processing on relatively cheap, light and easily interfaceable consumer electronic equipment.
+Computer Vision (CV) is the automated extraction of information from one or several images.
+CV allows for autonomous extraction and interpretation of information from an image feed and can be utilized for a variety of applications.
+Among these are the identification of objects or the detection of a horizon.
+Many of the algorithms can be trained to recognize particular features or objects, or a combination thereof, to recognize, predict or quantify another feature or quantity.
+
+This Project Definition Document describes a High Altitude Balloon suited to flying imaging and CV payloads as discussed in the ``On-Board Image Processing and Computer Vision Techniques on Low-Cost Consumer Electronics for Vegetation Density Mapping and Other Experiments'' Project Definition Document~\cite{habcvpdd}.
+These payloads are designed to be achievable using readily available consumer electronics within a reasonable development budget.
+
+\section{Primary Objective}
+\label{primaryobjectives}
+\subsection{Vehicle}
+\label{vehicleobjectives}
+Development of a reliable HAB vehicle capable of flying modular payloads, as described in (\autoref{implementation}), is a primary objective.
+
+\subsection{Payload}
+\label{payloadobjectives}
+The primary payload, \textit{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon} (PLANTHAB) is a continuation of \textit{Where U At Plants?} (WUAP), a payload that flew on the SPEX high altitude balloon  HAB4 in Spring of 2018~\cite{wuaphab4}.
+PLANTHAB shares its predecessor's primary objectives to measure vegetation density using the Normalized Difference Vegetation Index (NDVI) with visible to near-infrared (VNIR) imaging, demonstrate on-board image processing, and gather large datasets of aerial images using low cost, entry-level electronics.
+NDVI data collected in flight will be validated using NASA NDVI or Enhanced Vegetation Index (EVI) datasets.
+
+WUAP demonstrated the core concepts of image processing and imaging payloads on high altitude balloon missions but did not meet all of its objectives or design goals and encountered unexpected problems in flight~\cite[Post-Flight Analysis]{wuaphab4}.
+Though PLANTHAB will attempt the same mission as WUAP as a follow-on payload, it will place more emphasis and effort on testing, reliability, and system architecture.
+The priorities for PLANTHAB development are as follows.
+\begin{enumerate}\small
+    \item \textbf{Understanding the system.} There should be no surprises in flight, and if goals or performance targets are not met, the degree and cause should be discoverable.
+    \item \textbf{Reliability and stability.} The system should behave the same way every time and should produce the same output for a given (known) set of inputs.
+    \item \textbf{Performance.} The quality of output data should reach the maximum possible for the system's capability. Reliably maximizing utility from the system is paramount.
+\end{enumerate}
+
+A list of ``essential questions'' to be addressed during PLANTHAB's development is given in appendix \ref{essentialquestions}.
+
+
+\section{Secondary Objectives}
+\label{secondaryobjectives}
+A two-way communication system is desired but may be scaled back due to resource limitations based on the choice of payload. Geofencing and control over the APRS transmitter's frequency is one such pertinent case.
+Similarly, consistent location information has been an elusive target.
+As the HAB is trusted with more complex payloads, the tracking becomes of greater importance.
+
+In addition to NDVI studies of vegetation density in the VNIR band, PLANTHAB aims to demonstrate CV techniques such as object detection and image segmentation of populated areas.
+On the ground, methods of determining and mapping vegetation density from RGB visible images alone will be developed using computer vision and machine learning techniques with public NDVI data and aerial photography, and then applied to PLANTHAB datasets.
+
+\section{Benefit to SPEX}
+\label{benefittospex}
+The high altitude balloon system offers a unique environment to develop skills and demonstrate prowess to RIT faculty and staff, potential SPEX members, and potential sponsors.
+A HAB bearing the mark of RIT SPEX is a declaration that we can confidently launch non-trivial payloads in a system of our making.
+HAB demands careful planning, intelligent utilization of resources, considerable multidisciplinary engineering and long-term teamwork.
+A successful HAB is thus linked to a success-ready SPEX, whose members are now better prepared for any task.
+HAB also serves as a unique testing platform for projects involving different temperatures, altitudes or pressures than those experienced normally.
+This is particularly useful for lower-altitude rocket payloads, testing them for a fraction of the cost or risk.
+HABs designed with a payload form resembling a cubesat or combination thereof have an even wider utilization.
+HABs are also the easiest platform for testing of longer-range communication systems.
+
+The pursuit of HAB is the pursuit of maximizing scientific output using off-the-shelf components and present limitations of SPEX's human capital.
+Progress here develops SPEX's knowledge base for all future missions, including SPEX's understanding of what can and cannot be achieved.
+Presently proposed operations include rigorous pre-flight testing for diagnosis and correction of software and hardware components, post-flight analysis and amelioration and inculcation of this into the design cycle.
+
+
+Documenting training sets and linking them to performance is a potential avenue for exploration.
+This can be evaluated both to determine which training data results in the best performance and in gauging how resilient methods implemented are to a varied number of incorrect samples in the data set.
+Also, by incorporating testing and training processes into the design and execution process, SPEX can iterate on more advanced software tools.
+Specific focus on algorithmic improvisation may also draw in more talent, which in turn advances the scope of possible missions.
+
+As image processing tools advance, ever more useful information can be garnered from the same physical equipment.
+Progress here automatically increases SPEX's potential to make news, capture imaginations and talent, and grow.
+This advantage is both due to us maximizing the knowledge gleaned from cheap and readily available hardware, as well as the abundance of open source resources for computer vision.
+While the entry requirements are non-zero, the acquisition of talent utilizing OpenCV or useful Python libraries broadens SPEX's options for other ventures, such as IREC's SDL Payload Challenge.
+
+Developing the capability to perform Normalized Difference Vegetation Index (NDVI) provides a foundation for a wide range of future imaging payloads.
+SPEX is yet to use near-Infrared imaging, and this analysis for NDVI serves as a new but relatively simple processing exercise.
+
+Further, this project offers great flexibility in terms of team composition, once beyond a requisite minimum.
+While the mechanical design of the HAB is quite mature, its electrical systems are not.
+An gifted electronics team may choose to consider much more advanced imaging equipment or image processing using other factors to control, requiring only a moderate CS investment.
+
+As RIT looks to expand its research endeavors, especially in fields such as Imaging Science where it possesses an advantage, developing a long and mutually beneficial relationship with that department is also a goal unto itself.
+As a platform for experiments, SPEX has the unique opportunity to be a student body involved in the synthesis, publication and presentation of materials.
+This can build SPEX's reputation and foster relationships with faculty and research organizations, leading to opportunities for mentorship and funding from sustainable sources.
+
+\section{Implementation}
+\label{implementation}
+\subsection{Deliverables}
+\label{deliverables}
+\subsubsection{Documentation}
+\label{deliverables-documentation}
+ HAB5 will require GitHub repositories for all software that is developed. Library dependencies will be listed with references or citations to existing codebases. Duplication of online resources, with citations, will be made to aid in reproduction of results or retracing of errors.
+ Electronic components utilized will be logged in a bill of materials (BoM) and KiCad files for any custom PCBs will be archived.
+ Printed mechanical parts will have files saved and machined components' sketches will be included.
+ Expectations, hurdles and solutions are to be tabled in documents both before and after the flight.
+
+\subsubsection{Vehicle}
+\label{deliverables-vehicle}
+The desired product at the end of the development is a modular HAB vehicle capable of reliably, predictably, and safely carrying a payload compatible with a nU cubesat size. The lower limit is a 3U internal volume, with the upper bound not exceeding 8U.
+The vehicle is defined as the mechanically sound HAB structure and common electronic/software components necessary for payload deployment.
+Mechanical soundness includes, but is not limited to, protection from disintegration, temperature, winds, pressure, charge buildup and vibration.
+To this end a power system, APRS transmitter, pressure/temperature/humidity sensor, payload arming/disarming mechanism and all facilitating processing and memory elements are to be included.
+A data recording system to record flight data and provide information leading to more advanced HABs and missions is aimed for, with measurements from sensors stored to an SD card on the HAB.
+% This must consist of sensors, processing and memory required for the task.  FAA compliance for payloads over 6 lbs also requires equiping the HAB vehicle with a termination system. To prevent repeated modification of the vehicle, the vehicle itself must always have this functionality.
+It is expected that the payload will be modular, fitting both an x-u form factor and having a power supply of its own.
+This is because optimization of a HAB vehicle capable of handling any modular payload results in selection for a power system dedicated solely to the HAB vehicle board and merely arming/disarming the payload electronics.
+Past issues have included adhesives melting, batteries breaking apart and damage due to environmental factors. Each of these contingencies is to be specifically tested and solved for.
+
+\subsubsection{Software and Payload}
+\label{deliverables-payload}
+Python is to be the (payload) language of choice, greatly increasing the talent base which can be drawn upon. Development costs and considerations for quality control also encourage the use of Python over C/C++.
+Previous HAB teams have considered this question, and given the resources on the team, their findings are restated. OpenCV 3 will continue to be used as a major part.
+
+The primary payload on HAB5 is the PLANTHAB payload.
+Use of NDVI is to be investigated on the ground and considerable attention paid to how NDVI results may be linked to visual spectrum analysis of vegetation.
+While specific to the payload mission selected, exploring the linking of different realms of sensor information is a pursuit which will further aid SPEX.
+An example could be the linking of IMU attitude data to images at the corresponding time, which in turn may allow for correction of apparent areas due to the angle of the camera with respect to the horizon.
+This in turn prepares SPEX for projects requiring this correction be done on-flight, and for other projects such as horizon detection which could ``train'' on-flight by comparing analyzed data to known IMU readings.
+To this end the synchronization of clocks may be pursued.
+Another consistent challenge has been the processing of information on a stream, without information being skipped or resampled.
+Raw and processed information should be saved for later evaluation and iteration of systems.
+
+Detailed test plans and test reports will record the method and results from rigorous testing of mechanical and electrical components, software algorithms, telemetry collection, and fault detection.
+Additional and calibrations unique to HAB5 and PLANTHAB include camera alignment; camera stability; spectral response/quantum efficiency; software processing of simulations; payload NDVI/visual functioning while on ground; an electronics functional test with specific focus on power systems and APRS reliability; electronics environmental testing; and integrated system testing.
+Time-stamping of information received by different processes may be considered.
+It is also desired that metrics be included for post-flight analysis.
+
+Among the physical requirements for the payload, it is required that the HAB vehicle and payload system be better capable of protecting from environmental factors such as humidity, winds and temperature. Specific to this payload, the alignment of cameras is a question needing further exploration. An angle and separation optimal for the combination of data acquisition and securedness is required. Vibration or displacement during flights can significantly impair or corrupt all information gathered. Fixing this hurdle is critical for future projects which may look to infer distance data with a combination of two cameras or a radar altimeter setup. While the project doesn't expect that these will all be met as results, it is firmly held that the steps taken to implement these goals as best as possible will transformatively improve SPEX's advanced payload capabilities.
+
+\subsection{Milestones}
+Development and fabrication milestones are listed in \autoref{milestones-table}.
+One key consideration in choosing a time of year to launch HAB5 with PLANTHAB is the abundance of plant life in the area where it will be launched.
+In upstate New York, plant vitality is at its highest in late spring through early fall.
+
+\begin{table}[!ht]
+  \centering
+  \caption{Milestones to design and build HAB5}
+
+\begin{minipage}{.45\textwidth}
+  \noindent
+  \begin{tabular}{@{}ll@{}}
+
+  \label{milestones-table}
+    \textbf{Task} & \textbf{Complete Date} \\
+    \midrule
+    Review and Write Up of Current Systems & September 2nd Week \\
+    Mechanical Constraints for Development & September 3rd Week \\
+    Acquistion of Data from non-Visual Sensors, Ensuring Output-Processing Compatibility & October 2nd Week \\
+    Power System and Communications Design & October 2nd Week \\
+    Mechanical Design \footnote{Mechanical deadlines assume rebuilding the box to the HAB4 specification. This work is truncated if the HAB4 structure is not damaged from previous flights.} & October 2nd Week \\
+    Camera Data Acquistion, Physical Setup and Software & October 2nd Week \\
+    Power System Assembly & October 4th Week \\
+    Mechanical Construction & October 4th Week \\
+    Image Processing Implementation, Testing & December \\
+    APRS Testing and Verification\footnote{Assumes the HAB4 power board is supplying power and APRS to HAB5 avionics boards.} & December \\
+    Testing of All Subsystems & February 2nd Week \\
+    Image Processing Tuning & February 2nd Week \\
+    Assembly and Testing, incl. Environmental & February 4th Week \\
+    Launch & Imagine RIT \\
+  \end{tabular}
+\end{minipage}
+\end{table}
+
+\section{Externalities}
+\subsection{Prerequisite Skills}
+Proficiency in Python (CS 1 or equivalent) is required for implementing PLANTHAB image capturing and processing software.
+Experience with Python computer vision and machine learning tools is required for developing the advanced CV objectives like object detection and segmentation. A minimum of 2-3 dedicated individuals will be required for the project.
+Electrical engineering skill set varies greatly based on method of implementation---purchasing ready-to-assemble products to design and fabrication of custom PCBs. A single eiectrical engineer could, with significant effort, design and implement the sysem. A safer approach would be 2-3 with moderate experience; further talent being used to move the project away from premade subcomponents.
+The result is that we have the opportunity to tune implementation based on the EEs we find. An effective minimum of two people working towards electrical systems is desirable.
+Understanding of basic circuits and connections/interfacing is required for both.
+An knowledge of heat transfer basics is recommended in order to do basic thermal analysis. A team of 2-3 mechanicals would be required for the project itself. Additional talent can be used to probe the question of camera stabilization and other long-term niceties.
+The HAB structure leverages HAB4 designs so the brunt of mechanical design will focus on camera mounting and enclosures.
+University Physics II (with optics) is recommended for imaging systems testing and calibration tasks.
+
+\subsection{Funding Requirements}
+\label{funding}
+% Payload:  ~$200 (hard cap at $300)
+% 2x raspberry pi 3 = $100 @ $40-50 each
+% 1x pi camera v2 = $28
+% 1x pi camera noir = $25
+% An arduino FPGA is a possible but unlikely inclusion, with a price tag of $60. The present budget also leaves room for the physical hardware of the payload including camera mounts and possible printing expenses. A filter setup, a la TetraPi, is deemed to be prohibitively expensive.
+
+% 	1x vis filter (reddish) $100 https://www.thorlabs.com/thorproduct.cfm?partnumber=FB650-40
+% 	1x nir filter = $100 https://www.thorlabs.com/thorproduct.cfm?partnumber=FB880-70
+
+% 2x rpi $100 refly ones
+% 2x pi cam $60
+% hab avionics (from last year) $150
+% helium $120
+% balloon $100
+The budget described in \autoref{budget} assume the worst case where no material is reused from HAB4, and uses HAB4 and WUAP to baseline costs.
+From this baseline cost estimate, the components and materials for HAB5 and PLANTHAB module should not exceed \$600.
+
+\begin{table}[ht]
+  \caption{Estimated cost}
+  \centering
+  \begin{tabular}{@{}llc@{}}
+    \label{budget}
+    \textbf{Item} & \textbf{Cost} & \textbf{Reused?} \\
+    \midrule
+    Balloon & \$100 & No \\
+    Helium & \$120 & No\\
+    Avionics, sensors \& batteries & \$150 & Yes\\
+    (2x) Raspberry Pi 3 & \$100 & Yes\\
+    Pi Camera V2 & \$30 & Yes \\
+    Pi Camera NoIR & \$30 & No \\
+    Foam \& structural materials & \$50 & Yes \\
+    \midrule
+    \textit{Total} & \$580 & \\
+  \end{tabular}
+\end{table}
+
+This estimate is based off of the inclusion of a prior HAB board for baseline functionality, an existing APRS module and some functional WUAP hardware.
+Significant leeway was left specifically because the exact implementation topology (for processing) and level of pre-fabrication of components scales inversely with availability of time dedicated by advanced electrical engineering students.
+
+\subsection{Faculty Support}
+The project laid forth doesn't assume that faculty support is guaranteed or that any particular faculty members will be forthcoming.
+The project is undertaken in part hoping to build these connections without any significant one-way reliance, along questions discussed in \autoref{Essential questions}.
+It is for that reason that specific, informed and meaningful discussions with possible candidates are recommended as the project progresses and substantive results can be shared.
+
+\subsection{Long-term Vision}
+As laid out in the \autoref{primaryobjectives} and \autoref{benefittospex}, this document is tabled with an eye to the future. Data collection will focus not just on raw data but also on how processing develops and compares to the knowns.
+Cataloguing the progress, as described in \autoref{deliverables}, builds on present resources and knowledge in a manner amenable to future growth.
+Similarly, the potential for much more advanced algorithmic excursions on maintained or minimally modified hardware is substantial.
+SPEX's in-house ability is developed in line with estimates for skills required for later missions.
+
+
+\section*{Acknowledgements}
+The authors would like to thank Dan Mitchell, Matt Glazer, Dylan Wagner, and T.\@J.\@Tarazevits for their invaluable contributions.
+
+\bibliographystyle{IEEEtran}
+\bibliography{hab5}
+
+\onecolumn
+\appendices{}
+
+
+\section{Plant Life Automatic NDVI with Telemetry from a High Altitude Balloon (PLANTHAB) Key Investigations.}
+PLANTHAB is a multidisciplinary effort at the convergence of electrical engineering, imaging science, software engineering, and artificial intelligence.
+In order to accomplish PLANTHAB's goals, students working on the project must find answers to the questions in \autoref{essentialquestions}.
+Although some of the concepts are somewhat advanced, all are within reach to motivated undergraduate students provided they have guidance from individuals with experience in the respective fields, such as student or alumni mentors or university faculty members.
+
+\noindent
+\begin{table}[h!]
+  \label{essentialquestions}
+  \caption{Essential Questions}
+  \centering
+\begin{tabularx}{\linewidth}{@{}p{.2\textwidth}X@{}}
+    \textbf{Discipline} & \textbf{Essential questions} \\
+    \midrule
+    Imaging & What is the spectral response of the Pi Camera V2? The Pi Camera V2 NoIR? \\
+    Imaging & What is the spatial resolution (GSD) of images at 480p? 1080p? How does it vary with altitude? \\
+    Imaging & What is the lens distortion for the Pi Camera V2 standard lens? \\
+    Imaging & Given the spectral response of the cameras, is NDVI possible without filters? With filters? \\
+    Imaging, Image Processing, Mechanical & How precisely do the cameras need to be aligned? How do we align them? Do we align with hardware, software, or both? \\
+    Imaging, Embedded Systems & What is the best way to control/command the cameras capture timing? \\
+    Image Processing & What framerate is optimal for processing? For image quality? Where's the pareto frontier for framerate/resolution combinations vs processing? \\
+    Image Processing & How can image saving and processing operations be more efficient? More reliable? \\
+    Image Processing, Computer Vision & How much processing is reasonable to do in flight? How complex? Where's the pareto frontier for usefulness/complexity of operations vs processing capability? \\
+    Image Processing, Computer Vision & Can images be preprocessed in flight to make analysis/development on the ground easier? \\
+    Image Processing, Computer Vision, System Integration & Can auxiliary data (other sensor data) be combined with image data for useful for Computer Vision algorithms? Which metrics are needed? \\
+    Computer Vision & How can vegetated areas and vegetation density be estimated from visible RGB images? \\
+    Computer Vision, Imaging & What is the minimum pixel resolution where useful CV can be done? Max altitude? \\
+    Computer Vision & Can a vegetation density mapping model trained on NASA datasets be applied to HAB aerial images? \\
+    Computer Vision & Can roads and buildings be identified from HAB aerial images? Can this be done in flight? \\
+    Computer Vision & Is VNIR imaging (with Pi Camera NoIR, for example) useful on its own or is Visible RGB better for vegetation mapping? Are both required? \\
+    Embedded Systems & What is the minimum power needed for payload electronics to operate reliably under load? \\
+    Embedded Systems & How does the performance of single-board-computers, camera modules, and other electronics under load change with time? Temperature? Pressure? Power? Used storage space? \\
+    Embedded Systems, System Architecture & What is the most precise and reliable method of synchronizing image captures from multiple cameras? \\
+    Mechanical & What are the thermal characteristics of the payload electronics under load? Do they overheat in open air? In an insulated enclosure? \\
+    Mechanical & What is the best enclosure design for thermal stability/management? For vibrations? For alignment? \\
+    Image Processing, Embedded Systems, Software, Test & How can software be tested for functionality on development hardware? Flight hardware? \\
+    Image Processing, Embedded Systems, Software, Test & How can software be tested for benchmarking (power, reliability, performance over time)? \\
+    Image Processing, Embedded Systems, Software, Test & How can software be monitored during testing? Pre-flight? In-flight? \\
+    Image Processing, Embedded Systems, Software, Test & How can software be tuned or calibrated? \\
+\end{tabularx}
+\end{table}
+
+\section{Notional Payload Architectures}
+\label{architectures}
+There are several topologies to address PLANTHAB image capture and processing needs as described in appendix \ref{essentialquestions}.
+This appendix suggests notional payload architecture topologies to be considered during development.
+
+\begin{enumerate}
+    \item \textbf{2 SBCs, 1 camera each (like WUAP).} SBCs capture frames based on a master trigger or clock. The SBCs operate completely independently and are not connected.
+    \item \textbf{1 SBC controlling 2 cameras.} Two camera modules are commanded from a single SBC, processing is handled by a dedicated SBC that receives images from the upstream SBC.
+    \item \textbf{1 SBC, 1+ auxiliary boards.} An SBC handles images and processing but timing and frame captures are controlled by to a specialized FPGA or microcontroller daughter board for each camera. The SBC manages on the high level but processing and timing occurs on the daughter boards.
+    \item \textbf{2+ SBCs for each of 2 cameras.} Timing and capturing is handled by any of the topologies above. The processing workload is parallelized between multiple SBCs for each image stream so that processing signal chains can keep up with image capture rates.
+\end{enumerate}
+
+The architecture selected for the PLANTHAB payload must balance cost, performance, complexity, and difficulty.
+While the objectives of PLANTHAB may be trivial to handle on more powerful or more specialized---and thus more expensive---hardware, the intent of the mission is to push the limits of low cost consumer level electronics~\cite{habcvpdd}.
+
+\section{Suggested Tasks for Payload Development}
+This section names some actionable tasks to address the essential questions of PLANTHAB described in \autoref{essentialquestions}.
+
+\noindent
+\begin{table}[h!]
+  \label{tasks}
+  \caption{Suggested tasks}
+  \centering
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+    \textbf{Discipline} & \textbf{Essential questions} \\
+    \midrule
+Imaging & Measure camera module average pixel response vs wavelength, targeting 400nm-1100nm. \\
+Imaging & Calculate spatial resolution (GSD) from pixel density, field of view, and altitude. \\
+Imaging & Measure lens distortion by imaging a standard target and generate a distortion correction map. \\
+Computer Vision & Develop NDVI and vegetation density estimation algorithms using NASA aerial photography (Visible and VNIR), and use NASA NDVI/EVI data as ground truth. \\
+Computer Vision & Investigate the effectiveness of these algorithms at very low resolution images, and determine the minimum viable resolution. \\
+Imaging/Image Processing/Mechanical & Develop the most efficient architecture for reliably differencing images from two cameras, including calibration, hardware alignment or mounting, and software alignment techniques. \\
+Image Processing/Software & Develop reliable software for retrieving, saving and processing images. \\
+Software & Develop dev tools for debugging, monitoring, benchmarking, and tuning payload systems. \\
+Embedded Systems & Design a system architecture that reliably and efficiently captures synchronized images. (see \autoref{architectures}) \\
+\end{tabularx}
+\end{table}
+\end{document}
