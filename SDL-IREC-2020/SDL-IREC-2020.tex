@@ -1,0 +1,297 @@
+%% *************************************************************************
+%%
+%% This is a derivative work of the RIT Space Exploration Standard defining 
+%% guidelines for content and formatting of project design documents.
+%%
+%% This document uses IEEEtran.cls, the official IEEE LaTeX class
+%% for authors of the Institute of Electrical and Electronics Engineers
+%% (IEEE) Transactions journals and conferences.
+%%
+%% *************************************************************************
+
+%% *************************************************************************
+% LaTeX REFERENCES
+% ----------------
+%   Intro to LaTeX: http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf
+%   Comprehensive LaTeX symbol list: http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+%% *************************************************************************
+
+% tell \LaTeX what kind of formatting to use
+\documentclass[conference]{IEEEtran} % http://www.ctan.org/pkg/ieeetran
+\usepackage{graphicx} % enable toolbox for embedding figures and pictures
+\usepackage{siunitx} % enable package for easily formatting units
+% how to use hyperref: http://www2.washjeff.edu/users/rhigginbottom/latex/resources/lecture09.pdf
+\usepackage[T1]{fontenc} % change text encoding to make it more crisp
+\usepackage{etoolbox} % enable conditionals for help text
+\usepackage{tabularx} % add stretchy cells and autosizes to tables
+\usepackage{booktabs} % make beautiful tables!
+\usepackage{hyperref} % enable package for cross-referencing figures, sections, references etc.
+
+% set title. choose something as descriptive and precise as possible. Descriptive > sounding cool. remember this!
+\title{SDL-IREC Competition Payload: SPEXTRO}
+
+\author{
+  % List the authors of the design document. The Champion should go first.
+  % The \$~\$ markers tell \LaTeX{} to treat the text inside to be treated as a math expression. This way you can use operators like \textcaret{} to place characters as superscripts.
+  % Some \LaTeX{} templates handle the author block in different ways. For example, the \href{http://www.worldscientific.com/worldscinet/jai}{Journal of Astronomical Instrumentation} requires the authors' addresses and emails to be included as well.
+  % The \textbackslash{}thanks command puts the contents inside those brackets in a footnote at the bottom of the first page. Technically speaking, \textbackslash{}thanks is just a specially formatted footnote.
+  % IEEE also has a ``long form'' author block for many authors. Check here for more information:
+  % \url{https://tex.stackexchange.com/questions/156523/multiple-authors-with-common-affiliations-in-ieeetran-conference-template}
+  % Read here for a more advanced options to modifying footnotes in the author block:  \url{http://tex.stackexchange.com/questions/826/symbols-instead-of-numbers-as-footnote-markers}
+  %   Here, we use the IEEE long-form author block.
+  \IEEEauthorblockN{% This block is for author Names.
+    James~Parkus\IEEEauthorrefmark{1},  %the number in the bracket is a reference number to identify this footnote. \LaTeX will figure out what symbol to put there.
+  }
+  \IEEEauthorblockA{% This block is for the author Affiliations, aka department and university
+    RIT Space Exploration, Rochester Institute of Technology \\ %\\ starts a new line
+    Rochester, N.Y. \\
+    Email:
+    \IEEEauthorrefmark{1}jep7631@rit.edu
+  }
+  %%   Below, we use the short-form author block and basically hack it to suit our needs.
+  % Philip~Linden$^{*\dagger}$%
+  %   \thanks{$^{*}$Project Champion}%
+  %   \thanks{$^{\dagger}$BS/MEng '17, Mechanical Engineering},
+  % Austin~Bodzas$^{\ddagger}$%
+  %   \thanks{$^{\ddagger}$BS '19, Computer Science},
+  % Drew~Walters$^{\S}$%
+  %   \thanks{$^{\S}$BS '18, Mechanical Engineering Technology},
+  % T.J.~Tarazevits$^{**}$%
+  %   \thanks{$^{**}$BS '19, Game Design \& Development}%
+
+  %%   If there are many authors, consider using symbolic, numeric (aka arabic),  alphabet footnotes or a combination thereof.
+  %% the recommended order for symbolic footnotes is
+  %%   (1) asterisk        *   *
+  %%   (2) dagger          †   \dagger
+  %%   (3) double dagger   ‡   \ddagger
+  %%   (4) section symbol  §   \S
+  %%   et cetera. For higher counts, use 2x symbols (1)-(4) (i.e. (5) two asterisks **). Keep cycling through (1)-(4) using 3x, 4x, and so on.
+  %%   Note that these symbol codes work in math mode and text mode.
+  %%   There are ways to make LaTeX do this for you, but it is more advanced and not entirely necessary, especially for short author lists. Not worth the hassle, in my opinion.
+}
+
+% Initial setup is over, start building the document itself
+\begin{document}
+\maketitle%
+% correct bad hyphenation here, separated by spaces
+\hyphenation{explor-ation}
+
+\begin{abstract}
+  A standard format for Project Design Documents is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
+  The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
+  Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
+  Project Design Documents aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
+  A standard for project design documents and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
+
+      % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
+      % Be sure not to confuse the abstract with the introduction.
+      % It is easiest to write the abstract after the rest of the paper has been written.
+      % That way you can choose key information from the sections that you've already completed and string them together in the abstract.
+      % Consider the abstract to be your elevator pitch to anyone reading this design document.
+      % What are they reading?
+      % What is the goal?
+      % Why is it worth my time?
+      % The abstract is what will show up in Google results and other search engines, and what people will read when they are deciding what is worth their time and brain power.
+\end{abstract}
+% HELPFUL HINTS
+% 1. If you get the linter warning ``Command terminated with space.'' when using a \command try placing ``%'' or ``{}'' immediately following the command.
+% 2. For proper quotes, begin with `` and close with ''. For single quotes, use '. Double quotes characters copied from Word or Docs (") will show up as weird characters.
+
+% The sections included here are required. Additional sections and subsections may be added as necessary.
+\section{Introduction}
+\label{sec:introduction}
+  % The introduction is a place to give background and context before diving into the subject matter.
+  % Establish context for the work you are about to propose and the main ideas of the proposition itself.
+
+The project purpose is to create a 3U CubeSat payload which houses a protein spectroscopy experiment and fly on a sounding rocket in the 2020 IREC. The goal of this project is prove that 
+this experiment can accurately detect protein-states not to prove whether or not the proteins fold in free-fall. The experiment will commence during a free-fall period of the flight. The biggest update to this payload from 
+the 2018-2019 project is the payload will be ejected from the rocket. This will give the payload extra payload in IREC for a deployable which benefits this team and the sounding 
+rocket team. Secondly, this will give us the ability to more finely control our free-fall period since we control the parachute deployment. 
+
+\section{Primary Objective}
+\label{sec:primary-obj}
+  % At the end of the day, whether the project ``succeeds'' or ``fails'' is judged against the objectives it sought to meet.
+  % Note that results that contradict expectations/hypotheses are not failures if the scientific \& engineering methods are followed along the way.
+  % Sometimes our expectations are wrong and that can be just as successful as getting data we thought we'd see.
+  % What matters are what questions you intend to answer.
+  % This is the main purpose or main goal the project hopes to achieve.
+
+The primary objective of this payload is a proof-of-concept mission aimed at understanding if protein spectroscopy can be performed in a CubeSat form factor. The experiment
+is a scientific process in which proteins are analyzed to understand if they folded under free-fall conditions. Due to the mechanics of rocket flight, free fall (similar to that
+of satellite orbit) is impossible to attain. Hence, the mission is focused on fitting this experiment in a 1U section of a larger 3U form factor and proving the experiment can be 
+successfully conducted in such conditions during descent after jetison. 
+
+
+\begin{table*}
+% this table is too wide for the two-column format, so we let it expand across both columns
+% we haven't told LaTeX where to put this so it'll find the best place.
+    \caption{Relative detail expected at each stage of project development.}
+    \centering
+    \begin{tabularx}{\textwidth}{@{}lXcc@{}}
+        % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
+        %
+        % Normal tables are made using \begin{tabular}, but some extra features are
+        % available to us if we use the tabularx package, including autosized cells
+        % and word-wrap within cells containing lots of text.
+        %
+        % \begin{tabularx}{WIDTH OF TABLE}{ALIGNMENT OPTIONS}
+        % we can use our regular column alignment settings like l, r, and c like normal
+        % tabularx adds the X column alignment option, which autosizes the cell and 
+        % word wraps within the cell. X inherits from l.
+        %
+        \toprule % line on top external edge of table
+        % Separate cells in a row with &, move to the next row with \\
+        Document & Purpose & Contributors & Destination \\
+        \midrule % line separating two internal rows
+        Project Definition Document & To define the goals and requirements of a SPEX project. & 2--3 people & SPEX Archive \\
+        Project Plans & Specific plans for when work is to be done (Gantt charts) & 2--3 people & Project Repository \\
+        Design Reviews & To review designs before work is started. & 6--8 people & Project Repository \\
+        Test Procedures & Specific instructions and data logs for tests. & 3--4 people & Project Repository \\
+        User Manual & Instructions for future users of project deliverabels. & 3--4 people & Project Repository \\
+        Posters \& Presentations & Materials for sharing projects with the public. & 5--6 people & Project Repository \\
+        Technical Report & Final technical summary of work done and results. & 6 or more & SPEX Archive, Conferences \& Journals \\
+        % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
+        \bottomrule
+    \end{tabularx}
+\label{tab:long-example}
+\end{table*}
+
+\section{Benefit to SPEX}
+\label{sec:benefit}
+% One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
+% and to challenge them with interesting projects.
+% In this section, explain how the project would benefit SPEX members as students,
+% space enthusiasts, and young professionals.
+
+This project is an ordeal, as is rocketry. Launching payloads on rockets requires rigorous work to understand the intense vibrations and physical conditions as well ensuring the 
+payload can survive the launch and function properly afterwards. The engineering is very involved, right down to the heads of the bolts (smallest details). How does everything 
+fit together? Where do the wires go? These are but a few of the questions this team will learn to answer. The last IREC team gained a lot of experience in this area and collected 
+and recorded it in a final document called \textbf{THE DOCUMENTE} located in the \textbf{THE DOCUMENTE LOCATIONE}. The next team will learn all these lessons intensively and painfully 
+and will inevitably add to this list of lessons learned. While this may sound negative, it is exactly the opposite. Through the head scratching and confusion comes new ideas and engaging, 
+novel, and rewarding experiences. This project would be massively beneficial to the students involved and thereby the rest of SPEX when these students move onto greater things. 
+
+\section{Implementation}
+\label{sec:implementation}
+  % What path do you anticipate the project to take?
+
+There are a few important points that must be understood to understand the scope of this project. 
+
+This project will be a joint effort with RIT Launch Initiative. They are providing the launch vehicles and we, the payload. We are doing this together to compete in the 
+Intercollegiate Rocket Engineering Competition in 2020. It must be understood that the project schedule will have a dependence on the LI rocketry team schedule. For instance, 
+test fitting with their SABOT with require the mechanical footprint of the structure to be designed and fabricated. To this end, it is worth the time to obtain a working structure 
+manufactured by the end of the Fall semester. This will serve as a initial integration structure. A important lesson learned from Hyperion was there were many integration 
+issues that could have been sorted out far beforehand if there was a test-fit opportunity. This structure will not be the final design but an important stepping stone for the 
+rest of the project. The manufacturing will be worth-while training for the engineers when it comes time for the manufacturing of the flight structure. 
+
+\textbf{PROPOSE TEAM STRUCTURE HERE}
+
+\subsection{Deliverables}
+\label{subsec:deliverables}
+  % When all is said and done, what will you have to show for it?
+  % Examples: Hardware, software, poster, ImagineRIT demo, presentations, technical papers...
+
+  The final product of this project will be a flight payload with a fully functional and LI independent communications system, recovery system, protein spectroscopy experiment, and parachute ejection 
+  system. The communications system will have an APRS and GPS that operate on different frequencies than LI as to not interfer. The GPS and APRS must have sufficient battery life 
+  to support extensive time from rocket integration to launch (~2 hrs) and then recovery (~12 hours). The recovery system will have a buzzer and maybe LEDs, this was discussed 
+  but not executed on the 2018 IREC payload. The protein spectroscopy experiment will have the full mixing system with the UV-light and sensor, the data from which will be stored 
+  locally and analyzed after recovery. The parachute system will likely include a Peregrine CO2 system, identical to the one used on Hyperion. 
+
+\subsection{Milestones}
+\label{subsec:milestones}
+  % Be as detailed as you can, but it's okay if there are unknowns.
+  % At the very least, specify how many semester you expect the project to take until it reaches completion.
+
+  One point that the author must be clear on:
+
+  \textit{It is my personal opinion that any attempt to achieve perfect free-fall to create the essential experiment upon the limitations of this project is time that 
+  could be better spent creating a strong design and achieving a solid scientific result that can serve as "Proof of Concept". This idea will then be green-lit for a future 
+  CubeSat proposal and this team could lay the bedrock upon which that CubeSat can be built.}
+
+  The first goal of this experiment should defining the mission statement and success criterion. This will create a clear path forward for the engineering and science teams.
+  Then the mechanical-science team should strive to create a functional experimental setup. This will be very important due the high complexity. They must first create an initial 
+  model with a mixing well, solenoids, protein, and saline. They should first work to attain a good mixing of protein and saline. Then go onto the UV-light and sensor integration and testing. 
+  Approach it one step at a time solving the problems with each one, meanwhile the structures team will work on developing an initial manufacturable model.
+
+  The initial manufacturable model must be complete by Winter break to stay on a good track. There is enough known information about the sizing of the experiment and other components 
+  to make a rough integration scheme. This assembly should favor modularity in the sense that things will change and it should be able to accomodate those changes. An idea would be 
+  to create a small structure out of 80/20 (80/20 makes very small structures that will can accomodate the size restrictions). This would allow ease of access and re-positioning. 
+  The goal of this model is to fully understand where everything will be placed including the wires. \textbf{An important lesson learned from Hyperion was understanding wire layout is 
+  essential for integration. There was much work that went into strain relief of tightly packed wires from batteries and limit switches. The limit switches presented a difficult problem 
+  in which their wires were protuding normal to the walls of the CubeSat and the extremely close proximity of the Main PCB meant those wires needed to do a 90 deg bend within an extremely 
+  tight radius. This could have avoided with properly planning and time for integration studies.}
+
+  There will also be two electrical teams, one dedicated to the scientific payload development and the other dedicated to comms, parachute ejection system, and Main PCB design. It is 
+  recommended that the Main PCB be designed and ready for fabrication (WITH SPARES!) by the end of January. It will take a month to get all the parts and then a few weeks to get it fully populated. 
+  The scientific payload team will work the mechanical engineers to create a functional experiment by the end of the Fall semester (recall: this is not scientifically functional, just mechanical and 
+  electrically). 
+
+\begin{table}[hb!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Notional timeline of Project Milestones.}
+    \centering
+    \begin{tabular}{@{}cll@{}}
+    % the letters here ^^^^ designate the columns.
+    % (l=left align, c=center, r=right align)
+    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+    % so cells butt up right against the edge
+    \toprule
+    Phase & Task & Duration \\
+    \midrule
+    1 & Mission Statement \& Success criterion & 1 week \\
+    2 & Team leadership assortion & 1 week \\
+    3 & Design and development & 6 weeks \\
+    4 & Initial manufacturing & 4 weeks \\
+    5 & Documentation update & 1 week \\
+    6 & Design iterations & 4 weeks \\
+    7 & Critical Design Review & 3 weeks \\
+    8 & Final design iterations & 2 weeks \\
+    9 & Flight manufacturing & 3 weeks \\
+    10 & Flight integration and full system testing & 4 weeks \\
+    11 & Launch and project review & 4 weeks \\
+    \bottomrule
+    \end{tabular}
+\label{tab:short-example}
+\end{table}
+
+\section{Externalities}
+  % Things not directly related to the work or outcomes, but related to the project as a whole.
+\subsection{Prerequisite Skills}
+  % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
+It is obvious that team members will learn certain skills as a project progresses, but there are always some tasks that require a minimum skill level to provide meaningful contributions to a project's development.
+These prerequisite skills are best identified by examining past projects and discussing the project with faculty or subject matter experts.
+It is strongly recommended to be conservative in skill estimation.
+Underestimate team member skill levels and overestimate the challenge.
+Many projects have failed because the team overestimated their own abilities or underestimated the difficulty of their project.
+
+\subsection{Funding Requirements}
+  % Estimate costs that would be needed to meet objectives.
+Like prerequisite skills, it is wise to overestimate the cost of components, materials and other resources that a project requires.
+For physical projects, costs may be estimated by benchmarking the costs of similar systems or determining a representative bill of materials and using the aggregate cost of its items.
+
+\subsection{Faculty Support}
+  % Identify faculty that will be involved (or would need to be involved) to meet objectives.
+  % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
+Support from university faculty is almost always essential to a project's success.
+Faculty provide not only guidance and subject matter expertise, but may also connect a team with resources and networking opportunities.
+SPEX projects do not require faculty support, but it is highly recommended to identify professors with an interest or expertise in a project as early as possible.
+
+\subsection{Long-Term Vision}
+\label{sec:vision}
+As SPEX student members get more experience writing these papers, the group will build a library of meaningful work and be able to save it in an organized manner.
+Knowledge will be preserved and easily shared.
+Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
+
+\section*{Acknowledgements}
+The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{sample-with-examples}
+
+%\onecolumn
+%\appendices{}
+%\section{Project Life Cycle}
+
+
+\end{document}
