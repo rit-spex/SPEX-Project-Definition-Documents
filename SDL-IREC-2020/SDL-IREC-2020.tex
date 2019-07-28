@@ -77,12 +77,8 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-  A standard format for Project Design Documents is key to organize and document the many projects members of RIT Space Exploration wish to pursue.
-  The goal of the SPEX Standard is to organize, refine, and archive space exploration research.
-  Documentation is vital to sharing and maintaining the wealth of ideas and information developed by all students at RIT.\@
-  Project Design Documents aim to provide a foundation for new projects to grow, or premature projects to develop months or years in the future.
-  A standard for project design documents and reports shall provide SPEX with a robust method to maintain a healthy ecosystem of projects in all stages of development including the event where a SPEX member goes on co-op or graduates.
-
+The purpose of this experiment is to prove that understanding protein folding in zero-gravity could be conducted in a CubeSat form factor. This project will attempt to put this 
+concept to work in a CubeSat that will be launched in a sounding rocket to 30,000 feet made by RIT Launch Initiative. Successfully completing this experiment will raise the Technology Readiness Level to which can be adequetly justified for a CubeSat mission to orbit.
       % The abstract is a brief summary of the design document. Typically it includes the purpose of the design document, key goals or objectives, and justifications.
       % Be sure not to confuse the abstract with the introduction.
       % It is easiest to write the abstract after the rest of the paper has been written.
@@ -104,9 +100,9 @@
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
 The project purpose is to create a 3U CubeSat payload which houses a protein spectroscopy experiment and fly on a sounding rocket in the 2020 IREC. The goal of this project is prove that 
-this experiment can accurately detect protein-states not to prove whether or not the proteins fold in free-fall. The experiment will commence during a free-fall period of the flight. The biggest update to this payload from 
-the 2018-2019 project is the payload will be ejected from the rocket. This will give the payload extra payload in IREC for a deployable which benefits this team and the sounding 
-rocket team. Secondly, this will give us the ability to more finely control our free-fall period since we control the parachute deployment. 
+this experiment can accurately detect protein folding after a rocket launch and in harsh ambient conditions. The success of this experiment will be a "proof-of-concept" of the protein spectroscopy
+experiment conducted in a CubeSat form factor. This project will be launched on a rocket that RIT Launch Initiative will make to go to 30,000 feet. This rocket will be launched during the 
+Intercollegiate Rocket Engineering Competition in 2020 (IREC 2020). 
 
 \section{Primary Objective}
 \label{sec:primary-obj}
@@ -121,41 +117,6 @@ is a scientific process in which proteins are analyzed to understand if they fol
 of satellite orbit) is impossible to attain. Hence, the mission is focused on fitting this experiment in a 1U section of a larger 3U form factor and proving the experiment can be 
 successfully conducted in such conditions during descent after jetison. 
 
-
-\begin{table*}
-% this table is too wide for the two-column format, so we let it expand across both columns
-% we haven't told LaTeX where to put this so it'll find the best place.
-    \caption{Relative detail expected at each stage of project development.}
-    \centering
-    \begin{tabularx}{\textwidth}{@{}lXcc@{}}
-        % READ THIS!! https://www.inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
-        %
-        % Normal tables are made using \begin{tabular}, but some extra features are
-        % available to us if we use the tabularx package, including autosized cells
-        % and word-wrap within cells containing lots of text.
-        %
-        % \begin{tabularx}{WIDTH OF TABLE}{ALIGNMENT OPTIONS}
-        % we can use our regular column alignment settings like l, r, and c like normal
-        % tabularx adds the X column alignment option, which autosizes the cell and 
-        % word wraps within the cell. X inherits from l.
-        %
-        \toprule % line on top external edge of table
-        % Separate cells in a row with &, move to the next row with \\
-        Document & Purpose & Contributors & Destination \\
-        \midrule % line separating two internal rows
-        Project Definition Document & To define the goals and requirements of a SPEX project. & 2--3 people & SPEX Archive \\
-        Project Plans & Specific plans for when work is to be done (Gantt charts) & 2--3 people & Project Repository \\
-        Design Reviews & To review designs before work is started. & 6--8 people & Project Repository \\
-        Test Procedures & Specific instructions and data logs for tests. & 3--4 people & Project Repository \\
-        User Manual & Instructions for future users of project deliverabels. & 3--4 people & Project Repository \\
-        Posters \& Presentations & Materials for sharing projects with the public. & 5--6 people & Project Repository \\
-        Technical Report & Final technical summary of work done and results. & 6 or more & SPEX Archive, Conferences \& Journals \\
-        % LaTeX doesn't really like multi-line cell contents. Try to keep the text in each cell concise!
-        \bottomrule
-    \end{tabularx}
-\label{tab:long-example}
-\end{table*}
-
 \section{Benefit to SPEX}
 \label{sec:benefit}
 % One of the core values of SPEX is to provide opportunities for academic and professional growth for its members,
@@ -166,7 +127,7 @@ successfully conducted in such conditions during descent after jetison.
 This project is an ordeal, as is rocketry. Launching payloads on rockets requires rigorous work to understand the intense vibrations and physical conditions as well ensuring the 
 payload can survive the launch and function properly afterwards. The engineering is very involved, right down to the heads of the bolts (smallest details). How does everything 
 fit together? Where do the wires go? These are but a few of the questions this team will learn to answer. The last IREC team gained a lot of experience in this area and collected 
-and recorded it in a final document called \textbf{THE DOCUMENTE} located in the \textbf{THE DOCUMENTE LOCATIONE}. The next team will learn all these lessons intensively and painfully 
+and recorded it in a final document called \textit{SPEX IREC 2018 Final Report} located in the \textit{SPEX Google Drive: Workgroup Archive}. The next team will learn all these lessons intensively and painfully 
 and will inevitably add to this list of lessons learned. While this may sound negative, it is exactly the opposite. Through the head scratching and confusion comes new ideas and engaging, 
 novel, and rewarding experiences. This project would be massively beneficial to the students involved and thereby the rest of SPEX when these students move onto greater things. 
 
@@ -183,7 +144,16 @@ manufactured by the end of the Fall semester. This will serve as a initial integ
 issues that could have been sorted out far beforehand if there was a test-fit opportunity. This structure will not be the final design but an important stepping stone for the 
 rest of the project. The manufacturing will be worth-while training for the engineers when it comes time for the manufacturing of the flight structure. 
 
-\textbf{PROPOSE TEAM STRUCTURE HERE}
+The team leader will be the role of system engineer and lead designer for the project. The lead engineer will take the role of system engineer and lead designer for the structure.
+The project scientist will be in charge of getting the experiment working. That includes all of the engineerind, data analysis, and other science that must go into the experiment.
+A team hierarchy is proposed in \autoref{fig:hierarchy}.
+
+\begin{figure}
+  \includegraphics[width = \columnwidth]{figs/team_hierarchy.png}
+  \caption{The team hierarchy is created based upon NASA-led missions. While the structure is not identical it hits the key figures, team leader (principal investigator), lead engineer
+  (system engineer), and project scientist is the same. This structure has been adapted to help the team function well and achieve the goals of the project.}
+  \label{fig:hierarchy}
+\end{figure}
 
 \subsection{Deliverables}
 \label{subsec:deliverables}
@@ -259,29 +229,49 @@ rest of the project. The manufacturing will be worth-while training for the engi
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
   % Which skills do team members need to have before work can start (not including skills that will be learned ``on the job'')?
-It is obvious that team members will learn certain skills as a project progresses, but there are always some tasks that require a minimum skill level to provide meaningful contributions to a project's development.
-These prerequisite skills are best identified by examining past projects and discussing the project with faculty or subject matter experts.
-It is strongly recommended to be conservative in skill estimation.
-Underestimate team member skill levels and overestimate the challenge.
-Many projects have failed because the team overestimated their own abilities or underestimated the difficulty of their project.
+There are a few positions that will need to be held by experienced engineers/scientists to maintain an appropriate schedule. These positions are; team leader, project scientist, and lead 
+engineer. The team leader should have previous project experience and preferrably system engineering experience, the project scientist should have previous project experience and experience with experimentation in their respective field 
+of study, the lead engineer should have system engineering and past project experience and a strong handle of basic engineering fundamentals in their respective field. 
+
+The people working under these personel do not have any knowledge or experience prerequisites. According to their field of study they should be taught the fundamentals early in the project 
+timeline as to not cause schedule slip later on due to lack of experience. 
+
+By the end of this project mechanical engineers should have more experience with Computer Aided Design, system fabrication, and system integration. The electrical engineers should have more 
+experience in radio frequency analysis, location tracking (GPS, APRS), and PCB design and fabrication. Scientists (physicists, biologists, .etc) should have a stronger handle on designing and conducting 
+experiments as well as analyzing the data and reporting it in a paper format. 
 
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
-Like prerequisite skills, it is wise to overestimate the cost of components, materials and other resources that a project requires.
-For physical projects, costs may be estimated by benchmarking the costs of similar systems or determining a representative bill of materials and using the aggregate cost of its items.
+The Hyperion payload required \$3000 to design, fabricate, integrate, and fly the payload. However, since this was the first project SPEX had undertaken of such a magnitude, the budget was 
+used non-optimally (money was spent on items that it did not need to be). Learning from this experience a more accurate budget for the project can be estimated at \$2000. 
+
+The structure is a 3U CubeSat. Assuming the materials are similar to the previous payload (safe assumption since the design will be off the Hyperion structure), it will cost about \$400. 
+However, since this structure may change and require more materials, the price is safely approximated at \$600 for the structural engineering side of the project. 
+
+The parachute ejection system will likely be the peregrine CO2 cartridge flight-heritage mechanism. This worked well for two separate launches for Hyperion (test launch in May and flight in June 2018). 
+This system costs \$180, with additional cartridges this cost will be estimated at \$220. We already have a parachute and the material for the canister. 
+
+The protein spectroscopy experiment has many 3D-printed mechanical parts which are very inexpensive. The main cost of this experiment will be the battery to run the solenoids, the solenoids, 
+the protein, and the special material for the mixing well. The experiment will be given a budget of \$400 to develop the flight-ready assembly. This is on the higher end for cushion in case 
+the material selection takes many different specimens to perfect. This is a complicated matter and was the subject of much research and testing in the Spring of 2019. Since the mixing well 
+requires an unknown ratio of flexibility to strength, it is difficult to deduce the correct material from datasheets. The proteins are bovine and cost \$60. The solenoids have not been 
+chosen, but based off testing completed in Spring 2019, they will cost about \$30 - \$40 each. A battery could cost up to \$50, the power requirements for the solenoids are not high but there 
+will be redundency for long wait times. 
 
 \subsection{Faculty Support}
   % Identify faculty that will be involved (or would need to be involved) to meet objectives.
   % Note that if a professor is the Principal Investigator (P.I.) for a project, there still needs to be a student as the SPEX Project Champion.
-Support from university faculty is almost always essential to a project's success.
-Faculty provide not only guidance and subject matter expertise, but may also connect a team with resources and networking opportunities.
-SPEX projects do not require faculty support, but it is highly recommended to identify professors with an interest or expertise in a project as early as possible.
+We will require faculty support for funding and recruiting. Dr. Barbosu will be able to help the IREC team reach out to funding organizations to raise money for the project. There should also be 
+opportunities for RIT funding or SEDS funding during the fall semester. 
+
+The mechanical engineering department for KGCOE (Kate Gleason College of Engineering) is willing to send out emails to the entire engineering student body for us (probably once a semester). They 
+do this to raise awareness of KGCOE projects that students can join. This will be done for the IREC group to recruit mechanical, electrical, and computer engineers. 
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
-As SPEX student members get more experience writing these papers, the group will build a library of meaningful work and be able to save it in an organized manner.
-Knowledge will be preserved and easily shared.
-Perhaps Project Design Document could eventually get published, in a journal or otherwise\ldots
+The long term vision of this project is to enable a CubeSat to carry this payload into space to complete the experiment. This project will prove the experiment can be done in flight conditions. 
+The payload will need to hold together and operate after intense launch vibrations and harsh ambient conditions. It is likely, based of preliminary talks with LI, that they will be launching this 
+payload to 30,000 feet. At this altitude air is sparse and pressure and temperature is low. Conducting the experiment in these conditions is a strong indication this is a feasible experiment. 
 
 \section*{Acknowledgements}
 The author would like to thank Dr.~Bill Destler and Rebecca Johnson for being exemplary humans, Anthony Hennig for founding RIT Space Exploration, and all the SPEX members that continue to invest their time and energy into the pursuit of space exploration.
