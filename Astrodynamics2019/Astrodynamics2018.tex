@@ -91,7 +91,7 @@
 \hyphenation{explor-ation}
 
 \begin{abstract}
-   The astrodynamics team of RIT Space Exploration (SPEX) has historically 
+   The astrodynamics team of RIT Space Exploration (SPEX) has historically worked on engineering based projects and will continue to do so, but now will expand its projects for students interested in physics and astronomy. There is also plethora of smaller projects that would greatly improve the ability of the observatory while providing engineering experience to students in the realm of control systems, opto-mechanics, and instruments. This would also allow students to become familiar with the various equipment the observatory has to offer. The biggest task is a continuation of last year's rolloff dome motor project, considered one of the main objectives of this semester. The other higher level objective is a new computer vision algorithm that allows for identification of star patterns for telescope calibration. A freshman project to repair last year's radio telescope project is also proposed.
    
    
   % The RIT observatory currently does its best to host numerous students with the limited faculty and resources they possess. There is a plethora of smaller projects that would greatly improve the ability of the observatory while providing engineering experience to students in the realm of control systems, opto-mechanics, and instruments. This would also allow students to become familiar with the various equipment the observatory has to offer. The over arching wish of the faculty at the observatory is to complete a fully automated dome control, so that remote observing would become feasible. This task has been started, but is still missing a robust feedback system, some mechanical interfaces, and software interfacing with the telescope protocols. Select projects have been proposed for completion in the 2018 fall semester.  
@@ -119,6 +119,7 @@
   }
 \nomenclature{RIT}{Rochester Institute of Technology}
 \nomenclature{SPEX}{RIT Space Exploration}
+\nomenclature{MDD}{Mini Definition Document}
 % Below are examples of using nomenclature for math symbols and constants or units
 \printnomenclature{}
 
@@ -131,11 +132,9 @@
   % The introduction is a place to give background and context before diving into the subject matter.
   % Establish context for the work you are about to propose and the main ideas of the proposition itself.
 
-\IEEEPARstart{R}{IT} 
+\IEEEPARstart{R}{IT} SPEX has direct ties to the RIT Observatory though one of the primary advisors and a mutual interest in astronomy.  The RIT SPEX astrodynamics team started a relationship last year through projects based at the facility. The team hopes to continue this relationship, and will be continuing the rolloff dome motor project from the previous year. A new computer vision project may yield results that would be beneficial for observations, but also to the RIT Observatory as well. Designated simpler projects for incoming students are a new concept that the team will explore this semester in an effort to upkeep knowledge transfer while getting smaller tasks completed.
 
-%SPEX has direct ties to the RIT Observatory though one of the primary advisors and a mutual interest in astronomy. Despite this, both groups have had little collaboration. The RIT SPEX Astrodynamics team has some equipment that is measurable to the equipment in the observatory, but has trouble with operation and lack of experience.The RIT Observatory has a need for students to work on engineering projects, which RIT SPEX Astrodynamics can provide. 
-
-%RIT SPEX has always had members interested in observing using various telescopes, but these members have little training. There have already been projects that gave the team insight into the equipment behind observing.  These include: building and modifying a rolling mount for its 12" Meade telescope, building mounts for an Orion sighting scope, building a barn door camera mount, and general maintenance on all telescopes. The team is looking for more projects similarly to expand their skill sets.
+RIT SPEX has always had members interested in observing using various telescopes, but these members have little training. There have already been projects that gave the team insight into the equipment behind observing.  These include: building and modifying a rolling mount for its 12" Meade telescope, building mounts for an Orion sighting scope, building a barn door camera mount, and general maintenance on all telescopes. The team is looking for more projects similarly to expand their skill sets.
 
 
 \section{Primary Objective}
@@ -154,22 +153,25 @@ The observatory has two domes, yet one is not very widely used because of the sy
 
 \subsection{Radio Telescope}
 \label{subsec:radio}
-  Radio astronomy is a common form of observation that many people may not know or consider. Observing the sky out of the optical range opens up another world of research. The team has suggested that an easier project for incoming students would be beneficial for member retention, and teach new members basic skills needed for the other projects. Last year for Imagine RIT, a simple radio telescope was constructed. Unfortunately, there is an unknown problem preventing the telescope from working properly. This project could teach basic optics understanding, data collection, and telescope use. It is also a great hands on demonstration for outreach. The first step of this project is to create a simple radio receiver which will read radio waves when pointed at the Sun and indicate it is receiving signal. The parts needed for this should be already acquired: low noise blockdown converter, structure, dish, satellite finder. It is a relatively low cost project, even if all new parts are needed. The team can decide to modify the structure that is already there, need be, and can continue the project once the first step is complete. Later stages would be implementing stepper motors into the structure, refining the signal measurements, and interpreting those measurements.
+  Radio astronomy is a common form of observation that many people may not know or consider. Observing the sky out of the optical range opens up another world of research. The team has suggested that an easier project for incoming students would be beneficial for member retention, and teach new members basic skills needed for the other projects. Last year for Imagine RIT, a simple radio telescope was constructed. Unfortunately, there is an unknown problem preventing the telescope from working properly. This project could teach basic astronomy understanding, data collection, and telescope use. It is also a great hands on demonstration for outreach. The first step of this project is to create a simple radio receiver which will read radio waves when pointed at the Sun and indicate it is receiving signal. The parts needed for this should be already acquired: low noise blockdown converter, structure, dish, satellite finder. It is a relatively low cost project, even if all new parts are needed. The team can decide to modify the structure that is already there, need be, and can continue the project once the first step is complete. Later stages would be implementing stepper motors into the structure, refining the signal measurements, and interpreting those measurements.
   
   \subsection{Star Computer Vision}
 \label{subsec:star}
- When running an automated observing facility the unique problem of calibration arises. As this is the ultimate goal for the RIT Observatory, a meaningful way of confirming position is desired. Each time that a new observation session starts the telescope needs to be re calibrated to determine where it is in the night sky. The scope will often direct the user to point to specific, or the brightest, stars that they can visibly see.  With that information it then uses system databases and GPS to determine where one is in relation to the night sky.  However, this process is tedious and it is difficult, sometimes even in a manual environment. Calibration can be done multiple times a night, if a system starts to drift from the original target as it moves through the night. The solution to this problem is to have some sort of system that knows directly about the night sky within the field of view of a spotting scope to then help direct the telescope to objects/stars of interest for calibration.  Using computer vision and a process called plate solving this becomes possible.
+ When running an automated observing facility the unique problem of calibration arises. As this is the ultimate goal for the RIT Observatory, a meaningful way of confirming position is desired. Each time that a new observation session starts the telescope needs to be re-calibrated to determine where it is in the night sky. The scope will often direct the user to point to specific, or the brightest, stars that they can visibly see.  With that information it then uses system databases and GPS to determine where one is in relation to the night sky.  However, this process is tedious and it is difficult, sometimes even in a manual environment. Calibration can be done multiple times a night, if a system starts to drift from the original target as it moves through the night. The solution to this problem is to have some sort of system that knows directly about the night sky within the field of view of a spotting scope to then help direct the telescope to objects/stars of interest for calibration.  Using computer vision and a process called plate solving this becomes possible.
 The premise of plate solving is that you get unique information about the stars in a field of view from some image, or video stream.  This data is often x/y coordinates, details about the field of view, as well as magnitude which can all be obtained by computer vision post-processing of an image.  Then those features are compared to others in an indexed dataset.  It realistically becomes a large computer science search problem as one is searching a larger database for where their feature points occur.
 In addition this is also helpful for future research if a student takes an image of the night sky and are unaware of what they photographed.  They can simply input the image into the software and it would be able to tell them the major stars and points of interest.
+
+  \subsection{Mini Research Projects}
+\label{subsec:mini}
+ Historically, the astrodynamics team has worked on more engineering based projects. There has been interest in more physics and math based learning projects for members to partake in. The "mini projects" are questions that have been previous worked on or suggested, but are worked on individually by members of the group on their own time. Each mini project starts with a mini definition document (MDD). This is a one page document which outlines the problem, gives a little background, and suggests resources to get started.  These do not have a time-line, but every week at the meeting time will be given for individuals to discuss their process with each other, and seek guidance from older members who have completed these questions before. Topics of these include: orbital trajectory simulations, astronomy coordinate system conversions, spherical geometry, etc.
 
 \subsection{Observatory Modifications}
 \label{subsec:obs}
 
+Along the same lines of the mini projects, these are smaller, simplified modifications desired by the RIT Observatory staff that do not warrant a full PDD or team. These tasks can be taken on by a member or two from the team and completed without a solid time-line. This gives students an opportunity to interface with the observatory more, and develop basic skills in the engineering realm with simple projects. Tasks include: desiging a safety for the CCD, mounting an LED light for images known as "flats", and updating the RIT Observatory website.
 
-  \subsection{Mini Research Projects}
-\label{subsec:radio}
   
-  Historically, the astrodynamics team 
+  
 
 \section{Benefit to SPEX}
 \label{sec:benefit}
@@ -196,7 +198,7 @@ SPEX is an organization for all students of all majors; students with an interes
 \subsection{Diversity of Learning}
 \label{subsec:diverse}
 
-The diverse projects touch on all different aspects of 
+The diverse projects touch on all different aspects of astrodynamics and touch on multiple disciplines. The rolloff motor deals with electrical systems and control systems of telescope facilities. Computer star vision pertains to computer science and data processing. The radio telescope touches on optics and astronomy basics. The various MDD's typically define physics and math based projects. Students have the opportunity to learn skills from various disciplines pertaining to the broad topic of astrodynamics. 
 
 
 \section{Implementation}
@@ -220,20 +222,22 @@ The final deliverable in the project is software running on a computer that hook
 The mini projects vary, but are physics and software based so they do not have a physical deliverable. The deliverable will usually be a program that calculates trajectories, orbits, or coordinates.
 
 
-
-
 \subsection{Milestones}
 \label{subsec:milestones}
   % Be as detailed as you can, but it's okay if there are unknowns.
   % At the very least, specify how many semester you expect the project to take until it reaches completion.
-  ************************************************************************
-The projects designated for this semester have been selected because it is expected that the tasks can be feasibly completed within one semester and without as much experience with the facility. Two potential time lines are outlined in Table - and Table -. The time lines depend on the number of people available to work on the projects.
 
-\begin{table}[hb!]
+There are no specific time-lines needed for any of the mini projects and observatory modifications, although they are not suspected to take an entire semester. Each week at the team meeting, 15 minutes will be given to check up on each individual student's progress. This period will allow the students to ask their questions, as well as allow the older students to give guidance. A small review will be held week 5 of their findings and progress.
+
+The radio telescope project geared towards freshman will also be set up similarly. Since troubleshooting the original problem is not expected to take more than 3 weeks, a schedule will be tailored once concrete new modifications are solidified. The team will get the rest of the meeting not used for the mini project check ins and general updates to work on this and seek guidance from older members. A review will be held week 5 of their findings and modifications.
+
+The other two main projects have time-lines outlined in Tables \ref{tab:computervis} and \ref{tab:rolloff}. The time-lines depend on the number of people available to work on the projects.
+
+\begin{table}[h!]
     % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
     % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
     % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
-    \caption{Notional Time Line of Project Milestones.}
+    \caption{Notional Time Line of Project Milestones - Star Computer Vision}
     \centering
     \begin{tabular}{@{}cll@{}}
     % the letters here ^^^^ designate the columns.
@@ -243,24 +247,48 @@ The projects designated for this semester have been selected because it is expec
     \toprule
     Phase & Task & Duration \\
     \midrule
-    0 & Gather documentation on all equipment & Summer\\ &  and preliminary work  \\
-    1 & Review existing designs and materials & 2 weeks or less \\ & for roll off motor, telescope modification,\\ & and latch arm \\
-    2 & Systems development & 5 weeks \\
-      & Repair existing roll off motor  \\
-      & Design Schematic to fix latch arm \\
-      & Design mounting for selected LED \\
-      & Determine placement of modifications\\
-      & Solder modifications to latch arm controls\\
-      & Design roll off warning systems \\
-      & Order parts for schematics \\
-    3 & Mount systems at observatory & 2 weeks  \\
-    4 & Systems testing & 1 weeks  \\
-    5 & Generate documentation and delivery to SPEX & 1 week  \\
+    1 & Research plate solver algorithms & 3-4 weeks\\
+    & and other solutions \\
+    2 & Writing of algorithm, handling & 5-6 weeks \\ 
+    & all math, and getting system \\
+    & working on a webcam \\
+    3 & Capturing a dataset of test images & 3 weeks \\
+    & and verifying the algorithm works\\
+    & as expected \\
+    4 & Generate documentation and delivery to SPEX & 1 week  \\
     \bottomrule
     \end{tabular}
-\label{tab:short-example}
+\label{tab:computervis}
 \end{table}
-*****************************************************************************
+
+\begin{table}[h!]
+    % the "h" in these brackets tells LaTeX to put the table Here. Try [t] for top and [b] for bottom,
+    % or [hbp] for "here, or if you can't do that put it at the bottom of the page, or if you can't do that put it on its own page.
+    % Here we've also used an "!" to yell at LaTeX to DO THIS OR ELSE!
+    \caption{Notional Time Line of Project Milestones - Rolloff Motor}
+    \centering
+    \begin{tabular}{@{}cll@{}}
+    % the letters here ^^^^ designate the columns.
+    % (l=left align, c=center, r=right align)
+    % the weird @{} thingies tell LaTeX to not have left-right padding between cells
+    % so cells butt up right against the edge
+    \toprule
+    Phase & Task & Duration \\
+    \midrule
+    1 & Testing, characterization  & 3 weeks\\
+    & of motor and document collection  \\
+    2 & Research of different methods & 3 weeks \\ 
+    & to modify the motor \\
+    3 & Design entire system and  & 3 weeks \\
+    & document\\
+    4 & Design review with applicable & 1 week  \\
+    & parties \\
+    5 & Redesign based on feedback & 3 weeks \\
+    6 & Generate documentation and delivery to SPEX & 1 week  \\
+    \bottomrule
+    \end{tabular}
+\label{tab:rolloff}
+\end{table}
 \section{Externalities}
   % Things not directly related to the work or outcomes, but related to the project as a whole.
 \subsection{Prerequisite Skills}
@@ -286,10 +314,10 @@ informed through the engineering process. They will be signing off on any implem
   
 \subsection{Funding Requirements}
   % Estimate costs that would be needed to meet objectives.
-  Primary funding for these projects is used for the rolloff motor, which will come from the Observatory itself. Extra funds have been requested from SG, due to their developed SG club status. Small amounts of funding may be requested through the SPEX budget as a last resort. Table 3 outlines the estimated costs of the projects. The costs have been overestimated for planning purposes.
-\begin{table}[hb!]
+  Primary funding for these projects is used for the rolloff motor, which will come from the Observatory itself. Extra funds have been requested from SG, due to their developed SG club status. Small amounts of funding may be requested through the SPEX budget as a last resort. Table \ref{tab:fund} outlines the estimated costs of the projects. The costs have been overestimated for planning purposes.
+\begin{table}[h!]
   
-    \caption{Notional Time Line of Project Milestones.}
+    \caption{Notional Cost of Projects}
     \centering
     \begin{tabular}{@{}cll@{}}
     % the letters here ^^^^ designate the columns.
@@ -308,10 +336,8 @@ informed through the engineering process. They will be signing off on any implem
     \IEEEauthorrefmark{1} The cost of the motor repair may be generously high because it \\ 
 greatly depends on the condition of the current motor
     \end{tabular}
-\label{tab:short-example}
+\label{tab:fund}
 \end{table}
-
-
 
 \subsection{Long-Term Vision}
 \label{sec:vision}
