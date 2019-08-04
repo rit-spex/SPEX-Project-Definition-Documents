@@ -188,3 +188,6 @@ TSWLatexianTemp*
 # VS Code
 **.workspace
 .vscode
+
+# MacOS
+**.DS_Store
