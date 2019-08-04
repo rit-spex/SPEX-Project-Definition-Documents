@@ -183,7 +183,8 @@ TSWLatexianTemp*
 
 
 # Intellij IDE
-**/.idea
+**.idea
 
 # VS Code
-**/.workspace
+**.workspace
+.vscode
