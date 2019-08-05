@@ -5,6 +5,9 @@ services: docker
 addons:
   artifacts: true
 
+before_install:
+  - chmod +x compile_with_tectonic.sh
+
 script:
   # Builds are available at https://travis-ci.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents
   - make all
