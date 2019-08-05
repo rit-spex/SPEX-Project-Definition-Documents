@@ -2,29 +2,53 @@ sudo: required
 language: generic
 services: docker
 
-before_install:
-  - chmod +x compile_with_tectonic.sh
-
-script:
-  # Builds are available at https://travis-ci.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents
-  - make all
-
-before_deploy:
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-
-deploy:
-  provider: releases
-  file:
-    - "**.pdf"
-  skip_cleanup: true
-  draft: true
-  on:
-    branch: 
-    - master
-    - travis-ci
-
 branches:
   only:
   - master
   - travis-ci
+
+stages:
+- before_compile
+- compile
+- before_deploy
+- deploy
+
+jobs:
+  include:
+    - stage: before_compile
+      script: chmod +x compile_with_tectonic.sh
+    - stage: compile
+      script: ./compile_with_tectonic.sh 
+      script: ./compile_with_tectonic.sh ./COPY_THIS SPEXpdd.tex
+      script: ./compile_with_tectonic.sh ./HELP HelpMe.tex
+      script: ./compile_with_tectonic.sh ./50SAT SPEX\$50SAT.tex
+      script: ./compile_with_tectonic.sh ./Aerospike_Nozzle SPEXpdd.tex
+      script: ./compile_with_tectonic.sh ./ASTRO ASTROpdd.tex
+      script: ./compile_with_tectonic.sh ./astrodynamics-fall-2018 astrodynamicsFall2018PDD.tex
+      script: ./compile_with_tectonic.sh ./Cold-Gas-Thruster Cold Gas Thruster PDD.tex
+      script: ./compile_with_tectonic.sh ./CSLI CSLI.tex
+      script: ./compile_with_tectonic.sh ./Environmental-Test-Chamber enviornmentalTestChamberPDD.tex
+      script: ./compile_with_tectonic.sh ./HAB-CV hab-cv.tex
+      script: ./compile_with_tectonic.sh ./HAB5 hab5.tex
+      script: ./compile_with_tectonic.sh ./Habian-Motion Habian_Motion.tex
+      script: ./compile_with_tectonic.sh ./IREC IREC_PDD.tex
+      script: ./compile_with_tectonic.sh ./microhab_2017 microhab2017.tex
+      script: ./compile_with_tectonic.sh ./Mission-Feasibility-Study SPEXMissionFeasibilityStudy.tex
+      script: ./compile_with_tectonic.sh ./Rocket-Nozzle-Design-and-Analysis Rocket_Nozzle_Design_and_Analysis.tex
+      script: ./compile_with_tectonic.sh ./Rovers Rovers.tex
+      script: ./compile_with_tectonic.sh ./SDL-IREC 2019 SPEXTRO SDL-IREC_SPEXTRO.tex
+    - stage: before_deploy
+      before_deploy:
+      - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+      - git tag $TRAVIS_TAG
+    - stage: deploy
+      deploy:
+        provider: releases
+        file:
+          - "**.pdf"
+        skip_cleanup: true
+        draft: true
+        on:
+          branch: 
+          - master
+          - travis-ci
