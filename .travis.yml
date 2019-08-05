@@ -2,9 +2,6 @@ sudo: required
 language: generic
 services: docker
 
-addons:
-  artifacts: true
-
 before_install:
   - chmod +x compile_with_tectonic.sh
 
@@ -22,6 +19,10 @@ deploy:
     - "**.pdf"
   skip_cleanup: true
   draft: true
+  on:
+    branch: 
+    - master
+    - travis-ci
 
 branches:
   only:
