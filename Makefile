@@ -1,5 +1,5 @@
 define compile
-	./compile_with_tectonic.sh $(realpath $1) $2
+	./compile_with_tectonic.sh $1 $2
 endef
 
 template:
