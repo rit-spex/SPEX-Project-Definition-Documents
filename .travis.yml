@@ -2,29 +2,28 @@ sudo: required
 language: generic
 services: docker
 
-before_install:
-  - chmod +x compile_with_tectonic.sh
-
-script:
-  # Builds are available at https://travis-ci.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents
-  - make all
-
-before_deploy:
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-
-deploy:
-  provider: releases
-  file:
-    - "**.pdf"
-  skip_cleanup: true
-  draft: true
-  on:
-    branch: 
+branches:
+  only:
     - master
     - travis-ci
 
-branches:
-  only:
-  - master
-  - travis-ci
+stages:
+  - compile
+  - deploy
+
+jobs:
+  include:
+    - stage: compile
+      script: 
+        - chmod +x compile_with_tectonic.sh
+        - make all
+    - stage: deploy
+      before_deploy:
+        - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+        - git tag $TRAVIS_TAG
+      deploy:
+        provider: releases
+        file:
+          - "**.pdf"
+        skip_cleanup: true
+        draft: true
