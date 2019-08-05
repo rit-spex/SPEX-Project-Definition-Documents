@@ -7,19 +7,36 @@ This repository includes [the IEEE Conference Proceedings LaTeX formatting templ
 This document is intended for a member of RIT Space Exploration to bring forward an idea for a project to be conducted under the RIT SPEX banner.
 
 ## How do I use this template?
-Replace the text in this document with your own information and generate a PDF document by using a LaTeX compiler. For a brief user's guide on using this template and setting up LaTeX on your computer, check [this repository's Wiki](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki).
-
-[Read this tutorial!](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/Creating-a-PDD-from-the-Template)
-Start a branch of this repository, then submit a pull request when you're ready for review. All this is in the tutorial.
-Don't forget to assign reviewers!
-
-## Why use LaTeX instead of a regular word processor?
-LaTeX is not a word processor. It allows you to write content without worrying about formatting or typesetting -- LaTeX handles all the organization, placement of text, spacing, headings, and so on. It is the de facto standard for technical and scientific documents, and it is beneficial for you to be at least somewhat familiar with using it, especially if you plan to do research in the future. For more about LaTeX, [visit their homepage](https://www.latex-project.org/about/).
+1. Read this Readme in its entirety.
+2. Read [the template PDD](COPY_THIS/SPEXpdd.pdf). This document is an example that also explains the intent behind writing a PDD.
+3. Create a branch from `master` to start working on your own document.
+```
+git branch -d my-new-pdd
+```
+4. Copy the `COPY_THIS` directory, then gut the `.tex` file and replace its contents with your own ideas!
+5. When you are ready to see your document as a PDF, compile the `.tex` file. You can do this by installing a LaTeX distribution on your machine or simply running the included script in your terminal.
+```
+./compile_with_tectonic.sh "./Your-PDD-Folder" "your-main-file.tex"
+```
+6. When you're ready to have your PDD archived in the `master` branch, [create a Pull Request](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/compare) and ask others to review your work!
 
 ## But I don't know how to write LaTeX code!
+Get the words out first! Use Google Docs, Notepad, Markdown, or pen and paper.
+After you have a good grip on what to say in order to communicate your ideas, it is
+important to present them clearly and concisely. That's where the PDD template comes in.
+
 Fear not, my apprentice. LaTeX can be tricky to work with, especially when starting out. Lucky for you there is a vibrant TeX community on [stack exchange](https://tex.stackexchange.com/) and across the web. I recommend new users to modify templates, ask lots of questions, and experiment.
 
 Answers to frequently asked questions are found at the [end of this Readme](#how-to-latex).
+
+To jumpstart your path to LaTeX mastery, consider installing [PanDoc](https://pandoc.org/index.html), a lightweight utility for converting text between formats.
+```
+pandoc my-first-pdd.md -o my-first-pdd.tex
+pandoc my-first-pdd.md --from=markdown --output=my-first-pdd.tex --to=latex
+```
+
+## Why use LaTeX instead of a regular word processor?
+LaTeX is not a word processor. It allows you to write content without worrying about formatting or typesetting -- LaTeX handles all the organization, placement of text, spacing, headings, and so on. It is the de facto standard for technical and scientific documents, and it is beneficial for you to be at least somewhat familiar with using it, especially if you plan to do research in the future. For more about LaTeX, [visit their homepage](https://www.latex-project.org/about/).
 
 ## The template is broken or missing something important!
 Let us know in the [Issue Tracker](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/issues) so we can fix it!
