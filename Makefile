@@ -9,7 +9,7 @@ template:
 all:
 	$(call compile, "./COPY_THIS", "SPEXpdd.tex")
 	$(call compile, "./HELP", "HelpMe.tex")
-	$(call compile, "./50SAT", "SPEX$50SAT.tex")
+	$(call compile, "./50SAT", "SPEX\$50SAT.tex")
 	$(call compile, "./Aerospike_Nozzle", "SPEXpdd.tex")
 	$(call compile, "./ASTRO", "ASTROpdd.tex")
 	$(call compile, "./astrodynamics-fall-2018", "astrodynamicsFall2018PDD.tex")
