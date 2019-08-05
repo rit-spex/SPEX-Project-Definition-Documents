@@ -7,7 +7,7 @@ addons:
 
 script:
   # Builds are available at https://travis-ci.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents
-  - make all BUILD_DIR=$(TRAVIS_BUILD_DIR)
+  - make all
 
 branches:
   only:
