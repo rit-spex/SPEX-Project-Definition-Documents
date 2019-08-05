@@ -2,6 +2,14 @@ sudo: required
 language: generic
 services: docker
 
+addons:
+  artifacts: true
+
 script:
   # Builds are available at https://travis-ci.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents
-  - compile_with_tectonic "COPY_THIS" "SPEXpdd"
+  - make all BUILD_DIR=$(TRAVIS_BUILD_DIR)
+
+branches:
+  only:
+  - master
+  - travis-ci
