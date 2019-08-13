@@ -7,4 +7,3 @@
 # USAGE
 # ./compile_with_tectonic.sh /path/to/document/directory main.tex
 docker run --mount src="$(readlink -f $1)",target="/usr/src/tex",type=bind dxjoke/tectonic-docker tectonic $2
-rm -f $1/*.aux $1/*.bbl $1/*.out
