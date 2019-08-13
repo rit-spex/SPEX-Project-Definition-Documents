@@ -19,6 +19,7 @@ of a project.
 This document is intended for a member of RIT Space Exploration to bring
 forward an idea for a project to be conducted under the RIT SPEX banner.
 
+## Write
 1. Read this Readme in its entirety.
 2. Read [the template PDD](COPY_THIS/SPEXpdd.pdf). This document is an example
    that also explains the intent behind writing a PDD.
@@ -35,6 +36,24 @@ git branch -d my-new-pdd
    a Pull
    Request](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/compare)
    and ask others to review your work!
+
+## Review
+A PDD is reviewed by a panel of peers (any current or alumni member of SPEX) in
+order to refine the document into the best that it can be. This usually
+includes feedback regarding grammar, wording, or areas where the wording is
+confusing. Reviewers may also request additional detail is needed to fully
+explain the project idea or justifications for certain assumptions and
+estimates made in the PDD. However, this peer review feedback loops should
+_not_ be a review of the concept itself.
+
+A [pull
+request](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/compare)
+is created for the new PDD to bring in the `.tex`, PDF and other supporting
+files into the repository. GitHub’s pull request review interface allows
+reviewers to make line-by-line comments on the document source file, and tracks
+changes as the author addresses those comments. Once reviewers have "approved"
+the pull request, the document is archived in the master branch of the
+repository.
 
 # FAQ
 ## Are all the sections in the template required?
