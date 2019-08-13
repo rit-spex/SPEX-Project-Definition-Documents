@@ -111,6 +111,47 @@ Let us know in the [Issue
 Tracker](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/issues)
 so we can fix it!
 
+# Writing tips
+This advice goes for PDDs, Readmes, Wiki pages, conference papers, or even
+theses.
+
+1. **READ.** Read a lot of technical writing, good AND bad. This will help you
+   refine your skill while giving you goal posts to shoot for and pitfalls to
+   avoid.
+
+2. **WRITE.** You don't get better without practice. Personal projects are a
+   good safe place to do this because nobody sees the writing unless you share
+   it. If you think it's good, its an amazing feeling to share a well
+   documented project--it makes the project itself look that much better.
+
+3. **DON'T OVERTHINK IT.** With technical writing, the goal is to convey your
+   ideas as completely yet as concisely as possible. Sometimes sharing too much
+   detail can obstruct the main idea you're trying to convey. Likewise, not
+   enough detail and the main idea gets lost or misunderstood. It's a balance
+   that you'll discover with tips 1 and 2.
+
+4. **DON'T TAKE IT PERSONALLY.** Even if your words are written well, they can
+   still be confusing. If someone reads your words and is confused, there is
+   probably a good reason for that. Take mental notes of the way you explain it
+   to them verbally and see if you can work that in to the original confusing
+   bit. Every time you explain what you meant to say, that means there is an
+   opportunity to improve what you wrote. Iteration is necessary 99.9% of the
+   time. Don't let it get to you and keep writing. But don't let it get to your
+   head--you can _always_ write something better.
+
+5. **FORMATTING COMES FIRST AND LAST.** This one is tricky. What I mean is that
+   when you block out your ideas just starting out a piece of writing, organize
+   it in a way that makes the most sense for your mental model of what you
+   intend to write. Build the scaffolding. For me, this includes lots of
+   subheadings or bulleted lists. The framework usually lingers as comments.
+   When writing the meat of it, don't get hung up on formatting. At that point
+   your goal is to get the words out and into your scaffold. Finally, take some
+   time to format things well. How words are arranged can have a significant
+   impact on how they are received or understood. In short: Put up the frame,
+   lay the pipes, electrical, and lights. Then put up the drywall and buy your
+   furniture. Then paint the walls and rearrange the furniture. Then keep
+   repainting and rearranging for the next 20 years.
+
 # LaTeX tips
 [LaTeX Quickstart
 Tutorial](https://github.com/RIT-Space-Exploration/SPEX-Standard-Proposal/wiki/LaTeX-Quickstart-Tutorial)
