@@ -187,3 +187,10 @@ TSWLatexianTemp*
 
 # VS Code
 **/.workspace
+.vscode
+
+# PyCharm
+.idea
+
+# MacOS
+.DS_Store
