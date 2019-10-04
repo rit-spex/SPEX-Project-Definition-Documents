@@ -5,10 +5,10 @@
 
 ## Pull Request Checklist
 - [ ] I have read [this repository's README](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/blob/master/README.md).
-- I understand that this document will be reviewed for:
-    - [ ] Grammar and spelling
-    - [ ] Format and clarity
-    - [ ] Fulfilling the [spirit of a Project Definition Document](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/blob/master/COPY_THIS/SPEXpdd.pdf)
+- [ ] I understand that this document will be reviewed for:
+    - Grammar and spelling
+    - Format and clarity
+    - Fulfilling the [spirit of a Project Definition Document](https://github.com/RIT-Space-Exploration/SPEX-Project-Definition-Documents/blob/master/COPY_THIS/SPEXpdd.pdf)
 - [ ] My Project Definition Document contains an abstract.
 - [ ] Only relevent files are included in this Pull Request, including...
     - [ ] the PDD as a `.tex` file that...
